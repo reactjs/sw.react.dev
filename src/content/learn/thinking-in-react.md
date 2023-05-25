@@ -1,18 +1,18 @@
 ---
-title: Thinking in React
+title: Kuwaza katika React
 ---
 
 <Intro>
 
-React can change how you think about the designs you look at and the apps you build. When you build a user interface with React, you will first break it apart into pieces called *components*. Then, you will describe the different visual states for each of your components. Finally, you will connect your components together so that the data flows through them. In this tutorial, we’ll guide you through the thought process of building a searchable product data table with React.
+React inaweza kubadilisha jinsi unavyowazia kuhusu miundo unayotazama na programu unazounda. Unapounda kiolesura cha mtumiaji na React, kwanza utakigawanya kiwe vipande vipande vinavyoitwa *vijenzi (components)*. Kisha, utaelezea hali tofauti za kuona kwa kila kijenzi chako. Hatimaye, utaunganisha vijenzi vyako pamoja ili data ipite kupitia kwao. Katika funzo hili, tutakuongoza kupitia mchakato wa mawazo wa kuunda jedwali la data ya bidhaa inayoweza kutafutwa kwa kutumia React.
 
 </Intro>
 
-## Start with the mockup {/*start-with-the-mockup*/}
+## Anza na kiigizo {/*start-with-the-mockup*/}
 
-Imagine that you already have a JSON API and a mockup from a designer.
+Wazia kuwa tayari unayo API ya JSON na picha kutoka kwa mbuni.
 
-The JSON API returns some data that looks like this:
+JSON API inarejesha data fulani ambayo inaonekana kama hii:
 
 ```json
 [
@@ -25,45 +25,44 @@ The JSON API returns some data that looks like this:
 ]
 ```
 
-The mockup looks like this:
+Kiigizo (Mockup) kinaonekana hivii:
 
 <img src="/images/docs/s_thinking-in-react_ui.png" width="300" style={{margin: '0 auto'}} />
 
-To implement a UI in React, you will usually follow the same five steps.
+Ili kutekeleza UI katika React, kwa kawaida utafuata hatua tano sawa.
 
-## Step 1: Break the UI into a component hierarchy {/*step-1-break-the-ui-into-a-component-hierarchy*/}
+## Hatua ya 1: Vunja UI kuwa daraja la vijenzi {/*step-1-break-the-ui-into-a-component-hierarchy*/}
 
-Start by drawing boxes around every component and subcomponent in the mockup and naming them. If you work with a designer, they may have already named these components in their design tool. Ask them!
+Anza kwa kuchora visanduku kuzunguka kila kijenzi na kijenzi kidogo kwenye kiigizo na uvipe majina. Ikiwa unafanya kazi na mbuni, wanaweza kuwa tayari wamevipa majina vijenzi hivi kwenye zana yao ya kubuni. Waulize!
 
-Depending on your background, you can think about splitting up a design into components in different ways:
+Kulingana na msingi wako, unaweza kufikiria kugawanya muundo katika vijenzi kwa njia tofauti:
 
-* **Programming**--use the same techniques for deciding if you should create a new function or object. One such technique is the [single responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle), that is, a component should ideally only do one thing. If it ends up growing, it should be decomposed into smaller subcomponents. 
-* **CSS**--consider what you would make class selectors for. (However, components are a bit less granular.)
-* **Design**--consider how you would organize the design's layers.
+* **Programming**--tumia mbinu zile zile za kuamua ikiwa unapaswa kuunda kitendaji kipya au object. Mbinu moja kama hiyo ni [kanuni ya uwajibikaji mmoja (single responsibility principle)](https://en.wikipedia.org/wiki/Single_responsibility_principle), yaani, kijenzi kinapaswa kufanya jambo moja tu. Ikiwa kitaishia kukua, inapaswa kigawanywe kiwe vijenzi vidogo.
+* **CSS**--fikiria ni nini ungetengeneza viteule vya darasa. (Hatahivyo, vijenzi ni vidogo kwa kiasi fulani.)
+* **Design**--fikiria jinsi unavyoweza kupanga safu za muundo.
 
-If your JSON is well-structured, you'll often find that it naturally maps to the component structure of your UI. That's because UI and data models often have the same information architecture--that is, the same shape. Separate your UI into components, where each component matches one piece of your data model.
+Ikiwa JSON yako imeundwa vizuri, mara nyingi utapata kwamba inaelekeza kwa muundo wa vijenzi vya UI yako. Hiyo ni kwa sababu UI na miundo ya data mara nyingi huwa na usanifu sawa wa habari--yaani, umbo sawa. Tenganisha UI yako katika vijenzi, ambapo kila kijenzi kinalingana na kipande kimoja cha muundo yako wa data.
 
-There are five components on this screen:
+Kuna vijenzi vitano kwenye skrini hii:
 
 <FullWidth>
 
 <CodeDiagram flip>
 
 <img src="/images/docs/s_thinking-in-react_ui_outline.png" width="500" style={{margin: '0 auto'}} />
-
-1. `FilterableProductTable` (grey) contains the entire app.
-2. `SearchBar` (blue) receives the user input.
-3. `ProductTable` (lavender) displays and filters the list according to the user input.
-4. `ProductCategoryRow` (green) displays a heading for each category.
-5. `ProductRow`	(yellow) displays a row for each product.
+1. `FilterableProductTable` (kijivu) ina programu nzima.
+2. `SearchBar` (bluu) inapokea ingizo la mtumiaji.
+3. `ProductTable` (lavender) huonyesha na kuchuja orodha kulingana na ingizo la mtumiaji.
+4. `ProductCategoryRow` (kijani) huonyesha kichwa kwa kila aina.
+5. `ProductRow` (manjano) huonyesha safu mlalo kwa kila bidhaa.
 
 </CodeDiagram>
 
 </FullWidth>
 
-If you look at `ProductTable` (lavender), you'll see that the table header (containing the "Name" and "Price" labels) isn't its own component. This is a matter of preference, and you could go either way. For this example, it is a part of `ProductTable` because it appears inside the `ProductTable`'s list. However, if this header grows to be complex (e.g., if you add sorting), you can move it into its own `ProductTableHeader` component.
+Ukiangalia `ProductTable` (lavenda), utaona kwamba kichwa cha jedwali (kilicho na lebo za "Name" na "Price") si kijenzi chake chenyewe. Hili ni suala la upendeleo, na unaweza kwenda kwa njia yoyote. Kwa mfano huu, ni sehemu ya `ProductTable` kwa sababu inaonekana ndani ya orodha ya `ProductTable`. Hatahivyo, ikiwa kichwa hiki kitakua kikubwa (k.m., ukiongeza kupanga), unaweza kukisogeza hadi kijenzi chake cha `ProductTableHeader`.
 
-Now that you've identified the components in the mockup, arrange them into a hierarchy. Components that appear within another component in the mockup should appear as a child in the hierarchy:
+Sasa kwa kuwa umetambua vijenzi kwenye kiigizo, vipange katika daraja (hierachy). Vijenzi vinavyoonekana ndani ya kijenzi kingine katika kiigizo vinapaswa kuonekana kama mtoto katika daraja:
 
 * `FilterableProductTable`
     * `SearchBar`
@@ -71,13 +70,13 @@ Now that you've identified the components in the mockup, arrange them into a hie
         * `ProductCategoryRow`
         * `ProductRow`
 
-## Step 2: Build a static version in React {/*step-2-build-a-static-version-in-react*/}
+## Hatua ya 2: Unda toleo tuli katika React {/*step-2-build-a-static-version-in-react*/}
 
-Now that you have your component hierarchy, it's time to implement your app. The most straightforward approach is to build a version that renders the UI from your data model without adding any interactivity... yet! It's often easier to build the static version first and add interactivity later. Building a static version requires a lot of typing and no thinking, but adding interactivity requires a lot of thinking and not a lot of typing.
+Kwa kuwa sasa unalo daraja lako la vijenzi, ni wakati wa kutekeleza programu yako. Mbinu iliyonyooka zaidi ni kuunda toleo ambalo linatoa UI kutoka kwa muundo wako wa data bila kuongeza mwingiliano wowote... bado! Mara nyingi ni rahisi kuunda toleo tuli kwanza na kuongeza mwingiliano baadaye. Kuunda toleo tuli (static version) kunahitaji kuandika sana bila kufikiria, lakini kuongeza mwingiliano kunahitaji kufikiria sana na sio kuandika sana.
 
-To build a static version of your app that renders your data model, you'll want to build [components](/learn/your-first-component) that reuse other components and pass data using [props.](/learn/passing-props-to-a-component) Props are a way of passing data from parent to child. (If you're familiar with the concept of [state](/learn/state-a-components-memory), don't use state at all to build this static version. State is reserved only for interactivity, that is, data that changes over time. Since this is a static version of the app, you don't need it.)
+Ili kuunda toleo tuli la programu yako linalotoa muundo wa data yako, utataka kuunda [vijenzi](/learn/your-first-component) ambavyo vinatumia tena vipengele vingine na kupitisha data kwa kutumia [viunga (props).](/learn/passing-props-to-a-component) Viunga ni njia ya kupitisha data kutoka kwa mzazi hadi kwa mtoto. (Ikiwa unafahamu dhana ya [hali (state)](/learn/state-a-components-memory), usitumie hali hata kidogo kuunda toleo hili tuli. Hali imetengwa kwa ajili ya mwingiliano pekee, yaani, data ambayo hubadilika baada ya muda. Kwa kuwa hili ni toleo tuli la programu, huhihitaji.)
 
-You can either build "top down" by starting with building the components higher up in the hierarchy (like `FilterableProductTable`) or "bottom up" by working from components lower down (like `ProductRow`). In simpler examples, it’s usually easier to go top-down, and on larger projects, it’s easier to go bottom-up.
+Unaweza kujenga "juu chini" kwa kuanza na kujenga vijenzi juu zaidi katika daraja (kama `FilterableProductTable`) au "chini juu" kwa kufanya kazi kutoka kwa vijenzi chini chini (kama `ProductRow`). Katika mifano rahisi, kwa kawaida ni rahisi kwenda juu-chini, na kwenye miradi mikubwa, ni rahisi kwenda chini-juu.
 
 <Sandpack>
 
@@ -195,85 +194,84 @@ td {
 
 </Sandpack>
 
-(If this code looks intimidating, go through the [Quick Start](/learn/) first!)
+(Ikiwa code hii inaonekana ya kuudhi, pitia [Anza Haraka](/learn/) kwanza!)
 
-After building your components, you'll have a library of reusable components that render your data model. Because this is a static app, the components will only return JSX. The component at the top of the hierarchy (`FilterableProductTable`) will take your data model as a prop. This is called _one-way data flow_ because the data flows down from the top-level component to the ones at the bottom of the tree.
+Baada ya kuunda vijenzi vyako, utakuwa na maktaba ya vijenzi vinavyoweza kutumika tena vinavyotoa kielelezo chako cha data. Kwa sababu hii ni programu tuli, vijenzi vitarejesha JSX pekee. Kijenzi kilicho juu ya daraja (`FilterableProductTable`) kitachukua kielelezo chako wa data kama mhimili. Hii inaitwa _one-way data flow_ kwa sababu data hutiririka kutoka kijenzi cha kiwango cha juu hadi kile kilicho chini ya mti.
 
 <Pitfall>
-
-At this point, you should not be using any state values. That’s for the next step!
-
+Kufikia hapa, haupaswi kuwa unatumia thamani za hali zozote. Hiyo ni kwa hatua inayofuata!
 </Pitfall>
 
-## Step 3: Find the minimal but complete representation of UI state {/*step-3-find-the-minimal-but-complete-representation-of-ui-state*/}
+## Hatua ya 3: Pata uwakilishi mdogo lakini kamili wa hali ya UI {/*step-3-find-the-minimal-but-complete-representation-of-ui-state*/}
 
-To make the UI interactive, you need to let users change your underlying data model. You will use *state* for this.
+Ili kufanya UI iwe na mwingiliano, unahitaji kuwaruhusu watumiaji kubadilisha kielelezo chako cha msingi wa data. Utatumia *hali (state)* kwa ajili ya hili.
 
-Think of state as the minimal set of changing data that your app needs to remember. The most important principle for structuring state is to keep it [DRY (Don't Repeat Yourself).](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) Figure out the absolute minimal representation of the state your application needs and compute everything else on-demand. For example, if you're building a shopping list, you can store the items as an array in state. If you want to also display the number of items in the list, don't store the number of items as another state value--instead, read the length of your array.
+Wazia hali kama seti ndogo ya kubadilisha data ambayo programu yako inahitaji kukumbuka. Kanuni muhimu zaidi ya uundaji wa hali ni kuitunza [KAUSHA (Usijirudie).](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) Tambua uwakilishi mdogo kabisa wa hali ambayo programu yako inahitaji na uhesabu kila kitu kingine unapohitaji. Kwa mfano, ikiwa unaunda orodha ya ununuzi, unaweza kuhifadhi bidhaa kama array katika hali. Ikiwa unataka pia kuonyesha idadi ya bidhaa kwenye orodha, usihifadhi idadi ya bidhaa kama thamani nyingine ya hali--badala yake, soma urefu wa array yako.
 
-Now think of all of the pieces of data in this example application:
+Sasa fikiria vipande vyote vya data katika programu hii ya mfano:
 
-1. The original list of products
-2. The search text the user has entered
-3. The value of the checkbox
-4. The filtered list of products
+1. Orodha ya asili ya bidhaa
+2. Maandishi ya utafutaji ambayo mtumiaji ameingiza
+3. Value ya kisanduku cha kuteua
+4. Orodha iliyochujwa ya bidhaa
 
-Which of these are state? Identify the ones that are not:
+Hali zipi kati ya hizi? Tambua zile ambazo sio:
 
-* Does it **remain unchanged** over time? If so, it isn't state.
-* Is it **passed in from a parent** via props? If so, it isn't state.
-* **Can you compute it** based on existing state or props in your component? If so, it *definitely* isn't state!
+* Je, **inabaki ilivyo bila kubadilika** baada ya muda? Ikiwa ni hivyo, hio sio hali.
+* Je, **imepitishwa kutoka kwa mzazi** kupitia prop? Ikiwa ni hivyo, hio sio hali.
+* **Je, unaweza kuihesabu** kulingana na hali iliyopo au vifaa katika kijenzi chako? Ikiwa ndivyo, *bila shaka* hio nayo sio hali!
 
-What's left is probably state.
+Kilichobaki labda ni hali.
 
-Let's go through them one by one again:
+Wacha tupitie moja baada ya nyingine tena:
 
-1. The original list of products is **passed in as props, so it's not state.** 
-2. The search text seems to be state since it changes over time and can't be computed from anything.
-3. The value of the checkbox seems to be state since it changes over time and can't be computed from anything.
-4. The filtered list of products **isn't state because it can be computed** by taking the original list of products and filtering it according to the search text and value of the checkbox.
+1. Orodha asili ya bidhaa **imepitishwa kama vifaa, kwa hivyo haijabainishwa.**
+2. Maandishi ya utafutaji yanaonekana kuwa ya hali kwani yanabadilika kwa wakati na hayawezi kukokotwa kutoka kwa chochote.
+3. Thamani ya kisanduku cha kuteua inaonekana kuwa hali kwani inabadilika kwa wakati na haiwezi kukokotwa kutoka kwa chochote.
+4. Orodha iliyochujwa ya bidhaa **haijabainishwa kwa sababu inaweza kukokotwa** kwa kuchukua orodha asili ya bidhaa na kuichuja kulingana na maandishi ya utafutaji na thamani ya kisanduku cha kuteua.
 
-This means only the search text and the value of the checkbox are state! Nicely done!
-
+Hii ina maana kwamba ni maandishi ya utafutaji pekee na thamani ya kisanduku cha kuteua ndizo zilizotajwa! Imefanywa vizuri!
 <DeepDive>
 
-#### Props vs State {/*props-vs-state*/}
+#### Viunga dhidi ya Hali {/*props-vs-state*/}
 
-There are two types of "model" data in React: props and state. The two are very different:
+Kuna aina mbili za data ya "kielelezo" katika React: viunga na hali. Hizi mbili ni tofauti sana:
 
-* [**Props** are like arguments you pass](/learn/passing-props-to-a-component) to a function. They let a parent component pass data to a child component and customize its appearance. For example, a `Form` can pass a `color` prop to a `Button`.
-* [**State** is like a component’s memory.](/learn/state-a-components-memory) It lets a component keep track of some information and change it in response to interactions. For example, a `Button` might keep track of `isHovered` state.
+* [**Viunga** ni kama hoja unazopitisha](/learn/passing-props-to-a-component) kwa kitendaji. Huruhusu kijenzi mzazi kupitisha data kwa kijenzi mtoto na kubinafsisha mwonekano wake. Kwa mfano, `Fomu` inaweza kupitisha kiunga cha `color` kwa `Button`.
+* [**Hali** ni kama kumbukumbu ya kijenzi.](/learn/state-a-components-memory) Huruhusu kijenzi kufuatilia baadhi ya taarifa na kuibadilisha kulingana na mwingiliano. Kwa mfano, `Button` kinaweza kufuatilia hali ya `isHovered`.
 
-Props and state are different, but they work together. A parent component will often keep some information in state (so that it can change it), and *pass it down* to child components as their props. It's okay if the difference still feels fuzzy on the first read. It takes a bit of practice for it to really stick!
+Viunga na hali ni tofauti, lakini vinafanya kazi pamoja. Kijenzi mzazi mara nyingi kitaweka baadhi ya taarifa katika hali (ili kiweze kukibadilisha), na *kuipitisha* kwa vijenzi watoto kama viunga vyake. Ni sawa ikiwa tofauti bado inahisi kuwa ngumu katika usomaji wa kwanza. Inachukua mazoezi kidogo ili iweze kushikamana kabisa!
 
 </DeepDive>
 
-## Step 4: Identify where your state should live {/*step-4-identify-where-your-state-should-live*/}
+## Hatua ya 4: Tambua pale hali yako itadumu {/*step-4-identify-where-your-state-should-live*/}
 
-After identifying your app’s minimal state data, you need to identify which component is responsible for changing this state, or *owns* the state. Remember: React uses one-way data flow, passing data down the component hierarchy from parent to child component. It may not be immediately clear which component should own what state. This can be challenging if you’re new to this concept, but you can figure it out by following these steps!
+Baada ya kutambua data ya hali ya chini zaidi ya programu yako, unahitaji kutambua ni kijenzi kipi kinawajibika kubadilisha hali hii, au *kinamiliki* hali. Kumbuka: React hutumia mtiririko wa data wa njia moja, kupitisha data chini ya daraja ya vijenzi kutoka kijenzi mzazi hadi cha mtoto. Huenda isieleweke mara moja ni kijenzi gani kinapaswa kumiliki hali gani. Hili linaweza kuwa gumu ikiwa wewe ni mgeni kwa dhana hii, lakini unaweza kuibaini kwa kufuata hatua hizi!
 
-For each piece of state in your application:
+Kwa kila sehemu ya hali katika programu yako:
 
-1. Identify *every* component that renders something based on that state.
-2. Find their closest common parent component--a component above them all in the hierarchy.
-3. Decide where the state should live:
-    1. Often, you can put the state directly into their common parent.
-    2. You can also put the state into some component above their common parent.
-    3. If you can't find a component where it makes sense to own the state, create a new component solely for holding the state and add it somewhere in the hierarchy above the common parent component.
+1. Tambua *kila* kijenzi kinachofanya kitu kulingana na hali hiyo.
+2. Tafuta kijenzi chao cha karibu zaidi cha mzazi--kijenzi kilicho juu yao yote katika daraja.
+3. Amua mahali ambapo hali inapaswa kudumu:
+     1. Mara nyingi, unaweza kuweka hali moja kwa moja kwenye mzazi wao wa kawaida.
+     2. Unaweza pia kuweka hali katika kijenzi fulani juu ya mzazi wao wa kawaida.
+     3. Iwapo huwezi kupata kipengele ambapo inaeleweka kumiliki jimbo, unda kijenzi kipya kwa ajili ya kushikilia hali pekee na uiongeze mahali fulani katika daraja juu ya kijenzi mzazi cha kawaida.
 
-In the previous step, you found two pieces of state in this application: the search input text, and the value of the checkbox. In this example, they always appear together, so it makes sense to put them into the same place.
+In the previous step, you found two pieces of state in this application: the search input text, and the thamani of the checkbox. In this example, they always appear together, so it makes sense to put them into the same place.
 
-Now let's run through our strategy for them:
+Katika hatua ya awali, ulipata vipande viwili vya hali katika programu hii: maandishi ya ingizo ya utafutaji, na thamani ya kisanduku cha kuteua. Katika mfano huu, daima huonekana pamoja, kwa hiyo ni mantiki kuviweka katika sehemu moja.
 
-1. **Identify components that use state:**
-    * `ProductTable` needs to filter the product list based on that state (search text and checkbox value). 
-    * `SearchBar` needs to display that state (search text and checkbox value).
-1. **Find their common parent:** The first parent component both components share is `FilterableProductTable`.
-2. **Decide where the state lives**: We'll keep the filter text and checked state values in `FilterableProductTable`.
+Sasa wacha tupitie mkakati wetu kwao:
 
-So the state values will live in `FilterableProductTable`. 
+1. **Tambua vijenzi vinavyotumia hali:**
+     * `ProductTable` inahitaji kuchuja orodha ya bidhaa kulingana na hali hiyo (maandishi ya utafutaji na thamani ya kisanduku cha kuteua).
+     * `SearchBar` inahitaji kuonyesha hali hiyo (maandishi ya utafutaji na thamani ya kisanduku cha kuteua).
+1. **Tafuta mzazi wao wa kawaida:** Kijenzi mzazi cha kwanza ambacho vijenzi vyote viwili hushiriki ni `FilterableProductTable`.
+2. **Amua mahali pa kuishi**: Tutaweka maandishi ya kichujio na thamani za hali zilizochaguliwa katika `FilterableProductTable`.
 
-Add state to the component with the [`useState()` Hook.](/reference/react/useState) Hooks are special functions that let you "hook into" React. Add two state variables at the top of `FilterableProductTable` and specify their initial state:
+Kwa hivyo state thamani zitaishi katika `FilterableProductTable`.
+
+Ongeza hali kwa kijenzi chenye [Kiunganishi (Hook) cha `useState()`.](/reference/react/useState) Hooks ni vitendaji maalum ambavyo hukuruhusu "kuunganisha" React. Ongeza vigezo viwili vya hali juu ya `FilterableProductTable` na ubainishe hali yao ya awali:
 
 ```js
 function FilterableProductTable({ products }) {
@@ -281,8 +279,7 @@ function FilterableProductTable({ products }) {
   const [inStockOnly, setInStockOnly] = useState(false);  
 ```
 
-Then, pass `filterText` and `inStockOnly` to `ProductTable` and `SearchBar` as props:
-
+Kisha, pitisha `filterText` na `inStockOnly` kwa `ProductTable` na `SearchBar` kama kiunga:
 ```js
 <div>
   <SearchBar 
@@ -295,8 +292,7 @@ Then, pass `filterText` and `inStockOnly` to `ProductTable` and `SearchBar` as p
 </div>
 ```
 
-You can start seeing how your application will behave. Edit the `filterText` initial value from `useState('')` to `useState('fruit')` in the sandbox code below. You'll see both the search input text and the table update:
-
+Unaweza kuanza kuona jinsi programu yako itakavyofanya kazi. Hariri vakue ya awali ya `filterText` kutoka `useState('')` hadi `useState('fruit')` katika msimbo wa kisanduku hapa chini. Utaona maandishi ya utafutaji na sasisho la jedwali:
 <Sandpack>
 
 ```jsx App.js
@@ -391,7 +387,7 @@ function SearchBar({ filterText, inStockOnly }) {
     <form>
       <input 
         type="text" 
-        value={filterText} 
+        thamani={filterText} 
         placeholder="Search..."/>
       <label>
         <input 
@@ -437,15 +433,15 @@ td {
 
 </Sandpack>
 
-Notice that editing the form doesn't work yet. There is a console error in the sandbox above explaining why:
+Kumbuka kwamba kuhariri fomu bado haifanyi kazi. Kuna hitilafu ya kiweko kwenye sanduku la mchanga hapo juu kuelezea kwa nini:
 
 <ConsoleBlock level="error">
 
-You provided a \`value\` prop to a form field without an \`onChange\` handler. This will render a read-only field.
+Umepeana kiunga cha \`thamani\` cha uga wa fomu bila kidhibiti cha \`onChange\`. Hii itatoa uga wa kusoma pekee.
 
 </ConsoleBlock>
 
-In the sandbox above, `ProductTable` and `SearchBar` read the `filterText` and `inStockOnly` props to render the table, the input, and the checkbox. For example, here is how `SearchBar` populates the input value:
+Katika kisanduku cha mchanga hapo juu, viunga `ProductTable` na `SearchBar` soma `filterText` na `inStockOnly` ili kutoa jedwali, ingizo, na kisanduku cha kuteua. Kwa mfano, hivi ndivyo `SearchBar` inavyojaza thamani ya ingizo:
 
 ```js {1,6}
 function SearchBar({ filterText, inStockOnly }) {
@@ -453,20 +449,21 @@ function SearchBar({ filterText, inStockOnly }) {
     <form>
       <input 
         type="text" 
-        value={filterText} 
+        thamani={filterText} 
         placeholder="Search..."/>
 ```
 
-However, you haven't added any code to respond to the user actions like typing yet. This will be your final step.
+Hata hivyo, bado hujaongeza msimbo wowote ili kujibu vitendo vya mtumiaji kama vile kuandika. Hii itakuwa hatua yako ya mwisho.
 
-
-## Step 5: Add inverse data flow {/*step-5-add-inverse-data-flow*/}
-
-Currently your app renders correctly with props and state flowing down the hierarchy. But to change the state according to user input, you will need to support data flowing the other way: the form components deep in the hierarchy need to update the state in `FilterableProductTable`. 
-
-React makes this data flow explicit, but it requires a little more typing than two-way data binding. If you try to type or check the box in the example above, you'll see that React ignores your input. This is intentional. By writing `<input value={filterText} />`, you've set the `value` prop of the `input` to always be equal to the `filterText` state passed in from `FilterableProductTable`. Since `filterText` state is never set, the input never changes.
+## Hatua ya 5: Ongeza mtiririko wa data kinyume {/*step-5-add-inverse-data-flow*/}
 
 You want to make it so whenever the user changes the form inputs, the state updates to reflect those changes. The state is owned by `FilterableProductTable`, so only it can call `setFilterText` and `setInStockOnly`. To let `SearchBar` update the `FilterableProductTable`'s state, you need to pass these functions down to `SearchBar`:
+
+Kwa sasa programu yako inatekelezwa kwa njia ipasavyo ikiwa na viunga na hali inayotiririka chini ya daraja. Lakini ili kubadilisha hali kulingana na ingizo la mtumiaji, utahitaji kuauni data inayotiririka kwa njia nyingine: vijenzi vya fomu vilivyo ndani kabisa ya daraja vinahitaji kusasisha hali katika `FilterableProductTable`.
+
+React hufanya mtiririko huu wa data kuwa wazi, lakini unahitaji kuandika zaidi kuliko kuunganisha data kwa njia mbili. Ukijaribu kuandika au kuteua kisanduku katika mfano ulio hapo juu, utaona kuwa React inapuuza ingizo lako. Hii ni makusudi. Kwa kuandika `<input thamani={filterText} />`, umeweka `thamani` mhimili wa `input` kuwa sawa na `filterText` hali iliyopitishwa kutoka `FilterableProductTable`. Kwa kuwa hali ya `kichujio` haijawekwa kamwe, ingizo halibadiliki.
+
+Unataka kuifanya iwe hivyo wakati wowote mtumiaji anapobadilisha ingizo za fomu, hali husasisha ili kuonyesha mabadiliko hayo. Hali hiyo inamilikiwa na `FilterableProductTable`, kwa hivyo inaweza tu kuita `setFilterText` na `setInStockOnly`. Ili kuruhusu `SearchBar` kusasisha hali ya `FilterableProductTable`, unahitaji kupitisha vitendaji hivi hadi kwa `SearchBar`:
 
 ```js {2,3,10,11}
 function FilterableProductTable({ products }) {
@@ -482,17 +479,17 @@ function FilterableProductTable({ products }) {
         onInStockOnlyChange={setInStockOnly} />
 ```
 
-Inside the `SearchBar`, you will add the `onChange` event handlers and set the parent state from them:
+Ndani ya `SearchBar`, utaongeza vidhibiti vya tukio vya `onChange` na kuweka hali mzazi kutoka kwao:
 
 ```js {5}
 <input 
   type="text" 
-  value={filterText} 
+  thamani={filterText} 
   placeholder="Search..." 
-  onChange={(e) => onFilterTextChange(e.target.value)} />
+  onChange={(e) => onFilterTextChange(e.target.thamani)} />
 ```
 
-Now the application fully works!
+Sasa programu inafanya kazi kikamilifu!
 
 <Sandpack>
 
@@ -595,8 +592,8 @@ function SearchBar({
     <form>
       <input 
         type="text" 
-        value={filterText} placeholder="Search..." 
-        onChange={(e) => onFilterTextChange(e.target.value)} />
+        thamani={filterText} placeholder="Search..." 
+        onChange={(e) => onFilterTextChange(e.target.thamani)} />
       <label>
         <input 
           type="checkbox" 
@@ -642,8 +639,8 @@ td {
 
 </Sandpack>
 
-You can learn all about handling events and updating state in the [Adding Interactivity](/learn/adding-interactivity) section.
+Unaweza kujifunza yote kuhusu kushughulikia matukio na hali ya kusasisha katika sehemu ya [Kuongeza Mwingiliano](/learn/adding-interactivity).
 
-## Where to go from here {/*where-to-go-from-here*/}
+## Uende wapi kutoka hapa {/*where-to-go-from-here*/}
 
-This was a very brief introduction to how to think about building components and applications with React. You can [start a React project](/learn/installation) right now or [dive deeper on all the syntax](/learn/describing-the-ui) used in this tutorial.
+Huu ulikuwa utangulizi mfupi sana wa jinsi ya kuwaza juu ya kuunda vijenzi na programu ukitumia React. Unaweza [kuanzisha mradi wa React](/learn/installation) sasa hivi au [kupiga mbizi zaidi kwenye sintaksia yote](/learn/describing-the-ui) iliyotumika katika funzo hili.
