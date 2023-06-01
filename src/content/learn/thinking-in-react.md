@@ -194,7 +194,7 @@ td {
 
 </Sandpack>
 
-(Ikiwa code hii inaonekana ya kuudhi, pitia [Anza Haraka](/learn/) kwanza!)
+(Ikiwa msimbo huu unaonekana wa kuudhi, pitia [Anza Haraka](/learn/) kwanza!)
 
 Baada ya kuunda vijenzi vyako, utakuwa na maktaba ya vijenzi vinavyoweza kutumika tena vinavyotoa kielelezo chako cha data. Kwa sababu hii ni programu tuli, vijenzi vitarejesha JSX pekee. Kijenzi kilicho juu ya daraja (`FilterableProductTable`) kitachukua kielelezo chako wa data kama mhimili. Hii inaitwa _one-way data flow_ kwa sababu data hutiririka kutoka kijenzi cha kiwango cha juu hadi kile kilicho chini ya mti.
 
@@ -387,7 +387,7 @@ function SearchBar({ filterText, inStockOnly }) {
     <form>
       <input 
         type="text" 
-        thamani={filterText} 
+        value={filterText} 
         placeholder="Search..."/>
       <label>
         <input 
@@ -437,7 +437,7 @@ Kumbuka kwamba kuhariri fomu bado haifanyi kazi. Kuna hitilafu ya kiweko kwenye 
 
 <ConsoleBlock level="error">
 
-Umepeana kiunga cha \`thamani\` cha uga wa fomu bila kidhibiti cha \`onChange\`. Hii itatoa uga wa kusoma pekee.
+Umepeana kiunga cha \`value\` cha uga wa fomu bila kidhibiti cha \`onChange\`. Hii itatoa uga wa kusoma pekee.
 
 </ConsoleBlock>
 
@@ -449,7 +449,7 @@ function SearchBar({ filterText, inStockOnly }) {
     <form>
       <input 
         type="text" 
-        thamani={filterText} 
+        value={filterText} 
         placeholder="Search..."/>
 ```
 
@@ -461,7 +461,7 @@ You want to make it so whenever the user changes the form inputs, the state upda
 
 Kwa sasa programu yako inatekelezwa kwa njia ipasavyo ikiwa na viunga na hali inayotiririka chini ya daraja. Lakini ili kubadilisha hali kulingana na ingizo la mtumiaji, utahitaji kuauni data inayotiririka kwa njia nyingine: vijenzi vya fomu vilivyo ndani kabisa ya daraja vinahitaji kusasisha hali katika `FilterableProductTable`.
 
-React hufanya mtiririko huu wa data kuwa wazi, lakini unahitaji kuandika zaidi kuliko kuunganisha data kwa njia mbili. Ukijaribu kuandika au kuteua kisanduku katika mfano ulio hapo juu, utaona kuwa React inapuuza ingizo lako. Hii ni makusudi. Kwa kuandika `<input thamani={filterText} />`, umeweka `thamani` mhimili wa `input` kuwa sawa na `filterText` hali iliyopitishwa kutoka `FilterableProductTable`. Kwa kuwa hali ya `kichujio` haijawekwa kamwe, ingizo halibadiliki.
+React hufanya mtiririko huu wa data kuwa wazi, lakini unahitaji kuandika zaidi kuliko kuunganisha data kwa njia mbili. Ukijaribu kuandika au kuteua kisanduku katika mfano ulio hapo juu, utaona kuwa React inapuuza ingizo lako. Hii ni makusudi. Kwa kuandika `<input value={filterText} />`, umeweka `value` mhimili wa `input` kuwa sawa na `filterText` hali iliyopitishwa kutoka `FilterableProductTable`. Kwa kuwa hali ya `filterText` haijawekwa kamwe, ingizo halibadiliki.
 
 Unataka kuifanya iwe hivyo wakati wowote mtumiaji anapobadilisha ingizo za fomu, hali husasisha ili kuonyesha mabadiliko hayo. Hali hiyo inamilikiwa na `FilterableProductTable`, kwa hivyo inaweza tu kuita `setFilterText` na `setInStockOnly`. Ili kuruhusu `SearchBar` kusasisha hali ya `FilterableProductTable`, unahitaji kupitisha vitendaji hivi hadi kwa `SearchBar`:
 
@@ -484,9 +484,9 @@ Ndani ya `SearchBar`, utaongeza vidhibiti vya tukio vya `onChange` na kuweka hal
 ```js {5}
 <input 
   type="text" 
-  thamani={filterText} 
+  value={filterText} 
   placeholder="Search..." 
-  onChange={(e) => onFilterTextChange(e.target.thamani)} />
+  onChange={(e) => onFilterTextChange(e.target.value)} />
 ```
 
 Sasa programu inafanya kazi kikamilifu!
@@ -592,8 +592,8 @@ function SearchBar({
     <form>
       <input 
         type="text" 
-        thamani={filterText} placeholder="Search..." 
-        onChange={(e) => onFilterTextChange(e.target.thamani)} />
+        value={filterText} placeholder="Search..." 
+        onChange={(e) => onFilterTextChange(e.target.value)} />
       <label>
         <input 
           type="checkbox" 
