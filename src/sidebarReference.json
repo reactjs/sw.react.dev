@@ -134,6 +134,7 @@
           "title": "'use server'",
           "path": "/reference/react/use-server",
           "canary": true
+
         }
       ]
     },
