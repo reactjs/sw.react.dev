@@ -80,7 +80,7 @@ Unaweza kujenga "juu chini" kwa kuanza na kujenga vijenzi juu zaidi katika daraj
 
 <Sandpack>
 
-```jsx App.js
+```jsx src/App.js
 function ProductCategoryRow({ category }) {
   return (
     <tr>
@@ -295,7 +295,7 @@ Kisha, pitisha `filterText` na `inStockOnly` kwa `ProductTable` na `SearchBar` k
 Unaweza kuanza kuona jinsi programu yako itakavyofanya kazi. Hariri vakue ya awali ya `filterText` kutoka `useState('')` hadi `useState('fruit')` katika msimbo wa kisanduku hapa chini. Utaona maandishi ya utafutaji na sasisho la jedwali:
 <Sandpack>
 
-```jsx App.js
+```jsx src/App.js
 import { useState } from 'react';
 
 function FilterableProductTable({ products }) {
@@ -493,7 +493,7 @@ Sasa programu inafanya kazi kikamilifu!
 
 <Sandpack>
 
-```jsx App.js
+```jsx src/App.js
 import { useState } from 'react';
 
 function FilterableProductTable({ products }) {
