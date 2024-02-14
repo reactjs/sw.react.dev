@@ -10,6 +10,7 @@ Do you know of a local React.js conference? Add it here! (Please keep the list c
 
 ## Upcoming Conferences {/*upcoming-conferences*/}
 
+
 ### React Summit 2024 {/*react-summit-2024*/}
 June 14 & 18, 2024. In-person in Amsterdam, Netherlands + remote (hybrid event)
 
@@ -64,6 +65,7 @@ November 13 & 15, 2023. In-person in New York, US + remote first interactivity (
 
 ### reactjsday 2023 {/*reactjsday-2023*/}
 October 27th 2023. In-person in Verona, Italy and online (hybrid event)
+
 
 [Website](https://2023.reactjsday.it/) - [Twitter](https://twitter.com/reactjsday) - [Facebook](https://www.facebook.com/GrUSP/) - [YouTube](https://www.youtube.com/c/grusp)
 
