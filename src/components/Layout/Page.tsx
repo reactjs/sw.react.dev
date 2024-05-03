@@ -130,7 +130,6 @@ export function Page({children, toc, routeTree, meta, section}: PageProps) {
         )}>
         {showSidebar && (
           <div className="lg:-mt-16 z-10">
-
             <div className="fixed top-0 py-0 shadow lg:pt-16 lg:sticky start-0 end-0 lg:shadow-none">
               <SidebarNav
                 key={section}
