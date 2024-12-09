@@ -261,7 +261,15 @@ In the previous step, you found two pieces of state in this application: the sea
 
 Katika hatua ya awali, ulipata vipande viwili vya hali katika programu hii: maandishi ya ingizo ya utafutaji, na thamani ya kisanduku cha kuteua. Katika mfano huu, daima huonekana pamoja, kwa hiyo ni mantiki kuviweka katika sehemu moja.
 
+<<<<<<< HEAD
 Sasa wacha tupitie mkakati wetu kwao:
+=======
+1. **Identify components that use state:**
+    * `ProductTable` needs to filter the product list based on that state (search text and checkbox value). 
+    * `SearchBar` needs to display that state (search text and checkbox value).
+2. **Find their common parent:** The first parent component both components share is `FilterableProductTable`.
+3. **Decide where the state lives**: We'll keep the filter text and checked state values in `FilterableProductTable`.
+>>>>>>> 69edd845b9a654c6ac9ed68da19d5b42897e636e
 
 1. **Tambua vijenzi vinavyotumia hali:**
      * `ProductTable` inahitaji kuchuja orodha ya bidhaa kulingana na hali hiyo (maandishi ya utafutaji na thamani ya kisanduku cha kuteua).
