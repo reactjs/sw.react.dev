@@ -17,9 +17,9 @@ Mafunzo haya yameundwa kwa ajili ya watu wanaopendelea **kujifunza kwa kufanya**
 Mafunzo haya yamegawanywa katika sehemu kadhaa:
 
 - [Mpanglio wa mafunzo](#setup-for-the-tutorial) utakupa **sehemu ya kuanzia** kufuata mafunzo.
-- [Muhtasari](#overview) utakufundisha **misingi** ya React: vipengele, props, na hali.
+- [Muhtasari](#overview) utakufunza **misingi** ya React: vipengele, props, na hali.
 - [Kukamilisha mchezo](#completing-the-game) itakufundisha **mbinu za kawaida zaidi** katika maendeleo ya React.
-- [Kuongeza safari ya muda](#adding-time-travel) itakupa **ufahamu wa kina zaidi** wa nguvu za kipekee za React.
+- [Kuongeza safari ya wakati](#adding-time-travel) itakupa **ufahamu wa kina zaidi** wa nguvu za kipekee za React.
 
 ### Unajenga nini? {/*what-are-you-building*/}
 
@@ -358,7 +358,7 @@ export default function Square() {
 }
 ```
 
-Utapata makosa haya:
+Utapata kosa hili:
 
 <ConsoleBlock level="error">
 
@@ -381,13 +381,13 @@ export default function Square() {
 
 Sasa unapaswa kuona:
 
-![vitufe viwili vyenye X](../images/tutorial/two-x-filled-squares.png)
+![miraba miwili yenye X](../images/tutorial/two-x-filled-squares.png)
 
 Vizuri! Sasa unahitaji tu kunakili na kubandika mara kadhaa ili kuongeza mraba tisa na...
 
 ![miraba tisa yenye X katika mstari](../images/tutorial/nine-x-filled-squares.png)
 
-Hapana! Miraba yote ziko katika mstari mmoja tu, si katika gridi kama inavyohitajika kwa bodi yetu. Ili kutatua hili, utahitaji kundi la mraba zako katika safu na `div`s na kuongeza baadhi ya madarasa ya CSS. Wakati huo huo, utampa kila mraba nambari ili kuhakikisha unajua kila mraba unapoonyeshwa.
+La hasha! Miraba yote iko katika mstari mmoja tu, si katika gridi kama inavyohitajika kwa bodi yetu. Ili kutatua hili, utahitaji kundi la mraba zako katika safu na `div`s na kuongeza baadhi ya madarasa ya CSS. Wakati huo huo, utampa kila mraba nambari ili kuhakikisha unajua kila mraba unapoonyeshwa.
 
 Katika faili ya `App.js`, sasisha kiungo cha `Square` ili kiwe kama hiki:
 
@@ -508,7 +508,7 @@ Psssst... Kuna ni mengi ya kuandika! Ni sawa kunakili na kubandika msimbo kutoka
 
 </Note>
 
-### Kupitisha data kupitia props {/*passing-data-through-props*/}
+### Kupitisha data kupitia kwa props {/*passing-data-through-props*/}
 
 Ifuatayo, utataka kubadili thamani ya mraba kutoka tupu hadi "X" wakati mtumiaji anabofya kwenye mraba. Kwa jinsi ulivyounda bodi hadi sasa, itabidi unakili na kubandika msimbo unaosasisha mraba mara tisa (moja kwa kila mraba ulionao)! Badala ya kunakili na kubandika, usanifu wa viungo vya React unakuwezesha kuunda kiungo kinachoweza kutumika tena ili kuepuka msimbo unaojirudia.
 
@@ -557,7 +557,7 @@ Hebu tuangalie:
 
 ![bodi moja iliyojaa](../images/tutorial/board-filled-with-ones.png)
 
-Hapana! Ulipoteza mraba yenye nambari ulizokuwa nazo awali. Sasa kila mraba inasema "1". Ili kutatua hili, utatumia *props* kupitisha thamani ambayo kila mraba inapaswa kuwa nayo kutoka kwa kiungo cha mzazi (`Board`) hadi kwa mtoto wake (`Square`).
+La hasha! Ulipoteza mraba yenye nambari ulizokuwa nazo awali. Sasa kila mraba inasema "1". Ili kutatua hili, utatumia *props* kupitisha thamani ambayo kila mraba inapaswa kuwa nayo kutoka kwa kiungo cha mzazi (`Board`) hadi kwa mtoto wake (`Square`).
 
 Sasasisha kiungo cha `Square` ili kisome prop ya `value` ambayo utapitia kutoka kwa `Board`:
 
@@ -567,7 +567,7 @@ function Square({ value }) {
 }
 ```
 
-`function Square({ value })` inaonyesha kuwa kiungo cha Square kinaweza kupitishiwa prop iitwayo `value`.
+`function Square({ value })` inaonyesha kuwa kiungo cha Mraba kinaweza kupitishiwa prop iitwayo `value`.
 
 Sasa unataka kuonyesha hiyo `value` badala ya `1` ndani ya kila mraba. Jaribu kufanya hivyo kama hivi:
 
@@ -702,7 +702,7 @@ body {
 
 </Sandpack>
 
-### Kutengeneza kipengele kinachoshirishi {/*making-an-interactive-component*/}
+### Kutengeneza kipengele kishirikishi {/*making-an-interactive-component*/}
 
 Hebu tujaze kipengele cha `Square` na `X` unapoibofya. Tangaza kazi (function) iitwayo `handleClick` ndani ya `Square`. Kisha, ongeza `onClick` kwenye props za kipengele cha button kilichorejeshwa kutoka kwa `Square`:
 
@@ -897,7 +897,7 @@ body {
 
 </Sandpack>
 
-### Zana za Watengenezaji wa React {/*react-developer-tools*/}
+### React Developer Tools za {/*react-developer-tools*/}
 
 React DevTools hukuruhusu kuangalia *props* na *state* za vipengele vyako vya React. Unaweza kupata kichupo cha React DevTools chini ya sehemu ya *browser* katika CodeSandbox:
 
@@ -909,7 +909,7 @@ Ili kuchunguza kipengele fulani kwenye skrini, tumia kitufe kilicho kwenye kona 
 
 <Note>
 
-Kwa maendeleo ya ndani (*local development*), React DevTools inapatikana kama [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/), na [Edge](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil) *browser extension*. Isakinishe, na kichupo cha *Components* kitaonekana kwenye Zana za Watengenezaji wa kivinjari chako kwa tovuti zinazotumia React.
+Kwa maendeleo ya ndani (local development), React DevTools inapatikana kama [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/), na [Edge](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil) *browser extension*. Isakinishe, na kichupo cha *Components* kitaonekana kwenye Zana za Watengenezaji wa kivinjari chako kwa tovuti zinazotumia React.
 
 </Note>
 
@@ -1133,7 +1133,7 @@ Kuita kazi ya `setSquares` kunamwambia React kwamba hali ya sehemu imebadilika. 
 
 <Note>
 
-JavaScript inaunga mkono [closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) ambayo inamaanisha kazi ya ndani (mfano, `handleClick`) ina ufikiaji wa vigezo na kazi zilizofafanuliwa katika kazi ya nje (mfano, `Board`). Kazi ya `handleClick` inaweza kusoma hali ya `squares` na kuita mbinu ya `setSquares` kwa sababu zote zipo ndani ya kazi ya `Board`.
+JavaScript inawezesha [closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) ambayo inamaanisha kazi ya ndani (mfano, `handleClick`) ina ufikiaji wa vigezo na kazi zilizofafanuliwa katika kazi ya nje (mfano, `Board`). Kazi ya `handleClick` inaweza kusoma hali ya `squares` na kuita mbinu ya `setSquares` kwa sababu zote zipo ndani ya kazi ya `Board`.
 
 </Note>
 
@@ -1321,7 +1321,7 @@ Sasa kwamba usimamizi wa hali yako uko kwenye sehemu ya `Board`, sehemu ya mzazi
 
 Hebu tuangalie tena kinachotokea wakati mtumiaji anapobonyeza square ya juu kushoto kwenye ubao wako ili kuongeza `X`:
 
-1. Kubonyeza square ya juu kushoto huendesha kazi ambayo `button` ilipokea kama sifa yake ya `onClick` kutoka kwa `Square`. Sehemu ya `Square` ilipokea kazi hiyo kama sifa yake ya `onSquareClick` kutoka kwa `Board`. Sehemu ya `Board` ilifafanua kazi hiyo moja kwa moja ndani ya JSX. Inaita `handleClick` ikiwa na hoja ya `0`.
+1. Kubonyeza mraba wa juu kushoto huendesha kazi ambayo `button` ilipokea kama sifa yake ya `onClick` kutoka kwa `Square`. Sehemu ya `Square` ilipokea kazi hiyo kama sifa yake ya `onSquareClick` kutoka kwa `Board`. Sehemu ya `Board` ilifafanua kazi hiyo moja kwa moja ndani ya JSX. Inaita `handleClick` ikiwa na hoja ya `0`.
 2. `handleClick` hutumia hoja (`0`) kuboresha kipengele cha kwanza cha safu ya `squares` kutoka `null` hadi `X`.
 3. Hali ya `squares` ya sehemu ya `Board` ilisasishwa, hivyo `Board` na watoto wake wote hujirejesha. Hii husababisha sifa ya `value` ya sehemu ya `Square` yenye index `0` kubadilika kutoka `null` hadi `X`.
 
@@ -1816,6 +1816,54 @@ export default function Game() {
 }
 ```
 
+Ili kufanya kipengele cha `Board` kijitegemee kikamilifu kwa props kinachopokea, badilisha kipengele cha `Board` ili kichukue props tatu: `xIsNext`, `squares`, na kazi mpya ya `onPlay` ambayo `Board` inaweza kuitumia na orodha mpya ya viwanja (`squares`) wakati mchezaji anafanya harakati. Kisha, ondoa mistari miwili ya kwanza ya kazi ya `Board` inayoitwa `useState`:
+
+```js {1}
+function Board({ xIsNext, squares, onPlay }) {
+  function handleClick(i) {
+    //...
+  }
+  // ...
+}
+```
+
+Sasa badilisha miito ya `setSquares` na `setXIsNext` katika `handleClick` kwenye kipengele cha `Board` kwa wito mmoja wa kazi yako mpya ya `onPlay` ili kipengele cha `Game` kiweze kusasisha `Board` wakati mtumiaji anabofya mraba:
+
+```js {12}
+function Board({ xIsNext, squares, onPlay }) {
+  function handleClick(i) {
+    if (calculateWinner(squares) || squares[i]) {
+      return;
+    }
+    const nextSquares = squares.slice();
+    if (xIsNext) {
+      nextSquares[i] = "X";
+    } else {
+      nextSquares[i] = "O";
+    }
+    onPlay(nextSquares);
+  }
+  //...
+}
+```
+
+Kipengele cha `Board` sasa kimejitegemea kikamilifu kwa props kinachopokelewa kutoka kwa kipengele cha `Game`. Unahitaji kutekeleza kazi ya `handlePlay` ndani ya kipengele cha `Game` ili kufanya mchezo kufanya kazi tena.
+
+Kazi ya `handlePlay` inapaswa kufanya nini inapoitishwa? Kumbuka kwamba `Board` ilitumia kuita `setSquares` na orodha mpya; sasa inapitisha orodha ya `squares` iliyosasishwa kwa `onPlay`.
+
+Kazi ya `handlePlay` inahitaji kusasisha hali ya `Game` ili kuamsha upya, lakini sasa huna kazi ya `setSquares` ambayo unaweza kuitumia tena--unatumia sasa kipengele cha `history` kuhifadhi habari hii. Utahitaji kusasisha `history` kwa kuongeza orodha iliyosasishwa ya `squares` kama kipengele kipya cha historia. Pia unataka kubadilisha `xIsNext`, kama vile `Board` ilivyofanya awali:
+
+```js {4-5}
+export default function Game() {
+  //...
+  function handlePlay(nextSquares) {
+    setHistory([...history, nextSquares]);
+    setXIsNext(!xIsNext);
+  }
+  //...
+}
+```
+
 Hapa, `[...history, nextSquares]` inaunda orodha mpya inayojumuisha vitu vyote katika `history`, ikifuatiwa na `nextSquares`. (Unaweza kusoma `...history` kama "orodhesha vitu vyote vilivyomo ndani ya `history`".)
 
 Kwa mfano, ikiwa `history` ni `[[null,null,null], ["X",null,null]]` na `nextSquares` ni `["X",null,"O"]`, basi orodha mpya `[...history, nextSquares]` itakuwa `[[null,null,null], ["X",null,null], ["X",null,"O"]]`.
@@ -1969,7 +2017,7 @@ body {
 
 </Sandpack>
 
-### Kuonyesha harakati za zamani {/*kuonyesha-harakati-za-zamani*/}
+### Kuonyesha moves za awali {/*showing-the-past-moves*/}
 
 Kwa sababu unarekodi historia ya mchezo wa tic-tac-toe, sasa unaweza kuonyesha orodha ya harakati za zamani kwa mchezaji.
 
@@ -2001,9 +2049,9 @@ export default function Game() {
   const moves = history.map((squares, move) => {
     let description;
     if (move > 0) {
-      description = 'Endelea hadi harakati #' + move;
+      description = 'Go to move #' + move;
     } else {
-      description = 'Rudi mwanzo wa mchezo';
+      description = 'Go to game start';
     }
     return (
       <li>
@@ -2024,6 +2072,7 @@ export default function Game() {
   );
 }
 ```
+
 Unaweza kuona jinsi kanuni yako inavyopaswa kuonekana hapa chini. Kumbuka kwamba unapaswa kuona hitilafu katika koni ya zana za mende inayosema:
 
 <ConsoleBlock level="warning">
@@ -2204,9 +2253,9 @@ Kwa kila harakati katika historia ya mchezo wa tic-tac-toe, unaunda kipengele ch
 
 Kwa sasa, unapaswa kuona orodha ya harakati zilizotokea katika mchezo na hitilafu katika koni ya zana za mende. Hebu tujadili maana ya hitilafu ya "key."
 
-### Kuchagua kipeperushi `{/*picking-a-key*/}` {/*kuchagua-kipeperushi-picking-a-key*/}
+### Kuchagua kifunguo {/*picking-a-key*/}
 
-Unapohonyesha orodha, React huhifadhi baadhi ya habari kuhusu kila kipengele cha orodha kilichohonyeshwa. Unaposasisha orodha, React inahitaji kubaini kile kilichobadilika. Huenda umeongeza, kuondoa, kubadilisha, au kupanga upya vipengele vya orodha.
+Unapo-render orodha, React huhifadhi baadhi ya habari kuhusu kila kipengele cha orodha kilichohonyeshwa. Unaposasisha orodha, React inahitaji kubaini kile kilichobadilika. Huenda umeongeza, kuondoa, kubadilisha, au kupanga upya vipengele vya orodha.
 
 Fikiria unapohama kutoka
 
@@ -2243,7 +2292,7 @@ Ikiwa hakuna kipeperushi kilichotolewa, React itaripoti hitilafu na kutumia kias
 
 Funguo hazihitaji kuwa za kipekee duniani; zinahitaji tu kuwa za kipekee kati ya vipengele na ndugu zao.
 
-### Kutekeleza safari ya wakati `{/*implementing-time-travel*/}` {/*kutekeleza-safari-ya-wakati-implementing-time-travel*/}
+### Kutekeleza safari ya wakati {/*implementing-time-travel*/}
 
 Katika historia ya mchezo wa tic-tac-toe, kila harakati ya zamani ina ID ya kipekee inayohusishwa nayo: ni nambari mfuatano ya harakati. Harakati hazitabadilishwa, kuondolewa, au kuingizwa katikati, hivyo ni salama kutumia kiashiria cha harakati kama kipeperushi.
 
@@ -2650,7 +2699,7 @@ body {
 
 </Sandpack>
 
-### Kusafisha Mwisho `{/*final-cleanup*/}` {/*kusafisha-mwisho-final-cleanup*/}
+### Kusafisha Mwisho {/*final-cleanup*/}
 
 Ukichunguza kwa makini kanuni, utaona kuwa `xIsNext === true` wakati `currentMove` ni nambari yenye uwiano wa mbili na `xIsNext === false` wakati `currentMove` ni nambari isiyo na uwiano wa mbili. Kwa maneno mengine, ikiwa unajua thamani ya `currentMove`, basi unaweza daima kujua kile kinachopaswa kuwa `xIsNext`.
 
@@ -2678,7 +2727,7 @@ export default function Game() {
 
 Sasa, huna tena haja ya tangazo la hali ya `xIsNext` au miito ya `setXIsNext`. Sasa, hakuna nafasi kwa `xIsNext` kutoka nje ya mfululizo na `currentMove`, hata kama utatengeneza makosa wakati wa kuandika vipengele.
 
-### Kumalizia `{/*wrapping-up*/}` {/*kumalizia-wrapping-up*/}
+### Kumalizia {/*wrapping-up*/}
 
 Hongera! Umeunda mchezo wa tic-tac-toe ambao:
 
@@ -2866,4 +2915,4 @@ Ikiwa una muda wa ziada au unataka kujitolea kuboresha ujuzi wako wa React, hapa
 1. Wakati mtu anashinda, angazia viwanja vitatu vilivyopunguza ushindi (na wakati hakuna anayeshinda, onyesha ujumbe kuhusu matokeo kuwa sare).
 1. Onyesha eneo la kila harakati kwa muundo (mstari, nguzo) kwenye orodha ya historia ya harakati.
 
-Katika mafunzo haya, umejifunza dhana za React ikiwemo vipengele, sehemu, props, na hali. Sasa kwamba umeona jinsi dhana hizi zinavyofanya kazi wakati wa kujenga mchezo, angalia [Thinking in React](/learn/thinking-in-react) kuona jinsi dhana hizo za React zinavyofanya kazi wakati wa kujenga UI ya programu.
+Katika mafunzo haya, umejifunza dhana za React ikiwemo vipengele, sehemu, props, na hali. Sasa kwamba umeona jinsi dhana hizi zinavyofanya kazi wakati wa kujenga mchezo, angalia [Kuwaza katika React](/learn/thinking-in-react) kuona jinsi dhana hizo za React zinavyofanya kazi wakati wa kujenga UI ya programu.
