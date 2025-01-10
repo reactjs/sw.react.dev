@@ -4,51 +4,51 @@ title: Quick Start
 
 <Intro>
 
-Welcome to the React documentation! This page will give you an introduction to the 80% of React concepts that you will use on a daily basis.
+Karibu kwenye nyaraka za React! Ukurasa huu utakupa utangulizi wa 80% ya dhana za React utakazotumia kila siku.
 
 </Intro>
 
 <YouWillLearn>
 
-- How to create and nest components
-- How to add markup and styles
-- How to display data
-- How to render conditions and lists
-- How to respond to events and update the screen
-- How to share data between components
+- Jinsi ya kuunda na kupangilia vipengele
+- Jinsi ya kuongeza markup na mitindo
+- Jinsi ya kuonyesha data
+- Jinsi ya kutoa hali na orodha
+- Jinsi ya kujibu matukio na kusasisha skrini
+- Jinsi ya kushirikisha data kati ya vipengele
 
 </YouWillLearn>
 
-## Creating and nesting components {/*components*/}
+## Kuunda na Kupangilia Vipengele {/*components*/}
 
-React apps are made out of *components*. A component is a piece of the UI (user interface) that has its own logic and appearance. A component can be as small as a button, or as large as an entire page.
+Programu za React zinatengenezwa kwa *vipengele*. Kipengele ni sehemu ya UI (User Interface) yenye mantiki na mwonekano wake. Kipengele kinaweza kuwa kidogo kama kitufe, au kikubwa kama ukurasa mzima.
 
-React components are JavaScript functions that return markup:
+Vipengele vya React ni functions za JavaScript zinazorejesha markup:
 
 ```js
 function MyButton() {
   return (
-    <button>I'm a button</button>
+    <button>Mimi ni kitufe</button>
   );
 }
 ```
 
-Now that you've declared `MyButton`, you can nest it into another component:
+Sasa kwa kuwa umetangaza `MyButton`, unaweza kukipangilia ndani ya kipengele kingine:
 
 ```js {5}
 export default function MyApp() {
   return (
     <div>
-      <h1>Welcome to my app</h1>
+      <h1>Karibu kwenye programu yangu</h1>
       <MyButton />
     </div>
   );
 }
 ```
 
-Notice that `<MyButton />` starts with a capital letter. That's how you know it's a React component. React component names must always start with a capital letter, while HTML tags must be lowercase.
+Angalia kuwa `<MyButton />` huanza na herufi kubwa. Hii ndiyo inavyoonyesha kuwa ni kipengele cha React. Majina ya vipengele vya React lazima yaanze na herufi kubwa, wakati vitambulisho vya HTML vinapaswa kuwa na herufi ndogo.
 
-Have a look at the result:
+Tazama matokeo:
 
 <Sandpack>
 
@@ -73,49 +73,49 @@ export default function MyApp() {
 
 </Sandpack>
 
-The `export default` keywords specify the main component in the file. If you're not familiar with some piece of JavaScript syntax, [MDN](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) and [javascript.info](https://javascript.info/import-export) have great references.
+Keywords za `export default` zinaonyesha kipengele kikuu kwenye faili. Ikiwa haujafahamiana na baadhi ya sintaksia ya JavaScript, [MDN](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) na [javascript.info](https://javascript.info/import-export) zina rejea nzuri.
 
-## Writing markup with JSX {/*writing-markup-with-jsx*/}
+## Kuandika Markup ukitumia JSX {/*writing-markup-with-jsx*/}
 
-The markup syntax you've seen above is called *JSX*. It is optional, but most React projects use JSX for its convenience. All of the [tools we recommend for local development](/learn/installation) support JSX out of the box.
+Sintaksia ya markup uliyokutana nayo hapo juu inaitwa *JSX*. Ni hiari, lakini miradi mingi ya React hutumia JSX kwa urahisi wake. Zana zote tunazopendekeza kwa [vitumizi ya ndani](/learn/installation) zinawezesha JSX moja kwa moja.
 
-JSX is stricter than HTML. You have to close tags like `<br />`. Your component also can't return multiple JSX tags. You have to wrap them into a shared parent, like a `<div>...</div>` or an empty `<>...</>` wrapper:
+JSX ina umanani wa juu zaidi kuliko HTML. Unapaswa kufunga vitambulisho kama `<br />`. Kipengele chako pia hakiwezi kurudisha vitambulisho vingi vya JSX bila kuvifungisha katika mzazi wa pamoja, kama `<div>...</div>` au kifungashio tupu `<>...</>`:
 
 ```js {3,6}
 function AboutPage() {
   return (
     <>
-      <h1>About</h1>
-      <p>Hello there.<br />How do you do?</p>
+      <h1>Kuhusu</h1>
+      <p>Habari za hapa.<br />Hali yako?</p>
     </>
   );
 }
 ```
 
-If you have a lot of HTML to port to JSX, you can use an [online converter.](https://transform.tools/html-to-jsx)
+Ikiwa una HTML nyingi ya kuhamisha kwenye JSX, unaweza kutumia [kibadilishaji cha mtandaoni.](https://transform.tools/html-to-jsx)
 
-## Adding styles {/*adding-styles*/}
+## Kuongeza mitindo {/*adding-styles*/}
 
-In React, you specify a CSS class with `className`. It works the same way as the HTML [`class`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class) attribute:
+Katika React, unaelezea darasa la CSS kwa kutumia `className`. Inafanya function sawa na sifa ya HTML [`class`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class):
 
 ```js
 <img className="avatar" />
 ```
 
-Then you write the CSS rules for it in a separate CSS file:
+Kisha unaandika sheria za CSS kwa ajili yake kwenye faili tofauti ya CSS:
 
 ```css
-/* In your CSS */
+/* Katika CSS yako */
 .avatar {
   border-radius: 50%;
 }
 ```
 
-React does not prescribe how you add CSS files. In the simplest case, you'll add a [`<link>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link) tag to your HTML. If you use a build tool or a framework, consult its documentation to learn how to add a CSS file to your project.
+React haielekezi jinsi ya kuongeza faili za CSS. Katika hali rahisi, utaongeza kitambulisho cha [`<link>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link) kwenye HTML yako. Ikiwa unatumia zana ya ujenzi au fremu, rejea nyaraka zake ili kujifunza jinsi ya kuongeza faili ya CSS kwenye mradi wako.
 
-## Displaying data {/*displaying-data*/}
+## Kuonyesha data {/*displaying-data*/}
 
-JSX lets you put markup into JavaScript. Curly braces let you "escape back" into JavaScript so that you can embed some variable from your code and display it to the user. For example, this will display `user.name`:
+JSX hukuruhusu kuweka markup ndani ya JavaScript. Mabano ya curly hukuruhusu "kurudi kwenye JavaScript" ili uweze kuweka kigezo kutoka kwenye msimbo wako na kukionyesha kwa mtumiaji. Kwa mfano, hii itaonyesha `user.name`:
 
 ```js {3}
 return (
@@ -125,7 +125,7 @@ return (
 );
 ```
 
-You can also "escape into JavaScript" from JSX attributes, but you have to use curly braces *instead of* quotes. For example, `className="avatar"` passes the `"avatar"` string as the CSS class, but `src={user.imageUrl}` reads the JavaScript `user.imageUrl` variable value, and then passes that value as the `src` attribute:
+Unaweza pia "kurudi kwenye JavaScript" kutoka kwa sifa za JSX, lakini lazima utumie mabano ya curly *badala ya* nukuu. Kwa mfano, `className="avatar"` hupitisha kamba ya `"avatar"` kama darasa la CSS, lakini `src={user.imageUrl}` husoma thamani ya kigezo cha JavaScript `user.imageUrl`, kisha hupitisha thamani hiyo kama sifa ya `src`:
 
 ```js {3,4}
 return (
@@ -136,7 +136,7 @@ return (
 );
 ```
 
-You can put more complex expressions inside the JSX curly braces too, for example, [string concatenation](https://javascript.info/operators#string-concatenation-with-binary):
+Unaweza kuweka maonyesho magumu zaidi ndani ya mabano ya curly ya JSX pia, kwa mfano, [string concatenation](https://javascript.info/operators#string-concatenation-with-binary):
 
 <Sandpack>
 
@@ -177,11 +177,11 @@ export default function Profile() {
 
 </Sandpack>
 
-In the above example, `style={{}}` is not a special syntax, but a regular `{}` object inside the `style={ }` JSX curly braces. You can use the `style` attribute when your styles depend on JavaScript variables.
+Katika mfano ulio hapo juu, `style={{}}` si sintaksia maalum, bali ni `{}` ya kawaida ya kitu (object) ndani ya mabano ya curly ya `style={ }` ya JSX. Unaweza kutumia sifa ya `style` pale ambapo mitindo yako inategemea vigezo vya JavaScript.
 
-## Conditional rendering {/*conditional-rendering*/}
+## Utoaji Masharti {/*conditional-rendering*/}
 
-In React, there is no special syntax for writing conditions. Instead, you'll use the same techniques as you use when writing regular JavaScript code. For example, you can use an [`if`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) statement to conditionally include JSX:
+Katika React, hakuna sintaksia maalum ya kuandika masharti. Badala yake, utatumia mbinu zile zile unazotumia wakati wa kuandika msimbo wa kawaida wa JavaScript. Kwa mfano, unaweza kutumia kauli ya [`if`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) ili kujumuisha JSX kwa masharti:
 
 ```js
 let content;
@@ -197,7 +197,7 @@ return (
 );
 ```
 
-If you prefer more compact code, you can use the [conditional `?` operator.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) Unlike `if`, it works inside JSX:
+Ikiwa unapendelea msimbo mfupi, unaweza kutumia [opereta ya masharti `?`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator). Tofauti na `if`, inafanya function ndani ya JSX:
 
 ```js
 <div>
@@ -209,7 +209,7 @@ If you prefer more compact code, you can use the [conditional `?` operator.](htt
 </div>
 ```
 
-When you don't need the `else` branch, you can also use a shorter [logical `&&` syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#short-circuit_evaluation):
+Wakati hauhitaji tawi la `else`, unaweza pia kutumia sintaksia fupi ya [kimantiki `&&`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#short-circuit_evaluation):
 
 ```js
 <div>
@@ -217,23 +217,23 @@ When you don't need the `else` branch, you can also use a shorter [logical `&&` 
 </div>
 ```
 
-All of these approaches also work for conditionally specifying attributes. If you're unfamiliar with some of this JavaScript syntax, you can start by always using `if...else`.
+Njia hizi zote pia hufanya function kwa maalumisha sifa kwa masharti. Ikiwa hujafahamiana na baadhi ya sintaksia hii ya JavaScript, unaweza kuanza kwa kila mara kutumia `if...else`.
 
-## Rendering lists {/*rendering-lists*/}
+## Utoaji wa Orodha {/*rendering-lists*/}
 
-You will rely on JavaScript features like [`for` loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for) and the [array `map()` function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) to render lists of components.
+Utatumia vipengele vya JavaScript kama [`for` loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for) na [array `map()` function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) ili kutoa orodha za vipengele.
 
-For example, let's say you have an array of products:
+Kwa mfano, tuseme una safu (array) ya bidhaa:
 
 ```js
 const products = [
-  { title: 'Cabbage', id: 1 },
-  { title: 'Garlic', id: 2 },
-  { title: 'Apple', id: 3 },
+  { title: 'Kabeji', id: 1 },
+  { title: 'Kitunguu Saumu', id: 2 },
+  { title: 'Tofaa', id: 3 },
 ];
 ```
 
-Inside your component, use the `map()` function to transform an array of products into an array of `<li>` items:
+Ndani ya kipengele chako, tumia function ya `map()` kubadilisha safu ya bidhaa kuwa safu ya vipengele vya `<li>`:
 
 ```js
 const listItems = products.map(product =>
@@ -247,7 +247,7 @@ return (
 );
 ```
 
-Notice how `<li>` has a `key` attribute. For each item in a list, you should pass a string or a number that uniquely identifies that item among its siblings. Usually, a key should be coming from your data, such as a database ID. React uses your keys to know what happened if you later insert, delete, or reorder the items.
+Angalia jinsi `<li>` inavyokuwa na sifa ya `key`. Kwa kila kipengele kwenye orodha, unapaswa kupitisha kamba au namba inayotambulisha kwa kipekee kipengele hicho miongoni mwa ndugu zake. Kwa kawaida, `key` inapaswa kutoka kwenye data yako, kama vile kitambulisho cha hifadhidata. React hutumia funguo hizi kufuatilia kilichotokea ikiwa utaongeza, kufuta, au kupanga upya vipengele.
 
 <Sandpack>
 
@@ -278,9 +278,9 @@ export default function ShoppingList() {
 
 </Sandpack>
 
-## Responding to events {/*responding-to-events*/}
+## Kujibu matukio {/*responding-to-events*/}
 
-You can respond to events by declaring *event handler* functions inside your components:
+Unaweza kujibu matukio kwa kutangaza functions za *handler za matukio* ndani ya vipengele vyako:
 
 ```js {2-4,7}
 function MyButton() {
@@ -296,19 +296,19 @@ function MyButton() {
 }
 ```
 
-Notice how `onClick={handleClick}` has no parentheses at the end! Do not _call_ the event handler function: you only need to *pass it down*. React will call your event handler when the user clicks the button.
+Angalia jinsi `onClick={handleClick}` haina mabano mwishoni! Usiiite *event handler* moja kwa moja: unahitaji tu *kuipitisha chini*. React itaendesha `handleClick` wakati mtumiaji atabofya kitufe.
 
-## Updating the screen {/*updating-the-screen*/}
+## Kusasisha skrini {/*updating-the-screen*/}
 
-Often, you'll want your component to "remember" some information and display it. For example, maybe you want to count the number of times a button is clicked. To do this, add *state* to your component.
+Mara nyingi, utataka kipengele chako "kikumbuke" taarifa fulani na kuionesha. Kwa mfano, labda unataka kuhesabu ni mara ngapi kitufe kimebofya. Ili kufanya hivyo, ongeza *hali* (state) kwenye kipengele chako.
 
-First, import [`useState`](/reference/react/useState) from React:
+Kwanza, leta [`useState`](/reference/react/useState) kutoka React:
 
 ```js
 import { useState } from 'react';
 ```
 
-Now you can declare a *state variable* inside your component:
+Sasa unaweza kutangaza *variable ya hali* ndani ya kipengele chako:
 
 ```js
 function MyButton() {
@@ -316,9 +316,9 @@ function MyButton() {
   // ...
 ```
 
-You’ll get two things from `useState`: the current state (`count`), and the function that lets you update it (`setCount`). You can give them any names, but the convention is to write `[something, setSomething]`.
+Utapata mambo mawili kutoka kwa `useState`: hali ya sasa (`count`), na function inayokuwezesha kuibadilisha (`setCount`). Unaweza kuyapa majina yoyote, lakini desturi ni kuandika `[something, setSomething]`.
 
-The first time the button is displayed, `count` will be `0` because you passed `0` to `useState()`. When you want to change state, call `setCount()` and pass the new value to it. Clicking this button will increment the counter:
+Mara ya kwanza kitufe kinapoonyeshwa, `count` itakuwa `0` kwa sababu uliipitisha `0` kwenye `useState()`. Wakati unataka kubadilisha hali, piga `setCount()` na upitishe thamani mpya kwake. Kubofya kitufe hiki kutaongeza kaunta:
 
 ```js {5}
 function MyButton() {
@@ -330,15 +330,15 @@ function MyButton() {
 
   return (
     <button onClick={handleClick}>
-      Clicked {count} times
+      Umebofya mara {count}
     </button>
   );
 }
 ```
 
-React will call your component function again. This time, `count` will be `1`. Then it will be `2`. And so on.
+React itaita tena function ya kipengele chako. Wakati huu, `count` itakuwa `1`. Kisha itakuwa `2`. Na kadhalika.
 
-If you render the same component multiple times, each will get its own state. Click each button separately:
+Ikiwa utaonyesha kipengele kimoja mara nyingi, kila moja kitapata hali yake. Bofya kila kitufe kando kando:
 
 <Sandpack>
 
@@ -379,59 +379,59 @@ button {
 
 </Sandpack>
 
-Notice how each button "remembers" its own `count` state and doesn't affect other buttons.
+Kumbuka jinsi kila kitufe "kinakumbuka" hali yake ya `count` na hakiathiri vitufe vingine.
 
-## Using Hooks {/*using-hooks*/}
+## Kutumia hooks {/*using-hooks*/}
 
-Functions starting with `use` are called *Hooks*. `useState` is a built-in Hook provided by React. You can find other built-in Hooks in the [API reference.](/reference/react) You can also write your own Hooks by combining the existing ones.
+Functions zinazooanza na `use` zinaitwa *Hooks*. `useState` ni Hook ya kujengwa inayotolewa na React. Unaweza kupata Hooks nyingine zilizojengwa kwenye [marejeleo ya API.](/reference/react) Pia unaweza kuandika Hooks zako mwenyewe kwa kuchanganya zile zilizopo.
 
-Hooks are more restrictive than other functions. You can only call Hooks *at the top* of your components (or other Hooks). If you want to use `useState` in a condition or a loop, extract a new component and put it there.
+Hooks huwa restrictive kuliko functions nyingine. Unaweza tu kuita Hooks *juu* ya vipengele vyako (au Hooks nyingine). Ikiwa unataka kutumia `useState` katika hali au mzunguko, toa kijenzi kipya na kueka hapo.
 
-## Sharing data between components {/*sharing-data-between-components*/}
+## Kushirikisha data kati ya vipengele {/*sharing-data-between-components*/}
 
-In the previous example, each `MyButton` had its own independent `count`, and when each button was clicked, only the `count` for the button clicked changed:
+Katika mfano wa awali, kila `MyButton` ilikuwa na hali yake ya kujitegemea `count`, na kila kitufe kilipo bonyezwa, `count` ya kitufe kilichobonyezwa pekee ndiyo ilibadilika:
 
 <DiagramGroup>
 
-<Diagram name="sharing_data_child" height={367} width={407} alt="Diagram showing a tree of three components, one parent labeled MyApp and two children labeled MyButton. Both MyButton components contain a count with value zero.">
+<Diagram name="sharing_data_child" height={367} width={407} alt="Picha inayoonyesha mti wa vijenzi vitatu, mzazi mmoja aliye na jina MyApp na watoto wawili waliotajwa kama MyButton. Vijenzi vyote viwili vya MyButton vina hali ya count yenye thamani sifuri.">
 
-Initially, each `MyButton`'s `count` state is `0`
+Awali, kila hali ya `count` ya `MyButton` ni `0`
 
 </Diagram>
 
-<Diagram name="sharing_data_child_clicked" height={367} width={407} alt="The same diagram as the previous, with the count of the first child MyButton component highlighted indicating a click with the count value incremented to one. The second MyButton component still contains value zero." >
+<Diagram name="sharing_data_child_clicked" height={367} width={407} alt="Picha ile ile ya awali, na hali ya `count` ya kijenzi cha kwanza cha `MyButton` ikiwa imeangaziwa ikionyesha kubonyeza na thamani ya `count` ikiwa imeongezeka hadi moja. Kijenzi cha pili cha `MyButton` bado kina thamani sifuri." >
 
-The first `MyButton` updates its `count` to `1`
+Kijenzi cha kwanza cha `MyButton` kinasasisha `count` yake hadi `1`
 
 </Diagram>
 
 </DiagramGroup>
 
-However, often you'll need components to *share data and always update together*.
+Hata hivyo, mara nyingi utahitaji vijenzi kushirikiana data na kila wakati kubadilika pamoja.
 
-To make both `MyButton` components display the same `count` and update together, you need to move the state from the individual buttons "upwards" to the closest component containing all of them.
+Ili kufanya vijenzi vyote viwili vya `MyButton` kuonyesha `count` sawa na kubadilika pamoja, unahitaji kuhamisha hali kutoka kwa vitufe vya kibinafsi "juu" hadi kijenzi cha karibu kinachovijumuisha vyote.
 
-In this example, it is `MyApp`:
+Katika mfano huu, ni `MyApp`:
 
 <DiagramGroup>
 
-<Diagram name="sharing_data_parent" height={385} width={410} alt="Diagram showing a tree of three components, one parent labeled MyApp and two children labeled MyButton. MyApp contains a count value of zero which is passed down to both of the MyButton components, which also show value zero." >
+<Diagram name="sharing_data_parent" height={385} width={410} alt="Picha inayoonyesha mti wa vijenzi vitatu, mzazi mmoja aliye na jina MyApp na watoto wawili waliotajwa kama MyButton. `MyApp` ina hali ya count yenye thamani sifuri ambayo inapasiwa kwa watoto wote wawili wa MyButton, ambao pia wanaonyesha thamani sifuri." >
 
-Initially, `MyApp`'s `count` state is `0` and is passed down to both children
+Awali, hali ya `count` ya `MyApp` ni `0` na inapasiwa kwa watoto wote wawili
 
 </Diagram>
 
-<Diagram name="sharing_data_parent_clicked" height={385} width={410} alt="The same diagram as the previous, with the count of the parent MyApp component highlighted indicating a click with the value incremented to one. The flow to both of the children MyButton components is also highlighted, and the count value in each child is set to one indicating the value was passed down." >
+<Diagram name="sharing_data_parent_clicked" height={385} width={410} alt="Picha ile ile ya awali, na hali ya `count` ya mzazi `MyApp` ikiwa imeangaziwa ikionyesha kubonyeza na thamani imeongezeka hadi moja. Mtiririko kwa watoto wote wawili wa `MyButton` pia umeangaziwa, na hali ya `count` katika kila mtoto imewekwa kuwa moja ikionyesha kwamba thamani ilipasiwa." >
 
-On click, `MyApp` updates its `count` state to `1` and passes it down to both children
+Kwa kubonyeza, `MyApp` inasasisha hali yake ya `count` hadi `1` na kuipasi kwa watoto wote wawili
 
 </Diagram>
 
 </DiagramGroup>
 
-Now when you click either button, the `count` in `MyApp` will change, which will change both of the counts in `MyButton`. Here's how you can express this in code.
+Sasa unapobonyeza kitufe chochote, hali ya `count` katika `MyApp` itabadilika, ambayo itabadilisha hali ya `count` katika kila `MyButton`. Hivi ndivyo unavyoweza kuonyesha hili kwa msimbo.
 
-First, *move the state up* from `MyButton` into `MyApp`:
+Kwanza, *hamisha hali* kutoka `MyButton` hadi `MyApp`:
 
 ```js {2-6,18}
 export default function MyApp() {
@@ -451,12 +451,12 @@ export default function MyApp() {
 }
 
 function MyButton() {
-  // ... we're moving code from here ...
+  // ... tunahamisha msimbo kutoka hapa ...
 }
 
 ```
 
-Then, *pass the state down* from `MyApp` to each `MyButton`, together with the shared click handler. You can pass information to `MyButton` using the JSX curly braces, just like you previously did with built-in tags like `<img>`:
+Kisha, *pitisha hali* kutoka `MyApp` hadi kila `MyButton`, pamoja na handler ya kubonyeza ya pamoja. Unaweza kupitishia habari kwa `MyButton` ukitumia mabano ya JSX, kama vile ulivyofanya awali na lebo zilizojengwa kama `<img>`:
 
 ```js {11-12}
 export default function MyApp() {
@@ -476,9 +476,9 @@ export default function MyApp() {
 }
 ```
 
-The information you pass down like this is called _props_. Now the `MyApp` component contains the `count` state and the `handleClick` event handler, and *passes both of them down as props* to each of the buttons.
+Habari unazopitishia hivi zinaitwa _props_. Sasa kipengele cha `MyApp` kina hali ya `count` na mshughulikiaji wa tukio `handleClick`, na *inapasia zote mbili kama props* kwa kila kitufe.
 
-Finally, change `MyButton` to *read* the props you have passed from its parent component:
+Mwisho, badilisha `MyButton` ili *kusoma* props ulizopitishia kutoka kwa mzazi wake:
 
 ```js {1,3}
 function MyButton({ count, onClick }) {
@@ -490,7 +490,7 @@ function MyButton({ count, onClick }) {
 }
 ```
 
-When you click the button, the `onClick` handler fires. Each button's `onClick` prop was set to the `handleClick` function inside `MyApp`, so the code inside of it runs. That code calls `setCount(count + 1)`, incrementing the `count` state variable. The new `count` value is passed as a prop to each button, so they all show the new value. This is called "lifting state up". By moving state up, you've shared it between components.
+Unapobonyeza kitufe, handler ya `onClick` inawashwa. Prop ya `onClick` ya kila kitufe ilipangwa kwa function ya `handleClick` ndani ya `MyApp`, hivyo msimbo ndani yake unafanya function. Kazi hiyo inaita `setCount(count + 1)`, ikiongeza hali ya `count`. Thamani mpya ya `count` inapaswa kama prop kwa kila kitufe, hivyo vyote vinaonyesha thamani mpya. Hii inaitwa "kupandisha hali". Kwa kuhamisha hali juu, umeishirikisha kati ya vipengele.
 
 <Sandpack>
 
@@ -531,8 +531,8 @@ button {
 
 </Sandpack>
 
-## Next Steps {/*next-steps*/}
+## Hatua Zifuatazo {/*next-steps*/}
 
-By now, you know the basics of how to write React code!
+Kwa sasa, unajua misingi ya jinsi ya kuandika msimbo wa React!
 
-Check out the [Tutorial](/learn/tutorial-tic-tac-toe) to put them into practice and build your first mini-app with React.
+Angalia [Mafunzo](/learn/tutorial-tic-tac-toe) ili kufanya mazoezi na kujenga mini-app yako ya kwanza na React.
