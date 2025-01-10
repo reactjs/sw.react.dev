@@ -311,7 +311,7 @@ export default function Square() {
 }
 ```
 
-Mstari wa kwanza unafafanua kazi inayoitwa `Square`. Neno la JavaScript la `export` linaufanya kazi huu kupatikana nje ya faili hii. Neno la `default` linawambia faili zingine zinazotumia msimbo wako kwamba hii ndiyo kazi kuu katika faili yako.
+Mstari wa kwanza unafafanua function inayoitwa `Square`. Neno la JavaScript la `export` linaufanya function huu kupatikana nje ya faili hii. Neno la `default` linawambia faili zingine zinazotumia msimbo wako kwamba hii ndiyo function kuu katika faili yako.
 
 ```js {2}
 export default function Square() {
@@ -319,7 +319,7 @@ export default function Square() {
 }
 ```
 
-Mstari wa pili unarudisha kitufe. Neno la JavaScript la `return` linamaanisha chochote kinachokuja baada ya hili kinarudishwa kama thamani kwa mtoaji wa kazi. `<button>` ni *elementi ya JSX*. Elementi ya JSX ni mchanganyiko wa msimbo wa JavaScript na lebo za HTML zinazofafanua kile ungependa kuonyesha. `className="square"` ni sifa ya kitufe au *prop* inayosema CSS jinsi ya kupamba kitufe hicho. `X` ni maandishi yanayoonyeshwa ndani ya kitufe na `</button>` inafunga elementi ya JSX ili kuonyesha kwamba yaliyomo mengine hayapaswi kuwekwa ndani ya kitufe hicho.
+Mstari wa pili unarudisha kitufe. Neno la JavaScript la `return` linamaanisha chochote kinachokuja baada ya hili kinarudishwa kama thamani kwa mtoaji wa function. `<button>` ni *elementi ya JSX*. Elementi ya JSX ni mchanganyiko wa msimbo wa JavaScript na lebo za HTML zinazofafanua kile ungependa kuonyesha. `className="square"` ni sifa ya kitufe au *prop* inayosema CSS jinsi ya kupamba kitufe hicho. `X` ni maandishi yanayoonyeshwa ndani ya kitufe na `</button>` inafunga elementi ya JSX ili kuonyesha kwamba yaliyomo mengine hayapaswi kuwekwa ndani ya kitufe hicho.
 
 #### `styles.css` {/*stylescss*/}
 
@@ -704,7 +704,7 @@ body {
 
 ### Kutengeneza kipengele kishirikishi {/*making-an-interactive-component*/}
 
-Hebu tujaze kipengele cha `Square` na `X` unapoibofya. Tangaza kazi (function) iitwayo `handleClick` ndani ya `Square`. Kisha, ongeza `onClick` kwenye props za kipengele cha button kilichorejeshwa kutoka kwa `Square`:
+Hebu tujaze kipengele cha `Square` na `X` unapoibofya. Tangaza function (function) iitwayo `handleClick` ndani ya `Square`. Kisha, ongeza `onClick` kwenye props za kipengele cha button kilichorejeshwa kutoka kwa `Square`:
 
 ```js {2-4,9}
 function Square({ value }) {
@@ -733,7 +733,7 @@ Ikiwa unafuata mafunzo haya kwa kutumia mazingira ya maendeleo ya ndani, unahita
 
 Hatua inayofuata, unataka kipengele cha Square "kumbuka" kuwa kilibofya, na kujaza kwa alama ya "X". Ili "kukumbuka" mambo, vipengele hutumia *hali* (*state*).
 
-React inatoa kazi maalum iitwayo `useState` ambayo unaweza kuiita kutoka kwa kipengele chako ili kuifanya "ikumbuke" mambo. Hebu tuweke thamani ya sasa ya `Square` katika hali, na tuiibadilishe mraba inapobofya.
+React inatoa function maalum iitwayo `useState` ambayo unaweza kuiita kutoka kwa kipengele chako ili kuifanya "ikumbuke" mambo. Hebu tuweke thamani ya sasa ya `Square` katika hali, na tuiibadilishe mraba inapobofya.
 
 Ingiza `useState` juu ya faili. Ondoa prop ya `value` kutoka kwenye kipengele cha `Square`. Badala yake, ongeza mstari mpya mwanzoni mwa `Square` unaoita `useState`. Iwe irudishe hali inayoitwa `value`:
 
@@ -747,7 +747,7 @@ function Square() {
     //...
 ```
 
-`value` huhifadhi thamani na `setValue` ni kazi inayoweza kutumika kubadilisha thamani. `null` inayotumwa kwa `useState` inatumika kama thamani ya awali ya hali hii, kwa hivyo `value` hapa inaanza ikiwa sawa na `null`.
+`value` huhifadhi thamani na `setValue` ni function inayoweza kutumika kubadilisha thamani. `null` inayotumwa kwa `useState` inatumika kama thamani ya awali ya hali hii, kwa hivyo `value` hapa inaanza ikiwa sawa na `null`.
 
 Kwa kuwa kipengele cha `Square` hakikubali tena props, utaondoa prop ya `value` kutoka kwa vipengele vyote tisa vya `Square` vilivyoundwa na kipengele cha Board:
 
@@ -797,11 +797,11 @@ function Square() {
 }
 ```
 
-Kwa kuwaita kazi hii ya `set` kutoka kwa mshughulikaji wa `onClick`, unaiambia React ifanye upya utengenezaji wa `Square` kila wakati `<button>` yake inapobofya. Baada ya sasisho, `value` ya `Square` itakuwa `'X'`, kwa hivyo utaona "X" kwenye ubao wa mchezo. Bofya Square yoyote, na "X" itaonekana:
+Kwa kuwaita function hii ya `set` kutoka kwa mshughulikaji wa `onClick`, unaiambia React ifanye upya utengenezaji wa `Square` kila wakati `<button>` yake inapobofya. Baada ya sasisho, `value` ya `Square` itakuwa `'X'`, kwa hivyo utaona "X" kwenye ubao wa mchezo. Bofya Square yoyote, na "X" itaonekana:
 
 ![Kuongeza X kwenye ubao](../images/tutorial/tictac-adding-x-s.gif)
 
-Kila Square ina hali yake: thamani ya `value` iliyohifadhiwa kwenye kila Square ni huru kabisa kwa nyinginezo. Unapobadilisha hali kwa kuita kazi ya `set`, React huboresha pia vipengele vya watoto vilivyo ndani. 
+Kila Square ina hali yake: thamani ya `value` iliyohifadhiwa kwenye kila Square ni huru kabisa kwa nyinginezo. Unapobadilisha hali kwa kuita function ya `set`, React huboresha pia vipengele vya watoto vilivyo ndani. 
 
 Baada ya mabadiliko haya, msimbo wako utaonekana hivi:
 
@@ -1070,7 +1070,7 @@ Kila Square sasa itapokea kipengele cha `value` ambacho kitakuwa aidha `'X'`, `'
 
 Sasa, unahitaji kubadilisha kile kinachotokea wakati Square inabonyezwa. Sehemu ya `Board` sasa inasimamia ni Square gani zimejazwa. Utahitaji kuunda njia kwa Square kuboresha hali ya `Board`. Kwa kuwa hali ni ya ndani kwa sehemu inayofafanua, huwezi kusasisha hali ya `Board` moja kwa moja kutoka Square.
 
-Badala yake, utapunguza chini kazi kutoka kwa sehemu ya `Board` kwenda kwa sehemu ya `Square`, na utakuwa na `Square` kuita kazi hiyo wakati Square inapobonyezwa. Utaanza na kazi ambayo sehemu ya `Square` itaita inapobonyezwa. Utaita kazi hiyo `onSquareClick`:
+Badala yake, utapunguza chini function kutoka kwa sehemu ya `Board` kwenda kwa sehemu ya `Square`, na utakuwa na `Square` kuita function hiyo wakati Square inapobonyezwa. Utaanza na function ambayo sehemu ya `Square` itaita inapobonyezwa. Utaita function hiyo `onSquareClick`:
 
 ```js
 function Square({ value }) {
@@ -1082,7 +1082,7 @@ function Square({ value }) {
 }
 ```
 
-Baadaye, utaongeza kazi ya `onSquareClick` kwenye sifa za sehemu ya `Square`:
+Baadaye, utaongeza function ya `onSquareClick` kwenye sifa za sehemu ya `Square`:
 
 ```js
 function Square({ value, onSquareClick }) {
@@ -1094,7 +1094,7 @@ function Square({ value, onSquareClick }) {
 }
 ```
 
-Sasa utaunganisha kipengele cha `onSquareClick` na kazi katika sehemu ya `Board` utakayoita `handleClick`. Ili kuunganisha `onSquareClick` na `handleClick`, utapita kazi kwa kipengele cha `onSquareClick` cha sehemu ya kwanza ya `Square`:
+Sasa utaunganisha kipengele cha `onSquareClick` na function katika sehemu ya `Board` utakayoita `handleClick`. Ili kuunganisha `onSquareClick` na `handleClick`, utapita function kwa kipengele cha `onSquareClick` cha sehemu ya kwanza ya `Square`:
 
 ```js
 export default function Board() {
@@ -1109,7 +1109,7 @@ export default function Board() {
 }
 ```
 
-Hatimaye, utafafanua kazi ya `handleClick` ndani ya sehemu ya Board ili kusasisha safu ya `squares` inayoshikilia hali ya ubao wako:
+Hatimaye, utafafanua function ya `handleClick` ndani ya sehemu ya Board ili kusasisha safu ya `squares` inayoshikilia hali ya ubao wako:
 
 ```js
 export default function Board() {
@@ -1129,15 +1129,15 @@ export default function Board() {
 
 Kazi ya `handleClick` inaunda nakala ya safu ya `squares` (`nextSquares`) kwa kutumia mbinu ya `slice()` ya JavaScript. Kisha, `handleClick` inasasisha safu ya `nextSquares` ili kuongeza `X` kwenye Square ya kwanza (`[0]` index).
 
-Kuita kazi ya `setSquares` kunamwambia React kwamba hali ya sehemu imebadilika. Hii itasababisha urejeshaji wa vipengele vinavyotumia hali ya `squares` (`Board`) pamoja na vipengele vya mtoto wake (vipengele vya `Square` vinavyounda ubao).
+Kuita function ya `setSquares` kunamwambia React kwamba hali ya sehemu imebadilika. Hii itasababisha urejeshaji wa vipengele vinavyotumia hali ya `squares` (`Board`) pamoja na vipengele vya mtoto wake (vipengele vya `Square` vinavyounda ubao).
 
 <Note>
 
-JavaScript inawezesha [closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) ambayo inamaanisha kazi ya ndani (mfano, `handleClick`) ina ufikiaji wa vigezo na kazi zilizofafanuliwa katika kazi ya nje (mfano, `Board`). Kazi ya `handleClick` inaweza kusoma hali ya `squares` na kuita mbinu ya `setSquares` kwa sababu zote zipo ndani ya kazi ya `Board`.
+JavaScript inawezesha [closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) ambayo inamaanisha function ya ndani (mfano, `handleClick`) ina ufikiaji wa vigezo na function zilizofafanuliwa katika function ya nje (mfano, `Board`). Kazi ya `handleClick` inaweza kusoma hali ya `squares` na kuita mbinu ya `setSquares` kwa sababu zote zipo ndani ya function ya `Board`.
 
 </Note>
 
-Sasa unaweza kuongeza alama za X kwenye ubao... lakini tu kwenye Square ya juu kushoto. Kazi yako ya `handleClick` imewekewa mpangilio wa kuboresha index ya Square ya juu kushoto (`0`). Hebu tuiboreshe kazi ya `handleClick` ili iweze kuboresha Square yoyote. Ongeza hoja `i` kwenye kazi ya `handleClick` inayochukua index ya Square inayosasishwa:
+Sasa unaweza kuongeza alama za X kwenye ubao... lakini tu kwenye Square ya juu kushoto. Kazi yako ya `handleClick` imewekewa mpangilio wa kuboresha index ya Square ya juu kushoto (`0`). Hebu tuiboreshe function ya `handleClick` ili iweze kuboresha Square yoyote. Ongeza hoja `i` kwenye function ya `handleClick` inayochukua index ya Square inayosasishwa:
 
 ```js
 export default function Board() {
@@ -1155,27 +1155,27 @@ export default function Board() {
 }
 ```
 
-Sasa, utahitaji kupitisha `i` kwenda kwa `handleClick`. Unaweza kujaribu kuweka kipengele cha `onSquareClick` cha Square kuwa `handleClick(0)` moja kwa moja ndani ya JSX kama hii, lakini haitafanya kazi:
+Sasa, utahitaji kupitisha `i` kwenda kwa `handleClick`. Unaweza kujaribu kuweka kipengele cha `onSquareClick` cha Square kuwa `handleClick(0)` moja kwa moja ndani ya JSX kama hii, lakini haitafanya function:
 
 ```jsx
 <Square value={squares[0]} onSquareClick={handleClick(0)} />
 ```
 
-Hii ndiyo sababu haifanyi kazi. Wito wa `handleClick(0)` utakuwa sehemu ya kurender sehemu ya Board. Kwa kuwa `handleClick(0)` hubadilisha hali ya sehemu ya Board kwa kuita `setSquares`, sehemu yako yote ya Board itarender tena. Lakini hii inaendesha tena `handleClick(0)`, ikisababisha mzunguko usio na mwisho:
+Hii ndiyo sababu haifanyi function. Wito wa `handleClick(0)` utakuwa sehemu ya kurender sehemu ya Board. Kwa kuwa `handleClick(0)` hubadilisha hali ya sehemu ya Board kwa kuita `setSquares`, sehemu yako yote ya Board itarender tena. Lakini hii inaendesha tena `handleClick(0)`, ikisababisha mzunguko usio na mwisho:
 
 <ConsoleBlock level="error">
 
-Renders nyingi mno. React inaweka mipaka ya idadi ya renders ili kuzuia mzunguko usio na mwisho.
+Too many re-renders. React limits the number of renders to prevent an infinite loop.
 
 </ConsoleBlock>
 
 Kwa nini tatizo hili halikutokea awali?
 
-Ulipoitisha `onSquareClick={handleClick}`, ulikuwa unapitisha kazi ya `handleClick` chini kama sifa. Hukuitia! Lakini sasa unaiita kazi hiyo moja kwa moja--angalia mabano katika `handleClick(0)`--na ndiyo maana inaendeshwa mapema. Hutaki *kuiita* `handleClick` mpaka mtumiaji atakapobonyeza!
+Ulipoipitisha `onSquareClick={handleClick}`, ulikuwa unapitisha function ya `handleClick` chini kama prop. Hukuiita! Lakini sasa unaiita function hiyo moja kwa moja--angalia mabano katika `handleClick(0)`--na ndiyo maana inatumika mapema. Hutaki *kuiita* `handleClick` mpaka mtumiaji atakapobonyeza!
 
-Ungeweza kutatua hili kwa kuunda kazi kama `handleFirstSquareClick` inayotumia `handleClick(0)`, kazi kama `handleSecondSquareClick` inayotumia `handleClick(1)`, na kadhalika. Ungepitisha (badala ya kuitisha) kazi hizi chini kama sifa kama `onSquareClick={handleFirstSquareClick}`. Hili lingetatuliwa.
+Ungeweza kutatua hili kwa kuunda function kama `handleFirstSquareClick` inayotumia `handleClick(0)`, function kama `handleSecondSquareClick` inayotumia `handleClick(1)`, na kadhalika. Ungepitisha (badala ya kuitisha) function hizi chini kama sifa kama `onSquareClick={handleFirstSquareClick}`. Hili lingetatua infinite loop.
 
-Hata hivyo, kufafanua kazi tisa tofauti na kuzipa kila moja jina ni njia ndefu. Badala yake, hebu tufanye hivi:
+Hata hivyo, kufafanua functions tisa tofauti na kuzipa kila moja jina ni njia ndefu. Badala yake, hebu tufanye hivi:
 
 ```js
 export default function Board() {
@@ -1189,9 +1189,9 @@ export default function Board() {
 }
 ```
 
-Angalia syntax mpya ya `() =>`. Hapa, `() => handleClick(0)` ni *arrow function,* ambayo ni njia fupi ya kufafanua kazi. Square inapobonyezwa, msimbo baada ya mshale `=>` utaendeshwa, ukipiga simu `handleClick(0)`.
+Angalia syntax mpya ya `() =>`. Hapa, `() => handleClick(0)` ni *arrow function,* ambayo ni njia fupi ya kufafanua function. Square inapobonyezwa, msimbo baada ya mshale `=>` utaendeshwa, ukipiga simu `handleClick(0)`.
 
-Sasa unahitaji kusasisha Square zingine nane kuziita `handleClick` kutoka kwenye kazi za arrow unazopitisha. Hakikisha kwamba hoja kwa kila wito wa `handleClick` inalingana na index ya Square sahihi:
+Sasa unahitaji kusasisha Square zingine nane kuziita `handleClick` kutoka kwenye function za arrow unazopitisha. Hakikisha kwamba hoja kwa kila wito wa `handleClick` inalingana na index ya Square sahihi:
 
 ```js
 export default function Board() {
@@ -1321,15 +1321,15 @@ Sasa kwamba usimamizi wa hali yako uko kwenye sehemu ya `Board`, sehemu ya mzazi
 
 Hebu tuangalie tena kinachotokea wakati mtumiaji anapobonyeza square ya juu kushoto kwenye ubao wako ili kuongeza `X`:
 
-1. Kubonyeza mraba wa juu kushoto huendesha kazi ambayo `button` ilipokea kama sifa yake ya `onClick` kutoka kwa `Square`. Sehemu ya `Square` ilipokea kazi hiyo kama sifa yake ya `onSquareClick` kutoka kwa `Board`. Sehemu ya `Board` ilifafanua kazi hiyo moja kwa moja ndani ya JSX. Inaita `handleClick` ikiwa na hoja ya `0`.
-2. `handleClick` hutumia hoja (`0`) kuboresha kipengele cha kwanza cha safu ya `squares` kutoka `null` hadi `X`.
-3. Hali ya `squares` ya sehemu ya `Board` ilisasishwa, hivyo `Board` na watoto wake wote hujirejesha. Hii husababisha sifa ya `value` ya sehemu ya `Square` yenye index `0` kubadilika kutoka `null` hadi `X`.
+1. Kubonyeza mraba wa juu kushoto huendesha function ambayo `button` ilipokea kama sifa yake ya `onClick` kutoka kwa `Square`. Sehemu ya `Square` ilipokea function hiyo kama sifa yake ya `onSquareClick` kutoka kwa `Board`. Sehemu ya `Board` ilifafanua function hiyo moja kwa moja ndani ya JSX. Inaita `handleClick` ikiwa na hoja ya `0`.
+1. `handleClick` hutumia hoja (`0`) kuboresha kipengele cha kwanza cha safu ya `squares` kutoka `null` hadi `X`.
+1. Hali ya `squares` ya sehemu ya `Board` ilisasishwa, hivyo `Board` na watoto wake wote hujirejesha. Hii husababisha sifa ya `value` ya sehemu ya `Square` yenye index `0` kubadilika kutoka `null` hadi `X`.
 
 Hatimaye mtumiaji ataona kwamba square ya juu kushoto imebadilika kutoka tupu hadi kuwa na `X` baada ya kubonyeza.
 
 <Note>
 
-Sifa ya `onClick` ya kipengele cha DOM `<button>` ina maana maalum kwa React kwa sababu ni kipengele kilichojengwa ndani. Kwa vipengele vilivyobuniwa kama `Square`, jina ni uamuzi wako. Unaweza kutoa jina lolote kwa sifa ya `onSquareClick` ya `Square` au kazi ya `handleClick` ya `Board`, na msimbo utaendelea kufanya kazi sawa. Katika React, ni kawaida kutumia majina kama `onSomething` kwa sifa zinazowakilisha matukio na `handleSomething` kwa kazi zinazoshughulikia matukio hayo.
+Sifa ya `onClick` ya kipengele cha DOM `<button>` ina maana maalum kwa React kwa sababu ni kipengele kilichojengwa ndani. Kwa vipengele vilivyobuniwa kama `Square`, jina ni uamuzi wako. Unaweza kutoa jina lolote kwa sifa ya `onSquareClick` ya `Square` au function ya `handleClick` ya `Board`, na msimbo utaendelea kufanya function sawa. Katika React, ni kawaida kutumia majina kama `onSomething` kwa sifa zinazowakilisha matukio na `handleSomething` kwa function zinazoshughulikia matukio hayo.
 
 </Note>
 
@@ -1374,7 +1374,7 @@ function Board() {
 }
 ```
 
-Kila wakati mchezaji anapohamia, `xIsNext` (boolean) itabadilishwa ili kuamua ni mchezaji gani atakayefuata na hali ya mchezo itaokolewa. Utaboresha kazi ya `handleClick` ya `Board` ili kubadilisha thamani ya `xIsNext`:
+Kila wakati mchezaji anapohamia, `xIsNext` (boolean) itabadilishwa ili kuamua ni mchezaji gani atakayefuata na hali ya mchezo itaokolewa. Utaboresha function ya `handleClick` ya `Board` ili kubadilisha thamani ya `xIsNext`:
 
 ```js {7,8,9,10,11,13}
 export default function Board() {
@@ -1406,7 +1406,7 @@ Lakini subiri, kuna tatizo. Jaribu kubonyeza square moja mara kadhaa:
 
 `X` inabadilishwa na `O`! Ingawa hii ingeongeza mabadiliko ya kufurahisha kwenye mchezo, kwa sasa tutafuata sheria za awali.
 
-Unapoweka square na `X` au `O` huchunguzi kwanza ikiwa square tayari ina thamani ya `X` au `O`. Unaweza kurekebisha hili kwa *kurejesha mapema*. Utachunguza ikiwa square tayari ina `X` au `O`. Ikiwa square tayari imejazwa, utarejesha ndani ya kazi ya `handleClick` mapema--kabla haijajaribu kusasisha hali ya ubao.
+Unapoweka square na `X` au `O` huchunguzi kwanza ikiwa square tayari ina thamani ya `X` au `O`. Unaweza kurekebisha hili kwa *kurejesha mapema*. Utachunguza ikiwa square tayari ina `X` au `O`. Ikiwa square tayari imejazwa, utarejesha ndani ya function ya `handleClick` mapema--kabla haijajaribu kusasisha hali ya ubao.
 
 ```js {2,3,4}
 function handleClick(i) {
@@ -1522,7 +1522,7 @@ body {
 
 ### Kutangaza mshindi {/*declaring-a-winner*/}
 
-Sasa kwa kuwa wachezaji wanaweza kubadilishana zamu, utataka kuonyesha wakati mchezo umeshinda na hakuna zamu zaidi za kufanya. Ili kufanya hivyo, utaongeza kazi msaidizi inayoitwa `calculateWinner` ambayo inachukua safu ya squares 9, inachunguza mshindi na inarudisha `'X'`, `'O'`, au `null` kulingana na inavyostahili. Usijali sana kuhusu kazi ya `calculateWinner`; sio maalum kwa React:
+Sasa kwa kuwa wachezaji wanaweza kubadilishana zamu, utataka kuonyesha wakati mchezo umeshinda na hakuna zamu zaidi za kufanya. Ili kufanya hivyo, utaongeza function msaidizi inayoitwa `calculateWinner` ambayo inachukua safu ya squares 9, inachunguza mshindi na inarudisha `'X'`, `'O'`, au `null` kulingana na inavyostahili. Usijali sana kuhusu function ya `calculateWinner`; sio maalum kwa React:
 
 ```js src/App.js
 export default function Board() {
@@ -1556,7 +1556,7 @@ Haijalishi kama unafafanua `calculateWinner` kabla au baada ya `Board`. Wacha tu
 
 </Note>
 
-Utaita `calculateWinner(squares)` ndani ya kazi ya `handleClick` ya sehemu ya `Board` ili kuchunguza ikiwa mchezaji ameshinda. Unaweza kufanya ukaguzi huu kwa wakati mmoja unapotathmini ikiwa mtumiaji amebofya square ambayo tayari ina `X` au `O`. Tunapenda kurudi mapema katika matukio yote mawili:
+Utaita `calculateWinner(squares)` ndani ya function ya `handleClick` ya sehemu ya `Board` ili kuchunguza ikiwa mchezaji ameshinda. Unaweza kufanya ukaguzi huu kwa wakati mmoja unapotathmini ikiwa mtumiaji amebofya square ambayo tayari ina `X` au `O`. Tunapenda kurudi mapema katika matukio yote mawili:
 
 ```js {2}
 function handleClick(i) {
@@ -1590,7 +1590,7 @@ export default function Board() {
 }
 ```
 
-Hongera! Sasa una mchezo wa tic-tac-toe unaofanya kazi. Na pia umejifunza misingi ya React. Kwa hivyo _wewe_ ndiye mshindi halisi hapa. Hivi ndivyo msimbo unavyopaswa kuonekana:
+Hongera! Sasa una mchezo wa tic-tac-toe unaofanya function. Na pia umejifunza misingi ya React. Kwa hivyo _wewe_ ndiye mshindi halisi hapa. Hivi ndivyo msimbo unavyopaswa kuonekana:
 
 <Sandpack>
 
@@ -1795,7 +1795,7 @@ export default function Game() {
   // ...
 ```
 
-Endelea na utengeneze kazi ya `handlePlay` ndani ya sehemu ya `Game` ambayo itaitwa na sehemu ya `Board` ili kusasisha mchezo. Pitisha `xIsNext`, `currentSquares`, na `handlePlay` kama props kwa sehemu ya `Board`:
+Endelea na utengeneze function ya `handlePlay` ndani ya sehemu ya `Game` ambayo itaitwa na sehemu ya `Board` ili kusasisha mchezo. Pitisha `xIsNext`, `currentSquares`, na `handlePlay` kama props kwa sehemu ya `Board`:
 
 ```js {6-8,13}
 export default function Game() {
@@ -1816,7 +1816,7 @@ export default function Game() {
 }
 ```
 
-Ili kufanya kipengele cha `Board` kijitegemee kikamilifu kwa props kinachopokea, badilisha kipengele cha `Board` ili kichukue props tatu: `xIsNext`, `squares`, na kazi mpya ya `onPlay` ambayo `Board` inaweza kuitumia na orodha mpya ya viwanja (`squares`) wakati mchezaji anafanya harakati. Kisha, ondoa mistari miwili ya kwanza ya kazi ya `Board` inayoitwa `useState`:
+Ili kufanya kipengele cha `Board` kijitegemee kikamilifu kwa props kinachopokea, badilisha kipengele cha `Board` ili kichukue props tatu: `xIsNext`, `squares`, na function mpya ya `onPlay` ambayo `Board` inaweza kuitumia na orodha mpya ya viwanja (`squares`) wakati mchezaji anafanya harakati. Kisha, ondoa mistari miwili ya kwanza ya function ya `Board` inayoitwa `useState`:
 
 ```js {1}
 function Board({ xIsNext, squares, onPlay }) {
@@ -1827,7 +1827,7 @@ function Board({ xIsNext, squares, onPlay }) {
 }
 ```
 
-Sasa badilisha miito ya `setSquares` na `setXIsNext` katika `handleClick` kwenye kipengele cha `Board` kwa wito mmoja wa kazi yako mpya ya `onPlay` ili kipengele cha `Game` kiweze kusasisha `Board` wakati mtumiaji anabofya mraba:
+Sasa badilisha miito ya `setSquares` na `setXIsNext` katika `handleClick` kwenye kipengele cha `Board` kwa wito mmoja wa function yako mpya ya `onPlay` ili kipengele cha `Game` kiweze kusasisha `Board` wakati mtumiaji anabofya mraba:
 
 ```js {12}
 function Board({ xIsNext, squares, onPlay }) {
@@ -1847,11 +1847,11 @@ function Board({ xIsNext, squares, onPlay }) {
 }
 ```
 
-Kipengele cha `Board` sasa kimejitegemea kikamilifu kwa props kinachopokelewa kutoka kwa kipengele cha `Game`. Unahitaji kutekeleza kazi ya `handlePlay` ndani ya kipengele cha `Game` ili kufanya mchezo kufanya kazi tena.
+Kipengele cha `Board` sasa kimejitegemea kikamilifu kwa props kinachopokelewa kutoka kwa kipengele cha `Game`. Unahitaji kutekeleza function ya `handlePlay` ndani ya kipengele cha `Game` ili kufanya mchezo kufanya function tena.
 
 Kazi ya `handlePlay` inapaswa kufanya nini inapoitishwa? Kumbuka kwamba `Board` ilitumia kuita `setSquares` na orodha mpya; sasa inapitisha orodha ya `squares` iliyosasishwa kwa `onPlay`.
 
-Kazi ya `handlePlay` inahitaji kusasisha hali ya `Game` ili kuamsha upya, lakini sasa huna kazi ya `setSquares` ambayo unaweza kuitumia tena--unatumia sasa kipengele cha `history` kuhifadhi habari hii. Utahitaji kusasisha `history` kwa kuongeza orodha iliyosasishwa ya `squares` kama kipengele kipya cha historia. Pia unataka kubadilisha `xIsNext`, kama vile `Board` ilivyofanya awali:
+Kazi ya `handlePlay` inahitaji kusasisha hali ya `Game` ili kuamsha upya, lakini sasa huna function ya `setSquares` ambayo unaweza kuitumia tena--unatumia sasa kipengele cha `history` kuhifadhi habari hii. Utahitaji kusasisha `history` kwa kuongeza orodha iliyosasishwa ya `squares` kama kipengele kipya cha historia. Pia unataka kubadilisha `xIsNext`, kama vile `Board` ilivyofanya awali:
 
 ```js {4-5}
 export default function Game() {
@@ -1868,7 +1868,7 @@ Hapa, `[...history, nextSquares]` inaunda orodha mpya inayojumuisha vitu vyote k
 
 Kwa mfano, ikiwa `history` ni `[[null,null,null], ["X",null,null]]` na `nextSquares` ni `["X",null,"O"]`, basi orodha mpya `[...history, nextSquares]` itakuwa `[[null,null,null], ["X",null,null], ["X",null,"O"]]`.
 
-Katika hatua hii, umehamisha hali (state) kuishi ndani ya kipengele cha `Game`, na UI inapaswa kuwa inafanya kazi kikamilifu, kama ilivyokuwa kabla ya mabadiliko. Hapa kuna vile nambari inavyopaswa kuonekana kwa wakati huu:
+Katika hatua hii, umehamisha hali (state) kuishi ndani ya kipengele cha `Game`, na UI inapaswa kuwa inafanya function kikamilifu, kama ilivyokuwa kabla ya mabadiliko. Hapa kuna vile nambari inavyopaswa kuonekana kwa wakati huu:
 
 <Sandpack>
 
@@ -2247,9 +2247,9 @@ body {
 
 </Sandpack>
 
-Unapozunguka kupitia orodha ya `history` ndani ya kazi unayopitisha kwa `map`, hoja ya `squares` inapitia kila kipengele cha `history`, na hoja ya `move` inapitia kila kiashiria cha orodha: `0`, `1`, `2`, …. (Katika hali nyingi, ungehitaji vipengele halisi vya orodha, lakini ili kuonyesha orodha ya harakati utahitaji tu viashiria.)
+Unapozunguka kupitia orodha ya `history` ndani ya function unayopitisha kwa `map`, hoja ya `squares` inapitia kila kipengele cha `history`, na hoja ya `move` inapitia kila kiashiria cha orodha: `0`, `1`, `2`, …. (Katika hali nyingi, ungehitaji vipengele halisi vya orodha, lakini ili kuonyesha orodha ya harakati utahitaji tu viashiria.)
 
-Kwa kila harakati katika historia ya mchezo wa tic-tac-toe, unaunda kipengele cha orodha `<li>` kinachojumuisha kitufe `<button>`. Kitufe kinakuwa na kihariri cha `onClick` kinachoitwa kazi inayoitwa `jumpTo` (ambayo huja kuwa umeitekeleza bado).
+Kwa kila harakati katika historia ya mchezo wa tic-tac-toe, unaunda kipengele cha orodha `<li>` kinachojumuisha kitufe `<button>`. Kitufe kinakuwa na kihariri cha `onClick` kinachoitwa function inayoitwa `jumpTo` (ambayo huja kuwa umeitekeleza bado).
 
 Kwa sasa, unapaswa kuona orodha ya harakati zilizotokea katika mchezo na hitilafu katika koni ya zana za mende. Hebu tujadili maana ya hitilafu ya "key."
 
@@ -2296,7 +2296,7 @@ Funguo hazihitaji kuwa za kipekee duniani; zinahitaji tu kuwa za kipekee kati ya
 
 Katika historia ya mchezo wa tic-tac-toe, kila harakati ya zamani ina ID ya kipekee inayohusishwa nayo: ni nambari mfuatano ya harakati. Harakati hazitabadilishwa, kuondolewa, au kuingizwa katikati, hivyo ni salama kutumia kiashiria cha harakati kama kipeperushi.
 
-Katika kazi ya `Game`, unaweza kuongeza kipeperushi kama `<li key={move}>`, na ikiwa utaongeza upya mchezo ulioonyeshwa, hitilafu ya "key" ya React inapaswa kuondoka.
+Katika function ya `Game`, unaweza kuongeza kipeperushi kama `<li key={move}>`, na ikiwa utaongeza upya mchezo ulioonyeshwa, hitilafu ya "key" ya React inapaswa kuondoka.
 
 ```js {4}
 const moves = history.map((squares, move) => {
@@ -2488,7 +2488,7 @@ export default function Game() {
 }
 ```
 
-Kisha, sasisha kazi ya `jumpTo` ndani ya `Game` ili kusasisha `currentMove`. Pia utaweka `xIsNext` kuwa `true` ikiwa nambari unayobadilisha `currentMove` kuwa ni nambari yenye uwiano wa mbili.
+Kisha, sasisha function ya `jumpTo` ndani ya `Game` ili kusasisha `currentMove`. Pia utaweka `xIsNext` kuwa `true` ikiwa nambari unayobadilisha `currentMove` kuwa ni nambari yenye uwiano wa mbili.
 
 ```js {4-5}
 export default function Game() {
@@ -2501,7 +2501,7 @@ export default function Game() {
 }
 ```
 
-Sasa, utaleta mabadiliko mawili kwa kazi ya `handlePlay` ya `Game` inayoitwa unapobofya kwenye mraba.
+Sasa, utaleta mabadiliko mawili kwa function ya `handlePlay` ya `Game` inayoitwa unapobofya kwenye mraba.
 
 - Ikiwa "unarudi nyuma katika wakati" kisha kufanya harakati mpya kutoka kwa hatua hiyo, unataka kuhifadhi historia hadi hatua hiyo pekee. Badala ya kuongeza `nextSquares` baada ya vitu vyote (`...` sintaksia ya kueneza) katika `history`, utaongeza baada ya vitu vyote katika `history.slice(0, currentMove + 1)` ili kuhakikisha unahifadhi sehemu hiyo tu ya historia ya zamani.
 - Kila wakati harakati inapotokea, unahitaji kusasisha `currentMove` kuelekeza kwenye kipengele cha hivi karibuni cha historia.
@@ -2725,20 +2725,20 @@ export default function Game() {
 }
 ```
 
-Sasa, huna tena haja ya tangazo la hali ya `xIsNext` au miito ya `setXIsNext`. Sasa, hakuna nafasi kwa `xIsNext` kutoka nje ya mfululizo na `currentMove`, hata kama utatengeneza makosa wakati wa kuandika vipengele.
+Sasa, huna haja tena ya tangazo la hali ya `xIsNext` au miito ya `setXIsNext`. Sasa, hakuna nafasi kwa `xIsNext` kutoka nje ya mfululizo na `currentMove`, hata kama utafanya makosa wakati wa kuandika vipengele.
 
 ### Kumalizia {/*wrapping-up*/}
 
-Hongera! Umeunda mchezo wa tic-tac-toe ambao:
+Hongera! Umetengeneza mchezo wa tic-tac-toe ambao:
 
-- Unakuruhusu kucheza tic-tac-toe,
-- Unaponyesha wakati mchezaji ameshinda mchezo,
+- Unakuwezesha kucheza tic-tac-toe,
+- Unaonyesha wakati mchezaji ameshinda mchezo,
 - Unahifadhi historia ya mchezo kadri unavyosonga mbele,
 - Unaruhusu wachezaji kupitia historia ya mchezo na kuona matoleo ya zamani ya bodi ya mchezo.
 
-Kazi nzuri! Tunatumai sasa unahisi kama unaelewa vizuri jinsi React inavyofanya kazi.
+Kazi nzuri! Tunatumai sasa unahisi kama unaelewa vizuri jinsi React inavyofanya function.
 
-Angalia matokeo ya mwisho hapa:
+Tazama matokeo ya mwisho hapa:
 
 <Sandpack>
 
@@ -2907,7 +2907,7 @@ body {
 
 </Sandpack>
 
-Ikiwa una muda wa ziada au unataka kujitolea kuboresha ujuzi wako wa React, hapa kuna baadhi ya mawazo ya maboresho unayoweza kufanya kwa mchezo wa tic-tac-toe, yakiwa orodheshwa kwa mpangilio wa ugumu unaoongezeka:
+Ikiwa una muda wa ziada au unataka kujitolea kuboresha ujuzi wako wa React, hapa kuna baadhi ya mawazo ya maboresho unayoweza kufanya kwa mchezo wa tic-tac-toe, yakiwa yameorodheshwa kwa mpangilio wa ugumu unaoongezeka:
 
 1. Kwa harakati ya sasa pekee, onyesha "Upo kwenye harakati #..." badala ya kitufe.
 1. Andika upya `Board` kutumia mizunguko miwili kutengeneza viwanja badala ya kuviandika kwa mikono.
@@ -2915,4 +2915,4 @@ Ikiwa una muda wa ziada au unataka kujitolea kuboresha ujuzi wako wa React, hapa
 1. Wakati mtu anashinda, angazia viwanja vitatu vilivyopunguza ushindi (na wakati hakuna anayeshinda, onyesha ujumbe kuhusu matokeo kuwa sare).
 1. Onyesha eneo la kila harakati kwa muundo (mstari, nguzo) kwenye orodha ya historia ya harakati.
 
-Katika mafunzo haya, umejifunza dhana za React ikiwemo vipengele, sehemu, props, na hali. Sasa kwamba umeona jinsi dhana hizi zinavyofanya kazi wakati wa kujenga mchezo, angalia [Kuwaza katika React](/learn/thinking-in-react) kuona jinsi dhana hizo za React zinavyofanya kazi wakati wa kujenga UI ya programu.
+Katika mafunzo haya, umejifunza dhana za React ikiwemo vipengele, sehemu, props, na hali. Sasa kwamba umeona jinsi dhana hizi zinavyofanya function wakati wa kujenga mchezo, angalia [Kuwaza katika React](/learn/thinking-in-react) kuona jinsi dhana hizo za React zinavyofanya function wakati wa kujenga UI ya programu.
