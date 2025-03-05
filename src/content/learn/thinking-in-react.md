@@ -271,6 +271,7 @@ Sasa wacha tupitie mkakati wetu kwao:
 3. **Decide where the state lives**: We'll keep the filter text and checked state values in `FilterableProductTable`.
 >>>>>>> 9467bc58868e66c53ca9385c8531dcf7b02178c2
 
+
 1. **Tambua vijenzi vinavyotumia hali:**
      * `ProductTable` inahitaji kuchuja orodha ya bidhaa kulingana na hali hiyo (maandishi ya utafutaji na thamani ya kisanduku cha kuteua).
      * `SearchBar` inahitaji kuonyesha hali hiyo (maandishi ya utafutaji na thamani ya kisanduku cha kuteua).
