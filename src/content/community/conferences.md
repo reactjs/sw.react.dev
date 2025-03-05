@@ -85,7 +85,7 @@ June 14 & 18, 2024. In-person in Amsterdam, Netherlands + remote (hybrid event)
 ### React Norway 2024 {/*react-norway-2024*/}
 June 14, 2024. In-person at Farris Bad Hotel in Larvik, Norway and online (hybrid event).
 
-[Website](https://reactnorway.com/) - [Twitter](https://twitter.com/ReactNorway)
+[Website](https://frontendnation.com/) - [Twitter](https://twitter.com/frontendnation)
 
 ### Render(ATL) 2024 🍑 {/*renderatl-2024-*/}
 June 12 - June 14, 2024. Atlanta, GA, USA
