@@ -87,15 +87,15 @@ July 04 & 05, 2024. Bangalore, India (In-person event)
 
 [Website](https://reactnexus.com/) - [Twitter](https://twitter.com/ReactNexus) - [Linkedin](https://www.linkedin.com/company/react-nexus) - [YouTube](https://www.youtube.com/reactify_in)
 
-### React Summit US 2024 {/*react-summit-us-2024*/}
-November 19 & 22, 2024. In-person in New York, USA + online (hybrid event)
+### React Native London Conf 2024 {/*react-native-london-2024*/}
+November 14 & 15, 2024. In-person in London, UK
 
-[Website](https://reactsummit.us/) - [Twitter](https://twitter.com/reactsummit) - [Videos](https://portal.gitnation.org/)
+[Website](https://reactnativelondon.co.uk/) - [Twitter](https://x.com/RNLConf)
 
 ### React Norway 2024 {/*react-norway-2024*/}
 June 14, 2024. In-person at Farris Bad Hotel in Larvik, Norway and online (hybrid event).
 
-[Website](https://reactday.berlin/) - [Twitter](https://x.com/reactdayberlin)
+[Website](https://react-africa.com/) - [Twitter](https://x.com/BeJS_)
 
 ### Render(ATL) 2024 🍑 {/*renderatl-2024-*/}
 June 12 - June 14, 2024. Atlanta, GA, USA
