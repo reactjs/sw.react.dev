@@ -1,31 +1,31 @@
 ---
-title: 'Tutorial: Tic-Tac-Toe'
+title: 'Mafunzo: Tic-Tac-Toe'
 ---
 
 <Intro>
 
-You will build a small tic-tac-toe game during this tutorial. This tutorial does not assume any existing React knowledge. The techniques you'll learn in the tutorial are fundamental to building any React app, and fully understanding it will give you a deep understanding of React.
+Utaunda mchezo mdogo wa tic-tac-toe wakati wa mafunzo haya. Mafunzo haya hayachukui maarifa yoyote yaliyopo ya React. Mbinu utakazojifunza katika mafunzo ni muhimu ili kuunda programu yoyote ya React, na kuielewa kikamilifu kutakupa uelewa wa kina wa React.
 
 </Intro>
 
 <Note>
 
-This tutorial is designed for people who prefer to **learn by doing** and want to quickly try making something tangible. If you prefer learning each concept step by step, start with [Describing the UI.](/learn/describing-the-ui)
+Mafunzo haya yameundwa kwa ajili ya watu wanaopendelea **kujifunza kwa kufanya** na wanataka kujaribu haraka kufanya kitu kinachoonekana. Ikiwa unapendelea kujifunza kila dhana hatua kwa hatua, anza na [Kuelezea UI.](/learn/describing-the-ui)
 
 </Note>
 
-The tutorial is divided into several sections:
+Mafunzo haya yamegawanywa katika sehemu kadhaa:
 
-- [Setup for the tutorial](#setup-for-the-tutorial) will give you **a starting point** to follow the tutorial.
-- [Overview](#overview) will teach you **the fundamentals** of React: components, props, and state.
-- [Completing the game](#completing-the-game) will teach you **the most common techniques** in React development.
-- [Adding time travel](#adding-time-travel) will give you **a deeper insight** into the unique strengths of React.
+- [Mpanglio wa mafunzo](#setup-for-the-tutorial) utakupa **sehemu ya kuanzia** kufuata mafunzo.
+- [Muhtasari](#overview) utakufunza **misingi** ya React: vipengele, props, na hali.
+- [Kukamilisha mchezo](#completing-the-game) itakufundisha **mbinu za kawaida zaidi** katika maendeleo ya React.
+- [Kuongeza safari ya wakati](#adding-time-travel) itakupa **ufahamu wa kina zaidi** wa nguvu za kipekee za React.
 
-### What are you building? {/*what-are-you-building*/}
+### Unajenga nini? {/*what-are-you-building*/}
 
-In this tutorial, you'll build an interactive tic-tac-toe game with React.
+Katika mafunzo haya, utatengeneza mchezo wa tic-tac-toe unaoshirikiana na React.
 
-You can see what it will look like when you're finished here:
+Unaweza kuona jinsi utakavyokamilisha mradi wako hapa:
 
 <Sandpack>
 
@@ -194,15 +194,15 @@ body {
 
 </Sandpack>
 
-If the code doesn't make sense to you yet, or if you are unfamiliar with the code's syntax, don't worry! The goal of this tutorial is to help you understand React and its syntax.
+Ikiwa msimbo bado haukueleweki kwako, au kama haufahamu sintaksia ya msimbo huo, usijali! Lengo la mafunzo haya ni kukusaidia kuelewa React na sintaksia yake.
 
-We recommend that you check out the tic-tac-toe game above before continuing with the tutorial. One of the features that you'll notice is that there is a numbered list to the right of the game's board. This list gives you a history of all of the moves that have occurred in the game, and it is updated as the game progresses.
+Tunapendekeza uangalie mchezo wa tic-tac-toe hapo juu kabla ya kuendelea na mafunzo. Moja ya vipengele utakavyogundua ni kwamba kuna orodha ya namba upande wa kulia wa ubao wa mchezo. Orodha hii inakupa historia ya hatua zote zilizotokea kwenye mchezo, na inasasishwa kadri mchezo unavyoendelea.
 
-Once you've played around with the finished tic-tac-toe game, keep scrolling. You'll start with a simpler template in this tutorial. Our next step is to set you up so that you can start building the game.
+Baada ya kucheza na mchezo wa tic-tac-toe uliokamilika, endelea kusoma. Utaanza na kiolezo rahisi zaidi katika mafunzo haya. Hatua yetu inayofuata ni kukuweka tayari ili uanze kujenga mchezo.
 
-## Setup for the tutorial {/*setup-for-the-tutorial*/}
+## Mpangilio wa mafunzo {/*setup-for-the-tutorial*/}
 
-In the live code editor below, click **Fork** in the top-right corner to open the editor in a new tab using the website CodeSandbox. CodeSandbox lets you write code in your browser and preview how your users will see the app you've created. The new tab should display an empty square and the starter code for this tutorial.
+Katika mhariri wa msimbo wa moja kwa moja hapa chini, bonyeza **Fork** kwenye kona ya juu kulia ili kufungua kihariri katika kichupo kipya ukitumia tovuti ya CodeSandbox. CodeSandbox inakuwezesha kuandika msimbo kwenye kivinjari chako na kuona jinsi watumiaji wako watakavyoona programu uliyounda. Kichupo kipya kinapaswa kuonyesha mraba tupu na msimbo wa mwanzo kwa mafunzo haya.
 
 <Sandpack>
 
@@ -261,33 +261,33 @@ body {
 
 <Note>
 
-You can also follow this tutorial using your local development environment. To do this, you need to:
+Unaweza pia kufuata mafunzo haya kwa kutumia mazingira yako ya maendeleo ya ndani. Kufanya hivyo, unahitaji:
 
-1. Install [Node.js](https://nodejs.org/en/)
-1. In the CodeSandbox tab you opened earlier, press the top-left corner button to open the menu, and then choose **Download Sandbox** in that menu to download an archive of the files locally
-1. Unzip the archive, then open a terminal and `cd` to the directory you unzipped
-1. Install the dependencies with `npm install`
-1. Run `npm start` to start a local server and follow the prompts to view the code running in a browser
+1. Sakinisha [Node.js](https://nodejs.org/en/)
+1. Katika kichupo cha CodeSandbox ulichokifungua awali, bonyeza kitufe kilichopo kona ya juu kushoto kufungua menyu, kisha chagua **Download Sandbox** katika menyu hiyo ili kupakua faili za archive kwenye kompyuta yako
+1. Fungua archive, kisha fungua terminal na `cd` hadi directory ulipozipa
+1. Sakinisha utegemezi kwa kutumia `npm install`
+1. Endesha `npm start` kuanzisha seva ya ndani na fuata maelekezo kuangalia jinsi msimbo unavyotekelezwa kwenye kivinjari
 
-If you get stuck, don't let this stop you! Follow along online instead and try a local setup again later.
+Ikiwa utakwama, usiruhusu hili likusumbue! Fuata mtandaoni badala yake na jaribu kuanzisha tena setup ya ndani baadaye.
 
 </Note>
 
-## Overview {/*overview*/}
+## Muhtasari {/*overview*/}
 
-Now that you're set up, let's get an overview of React!
+Sasa kwamba umejiandaa, hebu tupate muhtasari wa React!
 
-### Inspecting the starter code {/*inspecting-the-starter-code*/}
+### Kagua msimbo wa mwanzo {/*inspecting-the-starter-code*/}
 
-In CodeSandbox you'll see three main sections:
+Katika CodeSandbox utaona sehemu tatu kuu:
 
-![CodeSandbox with starter code](../images/tutorial/react-starter-code-codesandbox.png)
+![CodeSandbox na msimbo wa mwanzo](../images/tutorial/react-starter-code-codesandbox.png)
 
-1. The _Files_ section with a list of files like `App.js`, `index.js`, `styles.css` and a folder called `public`
-1. The _code editor_ where you'll see the source code of your selected file
-1. The _browser_ section where you'll see how the code you've written will be displayed
+1. Sehemu ya _Files_ na orodha ya mafaili kama `App.js`, `index.js`, `styles.css` na folda inayoitwa `public`
+1. _Kihariri cha msimbo_ ambapo utaona msimbo wa chanzo wa faili uliyouchagua
+1. Sehemu ya _kivinjari_ ambapo utaona jinsi msimbo ulioandika utakavyonyeshwa
 
-The `App.js` file should be selected in the _Files_ section. The contents of that file in the _code editor_ should be:
+Faili ya `App.js` inapaswa kuchaguliwa katika sehemu ya _Files_. Maudhui ya faili hiyo katika _mhariri wa msimbo_ yanapaswa kuwa:
 
 ```jsx
 export default function Square() {
@@ -295,15 +295,15 @@ export default function Square() {
 }
 ```
 
-The _browser_ section should be displaying a square with a X in it like this:
+Sehemu ya _kivinjari_ inapaswa kuonyesha mraba na X ndani yake kama hii:
 
-![x-filled square](../images/tutorial/x-filled-square.png)
+![mraba wenye X](../images/tutorial/x-filled-square.png)
 
-Now let's have a look at the files in the starter code.
+Sasa hebu tuangalie faili katika msimbo wa mwanzo.
 
 #### `App.js` {/*appjs*/}
 
-The code in `App.js` creates a _component_. In React, a component is a piece of reusable code that represents a part of a user interface. Components are used to render, manage, and update the UI elements in your application. Let's look at the component line by line to see what's going on:
+Msimbo katika `App.js` unaunda _kiungo (component)_. Katika React, kiungo ni kipande cha msimbo kinachoweza kutumika tena kinachoonyeshea sehemu ya kiolesura cha mtumiaji. Viungo hutumika kutayarisha, kusimamia, na kuboresha vipengele vya UI katika programu yako. Hebu tuangalie kiungo mstari kwa mstari ili kuona kinachotokea:
 
 ```js {1}
 export default function Square() {
@@ -311,7 +311,7 @@ export default function Square() {
 }
 ```
 
-The first line defines a function called `Square`. The `export` JavaScript keyword makes this function accessible outside of this file. The `default` keyword tells other files using your code that it's the main function in your file.
+Mstari wa kwanza unafafanua function inayoitwa `Square`. Neno la JavaScript la `export` linaufanya function huu kupatikana nje ya faili hii. Neno la `default` linawambia faili zingine zinazotumia msimbo wako kwamba hii ndiyo function kuu katika faili yako.
 
 ```js {2}
 export default function Square() {
@@ -319,15 +319,15 @@ export default function Square() {
 }
 ```
 
-The second line returns a button. The `return` JavaScript keyword means whatever comes after is returned as a value to the caller of the function. `<button>` is a *JSX element*. A JSX element is a combination of JavaScript code and HTML tags that describes what you'd like to display. `className="square"` is a button property or *prop* that tells CSS how to style the button. `X` is the text displayed inside of the button and `</button>` closes the JSX element to indicate that any following content shouldn't be placed inside the button.
+Mstari wa pili unarudisha kitufe. Neno la JavaScript la `return` linamaanisha chochote kinachokuja baada ya hili kinarudishwa kama thamani kwa mtoaji wa function. `<button>` ni *elementi ya JSX*. Elementi ya JSX ni mchanganyiko wa msimbo wa JavaScript na lebo za HTML zinazofafanua kile ungependa kuonyesha. `className="square"` ni sifa ya kitufe au *prop* inayosema CSS jinsi ya kupamba kitufe hicho. `X` ni maandishi yanayoonyeshwa ndani ya kitufe na `</button>` inafunga elementi ya JSX ili kuonyesha kwamba yaliyomo mengine hayapaswi kuwekwa ndani ya kitufe hicho.
 
 #### `styles.css` {/*stylescss*/}
 
-Click on the file labeled `styles.css` in the _Files_ section of CodeSandbox. This file defines the styles for your React app. The first two _CSS selectors_ (`*` and `body`) define the style of large parts of your app while the `.square` selector defines the style of any component where the `className` property is set to `square`. In your code, that would match the button from your Square component in the `App.js` file.
+Bonyeza faili inayoitwa `styles.css` katika sehemu ya _Files_ ya CodeSandbox. Faili hii inafafanua mitindo kwa programu yako ya React. Wateuzi wawili wa _CSS_ wa kwanza (`*` na `body`) wanadhibiti mtindo wa sehemu kubwa za programu yako wakati mteuzi wa `.square` unadhibiti mtindo wa kiungo chochote ambapo sifa ya `className` imesetiwa kuwa `square`. Katika msimbo wako, hiyo italingana na kitufe kutoka kwa kiungo cha Square katika faili ya `App.js`.
 
 #### `index.js` {/*indexjs*/}
 
-Click on the file labeled `index.js` in the _Files_ section of CodeSandbox. You won't be editing this file during the tutorial but it is the bridge between the component you created in the `App.js` file and the web browser.
+Bonyeza faili inayoitwa `index.js` katika sehemu ya _Files_ ya CodeSandbox. Hutaedit faili hii wakati wa mafunzo, lakini ni daraja kati ya kiungo ulichokiumba katika faili ya `App.js` na kivinjari cha wavuti.
 
 ```jsx
 import { StrictMode } from 'react';
@@ -337,20 +337,20 @@ import './styles.css';
 import App from './App';
 ```
 
-Lines 1-5 bring all the necessary pieces together: 
+Mstari wa 1-5 unaleta vipande vyote muhimu pamoja:
 
 * React
-* React's library to talk to web browsers (React DOM)
-* the styles for your components
-* the component you created in `App.js`.
+* Maktaba ya React ya kuwasiliana na kivinjari cha wavuti (React DOM)
+* mitindo ya viungo vyako
+* kiungo ulichokiumba katika `App.js`.
 
-The remainder of the file brings all the pieces together and injects the final product into `index.html` in the `public` folder.
+Sehemu inayofuata ya faili inaleta vipengele vyote pamoja na kuingiza bidhaa ya mwisho katika `index.html` katika folda ya `public`.
 
-### Building the board {/*building-the-board*/}
+### Kujenga bodi {/*building-the-board*/}
 
-Let's get back to `App.js`. This is where you'll spend the rest of the tutorial.
+Tunarudi kwenye `App.js`. Hapa ndipo utakapokuwa ukitumia sehemu kubwa ya mafunzo haya.
 
-Currently the board is only a single square, but you need nine! If you just try and copy paste your square to make two squares like this:
+Kwa sasa bodi ni mraba mmoja tu, lakini unahitaji tisa! Ikiwa utajaribu kunakili na kubandika mraba wako ili kutengeneza mraba mbili kama hii:
 
 ```js {2}
 export default function Square() {
@@ -358,7 +358,7 @@ export default function Square() {
 }
 ```
 
-You'll get this error:
+Utapata kosa hili:
 
 <ConsoleBlock level="error">
 
@@ -366,7 +366,7 @@ You'll get this error:
 
 </ConsoleBlock>
 
-React components need to return a single JSX element and not multiple adjacent JSX elements like two buttons. To fix this you can use *Fragments* (`<>` and `</>`) to wrap multiple adjacent JSX elements like this:
+Viungo vya React vinahitaji kurudisha elementi moja ya JSX na sio elementi nyingi za JSX zilizo karibu kama vitufe viwili. Ili kutatua hili, unaweza kutumia *Fragments* (`<>` na `</>`) ili kuzunguka elementi nyingi za JSX zilizo karibu kama hii:
 
 ```js {3-6}
 export default function Square() {
@@ -379,17 +379,17 @@ export default function Square() {
 }
 ```
 
-Now you should see:
+Sasa unapaswa kuona:
 
-![two x-filled squares](../images/tutorial/two-x-filled-squares.png)
+![miraba miwili yenye X](../images/tutorial/two-x-filled-squares.png)
 
-Great! Now you just need to copy-paste a few times to add nine squares and...
+Vizuri! Sasa unahitaji tu kunakili na kubandika mara kadhaa ili kuongeza mraba tisa na...
 
-![nine x-filled squares in a line](../images/tutorial/nine-x-filled-squares.png)
+![miraba tisa yenye X katika mstari](../images/tutorial/nine-x-filled-squares.png)
 
-Oh no! The squares are all in a single line, not in a grid like you need for our board. To fix this you'll need to group your squares into rows with `div`s and add some CSS classes. While you're at it, you'll give each square a number to make sure you know where each square is displayed.
+La hasha! Miraba yote iko katika mstari mmoja tu, si katika gridi kama inavyohitajika kwa bodi yetu. Ili kutatua hili, utahitaji kundi la mraba zako katika safu na `div`s na kuongeza baadhi ya madarasa ya CSS. Wakati huo huo, utampa kila mraba nambari ili kuhakikisha unajua kila mraba unapoonyeshwa.
 
-In the `App.js` file, update the `Square` component to look like this:
+Katika faili ya `App.js`, sasisha kiungo cha `Square` ili kiwe kama hiki:
 
 ```js {3-19}
 export default function Square() {
@@ -415,11 +415,11 @@ export default function Square() {
 }
 ```
 
-The CSS defined in `styles.css` styles the divs with the `className` of `board-row`. Now that you've grouped your components into rows with the styled `div`s you have your tic-tac-toe board:
+CSS iliyoainishwa katika `styles.css` inapamba `div`s zenye `className` ya `board-row`. Sasa kwamba umejumuisha viungo vyako katika safu kwa kutumia `div`s zilizopambwa, sasa una bodi yako ya tic-tac-toe:
 
-![tic-tac-toe board filled with numbers 1 through 9](../images/tutorial/number-filled-board.png)
+![bodi ya tic-tac-toe iliyojaa nambari kutoka 1 hadi 9](../images/tutorial/number-filled-board.png)
 
-But you now have a problem. Your component named `Square`, really isn't a square anymore. Let's fix that by changing the name to `Board`:
+Lakini sasa una tatizo. Kiungo chako kiitwacho `Square`, kweli hakiko tena kama mraba. Hebu tufanye mabadiliko kwa kubadili jina na kuwa `Board`:
 
 ```js {1}
 export default function Board() {
@@ -427,7 +427,7 @@ export default function Board() {
 }
 ```
 
-At this point your code should look something like this:
+Katika hatua hii, msimbo wako unapaswa kuonekana namna hii:
 
 <Sandpack>
 
@@ -504,15 +504,15 @@ body {
 
 <Note>
 
-Psssst... That's a lot to type! It's okay to copy and paste code from this page. However, if you're up for a little challenge, we recommend only copying code that you've manually typed at least once yourself.
+Psssst... Kuna ni mengi ya kuandika! Ni sawa kunakili na kubandika msimbo kutoka ukurasa huu. Hata hivyo, ikiwa uko tayari kwa changamoto kidogo, tunapendekeza kunakili tu msimbo ambao umekuandika mwenyewe angalau mara moja.
 
 </Note>
 
-### Passing data through props {/*passing-data-through-props*/}
+### Kupitisha data kupitia kwa props {/*passing-data-through-props*/}
 
-Next, you'll want to change the value of a square from empty to "X" when the user clicks on the square. With how you've built the board so far you would need to copy-paste the code that updates the square nine times (once for each square you have)! Instead of copy-pasting, React's component architecture allows you to create a reusable component to avoid messy, duplicated code.
+Ifuatayo, utataka kubadili thamani ya mraba kutoka tupu hadi "X" wakati mtumiaji anabofya kwenye mraba. Kwa jinsi ulivyounda bodi hadi sasa, itabidi unakili na kubandika msimbo unaosasisha mraba mara tisa (moja kwa kila mraba ulionao)! Badala ya kunakili na kubandika, usanifu wa viungo vya React unakuwezesha kuunda kiungo kinachoweza kutumika tena ili kuepuka msimbo unaojirudia.
 
-First, you are going to copy the line defining your first square (`<button className="square">1</button>`) from your `Board` component into a new `Square` component:
+Kwanza, utachukua mstari unaofafanua mraba wako wa kwanza (`<button className="square">1</button>`) kutoka kwa kiungo chako cha `Board` na kuhamisha katika kiungo kipya cha `Square`:
 
 ```js {1-3}
 function Square() {
@@ -524,7 +524,7 @@ export default function Board() {
 }
 ```
 
-Then you'll update the Board component to render that `Square` component using JSX syntax:
+Kisha utasasisha kiungo cha Board ili kionyeshe kiungo hicho cha `Square` kwa kutumia sintaksia ya JSX:
 
 ```js {5-19}
 // ...
@@ -551,15 +551,15 @@ export default function Board() {
 }
 ```
 
-Note how unlike the browser `div`s, your own components `Board` and `Square` must start with a capital letter. 
+Angalia jinsi, kinyume na `div`s za kivinjari, viungo vyako `Board` na `Square` lazima vianze na herufi kubwa.
 
-Let's take a look:
+Hebu tuangalie:
 
-![one-filled board](../images/tutorial/board-filled-with-ones.png)
+![bodi moja iliyojaa](../images/tutorial/board-filled-with-ones.png)
 
-Oh no! You lost the numbered squares you had before. Now each square says "1". To fix this, you will use *props* to pass the value each square should have from the parent component (`Board`) to its child (`Square`).
+La hasha! Ulipoteza mraba yenye nambari ulizokuwa nazo awali. Sasa kila mraba inasema "1". Ili kutatua hili, utatumia *props* kupitisha thamani ambayo kila mraba inapaswa kuwa nayo kutoka kwa kiungo cha mzazi (`Board`) hadi kwa mtoto wake (`Square`).
 
-Update the `Square` component to read the `value` prop that you'll pass from the `Board`:
+Sasasisha kiungo cha `Square` ili kisome prop ya `value` ambayo utapitia kutoka kwa `Board`:
 
 ```js {1}
 function Square({ value }) {
@@ -567,9 +567,9 @@ function Square({ value }) {
 }
 ```
 
-`function Square({ value })` indicates the Square component can be passed a prop called `value`.
+`function Square({ value })` inaonyesha kuwa kiungo cha Mraba kinaweza kupitishiwa prop iitwayo `value`.
 
-Now you want to display that `value` instead of `1` inside every square. Try doing it like this:
+Sasa unataka kuonyesha hiyo `value` badala ya `1` ndani ya kila mraba. Jaribu kufanya hivyo kama hivi:
 
 ```js {2}
 function Square({ value }) {
@@ -577,11 +577,11 @@ function Square({ value }) {
 }
 ```
 
-Oops, this is not what you wanted:
+Ooh, hii siyo unachotaka:
 
-![value-filled board](../images/tutorial/board-filled-with-value.png)
+![bodi yenye value](../images/tutorial/board-filled-with-value.png)
 
-You wanted to render the JavaScript variable called `value` from your component, not the word "value". To "escape into JavaScript" from JSX, you need curly braces. Add curly braces around `value` in JSX like so:
+Ulitaka kutekeleza variable ya JavaScript iitwayo `value` kutoka kwa kiungo chako, sio neno "value". Ili "kutoroka kwenda JavaScript" kutoka kwa JSX, unahitaji mabano ya curly. Ongeza mabano ya curly kuzunguka `value` katika JSX kama hivi:
 
 ```js {2}
 function Square({ value }) {
@@ -589,11 +589,11 @@ function Square({ value }) {
 }
 ```
 
-For now, you should see an empty board:
+Kwa sasa, unapaswa kuona bodi tupu:
 
-![empty board](../images/tutorial/empty-board.png)
+![bodi tupu](../images/tutorial/empty-board.png)
 
-This is because the `Board` component hasn't passed the `value` prop to each `Square` component it renders yet. To fix it you'll add the `value` prop to each `Square` component rendered by the `Board` component:
+Hii ni kwa sababu kiungo cha `Board` hakijapitisha prop ya `value` kwa kila kiungo cha `Square` kinachochora bado. Ili kutatua hili, utaongeza prop ya `value` kwa kila kiungo cha `Square` kinachochora na `Board`:
 
 ```js {5-7,10-12,15-17}
 export default function Board() {
@@ -619,11 +619,11 @@ export default function Board() {
 }
 ```
 
-Now you should see a grid of numbers again:
+Sasa unapaswa kuona gridi ya nambari tena:
 
-![tic-tac-toe board filled with numbers 1 through 9](../images/tutorial/number-filled-board.png)
+![bodi ya tic-tac-toe iliyojaa nambari kutoka 1 hadi 9](../images/tutorial/number-filled-board.png)
 
-Your updated code should look like this:
+Msimbo wako wa sasisho unapaswa kuonekana kama huu:
 
 <Sandpack>
 
@@ -702,9 +702,9 @@ body {
 
 </Sandpack>
 
-### Making an interactive component {/*making-an-interactive-component*/}
+### Kutengeneza kipengele kishirikishi {/*making-an-interactive-component*/}
 
-Let's fill the `Square` component with an `X` when you click it. Declare a function called `handleClick` inside of the `Square`. Then, add `onClick` to the props of the button JSX element returned from the `Square`:
+Hebu tujaze kipengele cha `Square` na `X` unapoibofya. Tangaza function (function) iitwayo `handleClick` ndani ya `Square`. Kisha, ongeza `onClick` kwenye props za kipengele cha button kilichorejeshwa kutoka kwa `Square`:
 
 ```js {2-4,9}
 function Square({ value }) {
@@ -723,19 +723,19 @@ function Square({ value }) {
 }
 ```
 
-If you click on a square now, you should see a log saying `"clicked!"` in the _Console_ tab at the bottom of the _Browser_ section in CodeSandbox. Clicking the square more than once will log `"clicked!"` again. Repeated console logs with the same message will not create more lines in the console. Instead, you will see an incrementing counter next to your first `"clicked!"` log.
+Ukibofya mraba sasa, utaona ujumbe wa log `"clicked!"` kwenye tabo ya _Console_ chini ya sehemu ya _Browser_ katika CodeSandbox. Kubofya mraba zaidi ya mara moja kutaonyesha tena `"clicked!"`. Log zinazojirudia zenye ujumbe sawa hazitaongeza mistari zaidi kwenye console. Badala yake, utaona kaunta inayoongezeka karibu na log yako ya kwanza `"clicked!"`.
 
 <Note>
 
-If you are following this tutorial using your local development environment, you need to open your browser's Console. For example, if you use the Chrome browser, you can view the Console with the keyboard shortcut **Shift + Ctrl + J** (on Windows/Linux) or **Option + ⌘ + J** (on macOS).
+Ikiwa unafuata mafunzo haya kwa kutumia mazingira ya maendeleo ya ndani, unahitaji kufungua Console ya kivinjari chako. Kwa mfano, ikiwa unatumia kivinjari cha Chrome, unaweza kuona Console kwa njia ya mkato ya kibodi **Shift + Ctrl + J** (kwenye Windows/Linux) au **Option + ⌘ + J** (kwenye macOS).
 
 </Note>
 
-As a next step, you want the Square component to "remember" that it got clicked, and fill it with an "X" mark. To "remember" things, components use *state*.
+Hatua inayofuata, unataka kipengele cha Square "kumbuka" kuwa kilibofya, na kujaza kwa alama ya "X". Ili "kukumbuka" mambo, vipengele hutumia *hali* (*state*).
 
-React provides a special function called `useState` that you can call from your component to let it "remember" things. Let's store the current value of the `Square` in state, and change it when the `Square` is clicked.
+React inatoa function maalum iitwayo `useState` ambayo unaweza kuiita kutoka kwa kipengele chako ili kuifanya "ikumbuke" mambo. Hebu tuweke thamani ya sasa ya `Square` katika hali, na tuiibadilishe mraba inapobofya.
 
-Import `useState` at the top of the file. Remove the `value` prop from the `Square` component. Instead, add a new line at the start of the `Square` that calls `useState`. Have it return a state variable called `value`:
+Ingiza `useState` juu ya faili. Ondoa prop ya `value` kutoka kwenye kipengele cha `Square`. Badala yake, ongeza mstari mpya mwanzoni mwa `Square` unaoita `useState`. Iwe irudishe hali inayoitwa `value`:
 
 ```js {1,3,4}
 import { useState } from 'react';
@@ -747,9 +747,9 @@ function Square() {
     //...
 ```
 
-`value` stores the value and `setValue` is a function that can be used to change the value. The `null` passed to `useState` is used as the initial value for this state variable, so `value` here starts off equal to `null`.
+`value` huhifadhi thamani na `setValue` ni function inayoweza kutumika kubadilisha thamani. `null` inayotumwa kwa `useState` inatumika kama thamani ya awali ya hali hii, kwa hivyo `value` hapa inaanza ikiwa sawa na `null`.
 
-Since the `Square` component no longer accepts props anymore, you'll remove the `value` prop from all nine of the Square components created by the Board component:
+Kwa kuwa kipengele cha `Square` hakikubali tena props, utaondoa prop ya `value` kutoka kwa vipengele vyote tisa vya `Square` vilivyoundwa na kipengele cha Board:
 
 ```js {6-8,11-13,16-18}
 // ...
@@ -776,7 +776,7 @@ export default function Board() {
 }
 ```
 
-Now you'll change `Square` to display an "X" when clicked. Replace the `console.log("clicked!");` event handler with `setValue('X');`. Now your `Square` component looks like this:
+Sasa utabadilisha `Square` ili kuonyesha "X" inapobofya. Badilisha mshughulikaji wa tukio `console.log("clicked!");` na `setValue('X');`. Sasa kipengele chako cha `Square` kinaonekana hivi:
 
 ```js {5}
 function Square() {
@@ -797,13 +797,13 @@ function Square() {
 }
 ```
 
-By calling this `set` function from an `onClick` handler, you're telling React to re-render that `Square` whenever its `<button>` is clicked. After the update, the `Square`'s `value` will be `'X'`, so you'll see the "X" on the game board. Click on any Square, and "X" should show up:
+Kwa kuwaita function hii ya `set` kutoka kwa mshughulikaji wa `onClick`, unaiambia React ifanye upya utengenezaji wa `Square` kila wakati `<button>` yake inapobofya. Baada ya sasisho, `value` ya `Square` itakuwa `'X'`, kwa hivyo utaona "X" kwenye ubao wa mchezo. Bofya Square yoyote, na "X" itaonekana:
 
-![adding xes to board](../images/tutorial/tictac-adding-x-s.gif)
+![Kuongeza X kwenye ubao](../images/tutorial/tictac-adding-x-s.gif)
 
-Each Square has its own state: the `value` stored in each Square is completely independent of the others. When you call a `set` function in a component, React automatically updates the child components inside too.
+Kila Square ina hali yake: thamani ya `value` iliyohifadhiwa kwenye kila Square ni huru kabisa kwa nyinginezo. Unapobadilisha hali kwa kuita function ya `set`, React huboresha pia vipengele vya watoto vilivyo ndani. 
 
-After you've made the above changes, your code will look like this:
+Baada ya mabadiliko haya, msimbo wako utaonekana hivi:
 
 <Sandpack>
 
@@ -897,37 +897,37 @@ body {
 
 </Sandpack>
 
-### React Developer Tools {/*react-developer-tools*/}
+### React Developer Tools za {/*react-developer-tools*/}
 
-React DevTools let you check the props and the state of your React components. You can find the React DevTools tab at the bottom of the _browser_ section in CodeSandbox:
+React DevTools hukuruhusu kuangalia *props* na *state* za vipengele vyako vya React. Unaweza kupata kichupo cha React DevTools chini ya sehemu ya *browser* katika CodeSandbox:
 
-![React DevTools in CodeSandbox](../images/tutorial/codesandbox-devtools.png)
+![React DevTools katika CodeSandbox](../images/tutorial/codesandbox-devtools.png)
 
-To inspect a particular component on the screen, use the button in the top left corner of React DevTools:
+Ili kuchunguza kipengele fulani kwenye skrini, tumia kitufe kilicho kwenye kona ya juu kushoto ya React DevTools:
 
-![Selecting components on the page with React DevTools](../images/tutorial/devtools-select.gif)
+![Kuchagua vipengele kwenye ukurasa na React DevTools](../images/tutorial/devtools-select.gif)
 
 <Note>
 
-For local development, React DevTools is available as a [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/), and [Edge](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil) browser extension. Install it, and the *Components* tab will appear in your browser Developer Tools for sites using React.
+Kwa maendeleo ya ndani (local development), React DevTools inapatikana kama [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/), na [Edge](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil) *browser extension*. Isakinishe, na kichupo cha *Components* kitaonekana kwenye Zana za Watengenezaji wa kivinjari chako kwa tovuti zinazotumia React.
 
 </Note>
 
-## Completing the game {/*completing-the-game*/}
+## Kukamilisha Mchezo {/*completing-the-game*/}
 
-By this point, you have all the basic building blocks for your tic-tac-toe game. To have a complete game, you now need to alternate placing "X"s and "O"s on the board, and you need a way to determine a winner.
+Hadi kufikia sasa, unayo sehemu zote za msingi za mchezo wako wa *tic-tac-toe*. Ili kukamilisha mchezo, unahitaji kubadilisha kuweka "X" na "O" kwenye ubao, na pia unahitaji njia ya kuamua mshindi.
 
-### Lifting state up {/*lifting-state-up*/}
+### Kuinua *Hali* Juu {/*lifting-state-up*/}
 
-Currently, each `Square` component maintains a part of the game's state. To check for a winner in a tic-tac-toe game, the `Board` would need to somehow know the state of each of the 9 `Square` components.
+Kwa sasa, kila kipengele cha `Square` kinahifadhi sehemu ya *state* ya mchezo. Ili kuangalia mshindi kwenye mchezo wa *tic-tac-toe*, kipengele cha `Board` kitalazimika kujua hali ya kila moja ya vipengele 9 vya `Square`.
 
-How would you approach that? At first, you might guess that the `Board` needs to "ask" each `Square` for that `Square`'s state. Although this approach is technically possible in React, we discourage it because the code becomes difficult to understand, susceptible to bugs, and hard to refactor. Instead, the best approach is to store the game's state in the parent `Board` component instead of in each `Square`. The `Board` component can tell each `Square` what to display by passing a prop, like you did when you passed a number to each Square.
+Ungeweza kushughulikia hili vipi? Kwanza, unaweza kudhani kwamba `Board` inahitaji "kuuliza" kila `Square` kuhusu hali ya `Square` hiyo. Ingawa mbinu hii inawezekana kimitambo katika React, haipendekezwi kwa sababu msimbo unakuwa mgumu kuelewa, unakabiliwa na hitilafu, na ni vigumu kurekebisha. Badala yake, njia bora ni kuhifadhi *state* ya mchezo katika kipengele cha mzazi `Board` badala ya kila `Square`. Kipengele cha `Board` kinaweza kuambia kila `Square` nini cha kuonyesha kwa kupitisha *prop*, kama ulivyofanya ulipopitisha namba kwa kila `Square`.
 
-**To collect data from multiple children, or to have two child components communicate with each other, declare the shared state in their parent component instead. The parent component can pass that state back down to the children via props. This keeps the child components in sync with each other and with their parent.**
+**Ili kukusanya data kutoka kwa watoto wengi, au kufanya vipengele viwili vya watoto kuwasiliana, tangaza *hali* iliyoshirikiwa kwenye kipengele cha mzazi badala yake. Kipengele cha mzazi kinaweza kupitisha *hali* hiyo kurudi chini kwa watoto kupitia *props*. Hii husaidia vipengele vya watoto kuwa katika usawa na kila mmoja na mzazi wao.**
 
-Lifting state into a parent component is common when React components are refactored.
+Kuinua *state* kwenye kipengele cha mzazi ni jambo la kawaida linapokuja suala la kufanyia marekebisho vipengele vya React.
 
-Let's take this opportunity to try it out. Edit the `Board` component so that it declares a state variable named `squares` that defaults to an array of 9 nulls corresponding to the 9 squares:
+Hebu tujaribu hili. Hariri kipengele cha `Board` ili kitangaze *state variable* iitwayo `squares` ambayo chaguo-msingi lake ni safu ya null 9 inayolingana na mraba 9:
 
 ```js {3}
 // ...
@@ -939,13 +939,13 @@ export default function Board() {
 }
 ```
 
-`Array(9).fill(null)` creates an array with nine elements and sets each of them to `null`. The `useState()` call around it declares a `squares` state variable that's initially set to that array. Each entry in the array corresponds to the value of a square. When you fill the board in later, the `squares` array will look like this:
+`Array(9).fill(null)` huunda safu yenye vipengele tisa na huweka kila kimoja sawa na `null`. Wito wa `useState()` unaozunguka hiyo hutangaza *state variable* ya `squares` ambayo awali imewekwa kuwa safu hiyo. Kila ingizo kwenye safu linahusiana na thamani ya mraba. Unapojaza ubao baadaye, safu ya `squares` itaonekana hivi:
 
 ```jsx
 ['O', null, 'X', 'X', 'X', 'O', 'O', null, null]
 ```
 
-Now your `Board` component needs to pass the `value` prop down to each `Square` that it renders:
+Sasa kipengele chako cha `Board` kinahitaji kupitisha *prop* ya `value` kwenda kwa kila `Square` kinachotengeneza:
 
 ```js {6-8,11-13,16-18}
 export default function Board() {
@@ -972,7 +972,7 @@ export default function Board() {
 }
 ```
 
-Next, you'll edit the `Square` component to receive the `value` prop from the Board component. This will require removing the Square component's own stateful tracking of `value` and the button's `onClick` prop:
+Kisha, utahariri kipengele cha `Square` ili kipokee *prop* ya `value` kutoka kwa kipengele cha `Board`. Hii itahitaji kuondoa ufuatiliaji wa hali ya `value` wa ndani wa `Square` na *prop* ya `onClick` ya kitufe:
 
 ```js {1,2}
 function Square({value}) {
@@ -980,11 +980,11 @@ function Square({value}) {
 }
 ```
 
-At this point you should see an empty tic-tac-toe board:
+Kwa wakati huu, unapaswa kuona ubao wa *tic-tac-toe* tupu:
 
-![empty board](../images/tutorial/empty-board.png)
+![Ubao tupu](../images/tutorial/empty-board.png)
 
-And your code should look like this:
+Na msimbo wako unapaswa kuonekana hivi:
 
 <Sandpack>
 
@@ -1066,13 +1066,13 @@ body {
 
 </Sandpack>
 
-Each Square will now receive a `value` prop that will either be `'X'`, `'O'`, or `null` for empty squares.
+Kila Square sasa itapokea kipengele cha `value` ambacho kitakuwa aidha `'X'`, `'O'`, au `null` kwa Square ambazo hazijajazwa.
 
-Next, you need to change what happens when a `Square` is clicked. The `Board` component now maintains which squares are filled. You'll need to create a way for the `Square` to update the `Board`'s state. Since state is private to a component that defines it, you cannot update the `Board`'s state directly from `Square`.
+Sasa, unahitaji kubadilisha kile kinachotokea wakati Square inabonyezwa. Sehemu ya `Board` sasa inasimamia ni Square gani zimejazwa. Utahitaji kuunda njia kwa Square kuboresha hali ya `Board`. Kwa kuwa hali ni ya ndani kwa sehemu inayofafanua, huwezi kusasisha hali ya `Board` moja kwa moja kutoka Square.
 
-Instead, you'll pass down a function from the `Board` component to the `Square` component, and you'll have `Square` call that function when a square is clicked. You'll start with the function that the `Square` component will call when it is clicked. You'll call that function `onSquareClick`:
+Badala yake, utapunguza chini function kutoka kwa sehemu ya `Board` kwenda kwa sehemu ya `Square`, na utakuwa na `Square` kuita function hiyo wakati Square inapobonyezwa. Utaanza na function ambayo sehemu ya `Square` itaita inapobonyezwa. Utaita function hiyo `onSquareClick`:
 
-```js {3}
+```js
 function Square({ value }) {
   return (
     <button className="square" onClick={onSquareClick}>
@@ -1082,9 +1082,9 @@ function Square({ value }) {
 }
 ```
 
-Next, you'll add the `onSquareClick` function to the `Square` component's props:
+Baadaye, utaongeza function ya `onSquareClick` kwenye sifa za sehemu ya `Square`:
 
-```js {1}
+```js
 function Square({ value, onSquareClick }) {
   return (
     <button className="square" onClick={onSquareClick}>
@@ -1094,9 +1094,9 @@ function Square({ value, onSquareClick }) {
 }
 ```
 
-Now you'll connect the `onSquareClick` prop to a function in the `Board` component that you'll name `handleClick`. To connect `onSquareClick` to `handleClick` you'll pass a function to the `onSquareClick` prop of the first `Square` component: 
+Sasa utaunganisha kipengele cha `onSquareClick` na function katika sehemu ya `Board` utakayoita `handleClick`. Ili kuunganisha `onSquareClick` na `handleClick`, utapita function kwa kipengele cha `onSquareClick` cha sehemu ya kwanza ya `Square`:
 
-```js {7}
+```js
 export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
 
@@ -1109,9 +1109,9 @@ export default function Board() {
 }
 ```
 
-Lastly, you will define the `handleClick` function inside the Board component to update the `squares` array holding your board's state:
+Hatimaye, utafafanua function ya `handleClick` ndani ya sehemu ya Board ili kusasisha safu ya `squares` inayoshikilia hali ya ubao wako:
 
-```js {4-8}
+```js
 export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
 
@@ -1127,19 +1127,19 @@ export default function Board() {
 }
 ```
 
-The `handleClick` function creates a copy of the `squares` array (`nextSquares`) with the JavaScript `slice()` Array method. Then, `handleClick` updates the `nextSquares` array to add `X` to the first (`[0]` index) square.
+Kazi ya `handleClick` inaunda nakala ya safu ya `squares` (`nextSquares`) kwa kutumia mbinu ya `slice()` ya JavaScript. Kisha, `handleClick` inasasisha safu ya `nextSquares` ili kuongeza `X` kwenye Square ya kwanza (`[0]` index).
 
-Calling the `setSquares` function lets React know the state of the component has changed. This will trigger a re-render of the components that use the `squares` state (`Board`) as well as its child components (the `Square` components that make up the board).
+Kuita function ya `setSquares` kunamwambia React kwamba hali ya sehemu imebadilika. Hii itasababisha urejeshaji wa vipengele vinavyotumia hali ya `squares` (`Board`) pamoja na vipengele vya mtoto wake (vipengele vya `Square` vinavyounda ubao).
 
 <Note>
 
-JavaScript supports [closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) which means an inner function (e.g. `handleClick`) has access to variables and functions defined in an outer function (e.g. `Board`). The `handleClick` function can read the `squares` state and call the `setSquares` method because they are both defined inside of the `Board` function.
+JavaScript inawezesha [closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) ambayo inamaanisha function ya ndani (mfano, `handleClick`) ina ufikiaji wa vigezo na function zilizofafanuliwa katika function ya nje (mfano, `Board`). Kazi ya `handleClick` inaweza kusoma hali ya `squares` na kuita mbinu ya `setSquares` kwa sababu zote zipo ndani ya function ya `Board`.
 
 </Note>
 
-Now you can add X's to the board...  but only to the upper left square. Your `handleClick` function is hardcoded to update the index for the upper left square (`0`). Let's update `handleClick` to be able to update any square. Add an argument `i` to the `handleClick` function that takes the index of the square to update:
+Sasa unaweza kuongeza alama za X kwenye ubao... lakini tu kwenye Square ya juu kushoto. Kazi yako ya `handleClick` imewekewa mpangilio wa kuboresha index ya Square ya juu kushoto (`0`). Hebu tuiboreshe function ya `handleClick` ili iweze kuboresha Square yoyote. Ongeza hoja `i` kwenye function ya `handleClick` inayochukua index ya Square inayosasishwa:
 
-```js {4,6}
+```js
 export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
 
@@ -1155,13 +1155,13 @@ export default function Board() {
 }
 ```
 
-Next, you will need to pass that `i` to `handleClick`. You could try to set the `onSquareClick` prop of square to be `handleClick(0)` directly in the JSX like this, but it won't work:
+Sasa, utahitaji kupitisha `i` kwenda kwa `handleClick`. Unaweza kujaribu kuweka kipengele cha `onSquareClick` cha Square kuwa `handleClick(0)` moja kwa moja ndani ya JSX kama hii, lakini haitafanya function:
 
 ```jsx
 <Square value={squares[0]} onSquareClick={handleClick(0)} />
 ```
 
-Here is why this doesn't work. The `handleClick(0)` call will be a part of rendering the board component. Because `handleClick(0)` alters the state of the board component by calling `setSquares`, your entire board component will be re-rendered again. But this runs `handleClick(0)` again, leading to an infinite loop:
+Hii ndiyo sababu haifanyi function. Wito wa `handleClick(0)` utakuwa sehemu ya kurender sehemu ya Board. Kwa kuwa `handleClick(0)` hubadilisha hali ya sehemu ya Board kwa kuita `setSquares`, sehemu yako yote ya Board itarender tena. Lakini hii inaendesha tena `handleClick(0)`, ikisababisha mzunguko usio na mwisho:
 
 <ConsoleBlock level="error">
 
@@ -1169,15 +1169,15 @@ Too many re-renders. React limits the number of renders to prevent an infinite l
 
 </ConsoleBlock>
 
-Why didn't this problem happen earlier?
+Kwa nini tatizo hili halikutokea awali?
 
-When you were passing `onSquareClick={handleClick}`, you were passing the `handleClick` function down as a prop. You were not calling it! But now you are *calling* that function right away--notice the parentheses in `handleClick(0)`--and that's why it runs too early. You don't *want* to call `handleClick` until the user clicks!
+Ulipoipitisha `onSquareClick={handleClick}`, ulikuwa unapitisha function ya `handleClick` chini kama prop. Hukuiita! Lakini sasa unaiita function hiyo moja kwa moja--angalia mabano katika `handleClick(0)`--na ndiyo maana inatumika mapema. Hutaki *kuiita* `handleClick` mpaka mtumiaji atakapobonyeza!
 
-You could fix this by creating a function like `handleFirstSquareClick` that calls `handleClick(0)`, a function like `handleSecondSquareClick` that calls `handleClick(1)`, and so on. You would pass (rather than call) these functions down as props like `onSquareClick={handleFirstSquareClick}`. This would solve the infinite loop.
+Ungeweza kutatua hili kwa kuunda function kama `handleFirstSquareClick` inayotumia `handleClick(0)`, function kama `handleSecondSquareClick` inayotumia `handleClick(1)`, na kadhalika. Ungepitisha (badala ya kuitisha) function hizi chini kama sifa kama `onSquareClick={handleFirstSquareClick}`. Hili lingetatua infinite loop.
 
-However, defining nine different functions and giving each of them a name is too verbose. Instead, let's do this:
+Hata hivyo, kufafanua functions tisa tofauti na kuzipa kila moja jina ni njia ndefu. Badala yake, hebu tufanye hivi:
 
-```js {6}
+```js
 export default function Board() {
   // ...
   return (
@@ -1189,11 +1189,11 @@ export default function Board() {
 }
 ```
 
-Notice the new `() =>` syntax. Here, `() => handleClick(0)` is an *arrow function,* which is a shorter way to define functions. When the square is clicked, the code after the `=>` "arrow" will run, calling `handleClick(0)`.
+Angalia syntax mpya ya `() =>`. Hapa, `() => handleClick(0)` ni *arrow function,* ambayo ni njia fupi ya kufafanua function. Square inapobonyezwa, msimbo baada ya mshale `=>` utaendeshwa, ukipiga simu `handleClick(0)`.
 
-Now you need to update the other eight squares to call `handleClick` from the arrow functions you pass. Make sure that the argument for each call of the `handleClick` corresponds to the index of the correct square:
+Sasa unahitaji kusasisha Square zingine nane kuziita `handleClick` kutoka kwenye function za arrow unazopitisha. Hakikisha kwamba hoja kwa kila wito wa `handleClick` inalingana na index ya Square sahihi:
 
-```js {6-8,11-13,16-18}
+```js
 export default function Board() {
   // ...
   return (
@@ -1218,13 +1218,13 @@ export default function Board() {
 };
 ```
 
-Now you can again add X's to any square on the board by clicking on them:
+Sasa unaweza tena kuongeza alama za `X` kwenye Square yoyote kwenye ubao kwa kubonyeza juu yake:
 
-![filling the board with X](../images/tutorial/tictac-adding-x-s.gif)
+![kujaza ubao na X](../images/tutorial/tictac-adding-x-s.gif)
 
-But this time all the state management is handled by the `Board` component!
+Lakini wakati huu usimamizi wote wa hali unafanywa na sehemu ya `Board`!
 
-This is what your code should look like:
+Hivi ndivyo msimbo wako unavyopaswa kuonekana:
 
 <Sandpack>
 
@@ -1317,53 +1317,53 @@ body {
 
 </Sandpack>
 
-Now that your state handling is in the `Board` component, the parent `Board` component passes props to the child `Square` components so that they can be displayed correctly. When clicking on a `Square`, the child `Square` component now asks the parent `Board` component to update the state of the board. When the `Board`'s state changes, both the `Board` component and every child `Square` re-renders automatically. Keeping the state of all squares in the `Board` component will allow it to determine the winner in the future.
+Sasa kwamba usimamizi wa hali yako uko kwenye sehemu ya `Board`, sehemu ya mzazi `Board` hupitisha sifa kwa sehemu za mtoto `Square` ili ziweze kuonyeshwa ipasavyo. Unapobonyeza `Square`, sehemu ya mtoto `Square` sasa huomba sehemu ya mzazi `Board` kuboresha hali ya ubao. Hali ya `Board` inaposasishwa, sehemu zote mbili (`Board` na kila mtoto `Square`) hujirejesha moja kwa moja. Kuhifadhi hali ya squares zote kwenye sehemu ya `Board` kutaiwezesha kuamua mshindi baadaye.
 
-Let's recap what happens when a user clicks the top left square on your board to add an `X` to it:
+Hebu tuangalie tena kinachotokea wakati mtumiaji anapobonyeza square ya juu kushoto kwenye ubao wako ili kuongeza `X`:
 
-1. Clicking on the upper left square runs the function that the `button` received as its `onClick` prop from the `Square`. The `Square` component received that function as its `onSquareClick` prop from the `Board`. The `Board` component defined that function directly in the JSX. It calls `handleClick` with an argument of `0`.
-1. `handleClick` uses the argument (`0`) to update the first element of the `squares` array from `null` to `X`.
-1. The `squares` state of the `Board` component was updated, so the `Board` and all of its children re-render. This causes the `value` prop of the `Square` component with index `0` to change from `null` to `X`.
+1. Kubonyeza mraba wa juu kushoto huendesha function ambayo `button` ilipokea kama sifa yake ya `onClick` kutoka kwa `Square`. Sehemu ya `Square` ilipokea function hiyo kama sifa yake ya `onSquareClick` kutoka kwa `Board`. Sehemu ya `Board` ilifafanua function hiyo moja kwa moja ndani ya JSX. Inaita `handleClick` ikiwa na hoja ya `0`.
+1. `handleClick` hutumia hoja (`0`) kuboresha kipengele cha kwanza cha safu ya `squares` kutoka `null` hadi `X`.
+1. Hali ya `squares` ya sehemu ya `Board` ilisasishwa, hivyo `Board` na watoto wake wote hujirejesha. Hii husababisha sifa ya `value` ya sehemu ya `Square` yenye index `0` kubadilika kutoka `null` hadi `X`.
 
-In the end the user sees that the upper left square has changed from empty to having a `X` after clicking it.
+Hatimaye mtumiaji ataona kwamba square ya juu kushoto imebadilika kutoka tupu hadi kuwa na `X` baada ya kubonyeza.
 
 <Note>
 
-The DOM `<button>` element's `onClick` attribute has a special meaning to React because it is a built-in component. For custom components like Square, the naming is up to you. You could give any name to the `Square`'s `onSquareClick` prop or `Board`'s `handleClick` function, and the code would work the same. In React, it's conventional to use `onSomething` names for props which represent events and `handleSomething` for the function definitions which handle those events.
+Sifa ya `onClick` ya kipengele cha DOM `<button>` ina maana maalum kwa React kwa sababu ni kipengele kilichojengwa ndani. Kwa vipengele vilivyobuniwa kama `Square`, jina ni uamuzi wako. Unaweza kutoa jina lolote kwa sifa ya `onSquareClick` ya `Square` au function ya `handleClick` ya `Board`, na msimbo utaendelea kufanya function sawa. Katika React, ni kawaida kutumia majina kama `onSomething` kwa sifa zinazowakilisha matukio na `handleSomething` kwa function zinazoshughulikia matukio hayo.
 
 </Note>
 
-### Why immutability is important {/*why-immutability-is-important*/}
+### Kwa nini kutobadilika ni muhimu {/*why-immutability-is-important*/}
 
-Note how in `handleClick`, you call `.slice()` to create a copy of the `squares` array instead of modifying the existing array. To explain why, we need to discuss immutability and why immutability is important to learn.
+Angalia jinsi `handleClick` inavyoita `.slice()` kuunda nakala ya safu ya `squares` badala ya kubadilisha safu iliyopo. Ili kueleza kwa nini, tunahitaji kujadili kutobadilika na umuhimu wake.
 
-There are generally two approaches to changing data. The first approach is to _mutate_ the data by directly changing the data's values. The second approach is to replace the data with a new copy which has the desired changes. Here is what it would look like if you mutated the `squares` array:
+Kuna njia mbili kuu za kubadilisha data. Njia ya kwanza ni *kubadilisha* data kwa kubadilisha maadili ya data moja kwa moja. Njia ya pili ni kuchukua nafasi ya data kwa nakala mpya ambayo ina mabadiliko yaliyotakiwa. Hivi ndivyo ingekuwa kama ungebadilisha safu ya `squares`:
 
 ```jsx
 const squares = [null, null, null, null, null, null, null, null, null];
 squares[0] = 'X';
-// Now `squares` is ["X", null, null, null, null, null, null, null, null];
+// Sasa `squares` ni ["X", null, null, null, null, null, null, null, null];
 ```
 
-And here is what it would look like if you changed data without mutating the `squares` array:
+Na hivi ndivyo ingekuwa kama ungebadilisha data bila kubadilisha safu ya `squares`:
 
 ```jsx
 const squares = [null, null, null, null, null, null, null, null, null];
 const nextSquares = ['X', null, null, null, null, null, null, null, null];
-// Now `squares` is unchanged, but `nextSquares` first element is 'X' rather than `null`
+// Sasa `squares` haijabadilika, lakini kipengele cha kwanza cha `nextSquares` ni 'X' badala ya `null`
 ```
 
-The result is the same but by not mutating (changing the underlying data) directly, you gain several benefits.
+Matokeo ni sawa lakini kwa kutobadilisha (kutobadilisha data ya msingi) moja kwa moja, unapata faida kadhaa.
 
-Immutability makes complex features much easier to implement. Later in this tutorial, you will implement a "time travel" feature that lets you review the game's history and "jump back" to past moves. This functionality isn't specific to games--an ability to undo and redo certain actions is a common requirement for apps. Avoiding direct data mutation lets you keep previous versions of the data intact, and reuse them later.
+Kutobadilika kunafanya vipengele changamani kuwa rahisi kutekeleza. Baadaye katika mafunzo haya, utatekeleza kipengele cha "kusafiri muda" kinachokuruhusu kukagua historia ya mchezo na "kuruka nyuma" kwenye hatua za nyuma. Kipengele hiki si cha michezo tu--uwezo wa kufanya "undo" na "redo" ni hitaji la kawaida kwa programu. Kuepuka kubadilisha data moja kwa moja hukuruhusu kuweka matoleo ya awali ya data bila kuguswa, na kuyatumia tena baadaye.
 
-There is also another benefit of immutability. By default, all child components re-render automatically when the state of a parent component changes. This includes even the child components that weren't affected by the change. Although re-rendering is not by itself noticeable to the user (you shouldn't actively try to avoid it!), you might want to skip re-rendering a part of the tree that clearly wasn't affected by it for performance reasons. Immutability makes it very cheap for components to compare whether their data has changed or not. You can learn more about how React chooses when to re-render a component in [the `memo` API reference](/reference/react/memo).
+Pia kuna faida nyingine ya kutobadilika. Kwa chaguo-msingi, vipengele vyote vya mtoto hujirejesha moja kwa moja hali ya sehemu ya mzazi inaposasishwa. Hii ni pamoja na vipengele vya mtoto ambavyo havikuathiriwa na mabadiliko. Ingawa kurejesha si jambo linaloonekana moja kwa moja kwa mtumiaji (hutaki kujaribu kuliepuka kwa bidii!), unaweza kutaka kuzuia kurejesha sehemu ya mti ambayo wazi haikuathiriwa kwa sababu za utendaji. Kutobadilika hufanya iwe rahisi kwa vipengele kulinganisha kama data yao imebadilika au la. Unaweza kujifunza zaidi kuhusu jinsi React inavyochagua wakati wa kurejesha kipengele katika [marejeleo ya API ya `memo`](/reference/react/memo).
 
-### Taking turns {/*taking-turns*/}
+### Kuchukua zamu {/*taking-turns*/}
 
-It's now time to fix a major defect in this tic-tac-toe game: the "O"s cannot be marked on the board.
+Sasa ni wakati wa kurekebisha hitilafu kubwa katika mchezo huu wa tic-tac-toe: alama za "O" haziwezi kuwekewa alama kwenye ubao.
 
-You'll set the first move to be "X" by default. Let's keep track of this by adding another piece of state to the Board component:
+Utaweka hatua ya kwanza kuwa "X" kwa chaguo-msingi. Wacha tuweke rekodi ya hii kwa kuongeza kipengele kingine cha hali kwenye sehemu ya `Board`:
 
 ```js {2}
 function Board() {
@@ -1374,7 +1374,7 @@ function Board() {
 }
 ```
 
-Each time a player moves, `xIsNext` (a boolean) will be flipped to determine which player goes next and the game's state will be saved. You'll update the `Board`'s `handleClick` function to flip the value of `xIsNext`:
+Kila wakati mchezaji anapohamia, `xIsNext` (boolean) itabadilishwa ili kuamua ni mchezaji gani atakayefuata na hali ya mchezo itaokolewa. Utaboresha function ya `handleClick` ya `Board` ili kubadilisha thamani ya `xIsNext`:
 
 ```js {7,8,9,10,11,13}
 export default function Board() {
@@ -1398,15 +1398,15 @@ export default function Board() {
 }
 ```
 
-Now, as you click on different squares, they will alternate between `X` and `O`, as they should!
+Sasa, unapobonyeza squares tofauti, zitabadilisha kati ya `X` na `O`, kama inavyopaswa!
 
-But wait, there's a problem. Try clicking on the same square multiple times:
+Lakini subiri, kuna tatizo. Jaribu kubonyeza square moja mara kadhaa:
 
-![O overwriting an X](../images/tutorial/o-replaces-x.gif)
+![O ikibadilisha X](../images/tutorial/o-replaces-x.gif)
 
-The `X` is overwritten by an `O`! While this would add a very interesting twist to the game, we're going to stick to the original rules for now.
+`X` inabadilishwa na `O`! Ingawa hii ingeongeza mabadiliko ya kufurahisha kwenye mchezo, kwa sasa tutafuata sheria za awali.
 
-When you mark a square with a `X` or an `O` you aren't first checking to see if the square already has a `X` or `O` value. You can fix this by *returning early*. You'll check to see if the square already has a `X` or an `O`. If the square is already filled, you will `return` in the `handleClick` function early--before it tries to update the board state.
+Unapoweka square na `X` au `O` huchunguzi kwanza ikiwa square tayari ina thamani ya `X` au `O`. Unaweza kurekebisha hili kwa *kurejesha mapema*. Utachunguza ikiwa square tayari ina `X` au `O`. Ikiwa square tayari imejazwa, utarejesha ndani ya function ya `handleClick` mapema--kabla haijajaribu kusasisha hali ya ubao.
 
 ```js {2,3,4}
 function handleClick(i) {
@@ -1418,7 +1418,7 @@ function handleClick(i) {
 }
 ```
 
-Now you can only add `X`'s or `O`'s to empty squares! Here is what your code should look like at this point:
+Sasa unaweza tu kuongeza `X` au `O` kwenye squares tupu! Hivi ndivyo msimbo wako unavyopaswa kuonekana kwa sasa:
 
 <Sandpack>
 
@@ -1520,9 +1520,9 @@ body {
 
 </Sandpack>
 
-### Declaring a winner {/*declaring-a-winner*/}
+### Kutangaza mshindi {/*declaring-a-winner*/}
 
-Now that the players can take turns, you'll want to show when the game is won and there are no more turns to make. To do this you'll add a helper function called `calculateWinner` that takes an array of 9 squares, checks for a winner and returns `'X'`, `'O'`, or `null` as appropriate. Don't worry too much about the `calculateWinner` function; it's not specific to React:
+Sasa kwa kuwa wachezaji wanaweza kubadilishana zamu, utataka kuonyesha wakati mchezo umeshinda na hakuna zamu zaidi za kufanya. Ili kufanya hivyo, utaongeza function msaidizi inayoitwa `calculateWinner` ambayo inachukua safu ya squares 9, inachunguza mshindi na inarudisha `'X'`, `'O'`, au `null` kulingana na inavyostahili. Usijali sana kuhusu function ya `calculateWinner`; sio maalum kwa React:
 
 ```js src/App.js
 export default function Board() {
@@ -1552,11 +1552,11 @@ function calculateWinner(squares) {
 
 <Note>
 
-It does not matter whether you define `calculateWinner` before or after the `Board`. Let's put it at the end so that you don't have to scroll past it every time you edit your components.
+Haijalishi kama unafafanua `calculateWinner` kabla au baada ya `Board`. Wacha tuiweke mwisho ili usilazimike kusogeza chini kila mara unapohariri sehemu zako.
 
 </Note>
 
-You will call `calculateWinner(squares)` in the `Board` component's `handleClick` function to check if a player has won. You can perform this check at the same time you check if a user has clicked a square that already has a `X` or and `O`. We'd like to return early in both cases:
+Utaita `calculateWinner(squares)` ndani ya function ya `handleClick` ya sehemu ya `Board` ili kuchunguza ikiwa mchezaji ameshinda. Unaweza kufanya ukaguzi huu kwa wakati mmoja unapotathmini ikiwa mtumiaji amebofya square ambayo tayari ina `X` au `O`. Tunapenda kurudi mapema katika matukio yote mawili:
 
 ```js {2}
 function handleClick(i) {
@@ -1568,7 +1568,7 @@ function handleClick(i) {
 }
 ```
 
-To let the players know when the game is over, you can display text such as "Winner: X" or "Winner: O". To do that you'll add a `status` section to the `Board` component. The status will display the winner if the game is over and if the game is ongoing you'll display which player's turn is next:
+Ili kuwajulisha wachezaji wakati mchezo umekwisha, unaweza kuonyesha maandishi kama "Winner: X" au "Winner: O". Ili kufanya hivyo, utaongeza sehemu ya `status` kwa sehemu ya `Board`. Hali itaonyesha mshindi ikiwa mchezo umekwisha, na ikiwa mchezo unaendelea utaonyesha ni mchezaji gani atakayefuata:
 
 ```js {3-9,13}
 export default function Board() {
@@ -1590,7 +1590,7 @@ export default function Board() {
 }
 ```
 
-Congratulations! You now have a working tic-tac-toe game. And you've just learned the basics of React too. So _you_ are the real winner here. Here is what the code should look like:
+Hongera! Sasa una mchezo wa tic-tac-toe unaofanya function. Na pia umejifunza misingi ya React. Kwa hivyo _wewe_ ndiye mshindi halisi hapa. Hivi ndivyo msimbo unavyopaswa kuonekana:
 
 <Sandpack>
 
@@ -1721,37 +1721,37 @@ body {
 
 </Sandpack>
 
-## Adding time travel {/*adding-time-travel*/}
+## Kuongeza usafiri wa wakati {/*adding-time-travel*/}
 
-As a final exercise, let's make it possible to "go back in time" to the previous moves in the game.
+Kama mazoezi ya mwisho, wacha tufanye iwezekane "kurudi nyuma kwa wakati" kwa hatua zilizopita kwenye mchezo.
 
-### Storing a history of moves {/*storing-a-history-of-moves*/}
+### Kuhifadhi historia ya hatua {/*storing-a-history-of-moves*/}
 
-If you mutated the `squares` array, implementing time travel would be very difficult.
+Ikiwa ulirekebisha safu ya `squares`, kutekeleza usafiri wa wakati kungekuwa ngumu sana.
 
-However, you used `slice()` to create a new copy of the `squares` array after every move, and treated it as immutable. This will allow you to store every past version of the `squares` array, and navigate between the turns that have already happened.
+Walakini, ulitumia `slice()` kuunda nakala mpya ya safu ya `squares` baada ya kila hatua, na kuichukulia kama isiyobadilika. Hii itakuruhusu kuhifadhi kila toleo la zamani la safu ya `squares`, na kuvinjari zamu ambazo tayari zimetokea.
 
-You'll store the past `squares` arrays in another array called `history`, which you'll store as a new state variable. The `history` array represents all board states, from the first to the last move, and has a shape like this:
+Utahifadhi safu za zamani za `squares` kwenye safu nyingine iitwayo `history`, ambayo utahifadhi kama variable mpya ya hali. Safu ya `history` inawakilisha hali zote za ubao, kuanzia hatua ya kwanza hadi ya mwisho, na ina umbo kama hili:
 
 ```jsx
 [
-  // Before first move
+  // Kabla ya hatua ya kwanza
   [null, null, null, null, null, null, null, null, null],
-  // After first move
+  // Baada ya hatua ya kwanza
   [null, null, null, null, 'X', null, null, null, null],
-  // After second move
+  // Baada ya hatua ya pili
   [null, null, null, null, 'X', null, null, null, 'O'],
   // ...
 ]
 ```
 
-### Lifting state up, again {/*lifting-state-up-again*/}
+### Kupandisha hali juu, tena {/*lifting-state-up-again*/}
 
-You will now write a new top-level component called `Game` to display a list of past moves. That's where you will place the `history` state that contains the entire game history.
+Sasa utaandika sehemu mpya ya kiwango cha juu inayoitwa `Game` ili kuonyesha orodha ya hatua za zamani. Hapo ndipo utaweka hali ya `history` ambayo inajumuisha historia nzima ya mchezo.
 
-Placing the `history` state into the `Game` component will let you remove the `squares` state from its child `Board` component. Just like you "lifted state up" from the `Square` component into the `Board` component, you will now lift it up from the `Board` into the top-level `Game` component. This gives the `Game` component full control over the `Board`'s data and lets it instruct the `Board` to render previous turns from the `history`.
+Kuweka hali ya `history` kwenye sehemu ya `Game` itakuruhusu kuondoa hali ya `squares` kutoka kwa sehemu yake ya mtoto, `Board`. Kama ulivyopandisha hali kutoka kwa sehemu ya `Square` hadi kwenye `Board`, sasa utaipandisha kutoka kwa `Board` hadi kwenye sehemu kuu ya `Game`. Hii inampa `Game` udhibiti kamili wa data ya `Board` na kumruhusu kuelekeza `Board` kuchora zamu za awali kutoka kwa `history`.
 
-First, add a `Game` component with `export default`. Have it render the `Board` component and some markup:
+Kwanza, ongeza sehemu ya `Game` na `export default`. Ifanye ichore sehemu ya `Board` na markup fulani:
 
 ```js {1,5-16}
 function Board() {
@@ -1772,9 +1772,9 @@ export default function Game() {
 }
 ```
 
-Note that you are removing the `export default` keywords before the `function Board() {` declaration and adding them before the `function Game() {` declaration. This tells your `index.js` file to use the `Game` component as the top-level component instead of your `Board` component. The additional `div`s returned by the `Game` component are making room for the game information you'll add to the board later.
+Kumbuka kuwa unaondoa maneno ya `export default` kabla ya tamko la `function Board() {` na kuyaongeza kabla ya tamko la `function Game() {`. Hii inaeleza faili yako ya `index.js` kutumia sehemu ya `Game` kama sehemu kuu badala ya sehemu yako ya `Board`. `div` za ziada zilizorejeshwa na sehemu ya `Game` zinatoa nafasi kwa taarifa za mchezo utakazoongeza baadaye kwenye ubao.
 
-Add some state to the `Game` component to track which player is next and the history of moves:
+Ongeza hali fulani kwenye sehemu ya `Game` ili kufuatilia mchezaji anayefuata na historia ya hatua:
 
 ```js {2-3}
 export default function Game() {
@@ -1783,9 +1783,9 @@ export default function Game() {
   // ...
 ```
 
-Notice how `[Array(9).fill(null)]` is an array with a single item, which itself is an array of 9 `null`s.
+Kumbuka jinsi `[Array(9).fill(null)]` ilivyo safu yenye kipengele kimoja, ambacho chenyewe ni safu ya `null` tisa.
 
-To render the squares for the current move, you'll want to read the last squares array from the `history`. You don't need `useState` for this--you already have enough information to calculate it during rendering:
+Ili kuchora squares za hatua ya sasa, utataka kusoma safu ya mwisho ya squares kutoka kwa `history`. Huhitaji `useState` kwa hili--tayari una taarifa ya kutosha kuihesabu wakati wa kuchora:
 
 ```js {4}
 export default function Game() {
@@ -1795,7 +1795,7 @@ export default function Game() {
   // ...
 ```
 
-Next, create a `handlePlay` function inside the `Game` component that will be called by the `Board` component to update the game. Pass `xIsNext`, `currentSquares` and `handlePlay` as props to the `Board` component:
+Endelea na utengeneze function ya `handlePlay` ndani ya sehemu ya `Game` ambayo itaitwa na sehemu ya `Board` ili kusasisha mchezo. Pitisha `xIsNext`, `currentSquares`, na `handlePlay` kama props kwa sehemu ya `Board`:
 
 ```js {6-8,13}
 export default function Game() {
@@ -1816,7 +1816,7 @@ export default function Game() {
 }
 ```
 
-Let's make the `Board` component fully controlled by the props it receives. Change the `Board` component to take three props: `xIsNext`, `squares`, and a new `onPlay` function that `Board` can call with the updated squares array when a player makes a move. Next, remove the first two lines of the `Board` function that call `useState`:
+Ili kufanya kipengele cha `Board` kijitegemee kikamilifu kwa props kinachopokea, badilisha kipengele cha `Board` ili kichukue props tatu: `xIsNext`, `squares`, na function mpya ya `onPlay` ambayo `Board` inaweza kuitumia na orodha mpya ya viwanja (`squares`) wakati mchezaji anafanya harakati. Kisha, ondoa mistari miwili ya kwanza ya function ya `Board` inayoitwa `useState`:
 
 ```js {1}
 function Board({ xIsNext, squares, onPlay }) {
@@ -1827,7 +1827,7 @@ function Board({ xIsNext, squares, onPlay }) {
 }
 ```
 
-Now replace the `setSquares` and `setXIsNext` calls in `handleClick` in the `Board` component with a single call to your new `onPlay` function so the `Game` component can update the `Board` when the user clicks a square:
+Sasa badilisha miito ya `setSquares` na `setXIsNext` katika `handleClick` kwenye kipengele cha `Board` kwa wito mmoja wa function yako mpya ya `onPlay` ili kipengele cha `Game` kiweze kusasisha `Board` wakati mtumiaji anabofya mraba:
 
 ```js {12}
 function Board({ xIsNext, squares, onPlay }) {
@@ -1847,11 +1847,11 @@ function Board({ xIsNext, squares, onPlay }) {
 }
 ```
 
-The `Board` component is fully controlled by the props passed to it by the `Game` component. You need to implement the `handlePlay` function in the `Game` component to get the game working again.
+Kipengele cha `Board` sasa kimejitegemea kikamilifu kwa props kinachopokelewa kutoka kwa kipengele cha `Game`. Unahitaji kutekeleza function ya `handlePlay` ndani ya kipengele cha `Game` ili kufanya mchezo kufanya function tena.
 
-What should `handlePlay` do when called? Remember that Board used to call `setSquares` with an updated array; now it passes the updated `squares` array to `onPlay`.
+Kazi ya `handlePlay` inapaswa kufanya nini inapoitishwa? Kumbuka kwamba `Board` ilitumia kuita `setSquares` na orodha mpya; sasa inapitisha orodha ya `squares` iliyosasishwa kwa `onPlay`.
 
-The `handlePlay` function needs to update `Game`'s state to trigger a re-render, but you don't have a `setSquares` function that you can call any more--you're now using the `history` state variable to store this information. You'll want to update `history` by appending the updated `squares` array as a new history entry. You also want to toggle `xIsNext`, just as Board used to do:
+Kazi ya `handlePlay` inahitaji kusasisha hali ya `Game` ili kuamsha upya, lakini sasa huna function ya `setSquares` ambayo unaweza kuitumia tena--unatumia sasa kipengele cha `history` kuhifadhi habari hii. Utahitaji kusasisha `history` kwa kuongeza orodha iliyosasishwa ya `squares` kama kipengele kipya cha historia. Pia unataka kubadilisha `xIsNext`, kama vile `Board` ilivyofanya awali:
 
 ```js {4-5}
 export default function Game() {
@@ -1864,11 +1864,11 @@ export default function Game() {
 }
 ```
 
-Here, `[...history, nextSquares]` creates a new array that contains all the items in `history`, followed by `nextSquares`. (You can read the `...history` [*spread syntax*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) as "enumerate all the items in `history`".)
+Hapa, `[...history, nextSquares]` inaunda orodha mpya inayojumuisha vitu vyote katika `history`, ikifuatiwa na `nextSquares`. (Unaweza kusoma `...history` kama "orodhesha vitu vyote vilivyomo ndani ya `history`".)
 
-For example, if `history` is `[[null,null,null], ["X",null,null]]` and `nextSquares` is `["X",null,"O"]`, then the new `[...history, nextSquares]` array will be `[[null,null,null], ["X",null,null], ["X",null,"O"]]`.
+Kwa mfano, ikiwa `history` ni `[[null,null,null], ["X",null,null]]` na `nextSquares` ni `["X",null,"O"]`, basi orodha mpya `[...history, nextSquares]` itakuwa `[[null,null,null], ["X",null,null], ["X",null,"O"]]`.
 
-At this point, you've moved the state to live in the `Game` component, and the UI should be fully working, just as it was before the refactor. Here is what the code should look like at this point:
+Katika hatua hii, umehamisha hali (state) kuishi ndani ya kipengele cha `Game`, na UI inapaswa kuwa inafanya function kikamilifu, kama ilivyokuwa kabla ya mabadiliko. Hapa kuna vile nambari inavyopaswa kuonekana kwa wakati huu:
 
 <Sandpack>
 
@@ -2017,19 +2017,19 @@ body {
 
 </Sandpack>
 
-### Showing the past moves {/*showing-the-past-moves*/}
+### Kuonyesha moves za awali {/*showing-the-past-moves*/}
 
-Since you are recording the tic-tac-toe game's history, you can now display a list of past moves to the player.
+Kwa sababu unarekodi historia ya mchezo wa tic-tac-toe, sasa unaweza kuonyesha orodha ya harakati za zamani kwa mchezaji.
 
-React elements like `<button>` are regular JavaScript objects; you can pass them around in your application. To render multiple items in React, you can use an array of React elements.
+Vipengele vya React kama `<button>` ni vitu vya kawaida vya JavaScript; unaweza kuvitumia katika programu yako. Ili kutengeneza vitu vingi kwenye React, unaweza kutumia orodha ya vipengele vya React.
 
-You already have an array of `history` moves in state, so now you need to transform it to an array of React elements. In JavaScript, to transform one array into another, you can use the [array `map` method:](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+Tayari una orodha ya harakati za `history` katika hali, hivyo sasa unahitaji kubadilisha kuwa orodha ya vipengele vya React. Katika JavaScript, ili kubadilisha orodha moja kuwa nyingine, unaweza kutumia mbinu ya [array `map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
 
 ```jsx
 [1, 2, 3].map((x) => x * 2) // [2, 4, 6]
 ```
 
-You'll use `map` to transform your `history` of moves into React elements representing buttons on the screen, and display a list of buttons to "jump" to past moves. Let's `map` over the `history` in the Game component:
+Utatumia `map` kubadilisha `history` ya harakati zako kuwa vipengele vya React vinavyowakilisha vitufe kwenye skrini, na kuonyesha orodha ya vitufe ili "kuruka" hadi kwenye harakati za zamani. Hapa chini ni jinsi unavyoweza kutumia `map` kwenye historia katika kipengele cha Mchezo:
 
 ```js {11-13,15-27,35}
 export default function Game() {
@@ -2073,13 +2073,13 @@ export default function Game() {
 }
 ```
 
-You can see what your code should look like below. Note that you should see an error in the developer tools console that says: 
+Unaweza kuona jinsi kanuni yako inavyopaswa kuonekana hapa chini. Kumbuka kwamba unapaswa kuona hitilafu katika koni ya zana za mende inayosema:
 
 <ConsoleBlock level="warning">
 Warning: Each child in an array or iterator should have a unique "key" prop. Check the render method of &#96;Game&#96;.
 </ConsoleBlock>
   
-You'll fix this error in the next section.
+Utarekebisha hitilafu hii katika sehemu inayofuata.
 
 <Sandpack>
 
@@ -2247,24 +2247,24 @@ body {
 
 </Sandpack>
 
-As you iterate through `history` array inside the function you passed to `map`, the `squares` argument goes through each element of `history`, and the `move` argument goes through each array index: `0`, `1`, `2`, …. (In most cases, you'd need the actual array elements, but to render a list of moves you will only need indexes.)
+Unapozunguka kupitia orodha ya `history` ndani ya function unayopitisha kwa `map`, hoja ya `squares` inapitia kila kipengele cha `history`, na hoja ya `move` inapitia kila kiashiria cha orodha: `0`, `1`, `2`, …. (Katika hali nyingi, ungehitaji vipengele halisi vya orodha, lakini ili kuonyesha orodha ya harakati utahitaji tu viashiria.)
 
-For each move in the tic-tac-toe game's history, you create a list item `<li>` which contains a button `<button>`. The button has an `onClick` handler which calls a function called `jumpTo` (that you haven't implemented yet).
+Kwa kila harakati katika historia ya mchezo wa tic-tac-toe, unaunda kipengele cha orodha `<li>` kinachojumuisha kitufe `<button>`. Kitufe kinakuwa na kihariri cha `onClick` kinachoitwa function inayoitwa `jumpTo` (ambayo huja kuwa umeitekeleza bado).
 
-For now, you should see a list of the moves that occurred in the game and an error in the developer tools console. Let's discuss what the "key" error means.
+Kwa sasa, unapaswa kuona orodha ya harakati zilizotokea katika mchezo na hitilafu katika koni ya zana za mende. Hebu tujadili maana ya hitilafu ya "key."
 
-### Picking a key {/*picking-a-key*/}
+### Kuchagua kifunguo {/*picking-a-key*/}
 
-When you render a list, React stores some information about each rendered list item. When you update a list, React needs to determine what has changed. You could have added, removed, re-arranged, or updated the list's items.
+Unapo-render orodha, React huhifadhi baadhi ya habari kuhusu kila kipengele cha orodha kilichohonyeshwa. Unaposasisha orodha, React inahitaji kubaini kile kilichobadilika. Huenda umeongeza, kuondoa, kubadilisha, au kupanga upya vipengele vya orodha.
 
-Imagine transitioning from
+Fikiria unapohama kutoka
 
 ```html
 <li>Alexa: 7 tasks left</li>
 <li>Ben: 5 tasks left</li>
 ```
 
-to
+hadi
 
 ```html
 <li>Ben: 9 tasks left</li>
@@ -2272,7 +2272,7 @@ to
 <li>Alexa: 5 tasks left</li>
 ```
 
-In addition to the updated counts, a human reading this would probably say that you swapped Alexa and Ben's ordering and inserted Claudia between Alexa and Ben. However, React is a computer program and does not know what you intended, so you need to specify a _key_ property for each list item to differentiate each list item from its siblings. If your data was from a database, Alexa, Ben, and Claudia's database IDs could be used as keys.
+Mbali na idadi za sasa, mtu akiyasoma hili angeweza kusema kuwa umehamisha mpangilio wa Alexa na Ben na kuweka Claudia kati ya Alexa na Ben. Hata hivyo, React ni programu ya kompyuta na haiwezi kujua unachokusudia, hivyo unahitaji kutoa sifa ya _key_ kwa kila kipengele cha orodha ili kutofautisha kila kipengele cha orodha kutoka kwa wenzao. Ikiwa data yako ingeletwa kutoka kwa hifadhidata, IDs za Alexa, Ben, na Claudia za hifadhidata zinaweza kutumika kama funguo.
 
 ```js {1}
 <li key={user.id}>
@@ -2280,23 +2280,23 @@ In addition to the updated counts, a human reading this would probably say that 
 </li>
 ```
 
-When a list is re-rendered, React takes each list item's key and searches the previous list's items for a matching key. If the current list has a key that didn't exist before, React creates a component. If the current list is missing a key that existed in the previous list, React destroys the previous component. If two keys match, the corresponding component is moved.
+Wakati orodha inapojengwa tena, React hutumia kila funguo ya kipengele cha orodha na kutafuta vipengele vya orodha vilivyopita kwa funguo zinazofanana. Ikiwa orodha ya sasa ina funguo ambazo hazikuwapo hapo awali, React inaunda kipengele. Ikiwa orodha ya sasa inakosa funguo ambazo zilikuwepo kwenye orodha iliyopita, React inaharibu kipengele kilichopita. Ikiwa funguo mbili zinalingana, kipengele kinahama.
 
-Keys tell React about the identity of each component, which allows React to maintain state between re-renders. If a component's key changes, the component will be destroyed and re-created with a new state.
+Funguo zinamwambia React kuhusu utambulisho wa kila kipengele, jambo linalomwezesha React kudumisha hali kati ya uchoraji wa orodha. Ikiwa funguo ya kipengele inabadilika, kipengele kitaharibiwa na kuundwa upya na hali mpya.
 
-`key` is a special and reserved property in React. When an element is created, React extracts the `key` property and stores the key directly on the returned element. Even though `key` may look like it is passed as props, React automatically uses `key` to decide which components to update. There's no way for a component to ask what `key` its parent specified.
+`key` ni sifa maalum na iliyohifadhiwa katika React. Wakati kipengele kinaundwa, React hutolewa sifa ya `key` na kuihifadhi moja kwa moja kwenye kipengele kilichorejeshwa. Ingawa `key` inaweza kuonekana kama inapitishwa kama props, React hutumia kiotomatiki `key` kuamua ni vipengele vipi vya kusasishwa. Hakuna njia kwa kipengele kuuliza ni sifa gani ya `key` mzazi wake aliyoainisha.
 
-**It's strongly recommended that you assign proper keys whenever you build dynamic lists.** If you don't have an appropriate key, you may want to consider restructuring your data so that you do.
+**Inapendekezwa sana kwamba utoe funguo sahihi kila unapojenga orodha za mabadiliko.** Ikiwa huna kipeperushi sahihi, unaweza kutaka kufikiria tena muundo wa data yako ili kupata moja.
 
-If no key is specified, React will report an error and use the array index as a key by default. Using the array index as a key is problematic when trying to re-order a list's items or inserting/removing list items. Explicitly passing `key={i}` silences the error but has the same problems as array indices and is not recommended in most cases.
+Ikiwa hakuna kipeperushi kilichotolewa, React itaripoti hitilafu na kutumia kiashiria cha orodha kama kipeperushi kwa kutumika kwa default. Kutumia kiashiria cha orodha kama kipeperushi ni tatizo unapojaribu kupanga upya vipengele vya orodha au kuingiza/kuondoa vipengele vya orodha. Kupitia kipeperushi cha kipeperushi `key={i}` kunazuia hitilafu lakini kuna matatizo yale yale kama kiashiria cha orodha na halipendekezwi katika hali nyingi.
 
-Keys do not need to be globally unique; they only need to be unique between components and their siblings.
+Funguo hazihitaji kuwa za kipekee duniani; zinahitaji tu kuwa za kipekee kati ya vipengele na ndugu zao.
 
-### Implementing time travel {/*implementing-time-travel*/}
+### Kutekeleza safari ya wakati {/*implementing-time-travel*/}
 
-In the tic-tac-toe game's history, each past move has a unique ID associated with it: it's the sequential number of the move. Moves will never be re-ordered, deleted, or inserted in the middle, so it's safe to use the move index as a key.
+Katika historia ya mchezo wa tic-tac-toe, kila harakati ya zamani ina ID ya kipekee inayohusishwa nayo: ni nambari mfuatano ya harakati. Harakati hazitabadilishwa, kuondolewa, au kuingizwa katikati, hivyo ni salama kutumia kiashiria cha harakati kama kipeperushi.
 
-In the `Game` function, you can add the key as `<li key={move}>`, and if you reload the rendered game, React's "key" error should disappear:
+Katika function ya `Game`, unaweza kuongeza kipeperushi kama `<li key={move}>`, na ikiwa utaongeza upya mchezo ulioonyeshwa, hitilafu ya "key" ya React inapaswa kuondoka.
 
 ```js {4}
 const moves = history.map((squares, move) => {
@@ -2476,7 +2476,7 @@ body {
 
 </Sandpack>
 
-Before you can implement `jumpTo`, you need the `Game` component to keep track of which step the user is currently viewing. To do this, define a new state variable called `currentMove`, defaulting to `0`:
+Kabla hujatekeleza `jumpTo`, unahitaji kipengele cha `Game` kufuatilia ni hatua gani mchezaji anayoangalia kwa sasa. Ili kufanya hivyo, tengeneza kipengele kipya cha hali kinachoitwa `currentMove`, kilichoelea kuwa `0`:
 
 ```js {4}
 export default function Game() {
@@ -2488,7 +2488,7 @@ export default function Game() {
 }
 ```
 
-Next, update the `jumpTo` function inside `Game` to update that `currentMove`. You'll also set `xIsNext` to `true` if the number that you're changing `currentMove` to is even.
+Kisha, sasisha function ya `jumpTo` ndani ya `Game` ili kusasisha `currentMove`. Pia utaweka `xIsNext` kuwa `true` ikiwa nambari unayobadilisha `currentMove` kuwa ni nambari yenye uwiano wa mbili.
 
 ```js {4-5}
 export default function Game() {
@@ -2501,10 +2501,10 @@ export default function Game() {
 }
 ```
 
-You will now make two changes to the `Game`'s `handlePlay` function which is called when you click on a square.
+Sasa, utaleta mabadiliko mawili kwa function ya `handlePlay` ya `Game` inayoitwa unapobofya kwenye mraba.
 
-- If you "go back in time" and then make a new move from that point, you only want to keep the history up to that point. Instead of adding `nextSquares` after all items (`...` spread syntax) in `history`, you'll add it after all items in `history.slice(0, currentMove + 1)` so that you're only keeping that portion of the old history.
-- Each time a move is made, you need to update `currentMove` to point to the latest history entry.
+- Ikiwa "unarudi nyuma katika wakati" kisha kufanya harakati mpya kutoka kwa hatua hiyo, unataka kuhifadhi historia hadi hatua hiyo pekee. Badala ya kuongeza `nextSquares` baada ya vitu vyote (`...` sintaksia ya kueneza) katika `history`, utaongeza baada ya vitu vyote katika `history.slice(0, currentMove + 1)` ili kuhakikisha unahifadhi sehemu hiyo tu ya historia ya zamani.
+- Kila wakati harakati inapotokea, unahitaji kusasisha `currentMove` kuelekeza kwenye kipengele cha hivi karibuni cha historia.
 
 ```js {2-4}
 function handlePlay(nextSquares) {
@@ -2515,7 +2515,7 @@ function handlePlay(nextSquares) {
 }
 ```
 
-Finally, you will modify the `Game` component to render the currently selected move, instead of always rendering the final move:
+Mwishowe, utabadilisha kipengele cha `Game` ili kuonyesha harakati iliyochaguliwa kwa sasa, badala ya kuonyesha kila mara harakati ya mwisho:
 
 ```js {5}
 export default function Game() {
@@ -2528,7 +2528,7 @@ export default function Game() {
 }
 ```
 
-If you click on any step in the game's history, the tic-tac-toe board should immediately update to show what the board looked like after that step occurred.
+Ikiwa uta-bofya kwenye hatua yoyote katika historia ya mchezo, bodi ya tic-tac-toe inapaswa sasishwa mara moja kuonyesha kile kilichokuwa kwenye bodi baada ya hatua hiyo kutokea.
 
 <Sandpack>
 
@@ -2699,11 +2699,11 @@ body {
 
 </Sandpack>
 
-### Final cleanup {/*final-cleanup*/}
+### Kusafisha Mwisho {/*final-cleanup*/}
 
-If you look at the code very closely, you may notice that `xIsNext === true` when `currentMove` is even and `xIsNext === false` when `currentMove` is odd. In other words, if you know the value of `currentMove`, then you can always figure out what `xIsNext` should be.
+Ukichunguza kwa makini kanuni, utaona kuwa `xIsNext === true` wakati `currentMove` ni nambari yenye uwiano wa mbili na `xIsNext === false` wakati `currentMove` ni nambari isiyo na uwiano wa mbili. Kwa maneno mengine, ikiwa unajua thamani ya `currentMove`, basi unaweza daima kujua kile kinachopaswa kuwa `xIsNext`.
 
-There's no reason for you to store both of these in state. In fact, always try to avoid redundant state. Simplifying what you store in state reduces bugs and makes your code easier to understand. Change `Game` so that it doesn't store `xIsNext` as a separate state variable and instead figures it out based on the `currentMove`:
+Hakuna sababu ya kuhifadhi hizi mbili katika hali. Kwa kweli, daima jaribu kuepuka hali zinazojirudia. Kupunguza kile unachohifadhi katika hali kunapunguza hitilafu na kufanya kanuni yako kuwa rahisi kueleweka. Badilisha `Game` ili isihifadhi `xIsNext` kama kipengele cha hali kilichotenganishwa na badala yake ihesabu kwa kutegemea `currentMove`:
 
 ```js {4,11,15}
 export default function Game() {
@@ -2725,20 +2725,20 @@ export default function Game() {
 }
 ```
 
-You no longer need the `xIsNext` state declaration or the calls to `setXIsNext`. Now, there's no chance for `xIsNext` to get out of sync with `currentMove`, even if you make a mistake while coding the components.
+Sasa, huna haja tena ya tangazo la hali ya `xIsNext` au miito ya `setXIsNext`. Sasa, hakuna nafasi kwa `xIsNext` kutoka nje ya mfululizo na `currentMove`, hata kama utafanya makosa wakati wa kuandika vipengele.
 
-### Wrapping up {/*wrapping-up*/}
+### Kumalizia {/*wrapping-up*/}
 
-Congratulations! You've created a tic-tac-toe game that:
+Hongera! Umetengeneza mchezo wa tic-tac-toe ambao:
 
-- Lets you play tic-tac-toe,
-- Indicates when a player has won the game,
-- Stores a game's history as a game progresses,
-- Allows players to review a game's history and see previous versions of a game's board.
+- Unakuwezesha kucheza tic-tac-toe,
+- Unaonyesha wakati mchezaji ameshinda mchezo,
+- Unahifadhi historia ya mchezo kadri unavyosonga mbele,
+- Unaruhusu wachezaji kupitia historia ya mchezo na kuona matoleo ya zamani ya bodi ya mchezo.
 
-Nice work! We hope you now feel like you have a decent grasp of how React works.
+Kazi nzuri! Tunatumai sasa unahisi kama unaelewa vizuri jinsi React inavyofanya function.
 
-Check out the final result here:
+Tazama matokeo ya mwisho hapa:
 
 <Sandpack>
 
@@ -2907,12 +2907,12 @@ body {
 
 </Sandpack>
 
-If you have extra time or want to practice your new React skills, here are some ideas for improvements that you could make to the tic-tac-toe game, listed in order of increasing difficulty:
+Ikiwa una muda wa ziada au unataka kujitolea kuboresha ujuzi wako wa React, hapa kuna baadhi ya mawazo ya maboresho unayoweza kufanya kwa mchezo wa tic-tac-toe, yakiwa yameorodheshwa kwa mpangilio wa ugumu unaoongezeka:
 
-1. For the current move only, show "You are at move #..." instead of a button.
-1. Rewrite `Board` to use two loops to make the squares instead of hardcoding them.
-1. Add a toggle button that lets you sort the moves in either ascending or descending order.
-1. When someone wins, highlight the three squares that caused the win (and when no one wins, display a message about the result being a draw).
-1. Display the location for each move in the format (row, col) in the move history list.
+1. Kwa harakati ya sasa pekee, onyesha "Upo kwenye harakati #..." badala ya kitufe.
+1. Andika upya `Board` kutumia mizunguko miwili kutengeneza viwanja badala ya kuviandika kwa mikono.
+1. Ongeza kitufe cha kubadili kinachokuruhusu kupanga harakati kwa mpangilio wa kupanda au kushuka.
+1. Wakati mtu anashinda, angazia viwanja vitatu vilivyopunguza ushindi (na wakati hakuna anayeshinda, onyesha ujumbe kuhusu matokeo kuwa sare).
+1. Onyesha eneo la kila harakati kwa muundo (mstari, nguzo) kwenye orodha ya historia ya harakati.
 
-Throughout this tutorial, you've touched on React concepts including elements, components, props, and state. Now that you've seen how these concepts work when building a game, check out [Thinking in React](/learn/thinking-in-react) to see how the same React concepts work when building an app's UI.
+Katika mafunzo haya, umejifunza dhana za React ikiwemo vipengele, sehemu, props, na hali. Sasa kwamba umeona jinsi dhana hizi zinavyofanya function wakati wa kujenga mchezo, angalia [Kuwaza katika React](/learn/thinking-in-react) kuona jinsi dhana hizo za React zinavyofanya function wakati wa kujenga UI ya programu.
