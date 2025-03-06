@@ -169,24 +169,6 @@
       ]
     },
     {
-      "title": "Directives",
-      "path": "/reference/react/directives",
-      "canary": true,
-      "routes": [
-        {
-          "title": "'use client'",
-          "path": "/reference/react/use-client",
-          "canary": true
-        },
-        {
-          "title": "'use server'",
-          "path": "/reference/react/use-server",
-          "canary": true
-
-        }
-      ]
-    },
-    {
       "hasSectionHeader": true,
       "sectionHeader": "react-dom@{{version}}"
     },
