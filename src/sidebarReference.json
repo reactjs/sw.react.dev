@@ -159,7 +159,6 @@
       ]
     },
     {
-<<<<<<< HEAD
       "title": "Directives",
       "path": "/reference/react/directives",
       "canary": true,
@@ -178,8 +177,6 @@
       ]
     },
     {
-=======
->>>>>>> 9967ded394d85af74e0ecdbf00feeb7921a28142
       "hasSectionHeader": true,
       "sectionHeader": "react-dom@{{version}}"
     },
