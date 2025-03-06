@@ -261,15 +261,24 @@ In the previous step, you found two pieces of state in this application: the sea
 
 Katika hatua ya awali, ulipata vipande viwili vya hali katika programu hii: maandishi ya ingizo ya utafutaji, na thamani ya kisanduku cha kuteua. Katika mfano huu, daima huonekana pamoja, kwa hiyo ni mantiki kuviweka katika sehemu moja.
 
-<<<<<<< HEAD
 Sasa wacha tupitie mkakati wetu kwao:
-=======
-1. **Identify components that use state:**
-    * `ProductTable` needs to filter the product list based on that state (search text and checkbox value). 
-    * `SearchBar` needs to display that state (search text and checkbox value).
-2. **Find their common parent:** The first parent component both components share is `FilterableProductTable`.
-3. **Decide where the state lives**: We'll keep the filter text and checked state values in `FilterableProductTable`.
->>>>>>> 8201e7e9203321bd1648c3ab0b76ef943c9ec3ad
+
+Baada ya kutambua data ya hali ya chini zaidi ya programu yako, unahitaji kutambua ni kijenzi kipi kinawajibika kubadilisha hali hii, au *kinamiliki* hali. Kumbuka: React hutumia mtiririko wa data wa njia moja, kupitisha data chini ya daraja ya vijenzi kutoka kijenzi mzazi hadi cha mtoto. Huenda isieleweke mara moja ni kijenzi gani kinapaswa kumiliki hali gani. Hili linaweza kuwa gumu ikiwa wewe ni mgeni kwa dhana hii, lakini unaweza kuibaini kwa kufuata hatua hizi!
+
+Kwa kila sehemu ya hali katika programu yako:
+
+1. Tambua *kila* kijenzi kinachofanya kitu kulingana na hali hiyo.
+2. Tafuta kijenzi chao cha karibu zaidi cha mzazi--kijenzi kilicho juu yao yote katika daraja.
+3. Amua mahali ambapo hali inapaswa kudumu:
+     1. Mara nyingi, unaweza kuweka hali moja kwa moja kwenye mzazi wao wa kawaida.
+     2. Unaweza pia kuweka hali katika kijenzi fulani juu ya mzazi wao wa kawaida.
+     3. Iwapo huwezi kupata kipengele ambapo inaeleweka kumiliki jimbo, unda kijenzi kipya kwa ajili ya kushikilia hali pekee na uiongeze mahali fulani katika daraja juu ya kijenzi mzazi cha kawaida.
+
+In the previous step, you found two pieces of state in this application: the search input text, and the thamani of the checkbox. In this example, they always appear together, so it makes sense to put them into the same place.
+
+Katika hatua ya awali, ulipata vipande viwili vya hali katika programu hii: maandishi ya ingizo ya utafutaji, na thamani ya kisanduku cha kuteua. Katika mfano huu, daima huonekana pamoja, kwa hiyo ni mantiki kuviweka katika sehemu moja.
+
+Sasa wacha tupitie mkakati wetu kwao:
 
 1. **Tambua vijenzi vinavyotumia hali:**
      * `ProductTable` inahitaji kuchuja orodha ya bidhaa kulingana na hali hiyo (maandishi ya utafutaji na thamani ya kisanduku cha kuteua).
