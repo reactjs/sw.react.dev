@@ -2247,7 +2247,11 @@ body {
 
 </Sandpack>
 
+<<<<<<< HEAD
 Unapozunguka kupitia orodha ya `history` ndani ya function unayopitisha kwa `map`, hoja ya `squares` inapitia kila kipengele cha `history`, na hoja ya `move` inapitia kila kiashiria cha orodha: `0`, `1`, `2`, …. (Katika hali nyingi, ungehitaji vipengele halisi vya orodha, lakini ili kuonyesha orodha ya harakati utahitaji tu viashiria.)
+=======
+As you iterate through the `history` array inside the function you passed to `map`, the `squares` argument goes through each element of `history`, and the `move` argument goes through each array index: `0`, `1`, `2`, …. (In most cases, you'd need the actual array elements, but to render a list of moves you will only need indexes.)
+>>>>>>> e9a7cb1b6ca1659b42d81555ecef0cd554b7a983
 
 Kwa kila harakati katika historia ya mchezo wa tic-tac-toe, unaunda kipengele cha orodha `<li>` kinachojumuisha kitufe `<button>`. Kitufe kinakuwa na kihariri cha `onClick` kinachoitwa function inayoitwa `jumpTo` (ambayo huja kuwa umeitekeleza bado).
 
