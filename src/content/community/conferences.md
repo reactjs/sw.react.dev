@@ -59,7 +59,7 @@ February 12-13,  2026. In-person in New Delhi, India
 ### React Paris 2026 {/*react-paris-2026*/}
 March 26 - 27, 2026. In-person in Paris, France (hybrid event)
 
-[Website](https://react.paris/) - [Twitter](https://x.com/BeJS_)
+[Website](https://www.reactuniverseconf.com/) - [Twitter](https://twitter.com/react_native_eu) - [LinkedIn](https://www.linkedin.com/events/reactuniverseconf7163919537074118657/)
 
 
 ### CityJS London 2026 {/*cityjs-london-2026*/}
