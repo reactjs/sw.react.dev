@@ -142,7 +142,7 @@ export function Page({
           />
         </Head>
       )}
-      <SocialBanner />
+      {/* <SocialBanner /> */}
       <TopNav
         section={section}
         routeTree={routeTree}
