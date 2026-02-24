@@ -142,6 +142,37 @@ April 3 (Reanimated Training) + April 4 (Conference), 2025. Paris, France.
 
 [Website](https://reactnativeconnection.io/) - [X](https://x.com/reactnativeconn) - [Bluesky](https://bsky.app/profile/reactnativeconnect.bsky.social)
 
+
+### React Norway 2025 {/*react-norway-2025*/}
+June 13, 2025. In-person in Oslo, Norway + remote (virtual event)
+
+[Website](https://reactnorway.com/) - [Twitter](https://x.com/ReactNorway)
+
+### CityJS Athens 2025 {/*cityjs-athens*/}
+May 27 - 31, 2025. In-person in Athens, Greece
+
+[Website](https://athens.cityjsconf.org/) - [Twitter](https://x.com/cityjsconf) - [Bluesky](https://bsky.app/profile/cityjsconf.bsky.social)
+
+### App.js Conf 2025 {/*appjs-conf-2025*/}
+May 28 - 30, 2025. In-person in Kraków, Poland + remote
+
+[Website](https://appjs.co) - [Twitter](https://twitter.com/appjsconf)
+
+### CityJS London 2025 {/*cityjs-london*/}
+April 23 - 25, 2025. In-person in London, UK
+
+[Website](https://london.cityjsconf.org/) - [Twitter](https://x.com/cityjsconf) -  [Bluesky](https://bsky.app/profile/cityjsconf.bsky.social)
+
+### React Paris 2025 {/*react-paris-2025*/}
+March 20 - 21, 2025. In-person in Paris, France (hybrid event)
+
+[Website](https://react.paris/) - [Twitter](https://x.com/BeJS_) - [YouTube](https://www.youtube.com/playlist?list=PL53Z0yyYnpWitP8Zv01TSEQmKLvuRh_Dj)
+
+### React Native Connection 2025 {/*react-native-connection-2025*/}
+April 3 (Reanimated Training) + April 4 (Conference), 2025. Paris, France.
+
+[Website](https://reactnativeconnection.io/) - [X](https://x.com/reactnativeconn) - [Bluesky](https://bsky.app/profile/reactnativeconnect.bsky.social)
+
 ### React Day Berlin 2024 {/*react-day-berlin-2024*/}
 December 13 & 16, 2024. In-person in Berlin, Germany + remote (hybrid event)
 
