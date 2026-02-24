@@ -63,7 +63,7 @@ March 26 - 27, 2026. In-person in Paris, France (hybrid event)
 ### React Nexus 2025 {/*react-nexus-2025*/}
 July 03 - 05, 2025. In-person in Bangalore, India
 
-[Website](https://reactnexus.com/) - [Twitter](https://x.com/ReactNexus) - [Bluesky](https://bsky.app/profile/reactnexus.com) - [Linkedin](https://www.linkedin.com/company/react-nexus) - [YouTube](https://www.youtube.com/reactify_in)
+[Website](https://appjs.co) - [Twitter](https://twitter.com/appjsconf)
 
 ### React Summit 2025 {/*react-summit-2025*/}
 June 13 - 17, 2025. In-person in Amsterdam, Netherlands + remote (hybrid event)
