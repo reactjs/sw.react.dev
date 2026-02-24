@@ -60,10 +60,10 @@ March 26 - 27, 2026. In-person in Paris, France (hybrid event)
 ## Past Conferences {/*past-conferences*/}
 
 
-### React Nexus 2025 {/*react-nexus-2025*/}
-July 03 - 05, 2025. In-person in Bangalore, India
+### React Norway 2025 {/*react-norway-2025*/}
+June 13, 2025. In-person in Oslo, Norway + remote (virtual event)
 
-[Website](https://appjs.co) - [Twitter](https://twitter.com/appjsconf)
+[Website](https://reactnorway.com/) - [Twitter](https://x.com/ReactNorway)
 
 ### React Summit 2025 {/*react-summit-2025*/}
 June 13 - 17, 2025. In-person in Amsterdam, Netherlands + remote (hybrid event)
