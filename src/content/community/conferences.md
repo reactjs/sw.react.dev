@@ -60,10 +60,10 @@ March 26 - 27, 2026. In-person in Paris, France (hybrid event)
 ## Past Conferences {/*past-conferences*/}
 
 
-### CityJS London 2025 {/*cityjs-london*/}
-April 23 - 25, 2025. In-person in London, UK
+### React Nexus 2025 {/*react-nexus-2025*/}
+July 03 - 05, 2025. In-person in Bangalore, India
 
-[Website](https://london.cityjsconf.org/) - [Twitter](https://x.com/cityjsconf) -  [Bluesky](https://bsky.app/profile/cityjsconf.bsky.social)
+[Website](https://appjs.co) - [Twitter](https://twitter.com/appjsconf)
 
 ### React Summit 2025 {/*react-summit-2025*/}
 June 13 - 17, 2025. In-person in Amsterdam, Netherlands + remote (hybrid event)

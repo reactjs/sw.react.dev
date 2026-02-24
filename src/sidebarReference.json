@@ -107,7 +107,7 @@
         {
           "title": "<Activity>",
           "path": "/reference/react/Activity",
-          "version": "experimental"
+          "version": "canary"
         },
         {
           "title": "<ViewTransition>",
@@ -161,6 +161,23 @@
           "title": "experimental_taintUniqueValue",
           "path": "/reference/react/experimental_taintUniqueValue",
           "version": "experimental"
+        },
+        {
+          "title": "unstable_addTransitionType",
+          "path": "/reference/react/addTransitionType",
+          "version": "experimental"
+        }
+      ]
+    },
+    {
+      "title": "Directives",
+      "path": "/reference/react/directives",
+      "canary": true,
+      "routes": [
+        {
+          "title": "'use client'",
+          "path": "/reference/react/use-client",
+          "canary": true
         },
         {
           "title": "unstable_addTransitionType",
