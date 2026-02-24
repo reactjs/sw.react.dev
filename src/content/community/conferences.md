@@ -20,6 +20,11 @@ October 2-4, 2025. Alicante, Spain.
 
 [Website](https://reactalicante.es/) - [Twitter](https://x.com/ReactAlicante) - [Bluesky](https://bsky.app/profile/reactalicante.es) - [YouTube](https://www.youtube.com/channel/UCaSdUaITU1Cz6PvC97A7e0w)
 
+### RenderCon Kenya 2025 {/*rendercon-kenya-2025*/}
+October 04, 2025. Nairobi, Kenya
+
+[Website](https://rendercon.org/) - [Twitter](https://twitter.com/renderconke) - [LinkedIn](https://www.linkedin.com/company/renderconke/) - [YouTube](https://www.youtube.com/channel/UC0bCcG8gHUL4njDOpQGcMIA)
+
 ### React Conf 2025 {/*react-conf-2025*/}
 October 7-8, 2025. Henderson, Nevada, USA and free livestream
 
@@ -55,10 +60,10 @@ March 26 - 27, 2026. In-person in Paris, France (hybrid event)
 ## Past Conferences {/*past-conferences*/}
 
 
-### React Nexus 2025 {/*react-nexus-2025*/}
-July 03 - 05, 2025. In-person in Bangalore, India
+### CityJS London 2025 {/*cityjs-london*/}
+April 23 - 25, 2025. In-person in London, UK
 
-[Website](https://reactnexus.com/) - [Twitter](https://x.com/ReactNexus) - [Bluesky](https://bsky.app/profile/reactnexus.com) - [Linkedin](https://www.linkedin.com/company/react-nexus) - [YouTube](https://www.youtube.com/reactify_in)
+[Website](https://london.cityjsconf.org/) - [Twitter](https://x.com/cityjsconf) -  [Bluesky](https://bsky.app/profile/cityjsconf.bsky.social)
 
 ### React Summit 2025 {/*react-summit-2025*/}
 June 13 - 17, 2025. In-person in Amsterdam, Netherlands + remote (hybrid event)
@@ -89,16 +94,6 @@ April 23 - 25, 2025. In-person in London, UK
 March 20 - 21, 2025. In-person in Paris, France (hybrid event)
 
 [Website](https://react.paris/) - [Twitter](https://x.com/BeJS_) - [YouTube](https://www.youtube.com/playlist?list=PL53Z0yyYnpWitP8Zv01TSEQmKLvuRh_Dj)
-
-### React Native Connection 2025 {/*react-native-connection-2025*/}
-April 3 (Reanimated Training) + April 4 (Conference), 2025. Paris, France.
-
-[Website](https://reactnativeconnection.io/) - [X](https://x.com/reactnativeconn) - [Bluesky](https://bsky.app/profile/reactnativeconnect.bsky.social)
-
-### React Paris 2025 {/*react-paris-2025*/}
-March 20 - 21, 2025. In-person in Paris, France (hybrid event)
-
-[Website](https://react.paris/) - [Twitter](https://x.com/BeJS_)
 
 ### React Native Connection 2025 {/*react-native-connection-2025*/}
 April 3 (Reanimated Training) + April 4 (Conference), 2025. Paris, France.
