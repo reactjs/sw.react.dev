@@ -283,7 +283,6 @@ Katika CodeSandbox utaona sehemu tatu kuu:
 
 ![CodeSandbox na msimbo wa mwanzo](../images/tutorial/react-starter-code-codesandbox.png)
 
-
 1. Sehemu ya _Files_ na orodha ya mafaili kama `App.js`, `index.js`, `styles.css` na folda inayoitwa `public`
 1. _Kihariri cha msimbo_ ambapo utaona msimbo wa chanzo wa faili uliyouchagua
 1. Sehemu ya _kivinjari_ ambapo utaona jinsi msimbo ulioandika utakavyonyeshwa
