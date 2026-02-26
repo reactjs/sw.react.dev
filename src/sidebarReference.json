@@ -177,7 +177,6 @@
       ]
     },
     {
-<<<<<<< HEAD
       "title": "Directives",
       "path": "/reference/react/directives",
       "canary": true,
@@ -196,8 +195,13 @@
       ]
     },
     {
-=======
->>>>>>> 9e1f5cd590fd066e72dda9022237bee30b499951
+          "title": "unstable_addTransitionType",
+          "path": "/reference/react/addTransitionType",
+          "version": "experimental"
+        }
+      ]
+    },
+    {
       "hasSectionHeader": true,
       "sectionHeader": "react-dom@{{version}}"
     },
