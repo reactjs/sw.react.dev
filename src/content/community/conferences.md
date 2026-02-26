@@ -71,67 +71,10 @@ April 14-17,  2026. In-person in London
 ## Past Conferences {/*past-conferences*/}
 
 
-### React Norway 2025 {/*react-norway-2025*/}
-June 13, 2025. In-person in Oslo, Norway + remote (virtual event)
+### React Nexus 2025 {/*react-nexus-2025*/}
+July 03 - 05, 2025. In-person in Bangalore, India
 
-[Website](https://reactnorway.com/) - [Twitter](https://x.com/ReactNorway)
-
-### React Summit US 2025 {/*react-summit-us-2025*/}
-November 18 - 21, 2025. In-person in New York, USA + remote (hybrid event)
-
-[Website](https://reactsummit.us/) - [Twitter](https://x.com/reactsummit)
-
-### React Advanced London 2025 {/*react-advanced-london-2025*/}
-November 28 & December 1, 2025. In-person in London, UK + online (hybrid event)
-
-[Website](https://reactadvanced.com/) - [Twitter](https://x.com/reactadvanced)
-
-### CityJS Singapore 2026 {/*cityjs-singapore-2026*/}
-February 4-6,  2026. In-person in Singapore
-
-[Website](https://india.cityjsconf.org/) - [Twitter](https://x.com/cityjsconf) - [Bluesky](https://bsky.app/profile/cityjsconf.bsky.social)
-
-### CityJS New Delhi 2026 {/*cityjs-newdelhi-2026*/}
-February 12-13,  2026. In-person in New Delhi, India
-
-[Website](https://india.cityjsconf.org/) - [Twitter](https://x.com/cityjsconf) - [Bluesky](https://bsky.app/profile/cityjsconf.bsky.social)
-
-
-### React Paris 2026 {/*react-paris-2026*/}
-March 26 - 27, 2026. In-person in Paris, France (hybrid event)
-
-[Website](https://athens.cityjsconf.org/) - [Twitter](https://x.com/cityjsconf) - [Bluesky](https://bsky.app/profile/cityjsconf.bsky.social)
-
-
-### CityJS London 2026 {/*cityjs-london-2026*/}
-April 14-17,  2026. In-person in London
-
-[Website](https://india.cityjsconf.org/) - [Twitter](https://x.com/cityjsconf) - [Bluesky](https://bsky.app/profile/cityjsconf.bsky.social)
-
-### CityJS London 2025 {/*cityjs-london*/}
-April 23 - 25, 2025. In-person in London, UK
-
-[Website](https://london.cityjsconf.org/) - [Twitter](https://x.com/cityjsconf) -  [Bluesky](https://bsky.app/profile/cityjsconf.bsky.social)
-
-### React Paris 2025 {/*react-paris-2025*/}
-March 20 - 21, 2025. In-person in Paris, France (hybrid event)
-
-[Website](https://react.paris/) - [Twitter](https://x.com/BeJS_) - [YouTube](https://www.youtube.com/playlist?list=PL53Z0yyYnpWitP8Zv01TSEQmKLvuRh_Dj)
-
-
-### CityJS London 2026 {/*cityjs-london-2026*/}
-April 14-17,  2026. In-person in London
-
-
-### React Norway 2025 {/*react-norway-2025*/}
-June 13, 2025. In-person in Oslo, Norway + remote (virtual event)
-
-[Website](https://reactnorway.com/) - [Twitter](https://x.com/ReactNorway)
-
-### CityJS Athens 2025 {/*cityjs-athens*/}
-May 27 - 31, 2025. In-person in Athens, Greece
-
-[Website](https://athens.cityjsconf.org/) - [Twitter](https://x.com/cityjsconf) - [Bluesky](https://bsky.app/profile/cityjsconf.bsky.social)
+[Website](https://reactnexus.com/) - [Twitter](https://x.com/ReactNexus) - [Bluesky](https://bsky.app/profile/reactnexus.com) - [Linkedin](https://www.linkedin.com/company/react-nexus) - [YouTube](https://www.youtube.com/reactify_in)
 
 ## Past Conferences {/*past-conferences*/}
 
@@ -155,12 +98,15 @@ April 3 (Reanimated Training) + April 4 (Conference), 2025. Paris, France.
 ### React Norway 2025 {/*react-norway-2025*/}
 June 13, 2025. In-person in Oslo, Norway + remote (virtual event)
 
+### React Norway 2025 {/*react-norway-2025*/}
+June 13, 2025. In-person in Oslo, Norway + remote (virtual event)
+
 [Website](https://reactnorway.com/) - [Twitter](https://x.com/ReactNorway)
 
 ### CityJS Athens 2025 {/*cityjs-athens*/}
 May 27 - 31, 2025. In-person in Athens, Greece
 
-[Website](https://reactnexus.com/) - [Twitter](https://x.com/ReactNexus) - [Bluesky](https://bsky.app/profile/reactnexus.com) - [Linkedin](https://www.linkedin.com/company/react-nexus) - [YouTube](https://www.youtube.com/reactify_in)
+[Website](https://athens.cityjsconf.org/) - [Twitter](https://x.com/cityjsconf) - [Bluesky](https://bsky.app/profile/cityjsconf.bsky.social)
 
 ### App.js Conf 2025 {/*appjs-conf-2025*/}
 May 28 - 30, 2025. In-person in Kraków, Poland + remote
