@@ -283,17 +283,10 @@ Katika CodeSandbox utaona sehemu tatu kuu:
 
 ![CodeSandbox na msimbo wa mwanzo](../images/tutorial/react-starter-code-codesandbox.png)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 1. Sehemu ya _Files_ na orodha ya mafaili kama `App.js`, `index.js`, `styles.css` na folda inayoitwa `public`
 1. _Kihariri cha msimbo_ ambapo utaona msimbo wa chanzo wa faili uliyouchagua
 1. Sehemu ya _kivinjari_ ambapo utaona jinsi msimbo ulioandika utakavyonyeshwa
-=======
-=======
-1. The _Files_ section with a list of files like `App.js`, `index.js`, `styles.css` in `src` folder and a folder called `public`
-1. The _code editor_ where you'll see the source code of your selected file
-1. The _browser_ section where you'll see how the code you've written will be displayed
->>>>>>> 38b52cfdf059b2efc5ee3223a758efe00319fcc7
 
 Faili ya `App.js` inapaswa kuchaguliwa katika sehemu ya _Files_. Maudhui ya faili hiyo katika _mhariri wa msimbo_ yanapaswa kuwa:
 
@@ -2255,13 +2248,7 @@ body {
 
 </Sandpack>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 Unapozunguka kupitia orodha ya `history` ndani ya function unayopitisha kwa `map`, hoja ya `squares` inapitia kila kipengele cha `history`, na hoja ya `move` inapitia kila kiashiria cha orodha: `0`, `1`, `2`, …. (Katika hali nyingi, ungehitaji vipengele halisi vya orodha, lakini ili kuonyesha orodha ya harakati utahitaji tu viashiria.)
-=======
-=======
-As you iterate through the `history` array inside the function you passed to `map`, the `squares` argument goes through each element of `history`, and the `move` argument goes through each array index: `0`, `1`, `2`, …. (In most cases, you'd need the actual array elements, but to render a list of moves you will only need indexes.)
->>>>>>> 38b52cfdf059b2efc5ee3223a758efe00319fcc7
 
 Kwa kila harakati katika historia ya mchezo wa tic-tac-toe, unaunda kipengele cha orodha `<li>` kinachojumuisha kitufe `<button>`. Kitufe kinakuwa na kihariri cha `onClick` kinachoitwa function inayoitwa `jumpTo` (ambayo huja kuwa umeitekeleza bado).
 
