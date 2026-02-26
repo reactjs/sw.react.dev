@@ -59,7 +59,7 @@ February 12-13,  2026. In-person in New Delhi, India
 ### React Paris 2026 {/*react-paris-2026*/}
 March 26 - 27, 2026. In-person in Paris, France (hybrid event)
 
-[Website](https://react.paris/) - [Twitter](https://x.com/BeJS_)
+[Website](https://www.reactuniverseconf.com/) - [Twitter](https://twitter.com/react_native_eu) - [LinkedIn](https://www.linkedin.com/events/reactuniverseconf7163919537074118657/)
 
 
 ### CityJS London 2026 {/*cityjs-london-2026*/}
@@ -76,10 +76,27 @@ July 03 - 05, 2025. In-person in Bangalore, India
 
 [Website](https://reactnexus.com/) - [Twitter](https://x.com/ReactNexus) - [Bluesky](https://bsky.app/profile/reactnexus.com) - [Linkedin](https://www.linkedin.com/company/react-nexus) - [YouTube](https://www.youtube.com/reactify_in)
 
-### React Summit 2025 {/*react-summit-2025*/}
-June 13 - 17, 2025. In-person in Amsterdam, Netherlands + remote (hybrid event)
+## Past Conferences {/*past-conferences*/}
 
-[Website](https://reactsummit.com/) - [Twitter](https://x.com/reactsummit)
+
+### CityJS London 2025 {/*cityjs-london*/}
+April 23 - 25, 2025. In-person in London, UK
+
+[Website](https://london.cityjsconf.org/) - [Twitter](https://x.com/cityjsconf) -  [Bluesky](https://bsky.app/profile/cityjsconf.bsky.social)
+
+### React Paris 2025 {/*react-paris-2025*/}
+March 20 - 21, 2025. In-person in Paris, France (hybrid event)
+
+[Website](https://react.paris/) - [Twitter](https://x.com/BeJS_) - [YouTube](https://www.youtube.com/playlist?list=PL53Z0yyYnpWitP8Zv01TSEQmKLvuRh_Dj)
+
+### React Native Connection 2025 {/*react-native-connection-2025*/}
+April 3 (Reanimated Training) + April 4 (Conference), 2025. Paris, France.
+
+[Website](https://reactnativeconnection.io/) - [X](https://x.com/reactnativeconn) - [Bluesky](https://bsky.app/profile/reactnativeconnect.bsky.social)
+
+
+### React Norway 2025 {/*react-norway-2025*/}
+June 13, 2025. In-person in Oslo, Norway + remote (virtual event)
 
 ### React Norway 2025 {/*react-norway-2025*/}
 June 13, 2025. In-person in Oslo, Norway + remote (virtual event)
