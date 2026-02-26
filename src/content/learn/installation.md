@@ -1,59 +1,57 @@
 ---
-title: Installation
+title: Ufungaji
 ---
 
 <Intro>
 
-React has been designed from the start for gradual adoption. You can use as little or as much React as you need. Whether you want to get a taste of React, add some interactivity to an HTML page, or start a complex React-powered app, this section will help you get started.
+React imeundwa tangu mwanzo ili uweze kuitumia unapotaka. Unaweza kutumia React kidogo au nyingi kadri unavyohitaji. Iwe unataka kupata ladha ya React, ongeza mwingiliano fulani kwenye ukurasa wa HTML, au uanzishe programu changamano inayoendeshwa na React, sehemu hii itakusaidia kuanza.
 
 </Intro>
 
-## Try React {/*try-react*/}
+## Jaribu React {/*try-react*/}
 
-You don't need to install anything to play with React. Try editing this sandbox!
+Huhitaji kusakinisha chochote ili kucheza na React. Jaribu kuhariri katika mazingira haya ya majaribio!
 
 <Sandpack>
 
 ```js
 function Greeting({ name }) {
-  return <h1>Hello, {name}</h1>;
+  return <h1>Habari, {name}</h1>;
 }
 
 export default function App() {
-  return <Greeting name="world" />
+  return <Greeting name="dunia" />
 }
 ```
 
 </Sandpack>
 
-You can edit it directly or open it in a new tab by pressing the "Fork" button in the upper right corner.
+Unaweza kuihariri moja kwa moja au kuifungua kwenye kichupo kipya kwa kubonyeza kitufe cha "Fork" kwenye kona ya juu kilia.
 
-Most pages in the React documentation contain sandboxes like this. Outside of the React documentation, there are many online sandboxes that support React: for example, [CodeSandbox](https://codesandbox.io/s/new), [StackBlitz](https://stackblitz.com/fork/react), or [CodePen.](https://codepen.io/pen?template=QWYVwWN)
+Kurasa nyingi katika hati za React zina mazingira ya majaribio kama hii. Nje ya hati za React, kuna mazingira ya majaribio mengi mtandaoni vinavyotumia React: kwa mfano, [CodeSandbox](https://codesandbox.io/s/new), [StackBlitz](https://stackblitz.com/fork/react), or [CodePen.](https://codepen.io/pen?template=QWYVwWN)
 
-To try React locally on your computer, [download this HTML page.](https://gist.githubusercontent.com/gaearon/0275b1e1518599bbeafcde4722e79ed1/raw/db72dcbf3384ee1708c4a07d3be79860db04bff0/example.html) Open it in your editor and in your browser!
+Ili kujaribu React kwenye kompyuta yako [download this HTML page.](https://gist.githubusercontent.com/gaearon/0275b1e1518599bbeafcde4722e79ed1/raw/db72dcbf3384ee1708c4a07d3be79860db04bff0/example.html) Ifungue kwenye kihariri chako na kwenye kivinjari chako!
 
-## Creating a React App {/*creating-a-react-app*/}
+## Kuunda Programu ya React {/*creating-a-react-app*/}
 
-If you want to start a new React app, you can [create a React app](/learn/creating-a-react-app) using a recommended framework.
+Ikiwa ungependa kuanzisha programu mpya ya React, unaweza [kuunda programu ya React](/learn/creating-a-react-app) kwa kutumia mfumo uliopendekezwa.
 
-## Build a React App from Scratch {/*build-a-react-app-from-scratch*/}
+## Unda Programu ya React kutoka Mwanzo {/*build-a-react-app-from-scratch*/}
 
-If a framework is not a good fit for your project, you prefer to build your own framework, or you just want to learn the basics of a React app you can [build a React app from scratch](/learn/build-a-react-app-from-scratch).
+Ikiwa mfumo haufai mradi wako, unapendelea kuunda mfumo wako mwenyewe, au unataka tu kujifunza misingi ya programu ya React unayoweza [kuunda programu ya React kuanzia mwanzo](/learn/build-a-react-app-from-scratch).
 
-## Add React to an existing project {/*add-react-to-an-existing-project*/}
+## Ongeza React kwa mradi uliopo {/*add-react-to-an-existing-project*/}
 
-If want to try using React in your existing app or a website, you can [add React to an existing project.](/learn/add-react-to-an-existing-project)
-
+Ikiwa ungependa kujaribu kutumia React katika programu yako iliyopo au tovuti, unaweza [kuongeza React kwa mradi uliopo.](/learn/add-react-to-an-existing-project)
 
 <Note>
 
-#### Should I use Create React App? {/*should-i-use-create-react-app*/}
+#### Nafaa kutumia Create React App {/*should-i-use-create-react-app*/}
 
-No. Create React App has been deprecated. For more information, see [Sunsetting Create React App](/blog/2025/02/14/sunsetting-create-react-app).
+Hapana. Create React App imeacha kutumika. Kwa maelezo zaidi, angalia [Machweo Create React App](/blog/2025/02/14/sunsetting-create-react-app).
 
 </Note>
 
-## Next steps {/*next-steps*/}
+## Hatua zinazofuata {/*next-steps*/}
 
-Head to the [Quick Start](/learn) guide for a tour of the most important React concepts you will encounter every day.
-
+Nenda kwenye mwongozo wa [Kuanza Haraka](/learn) kwa ziara ya dhana muhimu zaidi za React utakazokutana nazo kila siku.
