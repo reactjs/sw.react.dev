@@ -37,15 +37,9 @@ Anza kwa kuchora visanduku kuzunguka kila kijenzi na kijenzi kidogo kwenye kiigi
 
 Kulingana na msingi wako, unaweza kufikiria kugawanya muundo katika vijenzi kwa njia tofauti:
 
-<<<<<<< HEAD
 * **Programming**--tumia mbinu zile zile za kuamua ikiwa unapaswa kuunda kitendaji kipya au object. Mbinu moja kama hiyo ni [kanuni ya uwajibikaji mmoja (single responsibility principle)](https://en.wikipedia.org/wiki/Single_responsibility_principle), yaani, kijenzi kinapaswa kufanya jambo moja tu. Ikiwa kitaishia kukua, inapaswa kigawanywe kiwe vijenzi vidogo.
 * **CSS**--fikiria ni nini ungetengeneza viteule vya darasa. (Hatahivyo, vijenzi ni vidogo kwa kiasi fulani.)
 * **Design**--fikiria jinsi unavyoweza kupanga safu za muundo.
-=======
-* **Programming**--use the same techniques for deciding if you should create a new function or object. One such technique is the [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns), that is, a component should ideally only be concerned with one thing. If it ends up growing, it should be decomposed into smaller subcomponents. 
-* **CSS**--consider what you would make class selectors for. (However, components are a bit less granular.)
-* **Design**--consider how you would organize the design's layers.
->>>>>>> a1cc2ab4bf06b530f86a7049923c402baf86aca1
 
 Ikiwa JSON yako imeundwa vizuri, mara nyingi utapata kwamba inaelekeza kwa muundo wa vijenzi vya UI yako. Hiyo ni kwa sababu UI na miundo ya data mara nyingi huwa na usanifu sawa wa habari--yaani, umbo sawa. Tenganisha UI yako katika vijenzi, ambapo kila kijenzi kinalingana na kipande kimoja cha muundo yako wa data.
 
