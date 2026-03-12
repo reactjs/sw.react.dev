@@ -509,13 +509,11 @@ export function HomeContent() {
 
           <div className="mt-20 px-5 lg:px-0 mb-6 max-w-4xl text-center text-opacity-80">
             <div className="uwu-visible flex justify-center">
-              <Image
+              <img
                 alt="logo by @sawaratsuki1004"
                 title="logo by @sawaratsuki1004"
                 className="uwu-visible mb-10 lg:mb-8 h-24 lg:h-32"
                 src="/images/uwu.png"
-                width={313}
-                height={160}
               />
             </div>
             <Logo className="uwu-hidden text-brand dark:text-brand-dark w-24 lg:w-28 mb-10 lg:mb-8 mt-12 h-auto mx-auto self-start" />
@@ -804,12 +802,10 @@ const CommunityImages = memo(function CommunityImages({isLazy}) {
               className={cn(
                 'overflow-clip relative before:absolute before:inset-0 before:pointer-events-none before:-translate-x-full group-hover:before:animate-[shimmer_1s_forwards] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent transition-transform ease-in-out duration-300'
               )}>
-              <Image
+              <img
                 loading={isLazy ? 'lazy' : 'eager'}
                 src={src}
                 alt={alt}
-                width={800}
-                height={500}
                 className="aspect-[4/3] h-full w-full flex object-cover rounded-2xl bg-gray-10 dark:bg-gray-80"
               />
             </div>
@@ -1568,7 +1564,7 @@ function Cover({background, children}) {
       <div className="absolute inset-0 px-4 py-2 flex items-end bg-gradient-to-t from-black/40 via-black/0">
         {children}
       </div>
-      <Image
+      <img
         src={background}
         width={500}
         height={263}
@@ -1645,13 +1641,11 @@ function Thumbnail({video}) {
         <>
           <div className="transition-opacity mt-2.5 -space-x-2 flex flex-row w-full justify-center">
             {image.speakers.map((src, i) => (
-              <Image
+              <img
                 key={i}
                 className="h-8 w-8 border-2 shadow-md border-gray-70 object-cover rounded-full"
                 src={src}
                 alt=""
-                width={56}
-                height={54}
               />
             ))}
           </div>
