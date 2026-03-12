@@ -50,6 +50,7 @@ Kuna vijenzi vitano kwenye skrini hii:
 <CodeDiagram flip>
 
 <img src="/images/docs/s_thinking-in-react_ui_outline.png" width="500" style={{margin: '0 auto'}} />
+
 1. `FilterableProductTable` (kijivu) ina programu nzima.
 2. `SearchBar` (bluu) inapokea ingizo la mtumiaji.
 3. `ProductTable` (lavender) huonyesha na kuchuja orodha kulingana na ingizo la mtumiaji.

@@ -41,13 +41,20 @@ function CopyAsMarkdownButton() {
     return () => clearTimeout(timer);
   }, [copied]);
 
-  async function handleCopy() {
+  async function fetchPageBlob() {
     const cleanPath = asPath.split(/[?#]/)[0];
+    const res = await fetch(cleanPath + '.md');
+    if (!res.ok) throw new Error('Failed to fetch');
+    const text = await res.text();
+    return new Blob([text], {type: 'text/plain'});
+  }
+
+  async function handleCopy() {
     try {
-      const res = await fetch(cleanPath + '.md');
-      if (!res.ok) return;
-      const text = await res.text();
-      await navigator.clipboard.writeText(text);
+      await navigator.clipboard.write([
+        // Don't wait for the blob, or Safari will refuse clipboard access
+        new ClipboardItem({'text/plain': fetchPageBlob()}),
+      ]);
       setCopied(true);
     } catch {
       // Silently fail
@@ -76,7 +83,6 @@ function PageHeading({
   tags = [],
   breadcrumbs,
 }: PageHeadingProps) {
-  console.log('version', version);
   return (
     <div className="px-5 sm:px-12 pt-3.5">
       <div className="max-w-4xl ms-0 2xl:mx-auto">
