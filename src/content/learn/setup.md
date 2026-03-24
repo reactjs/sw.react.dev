@@ -1,28 +1,28 @@
 ---
-title: Mpangilio
+title: Setup
 ---
 <Intro>
 
-React huingiliana na zana kama vile kihariri, TypeScript, viendelezi (extensions) vya kivinjari, na compilers. Sehemu hii itakusaidia kuandaa mazingira yako ya kazi.
+React integrates with tools like editors, TypeScript, browser extensions, and compilers. This section will help you get your environment set up.
 
 </Intro>
 
-## Mpangilio wa Kihariri {/*editor-setup*/}
+## Editor Setup {/*editor-setup*/}
 
-Tazama [vihariri tunavyopendekeza](/learn/editor-setup) na ujifunze jinsi ya kuvipanga ili vifanye kazi na React.
+See our [recommended editors](/learn/editor-setup) and learn how to set them up to work with React.
 
-## Kutumia TypeScript {/*using-typescript*/}
+## Using TypeScript {/*using-typescript*/}
 
-TypeScript ni njia maarufu ya kuongeza maelezo ya aina (type definitions) kwenye kodi za JavaScript. [Jifunze jinsi ya kuunganisha TypeScript kwenye miradi yako ya React](/learn/typescript).
+TypeScript is a popular way to add type definitions to JavaScript codebases. [Learn how to integrate TypeScript into your React projects](/learn/typescript).
 
-## Zana za React Developer {/*react-developer-tools*/}
+## React Developer Tools {/*react-developer-tools*/}
 
-Zana za React Developer ni kiendelezi cha kivinjari kinachoweza kukagua vipengele vya React, kuhariri props na state, na kutambua matatizo ya utendakazi. Jifunze jinsi ya kuistakinisha [hapa](learn/react-developer-tools).
+React Developer Tools is a browser extension that can inspect React components, edit props and state, and identify performance problems. Learn how to install it [here](learn/react-developer-tools).
 
-## Compiler ya React {/*react-compiler*/}
+## React Compiler {/*react-compiler*/}
 
-React Compiler ni zana inayoboresha kitumizi chako cha React kiotomatiki. [Jifunze zaidi](/learn/react-compiler).
+React Compiler is a tool that automatically optimizes your React app. [Learn more](/learn/react-compiler).
 
-## Hatua zinazofuata {/*next-steps*/}
+## Next steps {/*next-steps*/}
 
-Nenda kwenye mwongozo wa [Anza Haraka](/learn) ili upate maelezo ya dhana muhimu zaidi za React utakazokutana nazo kila siku.
+Head to the [Quick Start](/learn) guide for a tour of the most important React concepts you will encounter every day.
