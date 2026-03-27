@@ -1,62 +1,62 @@
 ---
-title: Editor Setup
+title: Mpangilio wa Kihariri
 ---
 
 <Intro>
 
-A properly configured editor can make code clearer to read and faster to write. It can even help you catch bugs as you write them! If this is your first time setting up an editor or you're looking to tune up your current editor, we have a few recommendations.
+Kihariri kilichosawazishwa vizuri kinaweza kufanya kodi iwe rahisi kusoma na haraka kuandika. Inaweza hata kukusaidia kugundua makosa unapoandika! Ikiwa ni mara yako ya kwanza kupanga kihariri au unatafuta kuboresha kihariri chako cha sasa, tuna mapendekezo machache.
 
 </Intro>
 
 <YouWillLearn>
 
-* What the most popular editors are
-* How to format your code automatically
+* Vihariri maarufu zaidi ni vipi
+* Jinsi ya kupanga muundo wa kodi yako kiotomatiki
 
 </YouWillLearn>
 
-## Your editor {/*your-editor*/}
+## Kihariri chako {/*your-editor*/}
 
-[VS Code](https://code.visualstudio.com/) is one of the most popular editors in use today. It has a large marketplace of extensions and integrates well with popular services like GitHub. Most of the features listed below can be added to VS Code as extensions as well, making it highly configurable!
+[VS Code](https://code.visualstudio.com/) ni moja ya vihariri maarufu zaidi vinavyotumika leo. Ina soko kubwa la viendelezi na inaingiliana vizuri na huduma maarufu kama GitHub. Nyingi ya maumbili yalivyoorodheshwa hapa chini yanaweza kuongezwa kwenye VS Code kama viendelezi pia, na kuifanya iwe rahisi sana kuisuka!
 
-Other popular text editors used in the React community include:
+Vihariri vingine vya maandishi maarufu vinavyotumika katika jamii ya React ni pamoja na:
 
-* [WebStorm](https://www.jetbrains.com/webstorm/) is an integrated development environment designed specifically for JavaScript.
-* [Sublime Text](https://www.sublimetext.com/) has support for JSX and TypeScript, [syntax highlighting](https://stackoverflow.com/a/70960574/458193) and autocomplete built in.
-* [Vim](https://www.vim.org/) is a highly configurable text editor built to make creating and changing any kind of text very efficient. It is included as "vi" with most UNIX systems and with Apple OS X.
+* [WebStorm](https://www.jetbrains.com/webstorm/) ni mazingira jumuishi ya usanidi yaliyoundwa mahususi kwa ajili ya JavaScript.
+* [Sublime Text](https://www.sublimetext.com/) ina msaada wa JSX na TypeScript, [uangaziaji wa sintaksi](https://stackoverflow.com/a/70960574/458193) (syntax highlighting) na ukamilishaji wa maneno (autocomplete) uliomo ndani yake.
+* [Vim](https://www.vim.org/) ni kihariri cha maandishi kinachoweza kusukwa sana kilichoundwa ili kufanya uundaji na ubadilishaji wa aina yoyote ya maandishi kuwa wenye ufanisi mkubwa. Inajumuishwa kama "vi" kwenye mifumo mingi ya UNIX na Apple OS X.
 
-## Recommended text editor features {/*recommended-text-editor-features*/}
+## Maumbile ya kihariri cha maandishi yanavyopendekezwa {/*recommended-text-editor-features*/}
 
-Some editors come with these features built in, but others might require adding an extension. Check to see what support your editor of choice provides to be sure!
+Baadhi ya vihariri huja na maumbile haya yakiwa yamejengwa ndani, lakini vingine vinaweza kuhitaji kuongeza kiendelezi. Angalia msaada unaotolewa na kihariri chako unachopendelea ili kuwa na uhakika!
 
 ### Linting {/*linting*/}
 
-Code linters find problems in your code as you write, helping you fix them early. [ESLint](https://eslint.org/) is a popular, open source linter for JavaScript. 
+Code linters hupata matatizo katika kodi yako unapoandika, zikikusaidia kuyarekebisha mapema. [ESLint](https://eslint.org/) ni linter maarufu ya chanzo wazi (open source) kwa ajili ya JavaScript.
 
-* [Install ESLint with the recommended configuration for React](https://www.npmjs.com/package/eslint-config-react-app) (be sure you have [Node installed!](https://nodejs.org/en/download/current/))
-* [Integrate ESLint in VSCode with the official extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+* [Sakinisha ESLint kwa mpangilio uliopendekezwa kwa React](https://www.npmjs.com/package/eslint-config-react-app) (hakikisha una [Node imesakinishwa!](https://nodejs.org/en/download/current/))
+* [Unganisha ESLint katika VSCode na kiendelezi rasmi](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
-**Make sure that you've enabled all the [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) rules for your project.** They are essential and catch the most severe bugs early. The recommended [`eslint-config-react-app`](https://www.npmjs.com/package/eslint-config-react-app) preset already includes them.
+**Hakikisha kuwa umewezesha sheria zote za [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) kwa mradi wako.** Ni muhimu na hugundua makosa makubwa zaidi mapema. Mpangilio wa [`eslint-config-react-app`](https://www.npmjs.com/package/eslint-config-react-app) uliopendekezwa tayari unazijumuisha.
 
-### Formatting {/*formatting*/}
+### Uumbizaji {/*formatting*/}
 
-The last thing you want to do when sharing your code with another contributor is get into a discussion about [tabs vs spaces](https://www.google.com/search?q=tabs+vs+spaces)! Fortunately, [Prettier](https://prettier.io/) will clean up your code by reformatting it to conform to preset, configurable rules. Run Prettier, and all your tabs will be converted to spaces—and your indentation, quotes, etc will also all be changed to conform to the configuration. In the ideal setup, Prettier will run when you save your file, quickly making these edits for you.
+Jambo la mwisho unalotaka kufanya unapoandika kodi na mchangiaji mwingine ni kuingia katika mjadala kuhusu [tabs vs spaces](https://www.google.com/search?q=tabs+vs+spaces)! Kwa bahati nzuri, [Prettier](https://prettier.io/) itasafisha kodi yako kwa kuiumbiza upya ili kufuata sheria zilizowekwa. Endesha Prettier, na tabo zako zote zitabadilishwa kuwa nafasi (spaces)—na mpangilio wako, alama za nukuu, n.k. pia zitabadilishwa ili kufuata usanidi. Katika mpangilio bora, Prettier itaendesha unapohifadhi faili yako, ikikufanyia marekebisho haya haraka.
 
-You can install the [Prettier extension in VSCode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) by following these steps:
+Unaweza kusakinisha [kiendelezi cha Prettier katika VSCode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) kwa kufuata hatua hizi:
 
-1. Launch VS Code
-2. Use Quick Open (press Ctrl/Cmd+P)
-3. Paste in `ext install esbenp.prettier-vscode`
-4. Press Enter
+1. Fungua VS Code
+2. Tumia Quick Open (bonyeza Ctrl/Cmd+P)
+3. Bandika `ext install esbenp.prettier-vscode`
+4. Bonyeza Enter
 
-#### Formatting on save {/*formatting-on-save*/}
+#### Kuumbiza wakati wa kuhifadhi {/*formatting-on-save*/}
 
-Ideally, you should format your code on every save. VS Code has settings for this!
+Kwa kweli, unapaswa kuumbiza kodi yako kila unapohifadhi. VS Code ina mipangilio ya hili!
 
-1. In VS Code, press `CTRL/CMD + SHIFT + P`.
-2. Type "settings"
-3. Hit Enter
-4. In the search bar, type "format on save"
-5. Be sure the "format on save" option is ticked!
+1. Katika VS Code, bonyeza `CTRL/CMD + SHIFT + P`.
+2. Andika "settings"
+3. Bonyeza Enter
+4. Kwenye sehemu ya utafutaji, andika "format on save"
+5. Hakikisha chaguo la "format on save" limewekwa alama ya kuteua (ticked)!
 
-> If your ESLint preset has formatting rules, they may conflict with Prettier. We recommend disabling all formatting rules in your ESLint preset using [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier) so that ESLint is *only* used for catching logical mistakes. If you want to enforce that files are formatted before a pull request is merged, use [`prettier --check`](https://prettier.io/docs/en/cli.html#--check) for your continuous integration.
+> Ikiwa mpangilio wako wa ESLint una sheria za uumbizaji, zinaweza kugongana na Prettier. Tunapendekeza kulemaza sheria zote za uumbizaji katika mpangilio wako wa ESLint ukitumia [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier) ili ESLint itumike *tu* kwa ajili ya kugundua makosa ya kimantiki. Ikiwa unataka kuhakikisha kuwa faili zimeumbizwa kabla ya pull request kuunganishwa, tumia [`prettier --check`](https://prettier.io/docs/en/cli.html#--check) kwa muunganisho wako unaoendelea (CI).
