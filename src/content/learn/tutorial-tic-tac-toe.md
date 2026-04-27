@@ -337,7 +337,11 @@ import './styles.css';
 import App from './App';
 ```
 
+<<<<<<< HEAD
 Mstari wa 1-5 unaleta vipande vyote muhimu pamoja:
+=======
+Lines 1-5 bring all the necessary pieces together:
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 * React
 * Maktaba ya React ya kuwasiliana na kivinjari cha wavuti (React DOM)
@@ -551,7 +555,11 @@ export default function Board() {
 }
 ```
 
+<<<<<<< HEAD
 Angalia jinsi, kinyume na `div`s za kivinjari, viungo vyako `Board` na `Square` lazima vianze na herufi kubwa.
+=======
+Note how unlike the browser `div`s, your own components `Board` and `Square` must start with a capital letter.
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 Hebu tuangalie:
 
@@ -1094,7 +1102,11 @@ function Square({ value, onSquareClick }) {
 }
 ```
 
+<<<<<<< HEAD
 Sasa utaunganisha kipengele cha `onSquareClick` na function katika sehemu ya `Board` utakayoita `handleClick`. Ili kuunganisha `onSquareClick` na `handleClick`, utapita function kwa kipengele cha `onSquareClick` cha sehemu ya kwanza ya `Square`:
+=======
+Now you'll connect the `onSquareClick` prop to a function in the `Board` component that you'll name `handleClick`. To connect `onSquareClick` to `handleClick` you'll pass a function to the `onSquareClick` prop of the first `Square` component:
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 ```js
 export default function Board() {
@@ -2073,13 +2085,22 @@ export default function Game() {
 }
 ```
 
+<<<<<<< HEAD
 Unaweza kuona jinsi kanuni yako inavyopaswa kuonekana hapa chini. Kumbuka kwamba unapaswa kuona hitilafu katika koni ya zana za mende inayosema:
+=======
+You can see what your code should look like below. Note that you should see an error in the developer tools console that says:
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 <ConsoleBlock level="warning">
 Warning: Each child in an array or iterator should have a unique "key" prop. Check the render method of &#96;Game&#96;.
 </ConsoleBlock>
+<<<<<<< HEAD
   
 Utarekebisha hitilafu hii katika sehemu inayofuata.
+=======
+
+You'll fix this error in the next section.
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 <Sandpack>
 
