@@ -1,25 +1,25 @@
 ---
-title: JavaScript in JSX with Curly Braces
+title: JavaScript ndani ya JSX kwa Mabano ya Curly
 ---
 
 <Intro>
 
-JSX lets you write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place. Sometimes you will want to add a little JavaScript logic or reference a dynamic property inside that markup. In this situation, you can use curly braces in your JSX to open a window to JavaScript.
+JSX hukuruhusu kuandika markup inayofanana na HTML ndani ya faili ya JavaScript, ikiweka mantiki ya ku-render na maudhui mahali pamoja. Wakati mwingine utahitaji kuongeza mantiki kidogo ya JavaScript au kurejelea sifa inayobadilika ndani ya markup hiyo. Katika hali hii, unaweza kutumia mabano ya curly ndani ya JSX yako kufungua dirisha kuelekea JavaScript.
 
 </Intro>
 
 <YouWillLearn>
 
-* How to pass strings with quotes
-* How to reference a JavaScript variable inside JSX with curly braces
-* How to call a JavaScript function inside JSX with curly braces
-* How to use a JavaScript object inside JSX with curly braces
+* Jinsi ya kupitisha strings zenye alama za nukuu
+* Jinsi ya kurejelea kigezo cha JavaScript ndani ya JSX kwa mabano ya curly
+* Jinsi ya kuita function ya JavaScript ndani ya JSX kwa mabano ya curly
+* Jinsi ya kutumia object ya JavaScript ndani ya JSX kwa mabano ya curly
 
 </YouWillLearn>
 
-## Passing strings with quotes {/*passing-strings-with-quotes*/}
+## Kupitisha strings zenye alama za nukuu {/*passing-strings-with-quotes*/}
 
-When you want to pass a string attribute to JSX, you put it in single or double quotes:
+Unapotaka kupitisha sifa ya string kwa JSX, unaiweka ndani ya alama za nukuu moja au mbili:
 
 <Sandpack>
 
@@ -41,9 +41,9 @@ export default function Avatar() {
 
 </Sandpack>
 
-Here, `"https://i.imgur.com/7vQD0fPs.jpg"` and `"Gregorio Y. Zara"` are being passed as strings.
+Hapa, `"https://i.imgur.com/7vQD0fPs.jpg"` na `"Gregorio Y. Zara"` zinapitishwa kama strings.
 
-But what if you want to dynamically specify the `src` or `alt` text? You could **use a value from JavaScript by replacing `"` and `"` with `{` and `}`**:
+Lakini itakuwaje kama unataka kubainisha `src` au maandishi ya `alt` kwa njia inayobadilika? Unaweza **kutumia thamani kutoka JavaScript kwa kubadilisha `"` na `"` kuwa `{` na `}`**:
 
 <Sandpack>
 
@@ -67,11 +67,11 @@ export default function Avatar() {
 
 </Sandpack>
 
-Notice the difference between `className="avatar"`, which specifies an `"avatar"` CSS class name that makes the image round, and `src={avatar}` that reads the value of the JavaScript variable called `avatar`. That's because curly braces let you work with JavaScript right there in your markup!
+Angalia tofauti kati ya `className="avatar"`, inayobainisha jina la class ya CSS `"avatar"` linalofanya picha kuwa duara, na `src={avatar}` inayosoma thamani ya kigezo cha JavaScript kiitwacho `avatar`. Hii ni kwa sababu mabano ya curly hukuruhusu kufanya kazi na JavaScript hapo hapo ndani ya markup yako!
 
-## Using curly braces: A window into the JavaScript world {/*using-curly-braces-a-window-into-the-javascript-world*/}
+## Kutumia mabano ya curly: Dirisha kuelekea dunia ya JavaScript {/*using-curly-braces-a-window-into-the-javascript-world*/}
 
-JSX is a special way of writing JavaScript. That means it’s possible to use JavaScript inside it—with curly braces `{ }`. The example below first declares a name for the scientist, `name`, then embeds it with curly braces inside the `<h1>`:
+JSX ni njia maalum ya kuandika JavaScript. Hilo linamaanisha inawezekana kutumia JavaScript ndani yake—kwa mabano ya curly `{ }`. Mfano ulio hapa chini kwanza hutangaza jina la mwanasayansi, `name`, kisha huipachika kwa mabano ya curly ndani ya `<h1>`:
 
 <Sandpack>
 
@@ -86,9 +86,9 @@ export default function TodoList() {
 
 </Sandpack>
 
-Try changing the `name`'s value from `'Gregorio Y. Zara'` to `'Hedy Lamarr'`. See how the list title changes?
+Jaribu kubadilisha thamani ya `name` kutoka `'Gregorio Y. Zara'` kuwa `'Hedy Lamarr'`. Ona jinsi kichwa cha orodha kinavyobadilika?
 
-Any JavaScript expression will work between curly braces, including function calls like `formatDate()`:
+Usemi wowote wa JavaScript utafanya kazi kati ya mabano ya curly, ikijumuisha miito ya function kama `formatDate()`:
 
 <Sandpack>
 
@@ -111,18 +111,18 @@ export default function TodoList() {
 
 </Sandpack>
 
-### Where to use curly braces {/*where-to-use-curly-braces*/}
+### Wapi pa kutumia mabano ya curly {/*where-to-use-curly-braces*/}
 
-You can only use curly braces in two ways inside JSX:
+Unaweza kutumia mabano ya curly kwa njia mbili tu ndani ya JSX:
 
-1. **As text** directly inside a JSX tag: `<h1>{name}'s To Do List</h1>` works, but `<{tag}>Gregorio Y. Zara's To Do List</{tag}>`  will not.
-2. **As attributes** immediately following the `=` sign: `src={avatar}` will read the `avatar` variable, but `src="{avatar}"` will pass the string `"{avatar}"`.
+1. **Kama maandishi** moja kwa moja ndani ya tagi ya JSX: `<h1>{name}'s To Do List</h1>` hufanya kazi, lakini `<{tag}>Gregorio Y. Zara's To Do List</{tag}>` haitafanya kazi.
+2. **Kama sifa** mara tu baada ya alama ya `=`: `src={avatar}` itasoma kigezo `avatar`, lakini `src="{avatar}"` itapitisha string `"{avatar}"`.
 
-## Using "double curlies": CSS and other objects in JSX {/*using-double-curlies-css-and-other-objects-in-jsx*/}
+## Kutumia "curly mbili": CSS na objects nyingine ndani ya JSX {/*using-double-curlies-css-and-other-objects-in-jsx*/}
 
-In addition to strings, numbers, and other JavaScript expressions, you can even pass objects in JSX. Objects are also denoted with curly braces, like `{ name: "Hedy Lamarr", inventions: 5 }`. Therefore, to pass a JS object in JSX, you must wrap the object in another pair of curly braces: `person={{ name: "Hedy Lamarr", inventions: 5 }}`.
+Mbali na strings, namba, na semi nyingine za JavaScript, unaweza hata kupitisha objects ndani ya JSX. Objects pia zinaonyeshwa kwa mabano ya curly, kama `{ name: "Hedy Lamarr", inventions: 5 }`. Kwa hivyo, ili kupitisha object ya JS ndani ya JSX, lazima uifunge object ndani ya jozi nyingine ya mabano ya curly: `person={{ name: "Hedy Lamarr", inventions: 5 }}`.
 
-You may see this with inline CSS styles in JSX. React does not require you to use inline styles (CSS classes work great for most cases). But when you need an inline style, you pass an object to the `style` attribute:
+Unaweza kuona hili kwa mitindo ya CSS ya ndani (inline) katika JSX. React haikulazimishi kutumia mitindo ya ndani (classes za CSS zinafanya kazi vizuri kwa hali nyingi). Lakini unapohitaji mtindo wa ndani, unapitisha object kwa sifa ya `style`:
 
 <Sandpack>
 
@@ -148,9 +148,9 @@ ul { padding: 20px 20px 20px 40px; margin: 0; }
 
 </Sandpack>
 
-Try changing the values of `backgroundColor` and `color`.
+Jaribu kubadilisha thamani za `backgroundColor` na `color`.
 
-You can really see the JavaScript object inside the curly braces when you write it like this:
+Unaweza kweli kuiona object ya JavaScript ndani ya mabano ya curly unapoiandika hivi:
 
 ```js {2-5}
 <ul style={
@@ -161,17 +161,17 @@ You can really see the JavaScript object inside the curly braces when you write 
 }>
 ```
 
-The next time you see `{{` and `}}` in JSX, know that it's nothing more than an object inside the JSX curlies!
+Wakati ujao utakapoona `{{` na `}}` katika JSX, tambua kuwa si kitu zaidi ya object iliyowekwa ndani ya mabano ya curly ya JSX!
 
 <Pitfall>
 
-Inline `style` properties are written in camelCase. For example, HTML `<ul style="background-color: black">` would be written as `<ul style={{ backgroundColor: 'black' }}>`  in your component.
+Sifa za `style` za ndani (inline) huandikwa kwa mtindo wa camelCase. Kwa mfano, HTML `<ul style="background-color: black">` ingeandikwa kama `<ul style={{ backgroundColor: 'black' }}>` katika component yako.
 
 </Pitfall>
 
-## More fun with JavaScript objects and curly braces {/*more-fun-with-javascript-objects-and-curly-braces*/}
+## Furaha zaidi na objects za JavaScript na mabano ya curly {/*more-fun-with-javascript-objects-and-curly-braces*/}
 
-You can move several expressions into one object, and reference them in your JSX inside curly braces:
+Unaweza kuhamisha semi kadhaa ndani ya object moja, na kuzirejelea katika JSX yako ndani ya mabano ya curly:
 
 <Sandpack>
 
@@ -211,7 +211,7 @@ body > div > div { padding: 20px; }
 
 </Sandpack>
 
-In this example, the `person` JavaScript object contains a `name` string and a `theme` object:
+Katika mfano huu, object ya JavaScript `person` ina string ya `name` na object ya `theme`:
 
 ```js
 const person = {
@@ -223,31 +223,31 @@ const person = {
 };
 ```
 
-The component can use these values from `person` like so:
+Component inaweza kutumia thamani hizi kutoka `person` hivi:
 
 ```js
 <div style={person.theme}>
   <h1>{person.name}'s Todos</h1>
 ```
 
-JSX is very minimal as a templating language because it lets you organize data and logic using JavaScript.
+JSX ni ndogo sana kama lugha ya templeti kwa sababu hukuruhusu kupanga data na mantiki kwa kutumia JavaScript.
 
 <Recap>
 
-Now you know almost everything about JSX:
+Sasa unajua karibu kila kitu kuhusu JSX:
 
-* JSX attributes inside quotes are passed as strings.
-* Curly braces let you bring JavaScript logic and variables into your markup.
-* They work inside the JSX tag content or immediately after `=` in attributes.
-* `{{` and `}}` is not special syntax: it's a JavaScript object tucked inside JSX curly braces.
+* Sifa za JSX zilizo ndani ya alama za nukuu hupitishwa kama strings.
+* Mabano ya curly hukuruhusu kuleta mantiki na vigezo vya JavaScript ndani ya markup yako.
+* Zinafanya kazi ndani ya maudhui ya tagi ya JSX au mara tu baada ya `=` katika sifa.
+* `{{` na `}}` si sintaksia maalum: ni object ya JavaScript iliyowekwa ndani ya mabano ya curly ya JSX.
 
 </Recap>
 
 <Challenges>
 
-#### Fix the mistake {/*fix-the-mistake*/}
+#### Rekebisha kosa {/*fix-the-mistake*/}
 
-This code crashes with an error saying `Objects are not valid as a React child`:
+Msimbo huu unaanguka kwa hitilafu inayosema `Objects are not valid as a React child`:
 
 <Sandpack>
 
@@ -287,15 +287,15 @@ body > div > div { padding: 20px; }
 
 </Sandpack>
 
-Can you find the problem?
+Je, unaweza kupata tatizo?
 
-<Hint>Look for what's inside the curly braces. Are we putting the right thing there?</Hint>
+<Hint>Tafuta kilicho ndani ya mabano ya curly. Je, tunaweka kitu sahihi hapo?</Hint>
 
 <Solution>
 
-This is happening because this example renders *an object itself* into the markup rather than a string: `<h1>{person}'s Todos</h1>` is trying to render the entire `person` object! Including raw objects as text content throws an error because React doesn't know how you want to display them.
+Hili linatokea kwa sababu mfano huu una-render *object yenyewe* ndani ya markup badala ya string: `<h1>{person}'s Todos</h1>` inajaribu ku-render object nzima ya `person`! Kujumuisha objects ghafi kama maudhui ya maandishi husababisha hitilafu kwa sababu React haijui unavyotaka kuzionyesha.
 
-To fix it, replace `<h1>{person}'s Todos</h1>` with `<h1>{person.name}'s Todos</h1>`:
+Ili kurekebisha, badilisha `<h1>{person}'s Todos</h1>` kuwa `<h1>{person.name}'s Todos</h1>`:
 
 <Sandpack>
 
@@ -337,9 +337,9 @@ body > div > div { padding: 20px; }
 
 </Solution>
 
-#### Extract information into an object {/*extract-information-into-an-object*/}
+#### Toa taarifa ndani ya object {/*extract-information-into-an-object*/}
 
-Extract the image URL into the `person` object.
+Toa URL ya picha na uiweke ndani ya object ya `person`.
 
 <Sandpack>
 
@@ -381,7 +381,7 @@ body > div > div { padding: 20px; }
 
 <Solution>
 
-Move the image URL into a property called `person.imageUrl` and read it from the `<img>` tag using the curlies:
+Hamisha URL ya picha ndani ya sifa iitwayo `person.imageUrl` na uisome kutoka kwa tagi ya `<img>` kwa kutumia mabano ya curly:
 
 <Sandpack>
 
@@ -424,13 +424,13 @@ body > div > div { padding: 20px; }
 
 </Solution>
 
-#### Write an expression inside JSX curly braces {/*write-an-expression-inside-jsx-curly-braces*/}
+#### Andika usemi ndani ya mabano ya curly ya JSX {/*write-an-expression-inside-jsx-curly-braces*/}
 
-In the object below, the full image URL is split into four parts: base URL, `imageId`, `imageSize`, and file extension.
+Katika object iliyo hapa chini, URL kamili ya picha imegawanywa katika sehemu nne: URL msingi, `imageId`, `imageSize`, na kiendelezi cha faili.
 
-We want the image URL to combine these attributes together: base URL (always `'https://i.imgur.com/'`), `imageId` (`'7vQD0fP'`), `imageSize` (`'s'`), and file extension (always `'.jpg'`). However, something is wrong with how the `<img>` tag specifies its `src`.
+Tunataka URL ya picha iunganishe sifa hizi pamoja: URL msingi (daima `'https://i.imgur.com/'`), `imageId` (`'7vQD0fP'`), `imageSize` (`'s'`), na kiendelezi cha faili (daima `'.jpg'`). Hata hivyo, kuna kitu hakiko sawa kuhusu jinsi tagi ya `<img>` inavyobainisha `src` yake.
 
-Can you fix it?
+Je, unaweza kuirekebisha?
 
 <Sandpack>
 
@@ -474,15 +474,15 @@ body > div > div { padding: 20px; }
 
 </Sandpack>
 
-To check that your fix worked, try changing the value of `imageSize` to `'b'`. The image should resize after your edit.
+Ili kuthibitisha kuwa marekebisho yako yamefanya kazi, jaribu kubadilisha thamani ya `imageSize` kuwa `'b'`. Picha inapaswa kubadilika ukubwa baada ya uhariri wako.
 
 <Solution>
 
-You can write it as `src={baseUrl + person.imageId + person.imageSize + '.jpg'}`.
+Unaweza kuiandika kama `src={baseUrl + person.imageId + person.imageSize + '.jpg'}`.
 
-1. `{` opens the JavaScript expression
-2. `baseUrl + person.imageId + person.imageSize + '.jpg'` produces the correct URL string
-3. `}` closes the JavaScript expression
+1. `{` hufungua usemi wa JavaScript
+2. `baseUrl + person.imageId + person.imageSize + '.jpg'` huzalisha string sahihi ya URL
+3. `}` hufunga usemi wa JavaScript
 
 <Sandpack>
 
@@ -525,7 +525,7 @@ body > div > div { padding: 20px; }
 
 </Sandpack>
 
-You can also move this expression into a separate function like `getImageUrl` below:
+Unaweza pia kuhamisha usemi huu ndani ya function tofauti kama `getImageUrl` iliyo hapa chini:
 
 <Sandpack>
 
@@ -580,7 +580,7 @@ body > div > div { padding: 20px; }
 
 </Sandpack>
 
-Variables and functions can help you keep the markup simple!
+Vigezo na functions vinaweza kukusaidia kuweka markup rahisi!
 
 </Solution>
 

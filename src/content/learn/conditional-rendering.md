@@ -1,24 +1,24 @@
 ---
-title: Conditional Rendering
+title: Ku-render kwa Masharti
 ---
 
 <Intro>
 
-Your components will often need to display different things depending on different conditions. In React, you can conditionally render JSX using JavaScript syntax like `if` statements, `&&`, and `? :` operators.
+Components (vipengele) zako mara nyingi zitahitaji kuonyesha vitu tofauti kutegemea masharti tofauti. Katika React, unaweza ku-render JSX kwa masharti ukitumia sintaksia ya JavaScript kama kauli za `if`, na opereta za `&&`, na `? :`.
 
 </Intro>
 
 <YouWillLearn>
 
-* How to return different JSX depending on a condition
-* How to conditionally include or exclude a piece of JSX
-* Common conditional syntax shortcuts you’ll encounter in React codebases
+* Jinsi ya kurudisha JSX tofauti kutegemea sharti
+* Jinsi ya kujumuisha au kutojumuisha kipande cha JSX kwa masharti
+* Njia mkato za kawaida za masharti utakazokutana nazo katika misimbo ya React
 
 </YouWillLearn>
 
-## Conditionally returning JSX {/*conditionally-returning-jsx*/}
+## Kurudisha JSX kwa masharti {/*conditionally-returning-jsx*/}
 
-Let’s say you have a `PackingList` component rendering several `Item`s, which can be marked as packed or not:
+Tuseme una component ya `PackingList` inayo-render `Item` kadhaa, ambazo zinaweza kuwekewa alama kuwa zimepakiwa au la:
 
 <Sandpack>
 
@@ -30,19 +30,19 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Orodha ya kupakia ya Sally Ride</h1>
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Suti ya angani" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Kofia yenye jani la dhahabu" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Picha ya Tam" 
         />
       </ul>
     </section>
@@ -52,9 +52,9 @@ export default function PackingList() {
 
 </Sandpack>
 
-Notice that some of the `Item` components have their `isPacked` prop set to `true` instead of `false`. You want to add a checkmark (✅) to packed items if `isPacked={true}`.
+Angalia kuwa baadhi ya components za `Item` zina prop yao ya `isPacked` iliyowekwa kuwa `true` badala ya `false`. Unataka kuongeza alama ya kupe (✅) kwenye vitu vilivyopakiwa kama `isPacked={true}`.
 
-You can write this as an [`if`/`else` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) like so:
+Unaweza kuandika hili kama [kauli ya `if`/`else`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) kama hivi:
 
 ```js
 if (isPacked) {
@@ -63,7 +63,7 @@ if (isPacked) {
 return <li className="item">{name}</li>;
 ```
 
-If the `isPacked` prop is `true`, this code **returns a different JSX tree.** With this change, some of the items get a checkmark at the end:
+Kama prop ya `isPacked` ni `true`, msimbo huu **hurudisha mti tofauti wa JSX.** Kwa mabadiliko haya, baadhi ya vitu hupata alama ya kupe mwishoni:
 
 <Sandpack>
 
@@ -78,19 +78,19 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Orodha ya kupakia ya Sally Ride</h1>
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Suti ya angani" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Kofia yenye jani la dhahabu" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Picha ya Tam" 
         />
       </ul>
     </section>
@@ -100,13 +100,13 @@ export default function PackingList() {
 
 </Sandpack>
 
-Try editing what gets returned in either case, and see how the result changes!
+Jaribu kuhariri kinachorudishwa katika kila hali, na uone jinsi matokeo yanavyobadilika!
 
-Notice how you're creating branching logic with JavaScript's `if` and `return` statements. In React, control flow (like conditions) is handled by JavaScript.
+Angalia jinsi unavyounda mantiki ya matawi kwa kutumia kauli za `if` na `return` za JavaScript. Katika React, mtiririko wa udhibiti (kama masharti) hushughulikiwa na JavaScript.
 
-### Conditionally returning nothing with `null` {/*conditionally-returning-nothing-with-null*/}
+### Kurudisha bila kitu kwa masharti kwa kutumia `null` {/*conditionally-returning-nothing-with-null*/}
 
-In some situations, you won't want to render anything at all. For example, say you don't want to show packed items at all. A component must return something. In this case, you can return `null`:
+Katika baadhi ya hali, hautataka ku-render chochote kabisa. Kwa mfano, tuseme hautaki kuonyesha vitu vilivyopakiwa hata kidogo. Component lazima irudishe kitu fulani. Katika hali hii, unaweza kurudisha `null`:
 
 ```js
 if (isPacked) {
@@ -115,7 +115,7 @@ if (isPacked) {
 return <li className="item">{name}</li>;
 ```
 
-If `isPacked` is true, the component will return nothing, `null`. Otherwise, it will return JSX to render.
+Kama `isPacked` ni true, component itarudisha bila kitu, `null`. Vinginevyo, itarudisha JSX ya ku-render.
 
 <Sandpack>
 
@@ -130,19 +130,19 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Orodha ya kupakia ya Sally Ride</h1>
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Suti ya angani" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Kofia yenye jani la dhahabu" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Picha ya Tam" 
         />
       </ul>
     </section>
@@ -152,23 +152,23 @@ export default function PackingList() {
 
 </Sandpack>
 
-In practice, returning `null` from a component isn't common because it might surprise a developer trying to render it. More often, you would conditionally include or exclude the component in the parent component's JSX. Here's how to do that!
+Kwa vitendo, kurudisha `null` kutoka kwa component si jambo la kawaida kwa sababu linaweza kumshangaza mtengenezaji anayejaribu kuii-render. Mara nyingi zaidi, ungejumuisha au kutojumuisha component kwa masharti katika JSX ya component-mzazi. Hivi ndivyo ya kufanya hivyo!
 
-## Conditionally including JSX {/*conditionally-including-jsx*/}
+## Kujumuisha JSX kwa masharti {/*conditionally-including-jsx*/}
 
-In the previous example, you controlled which (if any!) JSX tree would be returned by the component. You may already have noticed some duplication in the render output:
+Katika mfano uliopita, ulidhibiti ni mti gani wa JSX (kama upo!) ungerudishwa na component. Huenda tayari umeona urudufu fulani katika matokeo ya render:
 
 ```js
 <li className="item">{name} ✅</li>
 ```
 
-is very similar to
+unafanana sana na
 
 ```js
 <li className="item">{name}</li>
 ```
 
-Both of the conditional branches return `<li className="item">...</li>`:
+Matawi yote mawili ya masharti hurudisha `<li className="item">...</li>`:
 
 ```js
 if (isPacked) {
@@ -177,13 +177,13 @@ if (isPacked) {
 return <li className="item">{name}</li>;
 ```
 
-While this duplication isn't harmful, it could make your code harder to maintain. What if you want to change the `className`? You'd have to do it in two places in your code! In such a situation, you could conditionally include a little JSX to make your code more [DRY.](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)
+Ingawa urudufu huu si wenye madhara, unaweza kufanya msimbo wako kuwa mgumu zaidi kuutunza. Vipi kama unataka kubadilisha `className`? Ungelazimika kufanya hivyo katika sehemu mbili za msimbo wako! Katika hali kama hii, ungeweza kujumuisha JSX kidogo kwa masharti ili kufanya msimbo wako uwe [DRY zaidi.](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)
 
-### Conditional (ternary) operator (`? :`) {/*conditional-ternary-operator--*/}
+### Opereta ya masharti (ternary) (`? :`) {/*conditional-ternary-operator--*/}
 
-JavaScript has a compact syntax for writing a conditional expression -- the [conditional operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) or "ternary operator".
+JavaScript ina sintaksia fupi ya kuandika usemi wa masharti -- [opereta ya masharti](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) au "opereta ya ternary".
 
-Instead of this:
+Badala ya hii:
 
 ```js
 if (isPacked) {
@@ -192,7 +192,7 @@ if (isPacked) {
 return <li className="item">{name}</li>;
 ```
 
-You can write this:
+Unaweza kuandika hii:
 
 ```js
 return (
@@ -202,17 +202,17 @@ return (
 );
 ```
 
-You can read it as *"if `isPacked` is true, then (`?`) render `name + ' ✅'`, otherwise (`:`) render `name`"*.
+Unaweza kuisoma kama *"kama `isPacked` ni true, basi (`?`) render `name + ' ✅'`, vinginevyo (`:`) render `name`"*.
 
 <DeepDive>
 
-#### Are these two examples fully equivalent? {/*are-these-two-examples-fully-equivalent*/}
+#### Je, mifano hii miwili inalingana kabisa? {/*are-these-two-examples-fully-equivalent*/}
 
-If you're coming from an object-oriented programming background, you might assume that the two examples above are subtly different because one of them may create two different "instances" of `<li>`. But JSX elements aren't "instances" because they don't hold any internal state and aren't real DOM nodes. They're lightweight descriptions, like blueprints. So these two examples, in fact, *are* completely equivalent. [Preserving and Resetting State](/learn/preserving-and-resetting-state) goes into detail about how this works.
+Kama unatoka kwenye msingi wa programu inayoegemea object (object-oriented programming), unaweza kudhani kuwa mifano miwili hapo juu ina tofauti ndogo kwa sababu mmoja wao unaweza kuunda "instances" mbili tofauti za `<li>`. Lakini elementi za JSX si "instances" kwa sababu hazishikilii state (hali) yoyote ya ndani na si nodi halisi za DOM. Ni maelezo mepesi, kama ramani za ujenzi. Hivyo mifano hii miwili, kwa hakika, *inalingana* kabisa. [Kuhifadhi na Kuweka Upya State](/learn/preserving-and-resetting-state) inaeleza kwa kina jinsi hili linavyofanya kazi.
 
 </DeepDive>
 
-Now let's say you want to wrap the completed item's text into another HTML tag, like `<del>` to strike it out. You can add even more newlines and parentheses so that it's easier to nest more JSX in each of the cases:
+Sasa tuseme unataka kufunga maandishi ya kitu kilichokamilika ndani ya tagi nyingine ya HTML, kama `<del>` ili kuyakata. Unaweza kuongeza mistari mipya na mabano zaidi ili iwe rahisi kupachika JSX zaidi katika kila hali:
 
 <Sandpack>
 
@@ -234,19 +234,19 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Orodha ya kupakia ya Sally Ride</h1>
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Suti ya angani" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Kofia yenye jani la dhahabu" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Picha ya Tam" 
         />
       </ul>
     </section>
@@ -256,11 +256,11 @@ export default function PackingList() {
 
 </Sandpack>
 
-This style works well for simple conditions, but use it in moderation. If your components get messy with too much nested conditional markup, consider extracting child components to clean things up. In React, markup is a part of your code, so you can use tools like variables and functions to tidy up complex expressions.
+Mtindo huu hufanya kazi vizuri kwa masharti rahisi, lakini utumie kwa kiasi. Kama components zako zinakuwa na msongamano kwa markup nyingi sana ya masharti iliyopachikwa, fikiria kutoa components-watoto ili kusafisha mambo. Katika React, markup ni sehemu ya msimbo wako, hivyo unaweza kutumia zana kama vigezo na functions kuratibu semi zenye utata.
 
-### Logical AND operator (`&&`) {/*logical-and-operator-*/}
+### Opereta ya kimantiki ya AND (`&&`) {/*logical-and-operator-*/}
 
-Another common shortcut you'll encounter is the [JavaScript logical AND (`&&`) operator.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#:~:text=The%20logical%20AND%20(%20%26%26%20)%20operator,it%20returns%20a%20Boolean%20value.) Inside React components, it often comes up when you want to render some JSX when the condition is true, **or render nothing otherwise.** With `&&`, you could conditionally render the checkmark only if `isPacked` is `true`:
+Njia mkato nyingine ya kawaida utakayokutana nayo ni [opereta ya kimantiki ya AND (`&&`) ya JavaScript.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#:~:text=The%20logical%20AND%20(%20%26%26%20)%20operator,it%20returns%20a%20Boolean%20value.) Ndani ya components za React, mara nyingi hujitokeza wakati unataka ku-render JSX fulani wakati sharti ni true, **au render bila kitu vinginevyo.** Kwa `&&`, ungeweza ku-render alama ya kupe kwa masharti tu kama `isPacked` ni `true`:
 
 ```js
 return (
@@ -270,9 +270,9 @@ return (
 );
 ```
 
-You can read this as *"if `isPacked`, then (`&&`) render the checkmark, otherwise, render nothing"*.
+Unaweza kuisoma kama *"kama `isPacked`, basi (`&&`) render alama ya kupe, vinginevyo, render bila kitu"*.
 
-Here it is in action:
+Hii hapa ikifanya kazi:
 
 <Sandpack>
 
@@ -288,19 +288,19 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Orodha ya kupakia ya Sally Ride</h1>
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Suti ya angani" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Kofia yenye jani la dhahabu" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Picha ya Tam" 
         />
       </ul>
     </section>
@@ -310,30 +310,30 @@ export default function PackingList() {
 
 </Sandpack>
 
-A [JavaScript && expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND) returns the value of its right side (in our case, the checkmark) if the left side (our condition) is `true`. But if the condition is `false`, the whole expression becomes `false`. React considers `false` as a "hole" in the JSX tree, just like `null` or `undefined`, and doesn't render anything in its place.
+[Usemi wa && wa JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND) hurudisha thamani ya upande wake wa kulia (katika hali yetu, alama ya kupe) kama upande wa kushoto (sharti letu) ni `true`. Lakini kama sharti ni `false`, usemi mzima unakuwa `false`. React huchukulia `false` kama "shimo" katika mti wa JSX, kama tu `null` au `undefined`, na hairenderi chochote mahali pake.
 
 
 <Pitfall>
 
-**Don't put numbers on the left side of `&&`.**
+**Usiweke namba upande wa kushoto wa `&&`.**
 
-To test the condition, JavaScript converts the left side to a boolean automatically. However, if the left side is `0`, then the whole expression gets that value (`0`), and React will happily render `0` rather than nothing.
+Ili kupima sharti, JavaScript hubadilisha upande wa kushoto kuwa boolean kiotomatiki. Hata hivyo, kama upande wa kushoto ni `0`, basi usemi mzima unapata thamani hiyo (`0`), na React itaenda mbele kwa furaha ku-render `0` badala ya bila kitu.
 
-For example, a common mistake is to write code like `messageCount && <p>New messages</p>`. It's easy to assume that it renders nothing when `messageCount` is `0`, but it really renders the `0` itself!
+Kwa mfano, kosa la kawaida ni kuandika msimbo kama `messageCount && <p>New messages</p>`. Ni rahisi kudhani kuwa hairenderi chochote wakati `messageCount` ni `0`, lakini kwa hakika inarender `0` yenyewe!
 
-To fix it, make the left side a boolean: `messageCount > 0 && <p>New messages</p>`.
+Ili kurekebisha hilo, fanya upande wa kushoto kuwa boolean: `messageCount > 0 && <p>New messages</p>`.
 
 </Pitfall>
 
-### Conditionally assigning JSX to a variable {/*conditionally-assigning-jsx-to-a-variable*/}
+### Kukabidhi JSX kwa kigezo kwa masharti {/*conditionally-assigning-jsx-to-a-variable*/}
 
-When the shortcuts get in the way of writing plain code, try using an `if` statement and a variable. You can reassign variables defined with [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), so start by providing the default content you want to display, the name:
+Wakati njia mkato zinakwamisha kuandika msimbo wa kawaida, jaribu kutumia kauli ya `if` na kigezo. Unaweza kukabidhi upya vigezo vilivyofafanuliwa kwa [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), hivyo anza kwa kutoa maudhui chaguo-msingi unayotaka kuonyesha, jina:
 
 ```js
 let itemContent = name;
 ```
 
-Use an `if` statement to reassign a JSX expression to `itemContent` if `isPacked` is `true`:
+Tumia kauli ya `if` kukabidhi upya usemi wa JSX kwa `itemContent` kama `isPacked` ni `true`:
 
 ```js
 if (isPacked) {
@@ -341,7 +341,7 @@ if (isPacked) {
 }
 ```
 
-[Curly braces open the "window into JavaScript".](/learn/javascript-in-jsx-with-curly-braces#using-curly-braces-a-window-into-the-javascript-world) Embed the variable with curly braces in the returned JSX tree, nesting the previously calculated expression inside of JSX:
+[Mabano ya curly hufungua "dirisha la kuingia JavaScript".](/learn/javascript-in-jsx-with-curly-braces#using-curly-braces-a-window-into-the-javascript-world) Pachika kigezo kwa mabano ya curly katika mti wa JSX unaorudishwa, ukipachika usemi uliokokotolewa awali ndani ya JSX:
 
 ```js
 <li className="item">
@@ -349,7 +349,7 @@ if (isPacked) {
 </li>
 ```
 
-This style is the most verbose, but it's also the most flexible. Here it is in action:
+Mtindo huu ni wenye maneno mengi zaidi, lakini pia ni unaonyumbulika zaidi. Hii hapa ikifanya kazi:
 
 <Sandpack>
 
@@ -369,19 +369,19 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Orodha ya kupakia ya Sally Ride</h1>
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Suti ya angani" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Kofia yenye jani la dhahabu" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Picha ya Tam" 
         />
       </ul>
     </section>
@@ -391,7 +391,7 @@ export default function PackingList() {
 
 </Sandpack>
 
-Like before, this works not only for text, but for arbitrary JSX too:
+Kama ilivyokuwa awali, hii hufanya kazi si tu kwa maandishi, bali pia kwa JSX yoyote ile:
 
 <Sandpack>
 
@@ -415,19 +415,19 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Orodha ya kupakia ya Sally Ride</h1>
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Suti ya angani" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Kofia yenye jani la dhahabu" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Picha ya Tam" 
         />
       </ul>
     </section>
@@ -437,16 +437,16 @@ export default function PackingList() {
 
 </Sandpack>
 
-If you're not familiar with JavaScript, this variety of styles might seem overwhelming at first. However, learning them will help you read and write any JavaScript code -- and not just React components! Pick the one you prefer for a start, and then consult this reference again if you forget how the other ones work.
+Kama hufahamu JavaScript vizuri, aina hii mbalimbali ya mitindo inaweza kuonekana kuwa nyingi mno mwanzoni. Hata hivyo, kuzijifunza kutakusaidia kusoma na kuandika msimbo wowote wa JavaScript -- na si components za React tu! Chagua ule unaoupendelea kwa kuanzia, kisha rejea kwenye rejeleo hili tena kama utasahau jinsi zile nyingine zinavyofanya kazi.
 
 <Recap>
 
-* In React, you control branching logic with JavaScript.
-* You can return a JSX expression conditionally with an `if` statement.
-* You can conditionally save some JSX to a variable and then include it inside other JSX by using the curly braces.
-* In JSX, `{cond ? <A /> : <B />}` means *"if `cond`, render `<A />`, otherwise `<B />`"*.
-* In JSX, `{cond && <A />}` means *"if `cond`, render `<A />`, otherwise nothing"*.
-* The shortcuts are common, but you don't have to use them if you prefer plain `if`.
+* Katika React, unadhibiti mantiki ya matawi kwa JavaScript.
+* Unaweza kurudisha usemi wa JSX kwa masharti kwa kauli ya `if`.
+* Unaweza kuhifadhi JSX fulani kwa kigezo kwa masharti kisha kuijumuisha ndani ya JSX nyingine kwa kutumia mabano ya curly.
+* Katika JSX, `{cond ? <A /> : <B />}` inamaanisha *"kama `cond`, render `<A />`, vinginevyo `<B />`"*.
+* Katika JSX, `{cond && <A />}` inamaanisha *"kama `cond`, render `<A />`, vinginevyo bila kitu"*.
+* Njia mkato ni za kawaida, lakini si lazima uzitumie kama unapendelea `if` ya kawaida.
 
 </Recap>
 
@@ -454,9 +454,9 @@ If you're not familiar with JavaScript, this variety of styles might seem overwh
 
 <Challenges>
 
-#### Show an icon for incomplete items with `? :` {/*show-an-icon-for-incomplete-items-with--*/}
+#### Onyesha aikoni kwa vitu visivyokamilika kwa `? :` {/*show-an-icon-for-incomplete-items-with--*/}
 
-Use the conditional operator (`cond ? a : b`) to render a ❌ if `isPacked` isn’t `true`.
+Tumia opereta ya masharti (`cond ? a : b`) ku-render ❌ kama `isPacked` si `true`.
 
 <Sandpack>
 
@@ -472,19 +472,19 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Orodha ya kupakia ya Sally Ride</h1>
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Suti ya angani" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Kofia yenye jani la dhahabu" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Picha ya Tam" 
         />
       </ul>
     </section>
@@ -510,19 +510,19 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Orodha ya kupakia ya Sally Ride</h1>
       <ul>
         <Item 
           isPacked={true} 
-          name="Space suit" 
+          name="Suti ya angani" 
         />
         <Item 
           isPacked={true} 
-          name="Helmet with a golden leaf" 
+          name="Kofia yenye jani la dhahabu" 
         />
         <Item 
           isPacked={false} 
-          name="Photo of Tam" 
+          name="Picha ya Tam" 
         />
       </ul>
     </section>
@@ -534,15 +534,15 @@ export default function PackingList() {
 
 </Solution>
 
-#### Show the item importance with `&&` {/*show-the-item-importance-with-*/}
+#### Onyesha umuhimu wa kitu kwa `&&` {/*show-the-item-importance-with-*/}
 
-In this example, each `Item` receives a numerical `importance` prop. Use the `&&` operator to render "_(Importance: X)_" in italics, but only for items that have non-zero importance. Your item list should end up looking like this:
+Katika mfano huu, kila `Item` hupokea prop ya kinamba ya `importance`. Tumia opereta ya `&&` ku-render "_(Umuhimu: X)_" kwa italiki, lakini kwa vitu vyenye umuhimu usio sifuri tu. Orodha yako ya vitu inapaswa kuishia kuonekana hivi:
 
-* Space suit _(Importance: 9)_
-* Helmet with a golden leaf
-* Photo of Tam _(Importance: 6)_
+* Suti ya angani _(Umuhimu: 9)_
+* Kofia yenye jani la dhahabu
+* Picha ya Tam _(Umuhimu: 6)_
 
-Don't forget to add a space between the two labels!
+Usisahau kuongeza nafasi kati ya lebo mbili!
 
 <Sandpack>
 
@@ -558,19 +558,19 @@ function Item({ name, importance }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Orodha ya kupakia ya Sally Ride</h1>
       <ul>
         <Item 
           importance={9} 
-          name="Space suit" 
+          name="Suti ya angani" 
         />
         <Item 
           importance={0} 
-          name="Helmet with a golden leaf" 
+          name="Kofia yenye jani la dhahabu" 
         />
         <Item 
           importance={6} 
-          name="Photo of Tam" 
+          name="Picha ya Tam" 
         />
       </ul>
     </section>
@@ -582,7 +582,7 @@ export default function PackingList() {
 
 <Solution>
 
-This should do the trick:
+Hii inapaswa kufanya kazi:
 
 <Sandpack>
 
@@ -593,7 +593,7 @@ function Item({ name, importance }) {
       {name}
       {importance > 0 && ' '}
       {importance > 0 &&
-        <i>(Importance: {importance})</i>
+        <i>(Umuhimu: {importance})</i>
       }
     </li>
   );
@@ -602,19 +602,19 @@ function Item({ name, importance }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Orodha ya kupakia ya Sally Ride</h1>
       <ul>
         <Item 
           importance={9} 
-          name="Space suit" 
+          name="Suti ya angani" 
         />
         <Item 
           importance={0} 
-          name="Helmet with a golden leaf" 
+          name="Kofia yenye jani la dhahabu" 
         />
         <Item 
           importance={6} 
-          name="Photo of Tam" 
+          name="Picha ya Tam" 
         />
       </ul>
     </section>
@@ -624,15 +624,15 @@ export default function PackingList() {
 
 </Sandpack>
 
-Note that you must write `importance > 0 && ...` rather than `importance && ...` so that if the `importance` is `0`, `0` isn't rendered as the result!
+Zingatia kuwa lazima uandike `importance > 0 && ...` badala ya `importance && ...` ili kama `importance` ni `0`, `0` isirenderiwe kama matokeo!
 
-In this solution, two separate conditions are used to insert a space between the name and the importance label. Alternatively, you could use a Fragment with a leading space: `importance > 0 && <> <i>...</i></>` or add a space immediately inside the `<i>`:  `importance > 0 && <i> ...</i>`.
+Katika suluhisho hili, masharti mawili tofauti yanatumika kuingiza nafasi kati ya jina na lebo ya umuhimu. Vinginevyo, ungeweza kutumia Fragment yenye nafasi mwanzoni: `importance > 0 && <> <i>...</i></>` au kuongeza nafasi mara moja ndani ya `<i>`:  `importance > 0 && <i> ...</i>`.
 
 </Solution>
 
-#### Refactor a series of `? :` to `if` and variables {/*refactor-a-series-of---to-if-and-variables*/}
+#### Boresha msururu wa `? :` kuwa `if` na vigezo {/*refactor-a-series-of---to-if-and-variables*/}
 
-This `Drink` component uses a series of `? :` conditions to show different information depending on whether the `name` prop is `"tea"` or `"coffee"`. The problem is that the information about each drink is spread across multiple conditions. Refactor this code to use a single `if` statement instead of three `? :` conditions.
+Component hii ya `Drink` inatumia msururu wa masharti ya `? :` kuonyesha taarifa tofauti kutegemea kama prop ya `name` ni `"tea"` au `"coffee"`. Tatizo ni kwamba taarifa kuhusu kila kinywaji zimetawanyika katika masharti mengi. Boresha msimbo huu utumie kauli moja ya `if` badala ya masharti matatu ya `? :`.
 
 <Sandpack>
 
@@ -665,11 +665,11 @@ export default function DrinkList() {
 
 </Sandpack>
 
-Once you've refactored the code to use `if`, do you have further ideas on how to simplify it?
+Mara tu utakapoboresha msimbo utumie `if`, je, una mawazo zaidi ya jinsi ya kuurahisisha?
 
 <Solution>
 
-There are multiple ways you could go about this, but here is one starting point:
+Kuna njia nyingi ungeweza kufuata, lakini hapa kuna mahali pa kuanzia:
 
 <Sandpack>
 
@@ -712,9 +712,9 @@ export default function DrinkList() {
 
 </Sandpack>
 
-Here the information about each drink is grouped together instead of being spread across multiple conditions. This makes it easier to add more drinks in the future.
+Hapa taarifa kuhusu kila kinywaji zimewekwa pamoja badala ya kutawanyika katika masharti mengi. Hili hurahisisha kuongeza vinywaji zaidi siku zijazo.
 
-Another solution would be to remove the condition altogether by moving the information into objects:
+Suluhisho jingine lingekuwa kuondoa sharti kabisa kwa kuhamisha taarifa ndani ya objects:
 
 <Sandpack>
 

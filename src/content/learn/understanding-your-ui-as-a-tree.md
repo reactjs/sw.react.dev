@@ -1,41 +1,41 @@
 ---
-title: Understanding Your UI as a Tree
+title: Kuelewa UI Yako kama Mti
 ---
 
 <Intro>
 
-Your React app is taking shape with many components being nested within each other. How does React keep track of your app's component structure?
+Programu yako ya React inachukua sura huku components (vipengele) nyingi zikipachikwa ndani ya nyingine. Je, React huwezaje kufuatilia muundo wa components za programu yako?
 
-React, and many other UI libraries, model UI as a tree. Thinking of your app as a tree is useful for understanding the relationship between components. This understanding will help you debug future concepts like performance and state management.
+React, na maktaba nyingine nyingi za UI, huiga UI kama mti (tree). Kuifikiria programu yako kama mti ni jambo la manufaa kwa kuelewa uhusiano kati ya components. Uelewa huu utakusaidia kutatua dhana za baadaye kama utendaji (performance) na usimamizi wa state (hali).
 
 </Intro>
 
 <YouWillLearn>
 
-* How React "sees" component structures
-* What a render tree is and what it is useful for
-* What a module dependency tree is and what it is useful for
+* Jinsi React "inavyoona" miundo ya components
+* Render tree ni nini na ina manufaa gani
+* Module dependency tree ni nini na ina manufaa gani
 
 </YouWillLearn>
 
-## Your UI as a tree {/*your-ui-as-a-tree*/}
+## UI yako kama mti {/*your-ui-as-a-tree*/}
 
-Trees are a relationship model between items. The UI is often represented using tree structures. For example, browsers use tree structures to model HTML ([DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction)) and CSS ([CSSOM](https://developer.mozilla.org/docs/Web/API/CSS_Object_Model)). Mobile platforms also use trees to represent their view hierarchy.
+Miti ni muundo wa uhusiano kati ya vitu. UI mara nyingi huwakilishwa kwa kutumia miundo ya mti. Kwa mfano, vivinjari hutumia miundo ya mti kuiga HTML ([DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction)) na CSS ([CSSOM](https://developer.mozilla.org/docs/Web/API/CSS_Object_Model)). Mifumo ya simu za mkononi pia hutumia miti kuwakilisha ngazi ya mionekano yao.
 
 <Diagram name="preserving_state_dom_tree" height={193} width={864} alt="Diagram with three sections arranged horizontally. In the first section, there are three rectangles stacked vertically, with labels 'Component A', 'Component B', and 'Component C'. Transitioning to the next pane is an arrow with the React logo on top labeled 'React'. The middle section contains a tree of components, with the root labeled 'A' and two children labeled 'B' and 'C'. The next section is again transitioned using an arrow with the React logo on top labeled 'React DOM'. The third and final section is a wireframe of a browser, containing a tree of 8 nodes, which has only a subset highlighted (indicating the subtree from the middle section).">
 
-React creates a UI tree from your components. In this example, the UI tree is then used to render to the DOM.
+React huunda mti wa UI kutoka kwa components zako. Katika mfano huu, mti wa UI kisha hutumika ku-render kwenye DOM.
 </Diagram>
 
-Like browsers and mobile platforms, React also uses tree structures to manage and model the relationship between components in a React app. These trees are useful tools to understand how data flows through a React app and how to optimize rendering and app size.
+Kama vivinjari na mifumo ya simu za mkononi, React pia hutumia miundo ya mti kusimamia na kuiga uhusiano kati ya components katika programu ya React. Miti hii ni zana za manufaa za kuelewa jinsi data inavyopita katika programu ya React na jinsi ya kuboresha ku-render na ukubwa wa programu.
 
-## The Render Tree {/*the-render-tree*/}
+## Render Tree {/*the-render-tree*/}
 
-A major feature of components is the ability to compose components of other components. As we [nest components](/learn/your-first-component#nesting-and-organizing-components), we have the concept of parent and child components, where each parent component may itself be a child of another component.
+Sifa kuu ya components ni uwezo wa kutunga components kutoka kwa components nyingine. Tunapo[pachika components](/learn/your-first-component#nesting-and-organizing-components), tunapata dhana ya components-mzazi na components-mtoto, ambapo kila component-mzazi yenyewe inaweza kuwa mtoto wa component nyingine.
 
-When we render a React app, we can model this relationship in a tree, known as the render tree.
+Tunapo-render programu ya React, tunaweza kuiga uhusiano huu katika mti, ujulikanao kama render tree.
 
-Here is a React app that renders inspirational quotes.
+Hii hapa ni programu ya React inayo-render nukuu za kutia moyo.
 
 <Sandpack>
 
@@ -120,32 +120,32 @@ export default [
 
 <Diagram name="render_tree" height={250} width={500} alt="Tree graph with five nodes. Each node represents a component. The root of the tree is App, with two arrows extending from it to 'InspirationGenerator' and 'FancyText'. The arrows are labelled with the word 'renders'. 'InspirationGenerator' node also has two arrows pointing to nodes 'FancyText' and 'Copyright'.">
 
-React creates a *render tree*, a UI tree, composed of the rendered components.
+React huunda *render tree*, mti wa UI, uliotungwa na components zilizo-render.
 
 
 </Diagram>
 
-From the example app, we can construct the above render tree.
+Kutoka kwa programu ya mfano, tunaweza kujenga render tree iliyo hapo juu.
 
-The tree is composed of nodes, each of which represents a component. `App`, `FancyText`, `Copyright`, to name a few, are all nodes in our tree.
+Mti umetungwa na nodi, ambapo kila mmoja huwakilisha component. `App`, `FancyText`, `Copyright`, kwa kutaja chache, zote ni nodi katika mti wetu.
 
-The root node in a React render tree is the [root component](/learn/importing-and-exporting-components#the-root-component-file) of the app. In this case, the root component is `App` and it is the first component React renders. Each arrow in the tree points from a parent component to a child component.
+Nodi ya mzizi (root) katika render tree ya React ni [component-mzizi](/learn/importing-and-exporting-components#the-root-component-file) ya programu. Katika hali hii, component-mzizi ni `App` na ndiyo component ya kwanza ambayo React inai-render. Kila mshale katika mti unaelekeza kutoka component-mzazi hadi component-mtoto.
 
 <DeepDive>
 
-#### Where are the HTML tags in the render tree? {/*where-are-the-html-elements-in-the-render-tree*/}
+#### Tagi za HTML ziko wapi katika render tree? {/*where-are-the-html-elements-in-the-render-tree*/}
 
-You'll notice in the above render tree, there is no mention of the HTML tags that each component renders. This is because the render tree is only composed of React [components](learn/your-first-component#components-ui-building-blocks).
+Utagundua kwamba katika render tree iliyo hapo juu, hakuna taja ya tagi za HTML ambazo kila component ina-render. Hii ni kwa sababu render tree imetungwa tu na [components](learn/your-first-component#components-ui-building-blocks) za React.
 
-React, as a UI framework, is platform agnostic. On react.dev, we showcase examples that render to the web, which uses HTML markup as its UI primitives. But a React app could just as likely render to a mobile or desktop platform, which may use different UI primitives like [UIView](https://developer.apple.com/documentation/uikit/uiview) or [FrameworkElement](https://learn.microsoft.com/en-us/dotnet/api/system.windows.frameworkelement?view=windowsdesktop-7.0).
+React, kama framework ya UI, haitegemei mfumo mahususi (platform agnostic). Kwenye react.dev, tunaonyesha mifano inayo-render kwenye wavuti, ambayo hutumia markup ya HTML kama vipengele vyake vya msingi vya UI. Lakini programu ya React ingeweza vilevile ku-render kwenye mfumo wa simu au wa kompyuta ya mezani, ambao unaweza kutumia vipengele tofauti vya msingi vya UI kama [UIView](https://developer.apple.com/documentation/uikit/uiview) au [FrameworkElement](https://learn.microsoft.com/en-us/dotnet/api/system.windows.frameworkelement?view=windowsdesktop-7.0).
 
-These platform UI primitives are not a part of React. React render trees can provide insight to our React app regardless of what platform your app renders to.
+Vipengele hivi vya msingi vya UI vya mfumo si sehemu ya React. Render trees za React zinaweza kutoa mwanga kuhusu programu yako ya React bila kujali ni mfumo gani programu yako inao-render.
 
 </DeepDive>
 
-A render tree represents a single render pass of a React application. With [conditional rendering](/learn/conditional-rendering), a parent component may render different children depending on the data passed.
+Render tree huwakilisha pasi moja ya ku-render ya programu ya React. Kwa [ku-render kwa masharti](/learn/conditional-rendering), component-mzazi inaweza ku-render watoto tofauti kutegemeana na data iliyopitishwa.
 
-We can update the app to conditionally render either an inspirational quote or color.
+Tunaweza kusasisha programu ili ku-render kwa masharti ama nukuu ya kutia moyo au rangi.
 
 <Sandpack>
 
@@ -247,53 +247,53 @@ export default [
 
 <Diagram name="conditional_render_tree" height={250} width={561} alt="Tree graph with six nodes. The top node of the tree is labelled 'App' with two arrows extending to nodes labelled 'InspirationGenerator' and 'FancyText'. The arrows are solid lines and are labelled with the word 'renders'. 'InspirationGenerator' node also has three arrows. The arrows to nodes 'FancyText' and 'Color' are dashed and labelled with 'renders?'. The last arrow points to the node labelled 'Copyright' and is solid and labelled with 'renders'.">
 
-With conditional rendering, across different renders, the render tree may render different components.
+Kwa ku-render kwa masharti, katika ku-render tofauti, render tree inaweza ku-render components tofauti.
 
 </Diagram>
 
-In this example, depending on what `inspiration.type` is, we may render `<FancyText>` or `<Color>`. The render tree may be different for each render pass.
+Katika mfano huu, kutegemeana na `inspiration.type` ni nini, tunaweza ku-render `<FancyText>` au `<Color>`. Render tree inaweza kuwa tofauti kwa kila pasi ya ku-render.
 
-Although render trees may differ across render passes, these trees are generally helpful for identifying what the *top-level* and *leaf components* are in a React app. Top-level components are the components nearest to the root component and affect the rendering performance of all the components beneath them and often contain the most complexity. Leaf components are near the bottom of the tree and have no child components and are often frequently re-rendered.
+Ingawa render trees zinaweza kutofautiana katika pasi tofauti za ku-render, miti hii kwa ujumla ni ya manufaa kwa kutambua ni components zipi za *ngazi ya juu* na *components za majani (leaf)* katika programu ya React. Components za ngazi ya juu ni components zilizo karibu zaidi na component-mzizi na huathiri utendaji wa ku-render wa components zote zilizo chini yao na mara nyingi huwa na uchangamano mkubwa zaidi. Components za majani ziko karibu na chini ya mti na hazina components-watoto na mara nyingi hu-re-render mara kwa mara.
 
-Identifying these categories of components are useful for understanding data flow and performance of your app.
+Kutambua makundi haya ya components ni ya manufaa kwa kuelewa mtiririko wa data na utendaji wa programu yako.
 
-## The Module Dependency Tree {/*the-module-dependency-tree*/}
+## Module Dependency Tree {/*the-module-dependency-tree*/}
 
-Another relationship in a React app that can be modeled with a tree are an app's module dependencies. As we [break up our components](/learn/importing-and-exporting-components#exporting-and-importing-a-component) and logic into separate files, we create [JS modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) where we may export components, functions, or constants.
+Uhusiano mwingine katika programu ya React unaoweza kuigwa kwa mti ni utegemezi wa module za programu. Tunapo[gawanya components zetu](/learn/importing-and-exporting-components#exporting-and-importing-a-component) na mantiki katika faili tofauti, tunaunda [module za JS](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) ambapo tunaweza ku-export components, functions, au constants.
 
-Each node in a module dependency tree is a module and each branch represents an `import` statement in that module.
+Kila nodi katika module dependency tree ni module na kila tawi huwakilisha kauli ya `import` katika module hiyo.
 
-If we take the previous Inspirations app, we can build a module dependency tree, or dependency tree for short.
+Tukichukua programu ya Inspirations iliyotangulia, tunaweza kujenga module dependency tree, au dependency tree kwa ufupi.
 
 <Diagram name="module_dependency_tree" height={250} width={658} alt="A tree graph with seven nodes. Each node is labelled with a module name. The top level node of the tree is labelled 'App.js'. There are three arrows pointing to the modules 'InspirationGenerator.js', 'FancyText.js' and 'Copyright.js' and the arrows are labelled with 'imports'. From the 'InspirationGenerator.js' node, there are three arrows that extend to three modules: 'FancyText.js', 'Color.js', and 'inspirations.js'. The arrows are labelled with 'imports'.">
 
-The module dependency tree for the Inspirations app.
+Module dependency tree ya programu ya Inspirations.
 
 </Diagram>
 
-The root node of the tree is the root module, also known as the entrypoint file. It often is the module that contains the root component.
+Nodi ya mzizi (root) ya mti ni module ya mzizi, ijulikanayo pia kama faili ya kuingilia (entrypoint file). Mara nyingi ni module inayoshikilia component-mzizi.
 
-Comparing to the render tree of the same app, there are similar structures but some notable differences:
+Ukilinganisha na render tree ya programu ileile, kuna miundo inayofanana lakini kuna tofauti chache za kuzingatia:
 
-* The nodes that make-up the tree represent modules, not components.
-* Non-component modules, like `inspirations.js`, are also represented in this tree. The render tree only encapsulates components.
-* `Copyright.js` appears under `App.js` but in the render tree, `Copyright`, the component, appears as a child of `InspirationGenerator`. This is because `InspirationGenerator` accepts JSX as [children props](/learn/passing-props-to-a-component#passing-jsx-as-children), so it renders `Copyright` as a child component but does not import the module.
+* Nodi zinazounda mti huwakilisha module, si components.
+* Module zisizo za components, kama `inspirations.js`, pia huwakilishwa katika mti huu. Render tree inashikilia components pekee.
+* `Copyright.js` inaonekana chini ya `App.js` lakini katika render tree, `Copyright`, component yenyewe, inaonekana kama mtoto wa `InspirationGenerator`. Hii ni kwa sababu `InspirationGenerator` inakubali JSX kama [children props](/learn/passing-props-to-a-component#passing-jsx-as-children), hivyo inai-render `Copyright` kama component-mtoto lakini haii-import module.
 
-Dependency trees are useful to determine what modules are necessary to run your React app. When building a React app for production, there is typically a build step that will bundle all the necessary JavaScript to ship to the client. The tool responsible for this is called a [bundler](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Overview#the_modern_tooling_ecosystem), and bundlers will use the dependency tree to determine what modules should be included.
+Dependency trees ni za manufaa kubaini ni module zipi zinahitajika kuendesha programu yako ya React. Unapojenga programu ya React kwa ajili ya uzalishaji (production), kwa kawaida kuna hatua ya kujenga itakayounganisha JavaScript yote inayohitajika kupeleka kwa mteja. Zana inayohusika na hili inaitwa [bundler](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Overview#the_modern_tooling_ecosystem), na bundlers zitatumia dependency tree kubaini ni module zipi zinapaswa kujumuishwa.
 
-As your app grows, often the bundle size does too. Large bundle sizes are expensive for a client to download and run. Large bundle sizes can delay the time for your UI to get drawn. Getting a sense of your app's dependency tree may help with debugging these issues.
+Kadri programu yako inavyokua, mara nyingi ukubwa wa bundle pia hukua. Ukubwa mkubwa wa bundle ni gharama kwa mteja kupakua na kuendesha. Ukubwa mkubwa wa bundle unaweza kuchelewesha muda wa UI yako kuchorwa. Kupata mwelekeo wa dependency tree ya programu yako kunaweza kusaidia katika kutatua matatizo haya.
 
 [comment]: <> (perhaps we should also deep dive on conditional imports)
 
 <Recap>
 
-* Trees are a common way to represent the relationship between entities. They are often used to model UI.
-* Render trees represent the nested relationship between React components across a single render.
-* With conditional rendering, the render tree may change across different renders. With different prop values, components may render different children components.
-* Render trees help identify what the top-level and leaf components are. Top-level components affect the rendering performance of all components beneath them and leaf components are often re-rendered frequently. Identifying them is useful for understanding and debugging rendering performance.
-* Dependency trees represent the module dependencies in a React app.
-* Dependency trees are used by build tools to bundle the necessary code to ship an app.
-* Dependency trees are useful for debugging large bundle sizes that slow time to paint and expose opportunities for optimizing what code is bundled.
+* Miti ni njia ya kawaida ya kuwakilisha uhusiano kati ya vitu. Mara nyingi hutumika kuiga UI.
+* Render trees huwakilisha uhusiano wa upachikaji kati ya components za React katika ku-render moja.
+* Kwa ku-render kwa masharti, render tree inaweza kubadilika katika ku-render tofauti. Kwa thamani tofauti za props, components zinaweza ku-render components-watoto tofauti.
+* Render trees husaidia kutambua ni components zipi za ngazi ya juu na za majani. Components za ngazi ya juu huathiri utendaji wa ku-render wa components zote zilizo chini yao na components za majani mara nyingi hu-re-render mara kwa mara. Kuzitambua ni ya manufaa kwa kuelewa na kutatua utendaji wa ku-render.
+* Dependency trees huwakilisha utegemezi wa module katika programu ya React.
+* Dependency trees hutumiwa na zana za kujenga kuunganisha msimbo unaohitajika kupeleka programu.
+* Dependency trees ni za manufaa kwa kutatua ukubwa mkubwa wa bundle unaochelewesha muda wa kuchora na kufichua fursa za kuboresha ni msimbo upi unaounganishwa.
 
 </Recap>
 

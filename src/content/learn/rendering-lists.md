@@ -1,24 +1,24 @@
 ---
-title: Rendering Lists
+title: Ku-render Orodha
 ---
 
 <Intro>
 
-You will often want to display multiple similar components from a collection of data. You can use the [JavaScript array methods](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array#) to manipulate an array of data. On this page, you'll use [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) and [`map()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/map) with React to filter and transform your array of data into an array of components.
+Mara nyingi utataka kuonyesha components (vipengele) kadhaa zinazofanana kutoka kwenye mkusanyiko wa data. Unaweza kutumia [mbinu za array za JavaScript](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array#) kuchakata array ya data. Kwenye ukurasa huu, utatumia [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) na [`map()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/map) pamoja na React ili kuchuja na kubadilisha array yako ya data kuwa array ya components.
 
 </Intro>
 
 <YouWillLearn>
 
-* How to render components from an array using JavaScript's `map()`
-* How to render only specific components using JavaScript's `filter()`
-* When and why to use React keys
+* Jinsi ya ku-render components kutoka kwenye array ukitumia `map()` ya JavaScript
+* Jinsi ya ku-render components mahususi tu ukitumia `filter()` ya JavaScript
+* Wakati na sababu ya kutumia keys za React
 
 </YouWillLearn>
 
-## Rendering data from arrays {/*rendering-data-from-arrays*/}
+## Ku-render data kutoka kwenye arrays {/*rendering-data-from-arrays*/}
 
-Say that you have a list of content.
+Tuseme una orodha ya maudhui.
 
 ```js
 <ul>
@@ -30,11 +30,11 @@ Say that you have a list of content.
 </ul>
 ```
 
-The only difference among those list items is their contents, their data. You will often need to show several instances of the same component using different data when building interfaces: from lists of comments to galleries of profile images. In these situations, you can store that data in JavaScript objects and arrays and use methods like [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) and [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) to render lists of components from them.
+Tofauti pekee kati ya vipengele hivyo vya orodha ni maudhui yao, data yao. Mara nyingi utahitaji kuonyesha nakala kadhaa za component ileile ukitumia data tofauti wakati unajenga violesura: kutoka orodha za maoni hadi maghala ya picha za profaili. Katika hali hizi, unaweza kuhifadhi data hiyo katika objects na arrays za JavaScript na kutumia mbinu kama [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) na [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) ili ku-render orodha za components kutoka humo.
 
-Here’s a short example of how to generate a list of items from an array:
+Huu hapa ni mfano mfupi wa jinsi ya kuzalisha orodha ya vipengele kutoka kwenye array:
 
-1. **Move** the data into an array:
+1. **Hamisha** data hiyo kwenye array:
 
 ```js
 const people = [
@@ -46,19 +46,19 @@ const people = [
 ];
 ```
 
-2. **Map** the `people` members into a new array of JSX nodes, `listItems`:
+2. **Map** wanachama wa `people` kuwa array mpya ya vipengele vya JSX, `listItems`:
 
 ```js
 const listItems = people.map(person => <li>{person}</li>);
 ```
 
-3. **Return** `listItems` from your component wrapped in a `<ul>`:
+3. **Rudisha** `listItems` kutoka kwenye component yako ikiwa imefungwa ndani ya `<ul>`:
 
 ```js
 return <ul>{listItems}</ul>;
 ```
 
-Here is the result:
+Huu hapa ni matokeo:
 
 <Sandpack>
 
@@ -85,7 +85,7 @@ li { margin-bottom: 10px; }
 
 </Sandpack>
 
-Notice the sandbox above displays a console error:
+Angalia kuwa sanduku la mchanga (sandbox) hapo juu linaonyesha hitilafu ya console:
 
 <ConsoleBlock level="error">
 
@@ -93,11 +93,11 @@ Warning: Each child in a list should have a unique "key" prop.
 
 </ConsoleBlock>
 
-You'll learn how to fix this error later on this page. Before we get to that, let's add some structure to your data.
+Utajifunza jinsi ya kurekebisha hitilafu hii baadaye kwenye ukurasa huu. Kabla hatujafika hapo, hebu tuongeze muundo fulani kwenye data yako.
 
-## Filtering arrays of items {/*filtering-arrays-of-items*/}
+## Kuchuja arrays za vipengele {/*filtering-arrays-of-items*/}
 
-This data can be structured even more.
+Data hii inaweza kupangwa kwa muundo zaidi.
 
 ```js
 const people = [{
@@ -123,11 +123,11 @@ const people = [{
 }];
 ```
 
-Let's say you want a way to only show people whose profession is `'chemist'`. You can use JavaScript's `filter()` method to return just those people. This method takes an array of items, passes them through a “test” (a function that returns `true` or `false`), and returns a new array of only those items that passed the test (returned `true`).
+Tuseme unataka njia ya kuonyesha watu tu ambao taaluma yao ni `'chemist'`. Unaweza kutumia mbinu ya `filter()` ya JavaScript kurudisha watu hao tu. Mbinu hii huchukua array ya vipengele, huvipitisha kupitia "jaribio" (function inayorudisha `true` au `false`), na hurudisha array mpya ya vipengele vile tu vilivyofaulu jaribio (vilivyorudisha `true`).
 
-You only want the items where `profession` is `'chemist'`. The "test" function for this looks like `(person) => person.profession === 'chemist'`. Here's how to put it together:
+Unataka tu vile vipengele ambavyo `profession` yake ni `'chemist'`. Function ya "jaribio" ya hili inaonekana kama `(person) => person.profession === 'chemist'`. Hivi ndivyo ya kuiunganisha pamoja:
 
-1. **Create** a new array of just “chemist” people, `chemists`, by calling `filter()` on the `people` filtering by `person.profession === 'chemist'`:
+1. **Tengeneza** array mpya ya watu "chemist" tu, `chemists`, kwa kuita `filter()` kwenye `people` ukichuja kwa `person.profession === 'chemist'`:
 
 ```js
 const chemists = people.filter(person =>
@@ -135,7 +135,7 @@ const chemists = people.filter(person =>
 );
 ```
 
-2. Now **map** over `chemists`:
+2. Sasa **map** juu ya `chemists`:
 
 ```js {1,13}
 const listItems = chemists.map(person =>
@@ -147,13 +147,13 @@ const listItems = chemists.map(person =>
      <p>
        <b>{person.name}:</b>
        {' ' + person.profession + ' '}
-       known for {person.accomplishment}
+       maarufu kwa {person.accomplishment}
      </p>
   </li>
 );
 ```
 
-3. Lastly, **return** the `listItems` from your component:
+3. Mwisho, **rudisha** `listItems` kutoka kwenye component yako:
 
 ```js
 return <ul>{listItems}</ul>;
@@ -178,7 +178,7 @@ export default function List() {
       <p>
         <b>{person.name}:</b>
         {' ' + person.profession + ' '}
-        known for {person.accomplishment}
+        maarufu kwa {person.accomplishment}
       </p>
     </li>
   );
@@ -246,29 +246,29 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 <Pitfall>
 
-Arrow functions implicitly return the expression right after `=>`, so you didn't need a `return` statement:
+Arrow functions hurudisha kwa siri expression iliyo mara tu baada ya `=>`, hivyo hukuhitaji kauli ya `return`:
 
 ```js
 const listItems = chemists.map(person =>
-  <li>...</li> // Implicit return!
+  <li>...</li> // Kurudisha kwa siri!
 );
 ```
 
-However, **you must write `return` explicitly if your `=>` is followed by a `{` curly brace!**
+Hata hivyo, **lazima uandike `return` waziwazi ikiwa `=>` yako inafuatwa na kufunga kwa mabano ya curly `{`!**
 
 ```js
-const listItems = chemists.map(person => { // Curly brace
+const listItems = chemists.map(person => { // Mabano ya curly
   return <li>...</li>;
 });
 ```
 
-Arrow functions containing `=> {` are said to have a ["block body".](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#function_body) They let you write more than a single line of code, but you *have to* write a `return` statement yourself. If you forget it, nothing gets returned!
+Arrow functions zenye `=> {` husemekana kuwa na ["block body".](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#function_body) Hukuruhusu kuandika zaidi ya mstari mmoja wa msimbo, lakini *lazima* uandike kauli ya `return` mwenyewe. Ukiisahau, hakuna kitakachorudishwa!
 
 </Pitfall>
 
-## Keeping list items in order with `key` {/*keeping-list-items-in-order-with-key*/}
+## Kuweka vipengele vya orodha katika mpangilio kwa `key` {/*keeping-list-items-in-order-with-key*/}
 
-Notice that all the sandboxes above show an error in the console:
+Angalia kuwa masanduku yote ya mchanga hapo juu yanaonyesha hitilafu kwenye console:
 
 <ConsoleBlock level="error">
 
@@ -276,7 +276,7 @@ Warning: Each child in a list should have a unique "key" prop.
 
 </ConsoleBlock>
 
-You need to give each array item a `key` -- a string or a number that uniquely identifies it among other items in that array:
+Unahitaji kumpa kila kipengele cha array `key` -- mfululizo wa herufi au nambari inayokitambulisha kwa upekee miongoni mwa vipengele vingine katika array hiyo:
 
 ```js
 <li key={person.id}>...</li>
@@ -284,13 +284,13 @@ You need to give each array item a `key` -- a string or a number that uniquely i
 
 <Note>
 
-JSX elements directly inside a `map()` call always need keys!
+Elementi za JSX zilizo moja kwa moja ndani ya wito wa `map()` daima zinahitaji keys!
 
 </Note>
 
-Keys tell React which array item each component corresponds to, so that it can match them up later. This becomes important if your array items can move (e.g. due to sorting), get inserted, or get deleted. A well-chosen `key` helps React infer what exactly has happened, and make the correct updates to the DOM tree.
+Keys huiambia React ni kipengele kipi cha array kila component kinacholingana nacho, ili iweze kuzilinganisha baadaye. Hili huwa muhimu ikiwa vipengele vya array yako vinaweza kuhama (mfano kutokana na kupanga), kuingizwa, au kufutwa. `key` iliyochaguliwa vizuri humsaidia React kubaini kwa hakika kilichotokea, na kufanya masasisho sahihi kwenye mti (tree) wa DOM.
 
-Rather than generating keys on the fly, you should include them in your data:
+Badala ya kuzalisha keys papo hapo, unapaswa kuzijumuisha ndani ya data yako:
 
 <Sandpack>
 
@@ -308,7 +308,7 @@ export default function List() {
       <p>
         <b>{person.name}</b>
           {' ' + person.profession + ' '}
-          known for {person.accomplishment}
+          maarufu kwa {person.accomplishment}
       </p>
     </li>
   );
@@ -318,31 +318,31 @@ export default function List() {
 
 ```js src/data.js active
 export const people = [{
-  id: 0, // Used in JSX as a key
+  id: 0, // Inatumika katika JSX kama key
   name: 'Creola Katherine Johnson',
   profession: 'mathematician',
   accomplishment: 'spaceflight calculations',
   imageId: 'MK3eW3A'
 }, {
-  id: 1, // Used in JSX as a key
+  id: 1, // Inatumika katika JSX kama key
   name: 'Mario José Molina-Pasquel Henríquez',
   profession: 'chemist',
   accomplishment: 'discovery of Arctic ozone hole',
   imageId: 'mynHUSa'
 }, {
-  id: 2, // Used in JSX as a key
+  id: 2, // Inatumika katika JSX kama key
   name: 'Mohammad Abdus Salam',
   profession: 'physicist',
   accomplishment: 'electromagnetism theory',
   imageId: 'bE7W1ji'
 }, {
-  id: 3, // Used in JSX as a key
+  id: 3, // Inatumika katika JSX kama key
   name: 'Percy Lavon Julian',
   profession: 'chemist',
   accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
   imageId: 'IOjWm71'
 }, {
-  id: 4, // Used in JSX as a key
+  id: 4, // Inatumika katika JSX kama key
   name: 'Subrahmanyan Chandrasekhar',
   profession: 'astrophysicist',
   accomplishment: 'white dwarf star mass calculations',
@@ -376,11 +376,11 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 <DeepDive>
 
-#### Displaying several DOM nodes for each list item {/*displaying-several-dom-nodes-for-each-list-item*/}
+#### Kuonyesha nodi kadhaa za DOM kwa kila kipengele cha orodha {/*displaying-several-dom-nodes-for-each-list-item*/}
 
-What do you do when each item needs to render not one, but several DOM nodes?
+Unafanyaje wakati kila kipengele kinahitaji ku-render si nodi moja ya DOM, bali kadhaa?
 
-The short [`<>...</>` Fragment](/reference/react/Fragment) syntax won't let you pass a key, so you need to either group them into a single `<div>`, or use the slightly longer and [more explicit `<Fragment>` syntax:](/reference/react/Fragment#rendering-a-list-of-fragments)
+Sintaksia fupi ya [Fragment `<>...</>`](/reference/react/Fragment) haitakuruhusu kupitisha key, hivyo unahitaji ama kuvikusanya ndani ya `<div>` moja, au kutumia [sintaksia ndefu kidogo na wazi zaidi ya `<Fragment>`:](/reference/react/Fragment#rendering-a-list-of-fragments)
 
 ```js
 import { Fragment } from 'react';
@@ -395,46 +395,46 @@ const listItems = people.map(person =>
 );
 ```
 
-Fragments disappear from the DOM, so this will produce a flat list of `<h1>`, `<p>`, `<h1>`, `<p>`, and so on.
+Fragments hutoweka kutoka kwenye DOM, hivyo hii itazalisha orodha bapa ya `<h1>`, `<p>`, `<h1>`, `<p>`, na kadhalika.
 
 </DeepDive>
 
-### Where to get your `key` {/*where-to-get-your-key*/}
+### Wapi pa kupata `key` yako {/*where-to-get-your-key*/}
 
-Different sources of data provide different sources of keys:
+Vyanzo tofauti vya data hutoa vyanzo tofauti vya keys:
 
-* **Data from a database:** If your data is coming from a database, you can use the database keys/IDs, which are unique by nature.
-* **Locally generated data:** If your data is generated and persisted locally (e.g. notes in a note-taking app), use an incrementing counter, [`crypto.randomUUID()`](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID) or a package like [`uuid`](https://www.npmjs.com/package/uuid) when creating items.
+* **Data kutoka kwenye database:** Ikiwa data yako inatoka kwenye database, unaweza kutumia keys/IDs za database, ambazo ni za kipekee kwa asili yake.
+* **Data iliyozalishwa kienyeji:** Ikiwa data yako imezalishwa na kuhifadhiwa kienyeji (mfano madokezo katika programu ya kuchukua madokezo), tumia kihesabu kinachoongezeka, [`crypto.randomUUID()`](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID) au kifurushi kama [`uuid`](https://www.npmjs.com/package/uuid) wakati wa kutengeneza vipengele.
 
-### Rules of keys {/*rules-of-keys*/}
+### Kanuni za keys {/*rules-of-keys*/}
 
-* **Keys must be unique among siblings.** However, it’s okay to use the same keys for JSX nodes in _different_ arrays.
-* **Keys must not change** or that defeats their purpose! Don't generate them while rendering.
+* **Keys lazima ziwe za kipekee miongoni mwa ndugu.** Hata hivyo, ni sawa kutumia keys zilezile kwa nodi za JSX katika arrays _tofauti_.
+* **Keys hazipaswi kubadilika** ama hilo linaharibu kusudi lao! Usizizalishe wakati wa ku-render.
 
-### Why does React need keys? {/*why-does-react-need-keys*/}
+### Kwa nini React inahitaji keys? {/*why-does-react-need-keys*/}
 
-Imagine that files on your desktop didn't have names. Instead, you'd refer to them by their order -- the first file, the second file, and so on. You could get used to it, but once you delete a file, it would get confusing. The second file would become the first file, the third file would be the second file, and so on.
+Fikiria kwamba faili kwenye desktop yako hazikuwa na majina. Badala yake, ungezirejelea kwa mpangilio wao -- faili ya kwanza, faili ya pili, na kadhalika. Ungeweza kuzoea, lakini mara tu unapofuta faili, ingekuwa jambo la kutatanisha. Faili ya pili ingekuwa faili ya kwanza, faili ya tatu ingekuwa faili ya pili, na kadhalika.
 
-File names in a folder and JSX keys in an array serve a similar purpose. They let us uniquely identify an item between its siblings. A well-chosen key provides more information than the position within the array. Even if the _position_ changes due to reordering, the `key` lets React identify the item throughout its lifetime.
+Majina ya faili katika folda na keys za JSX katika array hutimiza kusudi linalofanana. Hutuwezesha kukitambulisha kipengele kwa upekee kati ya ndugu zake. `key` iliyochaguliwa vizuri hutoa taarifa zaidi kuliko nafasi ndani ya array. Hata kama _nafasi_ itabadilika kutokana na kupanga upya, `key` humwezesha React kukitambua kipengele katika maisha yake yote.
 
 <Pitfall>
 
-You might be tempted to use an item's index in the array as its key. In fact, that's what React will use if you don't specify a `key` at all. But the order in which you render items will change over time if an item is inserted, deleted, or if the array gets reordered. Index as a key often leads to subtle and confusing bugs.
+Huenda ukashawishika kutumia index ya kipengele katika array kama key yake. Kwa kweli, hicho ndicho React itatumia ikiwa hutabainisha `key` hata kidogo. Lakini mpangilio ambao unavyo-render vipengele utabadilika baada ya muda ikiwa kipengele kitaingizwa, kufutwa, au ikiwa array itapangwa upya. Index kama key mara nyingi husababisha hitilafu (bugs) za hila na za kutatanisha.
 
-Similarly, do not generate keys on the fly, e.g. with `key={Math.random()}`. This will cause keys to never match up between renders, leading to all your components and DOM being recreated every time. Not only is this slow, but it will also lose any user input inside the list items. Instead, use a stable ID based on the data.
+Vivyo hivyo, usizalishe keys papo hapo, mfano kwa `key={Math.random()}`. Hii itasababisha keys kutolingana kamwe kati ya renders, ikipelekea components zako zote na DOM kuundwa upya kila mara. Si tu kwamba hili ni la polepole, bali pia litapoteza input yoyote ya mtumiaji ndani ya vipengele vya orodha. Badala yake, tumia ID thabiti inayotegemea data.
 
-Note that your components won't receive `key` as a prop. It's only used as a hint by React itself. If your component needs an ID, you have to pass it as a separate prop: `<Profile key={id} userId={id} />`.
+Kumbuka kuwa components zako hazitapokea `key` kama prop. Inatumika tu kama kidokezo na React yenyewe. Ikiwa component yako inahitaji ID, lazima uipitishe kama prop tofauti: `<Profile key={id} userId={id} />`.
 
 </Pitfall>
 
 <Recap>
 
-On this page you learned:
+Kwenye ukurasa huu ulijifunza:
 
-* How to move data out of components and into data structures like arrays and objects.
-* How to generate sets of similar components with JavaScript's `map()`.
-* How to create arrays of filtered items with JavaScript's `filter()`.
-* Why and how to set `key` on each component in a collection so React can keep track of each of them even if their position or data changes.
+* Jinsi ya kuhamisha data nje ya components na kuiweka katika miundo ya data kama arrays na objects.
+* Jinsi ya kuzalisha seti za components zinazofanana kwa `map()` ya JavaScript.
+* Jinsi ya kutengeneza arrays za vipengele vilivyochujwa kwa `filter()` ya JavaScript.
+* Kwa nini na jinsi ya kuweka `key` kwenye kila component katika mkusanyiko ili React iweze kufuatilia kila mojawapo hata kama nafasi au data yao itabadilika.
 
 </Recap>
 
@@ -442,11 +442,11 @@ On this page you learned:
 
 <Challenges>
 
-#### Splitting a list in two {/*splitting-a-list-in-two*/}
+#### Kugawanya orodha kuwa mbili {/*splitting-a-list-in-two*/}
 
-This example shows a list of all people.
+Mfano huu unaonyesha orodha ya watu wote.
 
-Change it to show two separate lists one after another: **Chemists** and **Everyone Else.** Like previously, you can determine whether a person is a chemist by checking if `person.profession === 'chemist'`.
+Ubadilishe ili uonyeshe orodha mbili tofauti moja baada ya nyingine: **Chemists** na **Everyone Else.** Kama ilivyo awali, unaweza kubaini iwapo mtu ni chemist kwa kuangalia kama `person.profession === 'chemist'`.
 
 <Sandpack>
 
@@ -464,7 +464,7 @@ export default function List() {
       <p>
         <b>{person.name}:</b>
         {' ' + person.profession + ' '}
-        known for {person.accomplishment}
+        maarufu kwa {person.accomplishment}
       </p>
     </li>
   );
@@ -537,7 +537,7 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 <Solution>
 
-You could use `filter()` twice, creating two separate arrays, and then `map` over both of them:
+Unaweza kutumia `filter()` mara mbili, ukitengeneza arrays mbili tofauti, kisha `map` juu ya zote mbili:
 
 <Sandpack>
 
@@ -650,9 +650,9 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 </Sandpack>
 
-In this solution, the `map` calls are placed directly inline into the parent `<ul>` elements, but you could introduce variables for them if you find that more readable.
+Katika suluhisho hili, wito wa `map` umewekwa moja kwa moja ndani ya elementi za mzazi `<ul>`, lakini ungeweza kuanzisha vigezo kwa ajili yao kama utaona hilo linasomeka vizuri zaidi.
 
-There is still a bit duplication between the rendered lists. You can go further and extract the repetitive parts into a `<ListSection>` component:
+Bado kuna urudufu kidogo kati ya orodha zilizo-render. Unaweza kwenda mbali zaidi na kutoa sehemu zinazojirudia kuwa component ya `<ListSection>`:
 
 <Sandpack>
 
@@ -764,9 +764,9 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 </Sandpack>
 
-A very attentive reader might notice that with two `filter` calls, we check each person's profession twice. Checking a property is very fast, so in this example it's fine. If your logic was more expensive than that, you could replace the `filter` calls with a loop that manually constructs the arrays and checks each person once.
+Msomaji makini sana anaweza kutambua kuwa kwa wito wa `filter` mara mbili, tunaangalia taaluma ya kila mtu mara mbili. Kuangalia sifa (property) ni haraka sana, hivyo katika mfano huu ni sawa. Ikiwa mantiki yako ingekuwa ghali zaidi ya hivyo, ungeweza kubadilisha wito wa `filter` na kitanzi kinachounda arrays kwa mkono na kuangalia kila mtu mara moja tu.
 
-In fact, if `people` never change, you could move this code out of your component. From React's perspective, all that matters is that you give it an array of JSX nodes in the end. It doesn't care how you produce that array:
+Kwa hakika, ikiwa `people` haibadiliki kamwe, ungeweza kuhamisha msimbo huu nje ya component yako. Kwa mtazamo wa React, kinachohesabika ni kwamba unaipa array ya nodi za JSX mwishoni. Haijali jinsi unavyozalisha array hiyo:
 
 <Sandpack>
 
@@ -884,13 +884,13 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 </Solution>
 
-#### Nested lists in one component {/*nested-lists-in-one-component*/}
+#### Orodha zilizopachikwa katika component moja {/*nested-lists-in-one-component*/}
 
-Make a list of recipes from this array! For each recipe in the array, display its name as an `<h2>` and list its ingredients in a `<ul>`.
+Tengeneza orodha ya mapishi kutoka kwenye array hii! Kwa kila pishi katika array, onyesha jina lake kama `<h2>` na orodhesha viungo vyake katika `<ul>`.
 
 <Hint>
 
-This will require nesting two different `map` calls.
+Hili litahitaji kupachika wito wa `map` mbili tofauti.
 
 </Hint>
 
@@ -928,7 +928,7 @@ export const recipes = [{
 
 <Solution>
 
-Here is one way you could go about it:
+Hii hapa ni njia moja ambayo ungeweza kufanya hivyo:
 
 <Sandpack>
 
@@ -974,13 +974,13 @@ export const recipes = [{
 
 </Sandpack>
 
-Each of the `recipes` already includes an `id` field, so that's what the outer loop uses for its `key`. There is no ID you could use to loop over ingredients. However, it's reasonable to assume that the same ingredient won't be listed twice within the same recipe, so its name can serve as a `key`. Alternatively, you could change the data structure to add IDs, or use index as a `key` (with the caveat that you can't safely reorder ingredients).
+Kila mojawapo ya `recipes` tayari inajumuisha uga wa `id`, hivyo hicho ndicho kitanzi cha nje kinachotumia kwa `key` yake. Hakuna ID ambayo ungeweza kutumia kuzunguka viungo. Hata hivyo, ni jambo la kimantiki kudhani kwamba kiungo kilekile hakitaorodheshwa mara mbili ndani ya pishi lilelile, hivyo jina lake linaweza kutumika kama `key`. Vinginevyo, ungeweza kubadilisha muundo wa data kuongeza IDs, au kutumia index kama `key` (kwa tahadhari kwamba huwezi kupanga upya viungo kwa usalama).
 
 </Solution>
 
-#### Extracting a list item component {/*extracting-a-list-item-component*/}
+#### Kutoa component ya kipengele cha orodha {/*extracting-a-list-item-component*/}
 
-This `RecipeList` component contains two nested `map` calls. To simplify it, extract a `Recipe` component from it which will accept `id`, `name`, and `ingredients` props. Where do you place the outer `key` and why?
+Component hii ya `RecipeList` ina wito wa `map` mbili zilizopachikwa. Ili kuirahisisha, toa component ya `Recipe` kutoka kwake ambayo itakubali props za `id`, `name`, na `ingredients`. Unaweka `key` ya nje wapi na kwa nini?
 
 <Sandpack>
 
@@ -1028,7 +1028,7 @@ export const recipes = [{
 
 <Solution>
 
-You can copy-paste the JSX from the outer `map` into a new `Recipe` component and return that JSX. Then you can change `recipe.name` to `name`, `recipe.id` to `id`, and so on, and pass them as props to the `Recipe`:
+Unaweza kunakili-na-kubandika JSX kutoka kwenye `map` ya nje kwenye component mpya ya `Recipe` na kurudisha JSX hiyo. Kisha unaweza kubadilisha `recipe.name` kuwa `name`, `recipe.id` kuwa `id`, na kadhalika, na kuzipitisha kama props kwa `Recipe`:
 
 <Sandpack>
 
@@ -1080,15 +1080,15 @@ export const recipes = [{
 
 </Sandpack>
 
-Here, `<Recipe {...recipe} key={recipe.id} />` is a syntax shortcut saying "pass all properties of the `recipe` object as props to the `Recipe` component". You could also write each prop explicitly: `<Recipe id={recipe.id} name={recipe.name} ingredients={recipe.ingredients} key={recipe.id} />`.
+Hapa, `<Recipe {...recipe} key={recipe.id} />` ni njia fupi ya sintaksia inayosema "pitisha sifa zote za object ya `recipe` kama props kwa component ya `Recipe`". Ungeweza pia kuandika kila prop waziwazi: `<Recipe id={recipe.id} name={recipe.name} ingredients={recipe.ingredients} key={recipe.id} />`.
 
-**Note that the `key` is specified on the `<Recipe>` itself rather than on the root `<div>` returned from `Recipe`.** This is because this `key` is needed directly within the context of the surrounding array. Previously, you had an array of `<div>`s so each of them needed a `key`, but now you have an array of `<Recipe>`s. In other words, when you extract a component, don't forget to leave the `key` outside the JSX you copy and paste.
+**Angalia kuwa `key` imebainishwa kwenye `<Recipe>` yenyewe badala ya kwenye `<div>` ya mzizi (root) inayorudishwa kutoka `Recipe`.** Hii ni kwa sababu `key` hii inahitajika moja kwa moja ndani ya muktadha wa array inayozunguka. Awali, ulikuwa na array ya `<div>`s hivyo kila mmoja ulihitaji `key`, lakini sasa una array ya `<Recipe>`s. Kwa maneno mengine, unapotoa component, usisahau kuacha `key` nje ya JSX unayonakili na kubandika.
 
 </Solution>
 
-#### List with a separator {/*list-with-a-separator*/}
+#### Orodha yenye kitenganishi {/*list-with-a-separator*/}
 
-This example renders a famous haiku by Tachibana Hokushi, with each line wrapped in a `<p>` tag. Your job is to insert an `<hr />` separator between each paragraph. Your resulting structure should look like this:
+Mfano huu una-render haiku maarufu ya Tachibana Hokushi, kila mstari ukiwa umefungwa ndani ya tagi ya `<p>`. Kazi yako ni kuingiza kitenganishi `<hr />` kati ya kila aya. Muundo wako wa matokeo unapaswa kuonekana hivi:
 
 ```js
 <article>
@@ -1100,7 +1100,7 @@ This example renders a famous haiku by Tachibana Hokushi, with each line wrapped
 </article>
 ```
 
-A haiku only contains three lines, but your solution should work with any number of lines. Note that `<hr />` elements only appear *between* the `<p>` elements, not in the beginning or the end!
+Haiku ina mistari mitatu tu, lakini suluhisho lako linapaswa kufanya kazi kwa idadi yoyote ya mistari. Angalia kuwa elementi za `<hr />` zinaonekana *kati* ya elementi za `<p>` tu, si mwanzoni au mwishoni!
 
 <Sandpack>
 
@@ -1143,17 +1143,17 @@ hr {
 
 </Sandpack>
 
-(This is a rare case where index as a key is acceptable because a poem's lines will never reorder.)
+(Hii ni hali nadra ambapo index kama key inakubalika kwa sababu mistari ya shairi haitapangwa upya kamwe.)
 
 <Hint>
 
-You'll either need to convert `map` to a manual loop, or use a Fragment.
+Utahitaji ama kubadilisha `map` kuwa kitanzi cha mkono, au kutumia Fragment.
 
 </Hint>
 
 <Solution>
 
-You can write a manual loop, inserting `<hr />` and `<p>...</p>` into the output array as you go:
+Unaweza kuandika kitanzi cha mkono, ukiingiza `<hr />` na `<p>...</p>` kwenye array ya matokeo unapoendelea:
 
 <Sandpack>
 
@@ -1169,7 +1169,7 @@ const poem = {
 export default function Poem() {
   let output = [];
 
-  // Fill the output array
+  // Jaza array ya matokeo
   poem.lines.forEach((line, i) => {
     output.push(
       <hr key={i + '-separator'} />
@@ -1180,7 +1180,7 @@ export default function Poem() {
       </p>
     );
   });
-  // Remove the first <hr />
+  // Ondoa <hr /> ya kwanza
   output.shift();
 
   return (
@@ -1208,9 +1208,9 @@ hr {
 
 </Sandpack>
 
-Using the original line index as a `key` doesn't work anymore because each separator and paragraph are now in the same array. However, you can give each of them a distinct key using a suffix, e.g. `key={i + '-text'}`.
+Kutumia index halisi ya mstari kama `key` hakufanyi kazi tena kwa sababu kila kitenganishi na aya sasa ziko katika array ileile. Hata hivyo, unaweza kumpa kila mmoja key tofauti ukitumia kiambishi tamati, mfano `key={i + '-text'}`.
 
-Alternatively, you could render a collection of Fragments which contain `<hr />` and `<p>...</p>`. However, the `<>...</>` shorthand syntax doesn't support passing keys, so you'd have to write `<Fragment>` explicitly:
+Vinginevyo, ungeweza ku-render mkusanyiko wa Fragments zinazo `<hr />` na `<p>...</p>`. Hata hivyo, sintaksia fupi ya `<>...</>` haiungi mkono kupitisha keys, hivyo ungelazimika kuandika `<Fragment>` waziwazi:
 
 <Sandpack>
 
@@ -1256,8 +1256,10 @@ hr {
 
 </Sandpack>
 
-Remember, Fragments (often written as `<> </>`) let you group JSX nodes without adding extra `<div>`s!
+Kumbuka, Fragments (mara nyingi zikiandikwa kama `<> </>`) hukuwezesha kukusanya nodi za JSX bila kuongeza `<div>`s za ziada!
 
 </Solution>
 
 </Challenges>
+</content>
+</invoke>

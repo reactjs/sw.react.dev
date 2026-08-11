@@ -1,26 +1,26 @@
 ---
-title: Passing Props to a Component
+title: Kupitisha Props kwa Component
 ---
 
 <Intro>
 
-React components use *props* to communicate with each other. Every parent component can pass some information to its child components by giving them props. Props might remind you of HTML attributes, but you can pass any JavaScript value through them, including objects, arrays, and functions.
+Components (vipengele) za React hutumia *props* kuwasiliana na kila mmoja. Kila component-mzazi inaweza kupitisha taarifa fulani kwa components zake za mtoto kwa kuzipa props. Props zinaweza kukukumbusha sifa za HTML, lakini unaweza kupitisha thamani yoyote ya JavaScript kupitia kwao, ikijumuisha objects, arrays (safu), na functions.
 
 </Intro>
 
 <YouWillLearn>
 
-* How to pass props to a component
-* How to read props from a component
-* How to specify default values for props
-* How to pass some JSX to a component
-* How props change over time
+* Jinsi ya kupitisha props kwa component
+* Jinsi ya kusoma props kutoka kwa component
+* Jinsi ya kubainisha thamani chaguo-msingi kwa props
+* Jinsi ya kupitisha JSX fulani kwa component
+* Jinsi props zinavyobadilika baada ya muda
 
 </YouWillLearn>
 
-## Familiar props {/*familiar-props*/}
+## Props zinazofahamika {/*familiar-props*/}
 
-Props are the information that you pass to a JSX tag. For example, `className`, `src`, `alt`, `width`, and `height` are some of the props you can pass to an `<img>`:
+Props ni taarifa unazopitisha kwa tagi ya JSX. Kwa mfano, `className`, `src`, `alt`, `width`, na `height` ni baadhi ya props unazoweza kupitisha kwa `<img>`:
 
 <Sandpack>
 
@@ -51,11 +51,11 @@ body { min-height: 120px; }
 
 </Sandpack>
 
-The props you can pass to an `<img>` tag are predefined (ReactDOM conforms to [the HTML standard](https://www.w3.org/TR/html52/semantics-embedded-content.html#the-img-element)). But you can pass any props to *your own* components, such as `<Avatar>`, to customize them. Here's how!
+Props unazoweza kupitisha kwa tagi ya `<img>` zimebainishwa mapema (ReactDOM inafuata [kiwango cha HTML](https://www.w3.org/TR/html52/semantics-embedded-content.html#the-img-element)). Lakini unaweza kupitisha props zozote kwa *components zako mwenyewe*, kama vile `<Avatar>`, ili kuzibinafsisha. Hivi ndivyo unavyofanya!
 
-## Passing props to a component {/*passing-props-to-a-component*/}
+## Kupitisha props kwa component {/*passing-props-to-a-component*/}
 
-In this code, the `Profile` component isn't passing any props to its child component, `Avatar`:
+Katika msimbo huu, component ya `Profile` haipitishi props zozote kwa component yake ya mtoto, `Avatar`:
 
 ```js
 export default function Profile() {
@@ -65,11 +65,11 @@ export default function Profile() {
 }
 ```
 
-You can give `Avatar` some props in two steps.
+Unaweza kuipa `Avatar` props fulani kwa hatua mbili.
 
-### Step 1: Pass props to the child component {/*step-1-pass-props-to-the-child-component*/}
+### Hatua ya 1: Pitisha props kwa component-mtoto {/*step-1-pass-props-to-the-child-component*/}
 
-First, pass some props to `Avatar`. For example, let's pass two props: `person` (an object), and `size` (a number):
+Kwanza, pitisha props fulani kwa `Avatar`. Kwa mfano, hebu tupitishe props mbili: `person` (object), na `size` (namba):
 
 ```js
 export default function Profile() {
@@ -84,25 +84,25 @@ export default function Profile() {
 
 <Note>
 
-If double curly braces after `person=` confuse you, recall [they're merely an object](/learn/javascript-in-jsx-with-curly-braces#using-double-curlies-css-and-other-objects-in-jsx) inside the JSX curlies.
+Kama mabano-viungo mawili baada ya `person=` yanakuchanganya, kumbuka kuwa [ni object tu](/learn/javascript-in-jsx-with-curly-braces#using-double-curlies-css-and-other-objects-in-jsx) ndani ya mabano-viungo ya JSX.
 
 </Note>
 
-Now you can read these props inside the `Avatar` component.
+Sasa unaweza kusoma props hizi ndani ya component ya `Avatar`.
 
-### Step 2: Read props inside the child component {/*step-2-read-props-inside-the-child-component*/}
+### Hatua ya 2: Soma props ndani ya component-mtoto {/*step-2-read-props-inside-the-child-component*/}
 
-You can read these props by listing their names `person, size` separated by the commas inside `({` and `})` directly after `function Avatar`. This lets you use them inside the `Avatar` code, like you would with a variable.
+Unaweza kusoma props hizi kwa kuorodhesha majina yao `person, size` yakitenganishwa na koma ndani ya `({` na `})` mara tu baada ya `function Avatar`. Hili hukuruhusu kuzitumia ndani ya msimbo wa `Avatar`, kama ambavyo ungefanya na kigezo.
 
 ```js
 function Avatar({ person, size }) {
-  // person and size are available here
+  // person na size zinapatikana hapa
 }
 ```
 
-Add some logic to `Avatar` that uses the `person` and `size` props for rendering, and you're done.
+Ongeza mantiki fulani kwa `Avatar` inayotumia props za `person` na `size` kwa ku-render, nawe umemaliza.
 
-Now you can configure `Avatar` to render in many different ways with different props. Try tweaking the values!
+Sasa unaweza kusanidi `Avatar` ili i-render kwa njia nyingi tofauti kwa props tofauti. Jaribu kubadilisha thamani!
 
 <Sandpack>
 
@@ -168,9 +168,9 @@ body { min-height: 120px; }
 
 </Sandpack>
 
-Props let you think about parent and child components independently. For example, you can change the `person` or the `size` props inside `Profile` without having to think about how `Avatar` uses them. Similarly, you can change how the `Avatar` uses these props, without looking at the `Profile`.
+Props hukuruhusu kufikiria kuhusu components za mzazi na mtoto kwa kujitegemea. Kwa mfano, unaweza kubadilisha props za `person` au `size` ndani ya `Profile` bila kulazimika kufikiria jinsi `Avatar` inavyozitumia. Vivyo hivyo, unaweza kubadilisha jinsi `Avatar` inavyotumia props hizi, bila kuangalia `Profile`.
 
-You can think of props like "knobs" that you can adjust. They serve the same role as arguments serve for functions—in fact, props _are_ the only argument to your component! React component functions accept a single argument, a `props` object:
+Unaweza kufikiria props kama "vifundo" (knobs) unavyoweza kurekebisha. Hutimiza jukumu lilelile ambalo hoja (arguments) hutimiza kwa functions—kwa hakika, props _ndicho_ pekee kilicho hoja kwa component yako! Functions za components za React hukubali hoja moja tu, object ya `props`:
 
 ```js
 function Avatar(props) {
@@ -180,11 +180,11 @@ function Avatar(props) {
 }
 ```
 
-Usually you don't need the whole `props` object itself, so you destructure it into individual props.
+Kwa kawaida hauhitaji object nzima ya `props` yenyewe, hivyo unaipasua (destructure) kuwa props mahususi.
 
 <Pitfall>
 
-**Don't miss the pair of `{` and `}` curlies** inside of `(` and `)` when declaring props:
+**Usisahau jozi ya mabano-viungo `{` na `}`** ndani ya `(` na `)` unapotangaza props:
 
 ```js
 function Avatar({ person, size }) {
@@ -192,7 +192,7 @@ function Avatar({ person, size }) {
 }
 ```
 
-This syntax is called ["destructuring"](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Unpacking_fields_from_objects_passed_as_a_function_parameter) and is equivalent to reading properties from a function parameter:
+Sintaksia hii inaitwa ["destructuring"](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Unpacking_fields_from_objects_passed_as_a_function_parameter) na inalingana na kusoma sifa kutoka kwa kigezo cha function:
 
 ```js
 function Avatar(props) {
@@ -204,9 +204,9 @@ function Avatar(props) {
 
 </Pitfall>
 
-## Specifying a default value for a prop {/*specifying-a-default-value-for-a-prop*/}
+## Kubainisha thamani chaguo-msingi kwa prop {/*specifying-a-default-value-for-a-prop*/}
 
-If you want to give a prop a default value to fall back on when no value is specified, you can do it with the destructuring by putting `=` and the default value right after the parameter:
+Kama unataka kuipa prop thamani chaguo-msingi ya kurejea pale ambapo hakuna thamani iliyobainishwa, unaweza kufanya hivyo kwa destructuring kwa kuweka `=` na thamani chaguo-msingi mara tu baada ya kigezo:
 
 ```js
 function Avatar({ person, size = 100 }) {
@@ -214,13 +214,13 @@ function Avatar({ person, size = 100 }) {
 }
 ```
 
-Now, if `<Avatar person={...} />` is rendered with no `size` prop, the `size` will be set to `100`.
+Sasa, kama `<Avatar person={...} />` ita-render bila prop ya `size`, `size` itawekwa kuwa `100`.
 
-The default value is only used if the `size` prop is missing or if you pass `size={undefined}`. But if you pass `size={null}` or `size={0}`, the default value will **not** be used.
+Thamani chaguo-msingi hutumika tu kama prop ya `size` haipo au kama unapitisha `size={undefined}`. Lakini kama unapitisha `size={null}` au `size={0}`, thamani chaguo-msingi **haitatumika**.
 
-## Forwarding props with the JSX spread syntax {/*forwarding-props-with-the-jsx-spread-syntax*/}
+## Kupeleka props kwa sintaksia ya JSX spread {/*forwarding-props-with-the-jsx-spread-syntax*/}
 
-Sometimes, passing props gets very repetitive:
+Wakati mwingine, kupitisha props kunakuwa na marudio mengi sana:
 
 ```js
 function Profile({ person, size, isSepia, thickBorder }) {
@@ -237,7 +237,7 @@ function Profile({ person, size, isSepia, thickBorder }) {
 }
 ```
 
-There's nothing wrong with repetitive code—it can be more legible. But at times you may value conciseness. Some components forward all of their props to their children, like how this `Profile` does with `Avatar`. Because they don't use any of their props directly, it can make sense to use a more concise "spread" syntax:
+Hakuna ubaya wowote kwa msimbo wenye marudio—unaweza kuwa unaosomeka zaidi. Lakini wakati mwingine unaweza kuthamini ufupi. Baadhi ya components hupeleka props zao zote kwa watoto wao, kama ambavyo `Profile` hii inavyofanya na `Avatar`. Kwa sababu hazitumii yoyote kati ya props zao moja kwa moja, inaweza kuwa na maana kutumia sintaksia fupi zaidi ya "spread":
 
 ```js
 function Profile(props) {
@@ -249,13 +249,13 @@ function Profile(props) {
 }
 ```
 
-This forwards all of `Profile`'s props to the `Avatar` without listing each of their names.
+Hili hupeleka props zote za `Profile` kwa `Avatar` bila kuorodhesha kila jina lao.
 
-**Use spread syntax with restraint.** If you're using it in every other component, something is wrong. Often, it indicates that you should split your components and pass children as JSX. More on that next!
+**Tumia sintaksia ya spread kwa kiasi.** Kama unaitumia kwenye kila component nyingine, kuna kitu hakiko sawa. Mara nyingi, hili huashiria kuwa unapaswa kugawanya components zako na kupitisha children kama JSX. Zaidi kuhusu hilo baadaye!
 
-## Passing JSX as children {/*passing-jsx-as-children*/}
+## Kupitisha JSX kama children {/*passing-jsx-as-children*/}
 
-It is common to nest built-in browser tags:
+Ni jambo la kawaida kupachika tagi za kivinjari zilizojengwa ndani:
 
 ```js
 <div>
@@ -263,7 +263,7 @@ It is common to nest built-in browser tags:
 </div>
 ```
 
-Sometimes you'll want to nest your own components the same way:
+Wakati mwingine utataka kupachika components zako mwenyewe kwa njia ileile:
 
 ```js
 <Card>
@@ -271,7 +271,7 @@ Sometimes you'll want to nest your own components the same way:
 </Card>
 ```
 
-When you nest content inside a JSX tag, the parent component will receive that content in a prop called `children`. For example, the `Card` component below will receive a `children` prop set to `<Avatar />` and render it in a wrapper div:
+Unapopachika maudhui ndani ya tagi ya JSX, component-mzazi itapokea maudhui hayo katika prop iitwayo `children`. Kwa mfano, component ya `Card` iliyo hapa chini itapokea prop ya `children` iliyowekwa kuwa `<Avatar />` na kui-render ndani ya div ya kufunika:
 
 <Sandpack>
 
@@ -347,17 +347,17 @@ export function getImageUrl(person, size = 's') {
 
 </Sandpack>
 
-Try replacing the `<Avatar>` inside `<Card>` with some text to see how the `Card` component can wrap any nested content. It doesn't need to "know" what's being rendered inside of it. You will see this flexible pattern in many places.
+Jaribu kubadilisha `<Avatar>` iliyo ndani ya `<Card>` na maandishi fulani ili kuona jinsi component ya `Card` inavyoweza kufunika maudhui yoyote yaliyopachikwa. Haihitaji "kujua" kile kinachо-render ndani yake. Utaona mpangilio huu unaonyumbulika katika sehemu nyingi.
 
-You can think of a component with a `children` prop as having a "hole" that can be "filled in" by its parent components with arbitrary JSX. You will often use the `children` prop for visual wrappers: panels, grids, etc.
+Unaweza kufikiria component yenye prop ya `children` kama iliyo na "shimo" linaloweza "kujazwa" na components zake za mzazi kwa JSX yoyote. Mara nyingi utatumia prop ya `children` kwa vifuniko vya kuonekana: paneli, gridi, n.k.
 
 <Illustration src="/images/docs/illustrations/i_children-prop.png" alt='A puzzle-like Card tile with a slot for "children" pieces like text and Avatar' />
 
-## How props change over time {/*how-props-change-over-time*/}
+## Jinsi props zinavyobadilika baada ya muda {/*how-props-change-over-time*/}
 
-The `Clock` component below receives two props from its parent component: `color` and `time`. (The parent component's code is omitted because it uses [state](/learn/state-a-components-memory), which we won't dive into just yet.)
+Component ya `Clock` iliyo hapa chini hupokea props mbili kutoka kwa component yake ya mzazi: `color` na `time`. (Msimbo wa component-mzazi umeachwa kwa sababu unatumia [state (hali)](/learn/state-a-components-memory), ambayo hatutaingia ndani yake bado.)
 
-Try changing the color in the select box below:
+Jaribu kubadilisha rangi kwenye sanduku la kuchagua lililo hapa chini:
 
 <Sandpack>
 
@@ -392,7 +392,7 @@ export default function App() {
   return (
     <div>
       <p>
-        Pick a color:{' '}
+        Chagua rangi:{' '}
         <select value={color} onChange={e => setColor(e.target.value)}>
           <option value="lightcoral">lightcoral</option>
           <option value="midnightblue">midnightblue</option>
@@ -407,21 +407,21 @@ export default function App() {
 
 </Sandpack>
 
-This example illustrates that **a component may receive different props over time.** Props are not always static! Here, the `time` prop changes every second, and the `color` prop changes when you select another color. Props reflect a component's data at any point in time, rather than only in the beginning.
+Mfano huu unaonyesha kuwa **component inaweza kupokea props tofauti baada ya muda.** Props si tuli kila wakati! Hapa, prop ya `time` hubadilika kila sekunde, na prop ya `color` hubadilika unapochagua rangi nyingine. Props huakisi data ya component wakati wowote, badala ya mwanzoni tu.
 
-However, props are [immutable](https://en.wikipedia.org/wiki/Immutable_object)—a term from computer science meaning "unchangeable". When a component needs to change its props (for example, in response to a user interaction or new data), it will have to "ask" its parent component to pass it _different props_—a new object! Its old props will then be cast aside, and eventually the JavaScript engine will reclaim the memory taken by them.
+Hata hivyo, props ni [immutable](https://en.wikipedia.org/wiki/Immutable_object)—neno kutoka sayansi ya kompyuta linalomaanisha "isiyoweza kubadilika". Wakati component inahitaji kubadilisha props zake (kwa mfano, kama jibu kwa mwingiliano wa mtumiaji au data mpya), itabidi "iiombe" component yake ya mzazi ipitishe _props tofauti_—object mpya! Props zake za zamani kisha zitatupwa kando, na hatimaye injini ya JavaScript itarudisha kumbukumbu iliyochukuliwa nazo.
 
-**Don't try to "change props".** When you need to respond to the user input (like changing the selected color), you will need to "set state", which you can learn about in [State: A Component's Memory.](/learn/state-a-components-memory)
+**Usijaribu "kubadilisha props".** Unapohitaji kujibu mwingiliano wa mtumiaji (kama kubadilisha rangi iliyochaguliwa), utahitaji "set state", ambayo unaweza kujifunza kuihusu katika [State: Kumbukumbu ya Component.](/learn/state-a-components-memory)
 
 <Recap>
 
-* To pass props, add them to the JSX, just like you would with HTML attributes.
-* To read props, use the `function Avatar({ person, size })` destructuring syntax.
-* You can specify a default value like `size = 100`, which is used for missing and `undefined` props.
-* You can forward all props with `<Avatar {...props} />` JSX spread syntax, but don't overuse it!
-* Nested JSX like `<Card><Avatar /></Card>` will appear as `Card` component's `children` prop.
-* Props are read-only snapshots in time: every render receives a new version of props.
-* You can't change props. When you need interactivity, you'll need to set state.
+* Kupitisha props, ziongeze kwenye JSX, kama ambavyo ungefanya na sifa za HTML.
+* Kusoma props, tumia sintaksia ya destructuring ya `function Avatar({ person, size })`.
+* Unaweza kubainisha thamani chaguo-msingi kama `size = 100`, ambayo hutumika kwa props zisizopo na za `undefined`.
+* Unaweza kupeleka props zote kwa sintaksia ya JSX spread ya `<Avatar {...props} />`, lakini usiitumie kupita kiasi!
+* JSX iliyopachikwa kama `<Card><Avatar /></Card>` itaonekana kama prop ya `children` ya component ya `Card`.
+* Props ni picha za mnepo za kusoma-tu (read-only) kwa wakati fulani: kila render hupokea toleo jipya la props.
+* Huwezi kubadilisha props. Unapohitaji mwingiliano, utahitaji kuweka state.
 
 </Recap>
 
@@ -429,9 +429,9 @@ However, props are [immutable](https://en.wikipedia.org/wiki/Immutable_object)�
 
 <Challenges>
 
-#### Extract a component {/*extract-a-component*/}
+#### Toa component {/*extract-a-component*/}
 
-This `Gallery` component contains some very similar markup for two profiles. Extract a `Profile` component out of it to reduce the duplication. You'll need to choose what props to pass to it.
+Component hii ya `Gallery` ina markup inayofanana sana kwa profaili mbili. Toa component ya `Profile` kutoka kwake ili kupunguza marudio. Utahitaji kuchagua props gani za kuipitisha.
 
 <Sandpack>
 
@@ -441,7 +441,7 @@ import { getImageUrl } from './utils.js';
 export default function Gallery() {
   return (
     <div>
-      <h1>Notable Scientists</h1>
+      <h1>Wanasayansi Maarufu</h1>
       <section className="profile">
         <h2>Maria Skłodowska-Curie</h2>
         <img
@@ -453,16 +453,16 @@ export default function Gallery() {
         />
         <ul>
           <li>
-            <b>Profession: </b> 
-            physicist and chemist
+            <b>Taaluma: </b> 
+            mwanafizikia na mwanakemia
           </li>
           <li>
-            <b>Awards: 4 </b> 
-            (Nobel Prize in Physics, Nobel Prize in Chemistry, Davy Medal, Matteucci Medal)
+            <b>Tuzo: 4 </b> 
+            (Tuzo ya Nobel ya Fizikia, Tuzo ya Nobel ya Kemia, Nishani ya Davy, Nishani ya Matteucci)
           </li>
           <li>
-            <b>Discovered: </b>
-            polonium (chemical element)
+            <b>Aligundua: </b>
+            polonium (elementi ya kemikali)
           </li>
         </ul>
       </section>
@@ -477,16 +477,16 @@ export default function Gallery() {
         />
         <ul>
           <li>
-            <b>Profession: </b> 
-            geochemist
+            <b>Taaluma: </b> 
+            mwanajiokemia
           </li>
           <li>
-            <b>Awards: 2 </b> 
-            (Miyake Prize for geochemistry, Tanaka Prize)
+            <b>Tuzo: 2 </b> 
+            (Tuzo ya Miyake ya jiokemia, Tuzo ya Tanaka)
           </li>
           <li>
-            <b>Discovered: </b>
-            a method for measuring carbon dioxide in seawater
+            <b>Aligundua: </b>
+            mbinu ya kupima kaboni dioksidi katika maji ya bahari
           </li>
         </ul>
       </section>
@@ -524,15 +524,15 @@ li { margin: 5px; }
 
 <Hint>
 
-Start by extracting the markup for one of the scientists. Then find the pieces that don't match it in the second example, and make them configurable by props.
+Anza kwa kutoa markup ya mmoja wa wanasayansi. Kisha tafuta vipande visivyolingana nayo katika mfano wa pili, na uvifanye vinavyoweza kusanidiwa kwa props.
 
 </Hint>
 
 <Solution>
 
-In this solution, the `Profile` component accepts multiple props: `imageId` (a string), `name` (a string), `profession` (a string), `awards` (an array of strings), `discovery` (a string), and `imageSize` (a number).
+Katika suluhisho hili, component ya `Profile` inakubali props kadhaa: `imageId` (string), `name` (string), `profession` (string), `awards` (array ya strings), `discovery` (string), na `imageSize` (namba).
 
-Note that the `imageSize` prop has a default value, which is why we don't pass it to the component.
+Kumbuka kuwa prop ya `imageSize` ina thamani chaguo-msingi, ndiyo maana hatuipitishi kwa component.
 
 <Sandpack>
 
@@ -558,13 +558,13 @@ function Profile({
         height={imageSize}
       />
       <ul>
-        <li><b>Profession:</b> {profession}</li>
+        <li><b>Taaluma:</b> {profession}</li>
         <li>
-          <b>Awards: {awards.length} </b>
+          <b>Tuzo: {awards.length} </b>
           ({awards.join(', ')})
         </li>
         <li>
-          <b>Discovered: </b>
+          <b>Aligundua: </b>
           {discovery}
         </li>
       </ul>
@@ -575,7 +575,7 @@ function Profile({
 export default function Gallery() {
   return (
     <div>
-      <h1>Notable Scientists</h1>
+      <h1>Wanasayansi Maarufu</h1>
       <Profile
         imageId="szV5sdG"
         name="Maria Skłodowska-Curie"
@@ -630,9 +630,9 @@ li { margin: 5px; }
 
 </Sandpack>
 
-Note how you don't need a separate `awardCount` prop if `awards` is an array. Then you can use `awards.length` to count the number of awards. Remember that props can take any values, and that includes arrays too!
+Angalia jinsi usivyohitaji prop tofauti ya `awardCount` kama `awards` ni array. Kisha unaweza kutumia `awards.length` kuhesabu idadi ya tuzo. Kumbuka kuwa props zinaweza kuchukua thamani zozote, na hilo linajumuisha arrays pia!
 
-Another solution, which is more similar to the earlier examples on this page, is to group all information about a person in a single object, and pass that object as one prop:
+Suluhisho lingine, ambalo linafanana zaidi na mifano ya awali kwenye ukurasa huu, ni kuweka pamoja taarifa zote kuhusu mtu katika object moja, na kupitisha object hiyo kama prop moja:
 
 <Sandpack>
 
@@ -654,14 +654,14 @@ function Profile({ person, imageSize = 70 }) {
       />
       <ul>
         <li>
-          <b>Profession:</b> {person.profession}
+          <b>Taaluma:</b> {person.profession}
         </li>
         <li>
-          <b>Awards: {person.awards.length} </b>
+          <b>Tuzo: {person.awards.length} </b>
           ({person.awards.join(', ')})
         </li>
         <li>
-          <b>Discovered: </b>
+          <b>Aligundua: </b>
           {person.discovery}
         </li>
       </ul>
@@ -672,7 +672,7 @@ function Profile({ person, imageSize = 70 }) {
 export default function Gallery() {
   return (
     <div>
-      <h1>Notable Scientists</h1>
+      <h1>Wanasayansi Maarufu</h1>
       <Profile person={{
         imageId: 'szV5sdG',
         name: 'Maria Skłodowska-Curie',
@@ -727,15 +727,15 @@ li { margin: 5px; }
 
 </Sandpack>
 
-Although the syntax looks slightly different because you're describing properties of a JavaScript object rather than a collection of JSX attributes, these examples are mostly equivalent, and you can pick either approach.
+Ingawa sintaksia inaonekana tofauti kidogo kwa sababu unaeleza sifa za object ya JavaScript badala ya mkusanyiko wa sifa za JSX, mifano hii inalingana kwa kiasi kikubwa, nawe unaweza kuchagua mbinu yoyote.
 
 </Solution>
 
-#### Adjust the image size based on a prop {/*adjust-the-image-size-based-on-a-prop*/}
+#### Rekebisha ukubwa wa picha kulingana na prop {/*adjust-the-image-size-based-on-a-prop*/}
 
-In this example, `Avatar` receives a numeric `size` prop which determines the `<img>` width and height. The `size` prop is set to `40` in this example. However, if you open the image in a new tab, you'll notice that the image itself is larger (`160` pixels). The real image size is determined by which thumbnail size you're requesting.
+Katika mfano huu, `Avatar` hupokea prop ya `size` ya kinamba inayobaini upana na urefu wa `<img>`. Prop ya `size` imewekwa kuwa `40` katika mfano huu. Hata hivyo, kama utafungua picha katika tabo mpya, utagundua kuwa picha yenyewe ni kubwa zaidi (`160` pikseli). Ukubwa halisi wa picha hubainishwa na ukubwa gani wa kijipicha (thumbnail) unaoomba.
 
-Change the `Avatar` component to request the closest image size based on the `size` prop. Specifically, if the `size` is less than `90`, pass `'s'` ("small") rather than `'b'` ("big") to the `getImageUrl` function. Verify that your changes work by rendering avatars with different values of the `size` prop and opening images in a new tab.
+Badilisha component ya `Avatar` ili iombe ukubwa wa picha ulio karibu zaidi kulingana na prop ya `size`. Hasa, kama `size` ni chini ya `90`, pitisha `'s'` ("small") badala ya `'b'` ("big") kwa function ya `getImageUrl`. Thibitisha kuwa mabadiliko yako yanafanya kazi kwa ku-render avatars kwa thamani tofauti za prop ya `size` na kufungua picha katika tabo mpya.
 
 <Sandpack>
 
@@ -786,7 +786,7 @@ export function getImageUrl(person, size) {
 
 <Solution>
 
-Here is how you could go about it:
+Hivi ndivyo unavyoweza kulifanya:
 
 <Sandpack>
 
@@ -848,7 +848,7 @@ export function getImageUrl(person, size) {
 
 </Sandpack>
 
-You could also show a sharper image for high DPI screens by taking [`window.devicePixelRatio`](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio) into account:
+Unaweza pia kuonyesha picha iliyo wazi zaidi kwa skrini za DPI kubwa kwa kuzingatia [`window.devicePixelRatio`](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio):
 
 <Sandpack>
 
@@ -919,13 +919,13 @@ export function getImageUrl(person, size) {
 
 </Sandpack>
 
-Props let you encapsulate logic like this inside the `Avatar` component (and change it later if needed) so that everyone can use the `<Avatar>` component without thinking about how the images are requested and resized.
+Props hukuruhusu kufungasha mantiki kama hii ndani ya component ya `Avatar` (na kuibadilisha baadaye kama itahitajika) ili kila mtu aweze kutumia component ya `<Avatar>` bila kufikiria jinsi picha zinavyoombwa na kurekebishwa ukubwa.
 
 </Solution>
 
-#### Passing JSX in a `children` prop {/*passing-jsx-in-a-children-prop*/}
+#### Kupitisha JSX katika prop ya `children` {/*passing-jsx-in-a-children-prop*/}
 
-Extract a `Card` component from the markup below, and use the `children` prop to pass different JSX to it:
+Toa component ya `Card` kutoka kwa markup iliyo hapa chini, na utumie prop ya `children` kupitisha JSX tofauti kwake:
 
 <Sandpack>
 
@@ -935,7 +935,7 @@ export default function Profile() {
     <div>
       <div className="card">
         <div className="card-content">
-          <h1>Photo</h1>
+          <h1>Picha</h1>
           <img
             className="avatar"
             src="https://i.imgur.com/OKS67lhm.jpg"
@@ -947,8 +947,8 @@ export default function Profile() {
       </div>
       <div className="card">
         <div className="card-content">
-          <h1>About</h1>
-          <p>Aklilu Lemma was a distinguished Ethiopian scientist who discovered a natural treatment to schistosomiasis.</p>
+          <h1>Kuhusu</h1>
+          <p>Aklilu Lemma alikuwa mwanasayansi mashuhuri wa Kiethiopia aliyegundua tiba ya asili ya kichocho.</p>
         </div>
       </div>
     </div>
@@ -983,13 +983,13 @@ h1 {
 
 <Hint>
 
-Any JSX you put inside of a component's tag will be passed as the `children` prop to that component.
+JSX yoyote unayoiweka ndani ya tagi ya component itapitishwa kama prop ya `children` kwa component hiyo.
 
 </Hint>
 
 <Solution>
 
-This is how you can use the `Card` component in both places:
+Hivi ndivyo unavyoweza kutumia component ya `Card` katika sehemu zote mbili:
 
 <Sandpack>
 
@@ -1008,7 +1008,7 @@ export default function Profile() {
   return (
     <div>
       <Card>
-        <h1>Photo</h1>
+        <h1>Picha</h1>
         <img
           className="avatar"
           src="https://i.imgur.com/OKS67lhm.jpg"
@@ -1018,8 +1018,8 @@ export default function Profile() {
         />
       </Card>
       <Card>
-        <h1>About</h1>
-        <p>Aklilu Lemma was a distinguished Ethiopian scientist who discovered a natural treatment to schistosomiasis.</p>
+        <h1>Kuhusu</h1>
+        <p>Aklilu Lemma alikuwa mwanasayansi mashuhuri wa Kiethiopia aliyegundua tiba ya asili ya kichocho.</p>
       </Card>
     </div>
   );
@@ -1051,7 +1051,7 @@ h1 {
 
 </Sandpack>
 
-You can also make `title` a separate prop if you want every `Card` to always have a title:
+Unaweza pia kufanya `title` kuwa prop tofauti kama unataka kila `Card` iwe na kichwa daima:
 
 <Sandpack>
 
@@ -1070,7 +1070,7 @@ function Card({ children, title }) {
 export default function Profile() {
   return (
     <div>
-      <Card title="Photo">
+      <Card title="Picha">
         <img
           className="avatar"
           src="https://i.imgur.com/OKS67lhm.jpg"
@@ -1079,8 +1079,8 @@ export default function Profile() {
           height={100}
         />
       </Card>
-      <Card title="About">
-        <p>Aklilu Lemma was a distinguished Ethiopian scientist who discovered a natural treatment to schistosomiasis.</p>
+      <Card title="Kuhusu">
+        <p>Aklilu Lemma alikuwa mwanasayansi mashuhuri wa Kiethiopia aliyegundua tiba ya asili ya kichocho.</p>
       </Card>
     </div>
   );
