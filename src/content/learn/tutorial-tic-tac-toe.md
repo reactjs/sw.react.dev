@@ -801,7 +801,7 @@ Kwa kuwaita function hii ya `set` kutoka kwa mshughulikaji wa `onClick`, unaiamb
 
 ![Kuongeza X kwenye ubao](../images/tutorial/tictac-adding-x-s.gif)
 
-Kila Square ina hali yake: thamani ya `value` iliyohifadhiwa kwenye kila Square ni huru kabisa kwa nyinginezo. Unapobadilisha hali kwa kuita function ya `set`, React huboresha pia vipengele vya watoto vilivyo ndani. 
+Kila Square ina hali yake: thamani ya `value` iliyohifadhiwa kwenye kila Square ni huru kabisa kwa nyinginezo. Unapobadilisha hali kwa kuita function ya `set`, React huboresha pia vipengele vya watoto vilivyo ndani.
 
 Baada ya mabadiliko haya, msimbo wako utaonekana hivi:
 
@@ -2075,7 +2075,7 @@ Unaweza kuona jinsi kanuni yako inavyopaswa kuonekana hapa chini. Kumbuka kwamba
 <ConsoleBlock level="warning">
 Warning: Each child in an array or iterator should have a unique "key" prop. Check the render method of &#96;Game&#96;.
 </ConsoleBlock>
-  
+
 Utarekebisha hitilafu hii katika sehemu inayofuata.
 
 <Sandpack>
