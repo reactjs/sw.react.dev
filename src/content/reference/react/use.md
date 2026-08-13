@@ -1120,6 +1120,7 @@ Usually, the simplest option is to `await` the Promise where you create it. The 
 ```js
 // Server Component
 export default async function App() {
+  // Will suspend the Server Component.
   const messageContent = await fetchMessage();
   return <Message messageContent={messageContent} />;
 }

@@ -337,11 +337,7 @@ import './styles.css';
 import App from './App';
 ```
 
-<<<<<<< HEAD
 Mstari wa 1-5 unaleta vipande vyote muhimu pamoja:
-=======
-Lines 1-5 bring all the necessary pieces together:
->>>>>>> c7d6b700038c63d1aaf2c649af1aefe01ebbacac
 
 * React
 * Maktaba ya React ya kuwasiliana na kivinjari cha wavuti (React DOM)
@@ -555,11 +551,7 @@ export default function Board() {
 }
 ```
 
-<<<<<<< HEAD
 Angalia jinsi, kinyume na `div`s za kivinjari, viungo vyako `Board` na `Square` lazima vianze na herufi kubwa.
-=======
-Note how unlike the browser `div`s, your own components `Board` and `Square` must start with a capital letter.
->>>>>>> c7d6b700038c63d1aaf2c649af1aefe01ebbacac
 
 Hebu tuangalie:
 
@@ -907,7 +899,6 @@ body {
 
 ### React Developer Tools za {/*react-developer-tools*/}
 
-<<<<<<< HEAD
 React DevTools hukuruhusu kuangalia *props* na *state* za vipengele vyako vya React. Unaweza kupata kichupo cha React DevTools chini ya sehemu ya *browser* katika CodeSandbox:
 
 ![React DevTools katika CodeSandbox](../images/tutorial/codesandbox-devtools.png)
@@ -915,25 +906,8 @@ React DevTools hukuruhusu kuangalia *props* na *state* za vipengele vyako vya Re
 Ili kuchunguza kipengele fulani kwenye skrini, tumia kitufe kilicho kwenye kona ya juu kushoto ya React DevTools:
 
 ![Kuchagua vipengele kwenye ukurasa na React DevTools](../images/tutorial/devtools-select.gif)
-=======
-React Developer Tools let you check the props and the state of your React components. It is available as a [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/), and [Edge](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil) browser extension.
 
-After you install it, a new *Components* tab will appear in your browser Developer Tools for sites using React. If you're following along in CodeSandbox, you'd need to first open your sandbox preview in a new tab:
-
-![opening in new tab](../images/tutorial/sandbox-new-tab.png)
-
-Then, on the preview page, open your browser's DevTools and find the *Components* tab:
->>>>>>> c7d6b700038c63d1aaf2c649af1aefe01ebbacac
-
-![components tab](../images/tutorial/components-tab.png)
-
-<<<<<<< HEAD
 Kwa maendeleo ya ndani (local development), React DevTools inapatikana kama [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/), na [Edge](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil) *browser extension*. Isakinishe, na kichupo cha *Components* kitaonekana kwenye Zana za Watengenezaji wa kivinjari chako kwa tovuti zinazotumia React.
-=======
-To inspect a particular component on the screen, use the button in the top left corner of the Components tab:
-
-![inspecting with devtools](../images/tutorial/devtools-inspect.gif)
->>>>>>> c7d6b700038c63d1aaf2c649af1aefe01ebbacac
 
 
 ## Kukamilisha Mchezo {/*completing-the-game*/}
@@ -1117,11 +1091,7 @@ function Square({ value, onSquareClick }) {
 }
 ```
 
-<<<<<<< HEAD
 Sasa utaunganisha kipengele cha `onSquareClick` na function katika sehemu ya `Board` utakayoita `handleClick`. Ili kuunganisha `onSquareClick` na `handleClick`, utapita function kwa kipengele cha `onSquareClick` cha sehemu ya kwanza ya `Square`:
-=======
-Now you'll connect the `onSquareClick` prop to a function in the `Board` component that you'll name `handleClick`. To connect `onSquareClick` to `handleClick` you'll pass a function to the `onSquareClick` prop of the first `Square` component:
->>>>>>> c7d6b700038c63d1aaf2c649af1aefe01ebbacac
 
 ```js
 export default function Board() {
@@ -2100,22 +2070,13 @@ export default function Game() {
 }
 ```
 
-<<<<<<< HEAD
 Unaweza kuona jinsi kanuni yako inavyopaswa kuonekana hapa chini. Kumbuka kwamba unapaswa kuona hitilafu katika koni ya zana za mende inayosema:
-=======
-You can see what your code should look like below. Note that you should see an error in the developer tools console that says:
->>>>>>> c7d6b700038c63d1aaf2c649af1aefe01ebbacac
 
 <ConsoleBlock level="warning">
 Warning: Each child in an array or iterator should have a unique "key" prop. Check the render method of &#96;Game&#96;.
 </ConsoleBlock>
-<<<<<<< HEAD
   
 Utarekebisha hitilafu hii katika sehemu inayofuata.
-=======
-
-You'll fix this error in the next section.
->>>>>>> c7d6b700038c63d1aaf2c649af1aefe01ebbacac
 
 <Sandpack>
 
