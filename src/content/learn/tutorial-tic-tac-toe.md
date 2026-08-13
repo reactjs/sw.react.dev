@@ -801,7 +801,7 @@ Kwa kuwaita function hii ya `set` kutoka kwa mshughulikaji wa `onClick`, unaiamb
 
 ![Kuongeza X kwenye ubao](../images/tutorial/tictac-adding-x-s.gif)
 
-Kila Square ina hali yake: thamani ya `value` iliyohifadhiwa kwenye kila Square ni huru kabisa kwa nyinginezo. Unapobadilisha hali kwa kuita function ya `set`, React huboresha pia vipengele vya watoto vilivyo ndani. 
+Kila Square ina hali yake: thamani ya `value` iliyohifadhiwa kwenye kila Square ni huru kabisa kwa nyinginezo. Unapobadilisha hali kwa kuita function ya `set`, React huboresha pia vipengele vya watoto vilivyo ndani.
 
 Baada ya mabadiliko haya, msimbo wako utaonekana hivi:
 
@@ -906,8 +906,6 @@ React DevTools hukuruhusu kuangalia *props* na *state* za vipengele vyako vya Re
 Ili kuchunguza kipengele fulani kwenye skrini, tumia kitufe kilicho kwenye kona ya juu kushoto ya React DevTools:
 
 ![Kuchagua vipengele kwenye ukurasa na React DevTools](../images/tutorial/devtools-select.gif)
-
-![components tab](../images/tutorial/components-tab.png)
 
 Kwa maendeleo ya ndani (local development), React DevTools inapatikana kama [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/), na [Edge](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil) *browser extension*. Isakinishe, na kichupo cha *Components* kitaonekana kwenye Zana za Watengenezaji wa kivinjari chako kwa tovuti zinazotumia React.
 
@@ -2077,7 +2075,7 @@ Unaweza kuona jinsi kanuni yako inavyopaswa kuonekana hapa chini. Kumbuka kwamba
 <ConsoleBlock level="warning">
 Warning: Each child in an array or iterator should have a unique "key" prop. Check the render method of &#96;Game&#96;.
 </ConsoleBlock>
-  
+
 Utarekebisha hitilafu hii katika sehemu inayofuata.
 
 <Sandpack>
