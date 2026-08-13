@@ -286,7 +286,17 @@ import { fetchData } from './data.js';
 export default function EffectAlbums({ artistId }) {
   const [albums, setAlbums] = useState([]);
 
-Suspense-enabled data fetching without the use of an opinionated framework is not yet supported. The requirements for implementing a Suspense-enabled data source are unstable and undocumented. An official API for integrating data sources with Suspense will be released in a future version of React.
+  useEffect(() => {
+    let active = true;
+    fetchData(`/${artistId}/albums`).then(result => {
+      if (active) {
+        setAlbums(result);
+      }
+    });
+    return () => {
+      active = false;
+    };
+  }, [artistId]);
 
   // Suspense can't see this fetch, so its fallback never
   // shows. The list stays empty until the data arrives.

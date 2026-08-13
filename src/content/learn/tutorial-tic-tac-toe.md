@@ -906,11 +906,6 @@ React DevTools hukuruhusu kuangalia *props* na *state* za vipengele vyako vya Re
 Ili kuchunguza kipengele fulani kwenye skrini, tumia kitufe kilicho kwenye kona ya juu kushoto ya React DevTools:
 
 ![Kuchagua vipengele kwenye ukurasa na React DevTools](../images/tutorial/devtools-select.gif)
-After you install it, a new *Components* tab will appear in your browser Developer Tools for sites using React. If you're following along in CodeSandbox, you'd need to first open your sandbox preview in a new tab:
-
-![opening in new tab](../images/tutorial/sandbox-new-tab.png)
-
-Then, on the preview page, open your browser's DevTools and find the *Components* tab:
 
 ![components tab](../images/tutorial/components-tab.png)
 
