@@ -63,7 +63,7 @@ Kijadi, wakati wa kuunda kurasa za wavuti, watengenezaji wa wavuti waliweka mark
 export default function Profile() {
   return (
     <img
-      src="https://i.imgur.com/MK3eW3Am.jpg"
+      src="https://react.dev/images/docs/scientists/MK3eW3Am.jpg"
       alt="Katherine Johnson"
     />
   )
@@ -99,7 +99,7 @@ Component hurudisha tagi ya `<img />` yenye sifa za `src` na `alt`. `<img />` im
 Kauli za return zinaweza kuandikwa zote katika mstari mmoja, kama katika component hii:
 
 ```js
-return <img src="https://i.imgur.com/MK3eW3As.jpg" alt="Katherine Johnson" />;
+return <img src="https://react.dev/images/docs/scientists/MK3eW3As.jpg" alt="Katherine Johnson" />;
 ```
 
 Lakini kama markup yako haiko yote katika mstari mmoja na neno kuu la `return`, lazima uifunge ndani ya jozi ya mabano:
@@ -107,7 +107,7 @@ Lakini kama markup yako haiko yote katika mstari mmoja na neno kuu la `return`, 
 ```js
 return (
   <div>
-    <img src="https://i.imgur.com/MK3eW3As.jpg" alt="Katherine Johnson" />
+    <img src="https://react.dev/images/docs/scientists/MK3eW3As.jpg" alt="Katherine Johnson" />
   </div>
 );
 ```
@@ -128,7 +128,7 @@ Sasa kwa kuwa umefafanua component yako ya `Profile`, unaweza kuipachika ndani y
 function Profile() {
   return (
     <img
-      src="https://i.imgur.com/MK3eW3As.jpg"
+      src="https://react.dev/images/docs/scientists/MK3eW3As.jpg"
       alt="Katherine Johnson"
     />
   );
@@ -248,7 +248,7 @@ Sanduku hili la mchanga (sandbox) halifanyi kazi kwa sababu component-mzizi haij
 function Profile() {
   return (
     <img
-      src="https://i.imgur.com/lICfvbD.jpg"
+      src="https://react.dev/images/docs/scientists/lICfvbD.jpg"
       alt="Aklilu Lemma"
     />
   );
@@ -273,7 +273,7 @@ Ongeza `export default` kabla ya ufafanuzi wa function kama hivi:
 export default function Profile() {
   return (
     <img
-      src="https://i.imgur.com/lICfvbD.jpg"
+      src="https://react.dev/images/docs/scientists/lICfvbD.jpg"
       alt="Aklilu Lemma"
     />
   );
@@ -306,7 +306,7 @@ Huenda ukapata hitilafu ya "Unexpected token" wakati unajaribu kurekebisha hili.
 ```js
 export default function Profile() {
   return
-    <img src="https://i.imgur.com/jA8hHMpm.jpg" alt="Katsuko Saruhashi" />;
+    <img src="https://react.dev/images/docs/scientists/jA8hHMpm.jpg" alt="Katsuko Saruhashi" />;
 }
 ```
 
@@ -324,7 +324,7 @@ Unaweza kurekebisha component hii kwa kuhamisha kauli ya return kwenye mstari mm
 
 ```js
 export default function Profile() {
-  return <img src="https://i.imgur.com/jA8hHMpm.jpg" alt="Katsuko Saruhashi" />;
+  return <img src="https://react.dev/images/docs/scientists/jA8hHMpm.jpg" alt="Katsuko Saruhashi" />;
 }
 ```
 
@@ -341,9 +341,9 @@ Au kwa kufunga markup ya JSX inayorudishwa ndani ya mabano yanayofunguka mara tu
 ```js
 export default function Profile() {
   return (
-    <img 
-      src="https://i.imgur.com/jA8hHMpm.jpg" 
-      alt="Katsuko Saruhashi" 
+    <img
+      src="https://react.dev/images/docs/scientists/jA8hHMpm.jpg"
+      alt="Katsuko Saruhashi"
     />
   );
 }
@@ -367,7 +367,7 @@ Kuna tatizo kuhusu jinsi component ya `Profile` inavyotangazwa na kutumika. Je, 
 function profile() {
   return (
     <img
-      src="https://i.imgur.com/QIrZWGIs.jpg"
+      src="https://react.dev/images/docs/scientists/QIrZWGIs.jpg"
       alt="Alan L. Hart"
     />
   );
@@ -403,7 +403,7 @@ Badilisha `function profile()` kuwa `function Profile()`, kisha badilisha kila `
 function Profile() {
   return (
     <img
-      src="https://i.imgur.com/QIrZWGIs.jpg"
+      src="https://react.dev/images/docs/scientists/QIrZWGIs.jpg"
       alt="Alan L. Hart"
     />
   );

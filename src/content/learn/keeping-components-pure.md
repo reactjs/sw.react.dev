@@ -226,7 +226,7 @@ Kila kipengele kipya cha React tunachojenga hunufaika na purity. Kutoka kwenye k
 </Recap>
 
 
-  
+
 <Challenges>
 
 #### Rekebisha saa iliyoharibika {/*fix-a-broken-clock*/}
@@ -451,7 +451,7 @@ export default function App() {
 ```js src/utils.js hidden
 export function getImageUrl(person, size = 's') {
   return (
-    'https://i.imgur.com/' +
+    'https://react.dev/images/docs/scientists/' +
     person.imageId +
     size +
     '.jpg'
@@ -549,7 +549,7 @@ export default function App() {
 ```js src/utils.js hidden
 export function getImageUrl(person, size = 's') {
   return (
-    'https://i.imgur.com/' +
+    'https://react.dev/images/docs/scientists/' +
     person.imageId +
     size +
     '.jpg'

@@ -28,7 +28,7 @@ export default function Avatar() {
   return (
     <img
       className="avatar"
-      src="https://i.imgur.com/7vQD0fPs.jpg"
+      src="https://react.dev/images/docs/scientists/7vQD0fPs.jpg"
       alt="Gregorio Y. Zara"
     />
   );
@@ -49,7 +49,7 @@ Lakini itakuwaje kama unataka kubainisha `src` au maandishi ya `alt` kwa njia in
 
 ```js
 export default function Avatar() {
-  const avatar = 'https://i.imgur.com/7vQD0fPs.jpg';
+  const avatar = 'https://react.dev/images/docs/scientists/7vQD0fPs.jpg';
   const description = 'Gregorio Y. Zara';
   return (
     <img
@@ -190,7 +190,7 @@ export default function TodoList() {
       <h1>{person.name}'s Todos</h1>
       <img
         className="avatar"
-        src="https://i.imgur.com/7vQD0fPs.jpg"
+        src="https://react.dev/images/docs/scientists/7vQD0fPs.jpg"
         alt="Gregorio Y. Zara"
       />
       <ul>
@@ -266,7 +266,7 @@ export default function TodoList() {
       <h1>{person}'s Todos</h1>
       <img
         className="avatar"
-        src="https://i.imgur.com/7vQD0fPs.jpg"
+        src="https://react.dev/images/docs/scientists/7vQD0fPs.jpg"
         alt="Gregorio Y. Zara"
       />
       <ul>
@@ -314,7 +314,7 @@ export default function TodoList() {
       <h1>{person.name}'s Todos</h1>
       <img
         className="avatar"
-        src="https://i.imgur.com/7vQD0fPs.jpg"
+        src="https://react.dev/images/docs/scientists/7vQD0fPs.jpg"
         alt="Gregorio Y. Zara"
       />
       <ul>
@@ -358,7 +358,7 @@ export default function TodoList() {
       <h1>{person.name}'s Todos</h1>
       <img
         className="avatar"
-        src="https://i.imgur.com/7vQD0fPs.jpg"
+        src="https://react.dev/images/docs/scientists/7vQD0fPs.jpg"
         alt="Gregorio Y. Zara"
       />
       <ul>
@@ -388,7 +388,7 @@ Hamisha URL ya picha ndani ya sifa iitwayo `person.imageUrl` na uisome kutoka kw
 ```js
 const person = {
   name: 'Gregorio Y. Zara',
-  imageUrl: "https://i.imgur.com/7vQD0fPs.jpg",
+  imageUrl: "https://react.dev/images/docs/scientists/7vQD0fPs.jpg",
   theme: {
     backgroundColor: 'black',
     color: 'pink'
@@ -436,7 +436,7 @@ Je, unaweza kuirekebisha?
 
 ```js
 
-const baseUrl = 'https://i.imgur.com/';
+const baseUrl = 'https://react.dev/images/docs/scientists/';
 const person = {
   name: 'Gregorio Y. Zara',
   imageId: '7vQD0fP',
@@ -487,7 +487,7 @@ Unaweza kuiandika kama `src={baseUrl + person.imageId + person.imageSize + '.jpg
 <Sandpack>
 
 ```js
-const baseUrl = 'https://i.imgur.com/';
+const baseUrl = 'https://react.dev/images/docs/scientists/';
 const person = {
   name: 'Gregorio Y. Zara',
   imageId: '7vQD0fP',
@@ -564,7 +564,7 @@ export default function TodoList() {
 ```js src/utils.js
 export function getImageUrl(person) {
   return (
-    'https://i.imgur.com/' +
+    'https://react.dev/images/docs/scientists/' +
     person.imageId +
     person.imageSize +
     '.jpg'
