@@ -1,26 +1,26 @@
 ---
-title: Importing and Exporting Components
+title: Kuingiza na Kutoa Components
 ---
 
 <Intro>
 
-The magic of components lies in their reusability: you can create components that are composed of other components. But as you nest more and more components, it often makes sense to start splitting them into different files. This lets you keep your files easy to scan and reuse components in more places.
+Uchawi wa components (vipengele) upo katika uwezo wao wa kutumika tena: unaweza kutengeneza components zinazoundwa na components nyingine. Lakini kadri unavyopachika components nyingi zaidi na zaidi, mara nyingi inakuwa jambo la busara kuanza kuzigawanya katika faili tofauti. Hili hukuwezesha kuweka faili zako rahisi kuchunguza na kutumia tena components katika sehemu nyingi zaidi.
 
 </Intro>
 
 <YouWillLearn>
 
-* What a root component file is
-* How to import and export a component
-* When to use default and named imports and exports
-* How to import and export multiple components from one file
-* How to split components into multiple files
+* Faili ya component-mzizi ni nini
+* Jinsi ya ku-import na ku-export component
+* Ni lini utumie default na named imports na exports
+* Jinsi ya ku-import na ku-export components nyingi kutoka faili moja
+* Jinsi ya kugawanya components katika faili nyingi
 
 </YouWillLearn>
 
-## The root component file {/*the-root-component-file*/}
+## Faili ya component-mzizi {/*the-root-component-file*/}
 
-In [Your First Component](/learn/your-first-component), you made a `Profile` component and a `Gallery` component that renders it:
+Katika [Component Yako ya Kwanza](/learn/your-first-component), ulitengeneza component ya `Profile` na component ya `Gallery` inayoi-render:
 
 <Sandpack>
 
@@ -37,7 +37,7 @@ function Profile() {
 export default function Gallery() {
   return (
     <section>
-      <h1>Amazing scientists</h1>
+      <h1>Wanasayansi wa ajabu</h1>
       <Profile />
       <Profile />
       <Profile />
@@ -52,17 +52,17 @@ img { margin: 0 10px 10px 0; height: 90px; }
 
 </Sandpack>
 
-These currently live in a **root component file,** named `App.js` in this example. Depending on your setup, your root component could be in another file, though. If you use a framework with file-based routing, such as Next.js, your root component will be different for every page.
+Kwa sasa hizi zinaishi katika **faili ya component-mzizi,** iitwayo `App.js` katika mfano huu. Kutegemeana na usanidi wako, component-mzizi wako anaweza kuwa katika faili nyingine, hata hivyo. Kama unatumia framework yenye uelekezaji unaotegemea faili (file-based routing), kama Next.js, component-mzizi wako atakuwa tofauti kwa kila ukurasa.
 
-## Exporting and importing a component {/*exporting-and-importing-a-component*/}
+## Kutoa na kuingiza component {/*exporting-and-importing-a-component*/}
 
-What if you want to change the landing screen in the future and put a list of science books there? Or place all the profiles somewhere else? It makes sense to move `Gallery` and `Profile` out of the root component file. This will make them more modular and reusable in other files. You can move a component in three steps:
+Je, iwapo utataka kubadilisha skrini ya kutua (landing screen) baadaye na kuweka orodha ya vitabu vya sayansi hapo? Au kuweka profaili zote sehemu nyingine? Ni jambo la busara kuhamisha `Gallery` na `Profile` nje ya faili ya component-mzizi. Hili litazifanya kuwa za kimoduli zaidi na zinazoweza kutumika tena katika faili nyingine. Unaweza kuhamisha component kwa hatua tatu:
 
-1. **Make** a new JS file to put the components in.
-2. **Export** your function component from that file (using either [default](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/export#using_the_default_export) or [named](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/export#using_named_exports) exports).
-3. **Import** it in the file where you’ll use the component (using the corresponding technique for importing [default](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/import#importing_defaults) or [named](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/import#import_a_single_export_from_a_module) exports).
+1. **Tengeneza** faili mpya ya JS ya kuweka components ndani yake.
+2. **Toa (Export)** function component yako kutoka faili hiyo (ukitumia ama exports za [default](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/export#using_the_default_export) au za [named](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/export#using_named_exports)).
+3. **Ingiza (Import)** katika faili ambapo utaitumia component (ukitumia mbinu inayolingana ya ku-import exports za [default](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/import#importing_defaults) au za [named](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/import#import_a_single_export_from_a_module)).
 
-Here both `Profile` and `Gallery` have been moved out of `App.js` into a new file called `Gallery.js`. Now you can change `App.js` to import `Gallery` from `Gallery.js`:
+Hapa `Profile` na `Gallery` zote zimehamishwa nje ya `App.js` na kuwekwa katika faili mpya iitwayo `Gallery.js`. Sasa unaweza kubadilisha `App.js` ili ii-import `Gallery` kutoka `Gallery.js`:
 
 <Sandpack>
 
@@ -89,7 +89,7 @@ function Profile() {
 export default function Gallery() {
   return (
     <section>
-      <h1>Amazing scientists</h1>
+      <h1>Wanasayansi wa ajabu</h1>
       <Profile />
       <Profile />
       <Profile />
@@ -104,60 +104,60 @@ img { margin: 0 10px 10px 0; height: 90px; }
 
 </Sandpack>
 
-Notice how this example is broken down into two component files now:
+Angalia jinsi mfano huu sasa umegawanywa katika faili mbili za component:
 
 1. `Gallery.js`:
-     - Defines the `Profile` component which is only used within the same file and is not exported.
-     - Exports the `Gallery` component as a **default export.**
+     - Hufafanua component ya `Profile` ambayo hutumika tu ndani ya faili ileile na haija-export.
+     - Hutoa component ya `Gallery` kama **default export.**
 2. `App.js`:
-     - Imports `Gallery` as a **default import** from `Gallery.js`.
-     - Exports the root `App` component as a **default export.**
+     - Huingiza `Gallery` kama **default import** kutoka `Gallery.js`.
+     - Hutoa component-mzizi wa `App` kama **default export.**
 
 
 <Note>
 
-You may encounter files that leave off the `.js` file extension like so:
+Unaweza kukutana na faili zinazoacha kiendelezi cha faili `.js` kama hivi:
 
 ```js
 import Gallery from './Gallery';
 ```
 
-Either `'./Gallery.js'` or `'./Gallery'` will work with React, though the former is closer to how [native ES Modules](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Modules) work.
+Ama `'./Gallery.js'` au `'./Gallery'` zote zitafanya kazi na React, ingawa ile ya kwanza iko karibu zaidi na jinsi [native ES Modules](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Modules) zinavyofanya kazi.
 
 </Note>
 
 <DeepDive>
 
-#### Default vs named exports {/*default-vs-named-exports*/}
+#### Default dhidi ya named exports {/*default-vs-named-exports*/}
 
-There are two primary ways to export values with JavaScript: default exports and named exports. So far, our examples have only used default exports. But you can use one or both of them in the same file. **A file can have no more than one _default_ export, but it can have as many _named_ exports as you like.**
+Kuna njia kuu mbili za ku-export thamani kwa JavaScript: default exports na named exports. Hadi sasa, mifano yetu imetumia default exports pekee. Lakini unaweza kutumia mojawapo au zote mbili katika faili ileile. **Faili haiwezi kuwa na zaidi ya _default_ export moja, lakini inaweza kuwa na _named_ exports nyingi kadri upendavyo.**
 
 ![Default and named exports](/images/docs/illustrations/i_import-export.svg)
 
-How you export your component dictates how you must import it. You will get an error if you try to import a default export the same way you would a named export! This chart can help you keep track:
+Jinsi unavyo-export component yako huamua jinsi lazima uii-import. Utapata hitilafu kama utajaribu ku-import default export kwa njia ileile ungeenda kui-import named export! Chati hii inaweza kukusaidia kufuatilia:
 
-| Syntax           | Export statement                           | Import statement                          |
+| Sintaksia        | Kauli ya export                            | Kauli ya import                           |
 | -----------      | -----------                                | -----------                               |
 | Default  | `export default function Button() {}` | `import Button from './Button.js';`     |
 | Named    | `export function Button() {}`         | `import { Button } from './Button.js';` |
 
-When you write a _default_ import, you can put any name you want after `import`. For example, you could write `import Banana from './Button.js'` instead and it would still provide you with the same default export. In contrast, with named imports, the name has to match on both sides. That's why they are called _named_ imports!
+Unapoandika _default_ import, unaweza kuweka jina lolote upendalo baada ya `import`. Kwa mfano, ungeweza kuandika `import Banana from './Button.js'` badala yake na bado ingekupatia default export ileile. Kinyume chake, kwa named imports, jina lazima lilingane pande zote mbili. Ndiyo sababu zinaitwa _named_ imports!
 
-**People often use default exports if the file exports only one component, and use named exports if it exports multiple components and values.** Regardless of which coding style you prefer, always give meaningful names to your component functions and the files that contain them. Components without names, like `export default () => {}`, are discouraged because they make debugging harder.
+**Watu mara nyingi hutumia default exports kama faili hii-export component moja tu, na hutumia named exports kama itatoa components na thamani nyingi.** Bila kujali mtindo wa uandishi upendao, kila wakati toa majina yenye maana kwa function za component zako na faili zinazozibeba. Components zisizo na majina, kama `export default () => {}`, hazipendekezwi kwa sababu zinafanya utatuzi wa hitilafu (debugging) kuwa mgumu zaidi.
 
 </DeepDive>
 
-## Exporting and importing multiple components from the same file {/*exporting-and-importing-multiple-components-from-the-same-file*/}
+## Kutoa na kuingiza components nyingi kutoka faili ileile {/*exporting-and-importing-multiple-components-from-the-same-file*/}
 
-What if you want to show just one `Profile` instead of a gallery? You can export the `Profile` component, too. But `Gallery.js` already has a *default* export, and you can't have _two_ default exports. You could create a new file with a default export, or you could add a *named* export for `Profile`. **A file can only have one default export, but it can have numerous named exports!**
+Je, iwapo utataka kuonyesha `Profile` moja tu badala ya gallery? Unaweza ku-export component ya `Profile`, pia. Lakini `Gallery.js` tayari ina *default* export, na huwezi kuwa na default exports _mbili_. Ungeweza kutengeneza faili mpya yenye default export, au ungeweza kuongeza *named* export kwa `Profile`. **Faili inaweza kuwa na default export moja tu, lakini inaweza kuwa na named exports nyingi mno!**
 
 <Note>
 
-To reduce the potential confusion between default and named exports, some teams choose to only stick to one style (default or named), or avoid mixing them in a single file. Do what works best for you!
+Ili kupunguza mkanganyiko unaowezekana kati ya default na named exports, baadhi ya timu huchagua kushikilia mtindo mmoja tu (default au named), au kuepuka kuzichanganya katika faili moja. Fanya kile kinachokufaa zaidi!
 
 </Note>
 
-First, **export** `Profile` from `Gallery.js` using a named export (no `default` keyword):
+Kwanza, **export** `Profile` kutoka `Gallery.js` ukitumia named export (bila neno kuu `default`):
 
 ```js
 export function Profile() {
@@ -165,13 +165,13 @@ export function Profile() {
 }
 ```
 
-Then, **import** `Profile` from `Gallery.js` to `App.js` using a named import (with the curly braces):
+Kisha, **import** `Profile` kutoka `Gallery.js` hadi `App.js` ukitumia named import (na mabano ya curly):
 
 ```js
 import { Profile } from './Gallery.js';
 ```
 
-Finally, **render** `<Profile />` from the `App` component:
+Hatimaye, **render** `<Profile />` kutoka component ya `App`:
 
 ```js
 export default function App() {
@@ -179,7 +179,7 @@ export default function App() {
 }
 ```
 
-Now `Gallery.js` contains two exports: a default `Gallery` export, and a named `Profile` export. `App.js` imports both of them. Try editing `<Profile />` to `<Gallery />` and back in this example:
+Sasa `Gallery.js` ina exports mbili: default `Gallery` export, na named `Profile` export. `App.js` huzi-import zote mbili. Jaribu kuhariri `<Profile />` kuwa `<Gallery />` na kurudi katika mfano huu:
 
 <Sandpack>
 
@@ -207,7 +207,7 @@ export function Profile() {
 export default function Gallery() {
   return (
     <section>
-      <h1>Amazing scientists</h1>
+      <h1>Wanasayansi wa ajabu</h1>
       <Profile />
       <Profile />
       <Profile />
@@ -222,24 +222,24 @@ img { margin: 0 10px 10px 0; height: 90px; }
 
 </Sandpack>
 
-Now you're using a mix of default and named exports:
+Sasa unatumia mchanganyiko wa default na named exports:
 
 * `Gallery.js`:
-  - Exports the `Profile` component as a **named export called `Profile`.**
-  - Exports the `Gallery` component as a **default export.**
+  - Hutoa component ya `Profile` kama **named export iitwayo `Profile`.**
+  - Hutoa component ya `Gallery` kama **default export.**
 * `App.js`:
-  - Imports `Profile` as a **named import called `Profile`** from `Gallery.js`.
-  - Imports `Gallery` as a **default import** from `Gallery.js`.
-  - Exports the root `App` component as a **default export.**
+  - Huingiza `Profile` kama **named import iitwayo `Profile`** kutoka `Gallery.js`.
+  - Huingiza `Gallery` kama **default import** kutoka `Gallery.js`.
+  - Hutoa component-mzizi wa `App` kama **default export.**
 
 <Recap>
 
-On this page you learned:
+Katika ukurasa huu ulijifunza:
 
-* What a root component file is
-* How to import and export a component
-* When and how to use default and named imports and exports
-* How to export multiple components from the same file
+* Faili ya component-mzizi ni nini
+* Jinsi ya ku-import na ku-export component
+* Ni lini na jinsi ya kutumia default na named imports na exports
+* Jinsi ya ku-export components nyingi kutoka faili ileile
 
 </Recap>
 
@@ -247,22 +247,22 @@ On this page you learned:
 
 <Challenges>
 
-#### Split the components further {/*split-the-components-further*/}
+#### Gawanya components zaidi {/*split-the-components-further*/}
 
-Currently, `Gallery.js` exports both `Profile` and `Gallery`, which is a bit confusing.
+Kwa sasa, `Gallery.js` hu-export `Profile` na `Gallery` zote mbili, jambo ambalo linachanganya kidogo.
 
-Move the `Profile` component to its own `Profile.js`, and then change the `App` component to render both `<Profile />` and `<Gallery />` one after another.
+Hamisha component ya `Profile` kwenye `Profile.js` yake mwenyewe, kisha badilisha component ya `App` ii-render zote mbili `<Profile />` na `<Gallery />` moja baada ya nyingine.
 
-You may use either a default or a named export for `Profile`, but make sure that you use the corresponding import syntax in both `App.js` and `Gallery.js`! You can refer to the table from the deep dive above:
+Unaweza kutumia ama default au named export kwa `Profile`, lakini hakikisha unatumia sintaksia inayolingana ya import katika `App.js` na `Gallery.js` zote mbili! Unaweza kurejelea jedwali kutoka deep dive iliyo hapo juu:
 
-| Syntax           | Export statement                           | Import statement                          |
+| Sintaksia        | Kauli ya export                            | Kauli ya import                           |
 | -----------      | -----------                                | -----------                               |
 | Default  | `export default function Button() {}` | `import Button from './Button.js';`     |
 | Named    | `export function Button() {}`         | `import { Button } from './Button.js';` |
 
 <Hint>
 
-Don't forget to import your components where they are called. Doesn't `Gallery` use `Profile`, too?
+Usisahau ku-import components zako pale zinapoitwa. Je, `Gallery` haitumii `Profile`, pia?
 
 </Hint>
 
@@ -282,7 +282,8 @@ export default function App() {
 ```
 
 ```js src/Gallery.js active
-// Move me to Profile.js!
+    q
+// Nihamishe kwenye Profile.js!
 export function Profile() {
   return (
     <img
@@ -295,7 +296,7 @@ export function Profile() {
 export default function Gallery() {
   return (
     <section>
-      <h1>Amazing scientists</h1>
+      <h1>Wanasayansi wa ajabu</h1>
       <Profile />
       <Profile />
       <Profile />
@@ -313,11 +314,11 @@ img { margin: 0 10px 10px 0; height: 90px; }
 
 </Sandpack>
 
-After you get it working with one kind of exports, make it work with the other kind.
+Baada ya kuifanya ifanye kazi na aina moja ya exports, ifanye ifanye kazi na aina nyingine.
 
 <Solution>
 
-This is the solution with named exports:
+Hili ndilo suluhisho lenye named exports:
 
 <Sandpack>
 
@@ -341,7 +342,7 @@ import { Profile } from './Profile.js';
 export default function Gallery() {
   return (
     <section>
-      <h1>Amazing scientists</h1>
+      <h1>Wanasayansi wa ajabu</h1>
       <Profile />
       <Profile />
       <Profile />
@@ -367,7 +368,7 @@ img { margin: 0 10px 10px 0; height: 90px; }
 
 </Sandpack>
 
-This is the solution with default exports:
+Hili ndilo suluhisho lenye default exports:
 
 <Sandpack>
 
@@ -391,7 +392,7 @@ import Profile from './Profile.js';
 export default function Gallery() {
   return (
     <section>
-      <h1>Amazing scientists</h1>
+      <h1>Wanasayansi wa ajabu</h1>
       <Profile />
       <Profile />
       <Profile />

@@ -1,30 +1,30 @@
 ---
-title: Describing the UI
+title: Kuelezea UI
 ---
 
 <Intro>
 
-React is a JavaScript library for rendering user interfaces (UI). UI is built from small units like buttons, text, and images. React lets you combine them into reusable, nestable *components.* From web sites to phone apps, everything on the screen can be broken down into components. In this chapter, you'll learn to create, customize, and conditionally display React components.
+React ni maktaba ya JavaScript ya ku-render violesura vya mtumiaji (UI). UI hujengwa kutokana na vipande vidogo kama vitufe, maandishi, na picha. React hukuruhusu kuviunganisha kuwa *components (vipengele)* vinavyoweza kutumika tena na kupachikwa ndani ya vingine. Kuanzia tovuti hadi programu za simu, kila kitu kwenye skrini kinaweza kugawanywa kuwa components. Katika sura hii, utajifunza kuunda, kubinafsisha, na kuonyesha components za React kwa masharti.
 
 </Intro>
 
 <YouWillLearn isChapter={true}>
 
-* [How to write your first React component](/learn/your-first-component)
-* [When and how to create multi-component files](/learn/importing-and-exporting-components)
-* [How to add markup to JavaScript with JSX](/learn/writing-markup-with-jsx)
-* [How to use curly braces with JSX to access JavaScript functionality from your components](/learn/javascript-in-jsx-with-curly-braces)
-* [How to configure components with props](/learn/passing-props-to-a-component)
-* [How to conditionally render components](/learn/conditional-rendering)
-* [How to render multiple components at a time](/learn/rendering-lists)
-* [How to avoid confusing bugs by keeping components pure](/learn/keeping-components-pure)
-* [Why understanding your UI as trees is useful](/learn/understanding-your-ui-as-a-tree)
+* [Jinsi ya kuandika component yako ya kwanza ya React](/learn/your-first-component)
+* [Wakati na jinsi ya kuunda faili zenye components nyingi](/learn/importing-and-exporting-components)
+* [Jinsi ya kuongeza markup kwenye JavaScript kwa kutumia JSX](/learn/writing-markup-with-jsx)
+* [Jinsi ya kutumia mabano ya vishazi (curly braces) na JSX kufikia utendaji wa JavaScript kutoka kwa components zako](/learn/javascript-in-jsx-with-curly-braces)
+* [Jinsi ya kusanidi components kwa kutumia props](/learn/passing-props-to-a-component)
+* [Jinsi ya ku-render components kwa masharti](/learn/conditional-rendering)
+* [Jinsi ya ku-render components nyingi kwa wakati mmoja](/learn/rendering-lists)
+* [Jinsi ya kuepuka hitilafu (bugs) zenye kutatanisha kwa kuweka components zikiwa pure](/learn/keeping-components-pure)
+* [Kwa nini kuelewa UI yako kama miti (trees) ni jambo la manufaa](/learn/understanding-your-ui-as-a-tree)
 
 </YouWillLearn>
 
-## Your first component {/*your-first-component*/}
+## Component yako ya kwanza {/*your-first-component*/}
 
-React applications are built from isolated pieces of UI called *components*. A React component is a JavaScript function that you can sprinkle with markup. Components can be as small as a button, or as large as an entire page. Here is a `Gallery` component rendering three `Profile` components:
+Programu za React hujengwa kutokana na vipande vilivyotengwa vya UI vinavyoitwa *components (vipengele)*. Component ya React ni function ya JavaScript ambayo unaweza kuinyunyizia markup. Components zinaweza kuwa ndogo kama kitufe, au kubwa kama ukurasa mzima. Hapa kuna component ya `Gallery` inayo-render components tatu za `Profile`:
 
 <Sandpack>
 
@@ -41,7 +41,7 @@ function Profile() {
 export default function Gallery() {
   return (
     <section>
-      <h1>Amazing scientists</h1>
+      <h1>Wanasayansi wa ajabu</h1>
       <Profile />
       <Profile />
       <Profile />
@@ -58,13 +58,13 @@ img { margin: 0 10px 10px 0; height: 90px; }
 
 <LearnMore path="/learn/your-first-component">
 
-Read **[Your First Component](/learn/your-first-component)** to learn how to declare and use React components.
+Soma **[Component Yako ya Kwanza](/learn/your-first-component)** ili ujifunze jinsi ya kutangaza na kutumia components za React.
 
 </LearnMore>
 
-## Importing and exporting components {/*importing-and-exporting-components*/}
+## Kuingiza na kutoa components {/*importing-and-exporting-components*/}
 
-You can declare many components in one file, but large files can get difficult to navigate. To solve this, you can *export* a component into its own file, and then *import* that component from another file:
+Unaweza kutangaza components nyingi katika faili moja, lakini faili kubwa zinaweza kuwa ngumu kuzipitia. Ili kutatua hili, unaweza *export* component kwenye faili yake yenyewe, kisha *import* component hiyo kutoka faili nyingine:
 
 
 <Sandpack>
@@ -85,7 +85,7 @@ import Profile from './Profile.js';
 export default function Gallery() {
   return (
     <section>
-      <h1>Amazing scientists</h1>
+      <h1>Wanasayansi wa ajabu</h1>
       <Profile />
       <Profile />
       <Profile />
@@ -113,32 +113,32 @@ img { margin: 0 10px 10px 0; }
 
 <LearnMore path="/learn/importing-and-exporting-components">
 
-Read **[Importing and Exporting Components](/learn/importing-and-exporting-components)** to learn how to split components into their own files.
+Soma **[Kuingiza na Kutoa Components](/learn/importing-and-exporting-components)** ili ujifunze jinsi ya kugawanya components kwenye faili zao wenyewe.
 
 </LearnMore>
 
-## Writing markup with JSX {/*writing-markup-with-jsx*/}
+## Kuandika markup kwa JSX {/*writing-markup-with-jsx*/}
 
-Each React component is a JavaScript function that may contain some markup that React renders into the browser. React components use a syntax extension called JSX to represent that markup. JSX looks a lot like HTML, but it is a bit stricter and can display dynamic information.
+Kila component ya React ni function ya JavaScript ambayo inaweza kuwa na markup fulani ambayo React hui-render kwenye kivinjari. Components za React hutumia kiendelezi cha sintaksia kinachoitwa JSX kuwakilisha markup hiyo. JSX inafanana sana na HTML, lakini ina masharti zaidi kidogo na inaweza kuonyesha taarifa zinazobadilika.
 
-If we paste existing HTML markup into a React component, it won't always work:
+Tukibandika markup ya HTML iliyopo kwenye component ya React, haitafanya kazi kila wakati:
 
 <Sandpack>
 
 ```js
 export default function TodoList() {
   return (
-    // This doesn't quite work!
-    <h1>Hedy Lamarr's Todos</h1>
+    // Hii haifanyi kazi vizuri!
+    <h1>Mambo ya kufanya ya Hedy Lamarr</h1>
     <img
       src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
       alt="Hedy Lamarr"
       class="photo"
     >
     <ul>
-      <li>Invent new traffic lights
-      <li>Rehearse a movie scene
-      <li>Improve spectrum technology
+      <li>Buni taa mpya za barabarani
+      <li>Fanya mazoezi ya onyesho la filamu
+      <li>Boresha teknolojia ya spektramu
     </ul>
   );
 }
@@ -150,7 +150,7 @@ img { height: 90px; }
 
 </Sandpack>
 
-If you have existing HTML like this, you can fix it using a [converter](https://transform.tools/html-to-jsx):
+Ikiwa una HTML iliyopo kama hii, unaweza kuirekebisha kwa kutumia [kigeuzi (converter)](https://transform.tools/html-to-jsx):
 
 <Sandpack>
 
@@ -158,16 +158,16 @@ If you have existing HTML like this, you can fix it using a [converter](https://
 export default function TodoList() {
   return (
     <>
-      <h1>Hedy Lamarr's Todos</h1>
+      <h1>Mambo ya kufanya ya Hedy Lamarr</h1>
       <img
         src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
         alt="Hedy Lamarr"
         className="photo"
       />
       <ul>
-        <li>Invent new traffic lights</li>
-        <li>Rehearse a movie scene</li>
-        <li>Improve spectrum technology</li>
+        <li>Buni taa mpya za barabarani</li>
+        <li>Fanya mazoezi ya onyesho la filamu</li>
+        <li>Boresha teknolojia ya spektramu</li>
       </ul>
     </>
   );
@@ -182,13 +182,13 @@ img { height: 90px; }
 
 <LearnMore path="/learn/writing-markup-with-jsx">
 
-Read **[Writing Markup with JSX](/learn/writing-markup-with-jsx)** to learn how to write valid JSX.
+Soma **[Kuandika Markup kwa JSX](/learn/writing-markup-with-jsx)** ili ujifunze jinsi ya kuandika JSX halali.
 
 </LearnMore>
 
-## JavaScript in JSX with curly braces {/*javascript-in-jsx-with-curly-braces*/}
+## JavaScript ndani ya JSX kwa mabano ya vishazi {/*javascript-in-jsx-with-curly-braces*/}
 
-JSX lets you write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place. Sometimes you will want to add a little JavaScript logic or reference a dynamic property inside that markup. In this situation, you can use curly braces in your JSX to "open a window" to JavaScript:
+JSX hukuruhusu kuandika markup inayofanana na HTML ndani ya faili ya JavaScript, ikiweka mantiki ya ku-render na maudhui mahali pamoja. Wakati mwingine utataka kuongeza mantiki kidogo ya JavaScript au kurejelea sifa inayobadilika ndani ya markup hiyo. Katika hali hii, unaweza kutumia mabano ya vishazi (curly braces) katika JSX yako ili "kufungua dirisha" kuelekea JavaScript:
 
 <Sandpack>
 
@@ -204,16 +204,16 @@ const person = {
 export default function TodoList() {
   return (
     <div style={person.theme}>
-      <h1>{person.name}'s Todos</h1>
+      <h1>Mambo ya kufanya ya {person.name}</h1>
       <img
         className="avatar"
         src="https://react.dev/images/docs/scientists/7vQD0fPs.jpg"
         alt="Gregorio Y. Zara"
       />
       <ul>
-        <li>Improve the videophone</li>
-        <li>Prepare aeronautics lectures</li>
-        <li>Work on the alcohol-fuelled engine</li>
+        <li>Boresha simu ya video</li>
+        <li>Andaa mihadhara ya anga</li>
+        <li>Fanya kazi kwenye injini inayotumia alkoholi</li>
       </ul>
     </div>
   );
@@ -230,13 +230,13 @@ body > div > div { padding: 20px; }
 
 <LearnMore path="/learn/javascript-in-jsx-with-curly-braces">
 
-Read **[JavaScript in JSX with Curly Braces](/learn/javascript-in-jsx-with-curly-braces)** to learn how to access JavaScript data from JSX.
+Soma **[JavaScript ndani ya JSX kwa Mabano ya Vishazi](/learn/javascript-in-jsx-with-curly-braces)** ili ujifunze jinsi ya kufikia data ya JavaScript kutoka JSX.
 
 </LearnMore>
 
-## Passing props to a component {/*passing-props-to-a-component*/}
+## Kupitisha props kwa component {/*passing-props-to-a-component*/}
 
-React components use *props* to communicate with each other. Every parent component can pass some information to its child components by giving them props. Props might remind you of HTML attributes, but you can pass any JavaScript value through them, including objects, arrays, functions, and even JSX!
+Components za React hutumia *props* kuwasiliana kati yao. Kila component-mzazi inaweza kupitisha taarifa fulani kwa components-watoto wake kwa kuwapa props. Props zinaweza kukukumbusha sifa za HTML, lakini unaweza kupitisha thamani yoyote ya JavaScript kupitia kwao, ikiwa ni pamoja na objects, arrays, functions, na hata JSX!
 
 <Sandpack>
 
@@ -311,15 +311,15 @@ export function getImageUrl(person, size = 's') {
 
 <LearnMore path="/learn/passing-props-to-a-component">
 
-Read **[Passing Props to a Component](/learn/passing-props-to-a-component)** to learn how to pass and read props.
+Soma **[Kupitisha Props kwa Component](/learn/passing-props-to-a-component)** ili ujifunze jinsi ya kupitisha na kusoma props.
 
 </LearnMore>
 
-## Conditional rendering {/*conditional-rendering*/}
+## Ku-render kwa masharti {/*conditional-rendering*/}
 
-Your components will often need to display different things depending on different conditions. In React, you can conditionally render JSX using JavaScript syntax like `if` statements, `&&`, and `? :` operators.
+Mara nyingi components zako zitahitaji kuonyesha vitu tofauti kulingana na masharti tofauti. Katika React, unaweza ku-render JSX kwa masharti kwa kutumia sintaksia ya JavaScript kama vile kauli za `if`, `&&`, na opereta za `? :`.
 
-In this example, the JavaScript `&&` operator is used to conditionally render a checkmark:
+Katika mfano huu, opereta ya `&&` ya JavaScript inatumika ku-render alama ya tiki kwa masharti:
 
 <Sandpack>
 
@@ -335,19 +335,19 @@ function Item({ name, isPacked }) {
 export default function PackingList() {
   return (
     <section>
-      <h1>Sally Ride's Packing List</h1>
+      <h1>Orodha ya kupakia ya Sally Ride</h1>
       <ul>
         <Item
           isPacked={true}
-          name="Space suit"
+          name="Suti ya angani"
         />
         <Item
           isPacked={true}
-          name="Helmet with a golden leaf"
+          name="Kofia yenye jani la dhahabu"
         />
         <Item
           isPacked={false}
-          name="Photo of Tam"
+          name="Picha ya Tam"
         />
       </ul>
     </section>
@@ -359,15 +359,15 @@ export default function PackingList() {
 
 <LearnMore path="/learn/conditional-rendering">
 
-Read **[Conditional Rendering](/learn/conditional-rendering)** to learn the different ways to render content conditionally.
+Soma **[Ku-render kwa Masharti](/learn/conditional-rendering)** ili ujifunze njia tofauti za ku-render maudhui kwa masharti.
 
 </LearnMore>
 
-## Rendering lists {/*rendering-lists*/}
+## Ku-render orodha {/*rendering-lists*/}
 
-You will often want to display multiple similar components from a collection of data. You can use JavaScript's `filter()` and `map()` with React to filter and transform your array of data into an array of components.
+Mara nyingi utataka kuonyesha components nyingi zinazofanana kutoka kwenye mkusanyiko wa data. Unaweza kutumia `filter()` na `map()` za JavaScript pamoja na React kuchuja na kubadilisha array yako ya data kuwa array ya components.
 
-For each array item, you will need to specify a `key`. Usually, you will want to use an ID from the database as a `key`. Keys let React keep track of each item's place in the list even if the list changes.
+Kwa kila kipengee cha array, utahitaji kubainisha `key`. Kwa kawaida, utataka kutumia ID kutoka kwenye hifadhidata kama `key`. Keys huruhusu React kufuatilia nafasi ya kila kipengee kwenye orodha hata kama orodha itabadilika.
 
 <Sandpack>
 
@@ -385,13 +385,13 @@ export default function List() {
       <p>
         <b>{person.name}:</b>
         {' ' + person.profession + ' '}
-        known for {person.accomplishment}
+        maarufu kwa {person.accomplishment}
       </p>
     </li>
   );
   return (
     <article>
-      <h1>Scientists</h1>
+      <h1>Wanasayansi</h1>
       <ul>{listItems}</ul>
     </article>
   );
@@ -459,18 +459,18 @@ h2 { font-size: 20px; }
 
 <LearnMore path="/learn/rendering-lists">
 
-Read **[Rendering Lists](/learn/rendering-lists)** to learn how to render a list of components, and how to choose a key.
+Soma **[Ku-render Orodha](/learn/rendering-lists)** ili ujifunze jinsi ya ku-render orodha ya components, na jinsi ya kuchagua key.
 
 </LearnMore>
 
-## Keeping components pure {/*keeping-components-pure*/}
+## Kuweka components zikiwa pure {/*keeping-components-pure*/}
 
-Some JavaScript functions are *pure.* A pure function:
+Baadhi ya functions za JavaScript ni *pure (safi).* Function iliyo pure:
 
-* **Minds its own business.** It does not change any objects or variables that existed before it was called.
-* **Same inputs, same output.** Given the same inputs, a pure function should always return the same result.
+* **Hujishughulisha na mambo yake yenyewe.** Haibadilishi objects au vigezo vyovyote vilivyokuwepo kabla haijaitwa.
+* **Ingizo sawa, matokeo sawa.** Ikipewa maingizo sawa, function iliyo pure inapaswa kurudisha matokeo yaleyale kila wakati.
 
-By strictly only writing your components as pure functions, you can avoid an entire class of baffling bugs and unpredictable behavior as your codebase grows. Here is an example of an impure component:
+Kwa kuandika components zako kama functions pure pekee, unaweza kuepuka kundi zima la hitilafu (bugs) zenye kutatanisha na tabia zisizotabirika kadri msimbo wako unavyokua. Hapa kuna mfano wa component isiyo pure:
 
 <Sandpack>
 
@@ -478,9 +478,9 @@ By strictly only writing your components as pure functions, you can avoid an ent
 let guest = 0;
 
 function Cup() {
-  // Bad: changing a preexisting variable!
+  // Baya: kubadilisha kigezo kilichokuwepo awali!
   guest = guest + 1;
-  return <h2>Tea cup for guest #{guest}</h2>;
+  return <h2>Kikombe cha chai kwa mgeni #{guest}</h2>;
 }
 
 export default function TeaSet() {
@@ -496,13 +496,13 @@ export default function TeaSet() {
 
 </Sandpack>
 
-You can make this component pure by passing a prop instead of modifying a preexisting variable:
+Unaweza kuifanya component hii kuwa pure kwa kupitisha prop badala ya kurekebisha kigezo kilichokuwepo awali:
 
 <Sandpack>
 
 ```js
 function Cup({ guest }) {
-  return <h2>Tea cup for guest #{guest}</h2>;
+  return <h2>Kikombe cha chai kwa mgeni #{guest}</h2>;
 }
 
 export default function TeaSet() {
@@ -520,43 +520,43 @@ export default function TeaSet() {
 
 <LearnMore path="/learn/keeping-components-pure">
 
-Read **[Keeping Components Pure](/learn/keeping-components-pure)** to learn how to write components as pure, predictable functions.
+Soma **[Kuweka Components Zikiwa Pure](/learn/keeping-components-pure)** ili ujifunze jinsi ya kuandika components kama functions pure, zinazotabirika.
 
 </LearnMore>
 
-## Your UI as a tree {/*your-ui-as-a-tree*/}
+## UI yako kama mti {/*your-ui-as-a-tree*/}
 
-React uses trees to model the relationships between components and modules.
+React hutumia miti (trees) kuiga uhusiano kati ya components na modules.
 
-A React render tree is a representation of the parent and child relationship between components.
+Render tree ya React ni uwakilishi wa uhusiano wa mzazi na mtoto kati ya components.
 
 <Diagram name="generic_render_tree" height={250} width={500} alt="A tree graph with five nodes, with each node representing a component. The root node is located at the top the tree graph and is labelled 'Root Component'. It has two arrows extending down to two nodes labelled 'Component A' and 'Component C'. Each of the arrows is labelled with 'renders'. 'Component A' has a single 'renders' arrow to a node labelled 'Component B'. 'Component C' has a single 'renders' arrow to a node labelled 'Component D'.">
 
-An example React render tree.
+Mfano wa render tree ya React.
 
 </Diagram>
 
-Components near the top of the tree, near the root component, are considered top-level components. Components with no child components are leaf components. This categorization of components is useful for understanding data flow and rendering performance.
+Components zilizo karibu na kilele cha mti, karibu na component-mzizi (root), huchukuliwa kama components za ngazi ya juu. Components zisizo na components-watoto ni components za majani (leaf). Uainishaji huu wa components ni wa manufaa kwa kuelewa mtiririko wa data na utendaji wa ku-render.
 
-Modelling the relationship between JavaScript modules is another useful way to understand your app. We refer to it as a module dependency tree.
+Kuiga uhusiano kati ya modules za JavaScript ni njia nyingine ya manufaa ya kuelewa programu yako. Tunauita mti wa utegemezi wa modules (module dependency tree).
 
 <Diagram name="generic_dependency_tree" height={250} width={500} alt="A tree graph with five nodes. Each node represents a JavaScript module. The top-most node is labelled 'RootModule.js'. It has three arrows extending to the nodes: 'ModuleA.js', 'ModuleB.js', and 'ModuleC.js'. Each arrow is labelled as 'imports'. 'ModuleC.js' node has a single 'imports' arrow that points to a node labelled 'ModuleD.js'.">
 
-An example module dependency tree.
+Mfano wa mti wa utegemezi wa modules.
 
 </Diagram>
 
-A dependency tree is often used by build tools to bundle all the relevant JavaScript code for the client to download and render. A large bundle size regresses user experience for React apps. Understanding the module dependency tree is helpful to debug such issues.
+Mti wa utegemezi mara nyingi hutumiwa na zana za kujenga (build tools) kuunganisha msimbo wote muhimu wa JavaScript ili mteja aupakue na kuu-render. Ukubwa mkubwa wa bundle hudhoofisha uzoefu wa mtumiaji kwa programu za React. Kuelewa mti wa utegemezi wa modules ni jambo la manufaa kutatua hitilafu za aina hiyo.
 
 <LearnMore path="/learn/understanding-your-ui-as-a-tree">
 
-Read **[Your UI as a Tree](/learn/understanding-your-ui-as-a-tree)** to learn how to create a render and module dependency trees for a React app and how they're useful mental models for improving user experience and performance.
+Soma **[UI Yako kama Mti](/learn/understanding-your-ui-as-a-tree)** ili ujifunze jinsi ya kuunda render tree na module dependency tree kwa programu ya React na jinsi zinavyokuwa mifano bora ya kifikra ya kuboresha uzoefu wa mtumiaji na utendaji.
 
 </LearnMore>
 
 
-## What's next? {/*whats-next*/}
+## Kinachofuata? {/*whats-next*/}
 
-Head over to [Your First Component](/learn/your-first-component) to start reading this chapter page by page!
+Elekea kwenye [Component Yako ya Kwanza](/learn/your-first-component) ili uanze kusoma sura hii ukurasa baada ya ukurasa!
 
-Or, if you're already familiar with these topics, why not read about [Adding Interactivity](/learn/adding-interactivity)?
+Au, ikiwa tayari unazifahamu mada hizi, kwa nini usisome kuhusu [Kuongeza Mwingiliano](/learn/adding-interactivity)?

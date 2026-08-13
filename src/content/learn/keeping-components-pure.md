@@ -1,41 +1,41 @@
 ---
-title: Keeping Components Pure
+title: Kuweka Components Zikiwa Pure
 ---
 
 <Intro>
 
-Some JavaScript functions are *pure.* Pure functions only perform a calculation and nothing more. By strictly only writing your components as pure functions, you can avoid an entire class of baffling bugs and unpredictable behavior as your codebase grows. To get these benefits, though, there are a few rules you must follow.
+Baadhi ya functions za JavaScript ni *pure (safi).* Pure functions hufanya hesabu tu na si zaidi ya hilo. Kwa kuandika components zako kwa kufuata kikamilifu kanuni za pure functions, unaweza kuepuka aina nzima ya bugs zinazochanganya na tabia isiyotabirika kadri msimbo wako unavyokua. Ili kupata manufaa haya, hata hivyo, kuna kanuni chache lazima uzifuate.
 
 </Intro>
 
 <YouWillLearn>
 
-* What purity is and how it helps you avoid bugs
-* How to keep components pure by keeping changes out of the render phase
-* How to use Strict Mode to find mistakes in your components
+* Purity ni nini na jinsi inavyokusaidia kuepuka bugs
+* Jinsi ya kuweka components zikiwa pure kwa kuweka mabadiliko nje ya awamu ya render
+* Jinsi ya kutumia Strict Mode kupata makosa katika components zako
 
 </YouWillLearn>
 
-## Purity: Components as formulas {/*purity-components-as-formulas*/}
+## Purity: Components kama fomula {/*purity-components-as-formulas*/}
 
-In computer science (and especially the world of functional programming), [a pure function](https://wikipedia.org/wiki/Pure_function) is a function with the following characteristics:
+Katika sayansi ya kompyuta (na hasa ulimwengu wa functional programming), [pure function](https://wikipedia.org/wiki/Pure_function) ni function yenye sifa zifuatazo:
 
-* **It minds its own business.** It does not change any objects or variables that existed before it was called.
-* **Same inputs, same output.** Given the same inputs, a pure function should always return the same result.
+* **Inashughulikia mambo yake yenyewe.** Haibadilishi objects au vigezo vyovyote vilivyokuwepo kabla haijaitwa.
+* **Ingizo lilelile, matokeo yaleyale.** Ikipewa maingizo yaleyale, pure function inapaswa kurudisha matokeo yaleyale kila mara.
 
-You might already be familiar with one example of pure functions: formulas in math.
+Huenda tayari umeshajua mfano mmoja wa pure functions: fomula katika hisabati.
 
-Consider this math formula: <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math>.
+Fikiria fomula hii ya hisabati: <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math>.
 
-If <Math><MathI>x</MathI> = 2</Math> then <Math><MathI>y</MathI> = 4</Math>. Always.
+Kama <Math><MathI>x</MathI> = 2</Math> basi <Math><MathI>y</MathI> = 4</Math>. Kila mara.
 
-If <Math><MathI>x</MathI> = 3</Math> then <Math><MathI>y</MathI> = 6</Math>. Always.
+Kama <Math><MathI>x</MathI> = 3</Math> basi <Math><MathI>y</MathI> = 6</Math>. Kila mara.
 
-If <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> won't sometimes be <Math>9</Math> or <Math>–1</Math> or <Math>2.5</Math> depending on the time of day or the state of the stock market.
+Kama <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> haitakuwa mara nyingine <Math>9</Math> au <Math>–1</Math> au <Math>2.5</Math> kutegemea saa ya siku au hali ya soko la hisa.
 
-If <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> and <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> will _always_ be <Math>6</Math>.
+Kama <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> na <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> _kila mara_ itakuwa <Math>6</Math>.
 
-If we made this into a JavaScript function, it would look like this:
+Kama tungeigeuza hii kuwa function ya JavaScript, ingeonekana hivi:
 
 ```js
 function double(number) {
@@ -43,9 +43,9 @@ function double(number) {
 }
 ```
 
-In the above example, `double` is a **pure function.** If you pass it `3`, it will return `6`. Always.
+Katika mfano ulio hapo juu, `double` ni **pure function.** Ukiipitisha `3`, itarudisha `6`. Kila mara.
 
-React is designed around this concept. **React assumes that every component you write is a pure function.** This means that React components you write must always return the same JSX given the same inputs:
+React imeundwa kuzunguka dhana hii. **React inadhani kuwa kila component unayoiandika ni pure function.** Hii inamaanisha kuwa components za React unazoandika lazima kila mara zirudishe JSX ileile ikipewa maingizo yaleyale:
 
 <Sandpack>
 
@@ -53,9 +53,9 @@ React is designed around this concept. **React assumes that every component you 
 function Recipe({ drinkers }) {
   return (
     <ol>
-      <li>Boil {drinkers} cups of water.</li>
-      <li>Add {drinkers} spoons of tea and {0.5 * drinkers} spoons of spice.</li>
-      <li>Add {0.5 * drinkers} cups of milk to boil and sugar to taste.</li>
+      <li>Chemsha vikombe {drinkers} vya maji.</li>
+      <li>Ongeza vijiko {drinkers} vya chai na vijiko {0.5 * drinkers} vya viungo.</li>
+      <li>Ongeza vikombe {0.5 * drinkers} vya maziwa vichemke na sukari kwa ladha.</li>
     </ol>
   );
 }
@@ -63,10 +63,10 @@ function Recipe({ drinkers }) {
 export default function App() {
   return (
     <section>
-      <h1>Spiced Chai Recipe</h1>
-      <h2>For two</h2>
+      <h1>Kichocheo cha Chai ya Viungo</h1>
+      <h2>Kwa wawili</h2>
       <Recipe drinkers={2} />
-      <h2>For a gathering</h2>
+      <h2>Kwa kusanyiko</h2>
       <Recipe drinkers={4} />
     </section>
   );
@@ -75,21 +75,21 @@ export default function App() {
 
 </Sandpack>
 
-When you pass `drinkers={2}` to `Recipe`, it will return JSX containing `2 cups of water`. Always.
+Unapopitisha `drinkers={2}` kwa `Recipe`, itarudisha JSX yenye `vikombe 2 vya maji`. Kila mara.
 
-If you pass `drinkers={4}`, it will return JSX containing `4 cups of water`. Always.
+Ukipitisha `drinkers={4}`, itarudisha JSX yenye `vikombe 4 vya maji`. Kila mara.
 
-Just like a math formula.
+Kama fomula ya hisabati tu.
 
-You could think of your components as recipes: if you follow them and don't introduce new ingredients during the cooking process, you will get the same dish every time. That "dish" is the JSX that the component serves to React to [render.](/learn/render-and-commit)
+Ungeweza kufikiria components zako kama vichocheo (mapishi): ukivifuata na usiongeze viambato vipya wakati wa upishi, utapata sahani ileile kila mara. "Sahani" hiyo ni JSX ambayo component huitolea React ili [i-render.](/learn/render-and-commit)
 
 <Illustration src="/images/docs/illustrations/i_puritea-recipe.png" alt="A tea recipe for x people: take x cups of water, add x spoons of tea and 0.5x spoons of spices, and 0.5x cups of milk" />
 
-## Side Effects: (un)intended consequences {/*side-effects-unintended-consequences*/}
+## Side Effects: matokeo (yasiyo)kusudiwa {/*side-effects-unintended-consequences*/}
 
-React's rendering process must always be pure. Components should only *return* their JSX, and not *change* any objects or variables that existed before rendering—that would make them impure!
+Mchakato wa ku-render wa React lazima kila mara uwe pure. Components zinapaswa *kurudisha* JSX yao tu, na si *kubadilisha* objects au vigezo vyovyote vilivyokuwepo kabla ya ku-render—hilo lingezifanya kuwa impure!
 
-Here is a component that breaks this rule:
+Hapa kuna component inayovunja kanuni hii:
 
 <Sandpack>
 
@@ -97,9 +97,9 @@ Here is a component that breaks this rule:
 let guest = 0;
 
 function Cup() {
-  // Bad: changing a preexisting variable!
+  // Baya: kubadilisha kigezo kilichokuwepo tayari!
   guest = guest + 1;
-  return <h2>Tea cup for guest #{guest}</h2>;
+  return <h2>Kikombe cha chai kwa mgeni #{guest}</h2>;
 }
 
 export default function TeaSet() {
@@ -115,17 +115,17 @@ export default function TeaSet() {
 
 </Sandpack>
 
-This component is reading and writing a `guest` variable declared outside of it. This means that **calling this component multiple times will produce different JSX!** And what's more, if _other_ components read `guest`, they will produce different JSX, too, depending on when they were rendered! That's not predictable.
+Component hii inasoma na kuandika kigezo cha `guest` kilichotangazwa nje yake. Hii inamaanisha kuwa **kuita component hii mara nyingi kutazalisha JSX tofauti!** Na zaidi ya hayo, kama components _nyingine_ zitasoma `guest`, zitazalisha JSX tofauti pia, kutegemea zilipo-render lini! Hilo halitabiriki.
 
-Going back to our formula <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math>, now even if <Math><MathI>x</MathI> = 2</Math>, we cannot trust that <Math><MathI>y</MathI> = 4</Math>. Our tests could fail, our users would be baffled, planes would fall out of the sky—you can see how this would lead to confusing bugs!
+Tukirudi kwenye fomula yetu <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math>, sasa hata kama <Math><MathI>x</MathI> = 2</Math>, hatuwezi kuamini kuwa <Math><MathI>y</MathI> = 4</Math>. Vipimo vyetu vingeweza kufeli, watumiaji wetu wangechanganyikiwa, ndege zingeanguka kutoka angani—unaweza kuona jinsi hili lingeweza kusababisha bugs zinazochanganya!
 
-You can fix this component by [passing `guest` as a prop instead](/learn/passing-props-to-a-component):
+Unaweza kurekebisha component hii kwa [kupitisha `guest` kama prop badala yake](/learn/passing-props-to-a-component):
 
 <Sandpack>
 
 ```js
 function Cup({ guest }) {
-  return <h2>Tea cup for guest #{guest}</h2>;
+  return <h2>Kikombe cha chai kwa mgeni #{guest}</h2>;
 }
 
 export default function TeaSet() {
@@ -141,37 +141,37 @@ export default function TeaSet() {
 
 </Sandpack>
 
-Now your component is pure, as the JSX it returns only depends on the `guest` prop.
+Sasa component yako ni pure, kwa kuwa JSX inayorudisha inategemea prop ya `guest` pekee.
 
-In general, you should not expect your components to be rendered in any particular order. It doesn't matter if you call <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> before or after <Math><MathI>y</MathI> = 5<MathI>x</MathI></Math>: both formulas will resolve independently of each other. In the same way, each component should only "think for itself", and not attempt to coordinate with or depend upon others during rendering. Rendering is like a school exam: each component should calculate JSX on their own!
+Kwa ujumla, hupaswi kutarajia components zako zi-render kwa mpangilio wowote maalum. Haijalishi kama unaita <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> kabla au baada ya <Math><MathI>y</MathI> = 5<MathI>x</MathI></Math>: fomula zote mbili zitatatuliwa bila kutegemeana. Kwa njia ileile, kila component inapaswa "kufikiri yenyewe tu", na isijaribu kuratibu na au kutegemea nyingine wakati wa ku-render. Ku-render ni kama mtihani wa shule: kila component inapaswa kuhesabu JSX yenyewe!
 
 <DeepDive>
 
-#### Detecting impure calculations with StrictMode {/*detecting-impure-calculations-with-strict-mode*/}
+#### Kugundua hesabu impure kwa StrictMode {/*detecting-impure-calculations-with-strict-mode*/}
 
-Although you might not have used them all yet, in React there are three kinds of inputs that you can read while rendering: [props](/learn/passing-props-to-a-component), [state](/learn/state-a-components-memory), and [context.](/learn/passing-data-deeply-with-context) You should always treat these inputs as read-only.
+Ingawa huenda bado hujazitumia zote, katika React kuna aina tatu za maingizo unayoweza kusoma wakati wa ku-render: [props](/learn/passing-props-to-a-component), [state (hali)](/learn/state-a-components-memory), na [context.](/learn/passing-data-deeply-with-context) Unapaswa kila mara kuyachukulia maingizo haya kama ya kusoma-tu.
 
-When you want to *change* something in response to user input, you should [set state](/learn/state-a-components-memory) instead of writing to a variable. You should never change preexisting variables or objects while your component is rendering.
+Unapotaka *kubadilisha* kitu kwa kujibu ingizo la mtumiaji, unapaswa [kuweka state](/learn/state-a-components-memory) badala ya kuandika kwenye kigezo. Kamwe usibadilishe vigezo au objects vilivyokuwepo tayari wakati component yako inapo-render.
 
-React offers a "Strict Mode" in which it calls each component's function twice during development. **By calling the component functions twice, Strict Mode helps find components that break these rules.**
+React inatoa "Strict Mode" ambamo inaita function ya kila component mara mbili wakati wa uendelezaji. **Kwa kuita functions za components mara mbili, Strict Mode husaidia kupata components zinazovunja kanuni hizi.**
 
-Notice how the original example displayed "Guest #2", "Guest #4", and "Guest #6" instead of "Guest #1", "Guest #2", and "Guest #3". The original function was impure, so calling it twice broke it. But the fixed pure version works even if the function is called twice every time. **Pure functions only calculate, so calling them twice won't change anything**--just like calling `double(2)` twice doesn't change what's returned, and solving <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> twice doesn't change what <MathI>y</MathI> is. Same inputs, same outputs. Always.
+Angalia jinsi mfano wa awali ulivyoonyesha "Guest #2", "Guest #4", na "Guest #6" badala ya "Guest #1", "Guest #2", na "Guest #3". Function ya awali ilikuwa impure, kwa hivyo kuiita mara mbili kuliivunja. Lakini toleo lililorekebishwa lililo pure hufanya kazi hata kama function itaitwa mara mbili kila wakati. **Pure functions huhesabu tu, kwa hivyo kuziita mara mbili hakutabadilisha chochote**--kama vile kuita `double(2)` mara mbili hakubadilishi kinachorudishwa, na kutatua <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> mara mbili hakubadilishi <MathI>y</MathI> ilivyo. Maingizo yaleyale, matokeo yaleyale. Kila mara.
 
-Strict Mode has no effect in production, so it won't slow down the app for your users. To opt into Strict Mode, you can wrap your root component into `<React.StrictMode>`. Some frameworks do this by default.
+Strict Mode haina athari katika production, kwa hivyo haitapunguza kasi ya programu kwa watumiaji wako. Ili kuchagua kutumia Strict Mode, unaweza kufunga component yako ya mzizi ndani ya `<React.StrictMode>`. Baadhi ya frameworks hufanya hivi kwa chaguo-msingi.
 
 </DeepDive>
 
-### Local mutation: Your component's little secret {/*local-mutation-your-components-little-secret*/}
+### Mabadiliko ya ndani: Siri ndogo ya component yako {/*local-mutation-your-components-little-secret*/}
 
-In the above example, the problem was that the component changed a *preexisting* variable while rendering. This is often called a **"mutation"** to make it sound a bit scarier. Pure functions don't mutate variables outside of the function's scope or objects that were created before the call—that makes them impure!
+Katika mfano ulio hapo juu, tatizo lilikuwa kwamba component ilibadilisha kigezo *kilichokuwepo tayari* wakati wa ku-render. Hili mara nyingi huitwa **"mutation"** ili lisikike la kutisha kidogo zaidi. Pure functions hazibadilishi vigezo vilivyo nje ya wigo wa function au objects vilivyoundwa kabla ya wito—hilo huzifanya kuwa impure!
 
-However, **it's completely fine to change variables and objects that you've *just* created while rendering.** In this example, you create an `[]` array, assign it to a `cups` variable, and then `push` a dozen cups into it:
+Hata hivyo, **ni sawa kabisa kubadilisha vigezo na objects ambavyo _umeviunda_ hivi punde wakati wa ku-render.** Katika mfano huu, unaunda array ya `[]`, unaiweka kwenye kigezo cha `cups`, kisha una-`push` vikombe kadhaa ndani yake:
 
 <Sandpack>
 
 ```js
 function Cup({ guest }) {
-  return <h2>Tea cup for guest #{guest}</h2>;
+  return <h2>Kikombe cha chai kwa mgeni #{guest}</h2>;
 }
 
 export default function TeaGathering() {
@@ -185,43 +185,43 @@ export default function TeaGathering() {
 
 </Sandpack>
 
-If the `cups` variable or the `[]` array were created outside the `TeaGathering` function, this would be a huge problem! You would be changing a *preexisting* object by pushing items into that array.
+Kama kigezo cha `cups` au array ya `[]` vingeundwa nje ya function ya `TeaGathering`, hili lingekuwa tatizo kubwa! Ungekuwa unabadilisha object *iliyokuwepo tayari* kwa kusukuma vitu ndani ya array hiyo.
 
-However, it's fine because you've created them *during the same render*, inside `TeaGathering`. No code outside of `TeaGathering` will ever know that this happened. This is called **"local mutation"**—it's like your component's little secret.
+Hata hivyo, ni sawa kwa sababu umeviunda *wakati wa render ileile*, ndani ya `TeaGathering`. Hakuna msimbo nje ya `TeaGathering` utakaowahi kujua kuwa hili lilitokea. Hili huitwa **"local mutation"** (mabadiliko ya ndani)—ni kama siri ndogo ya component yako.
 
-## Where you _can_ cause side effects {/*where-you-_can_-cause-side-effects*/}
+## Wapi _unaweza_ kusababisha side effects {/*where-you-_can_-cause-side-effects*/}
 
-While functional programming relies heavily on purity, at some point, somewhere, _something_ has to change. That's kind of the point of programming! These changes—updating the screen, starting an animation, changing the data—are called **side effects.** They're things that happen _"on the side"_, not during rendering.
+Ingawa functional programming inategemea sana purity, wakati fulani, mahali fulani, _kitu fulani_ lazima kibadilike. Hilo ndilo lengo la programming kwa namna fulani! Mabadiliko haya—kusasisha skrini, kuanzisha animation, kubadilisha data—huitwa **side effects.** Ni mambo yanayotokea _"pembeni"_, si wakati wa ku-render.
 
-In React, **side effects usually belong inside [event handlers.](/learn/responding-to-events)** Event handlers are functions that React runs when you perform some action—for example, when you click a button. Even though event handlers are defined *inside* your component, they don't run *during* rendering! **So event handlers don't need to be pure.**
+Katika React, **side effects kwa kawaida hukaa ndani ya [event handlers.](/learn/responding-to-events)** Event handlers ni functions ambazo React huziendesha unapofanya kitendo fulani—kwa mfano, unapobonyeza kitufe. Ingawa event handlers hufafanuliwa *ndani* ya component yako, hazi-endeshi *wakati* wa ku-render! **Kwa hivyo event handlers hazihitaji kuwa pure.**
 
-If you've exhausted all other options and can't find the right event handler for your side effect, you can still attach it to your returned JSX with a [`useEffect`](/reference/react/useEffect) call in your component. This tells React to execute it later, after rendering, when side effects are allowed. **However, this approach should be your last resort.**
+Kama umeisha chaguo nyingine zote na huwezi kupata event handler sahihi kwa side effect yako, bado unaweza kuiambatanisha na JSX yako inayorudishwa kwa wito wa [`useEffect`](/reference/react/useEffect) katika component yako. Hili huiambia React iitekeleze baadaye, baada ya ku-render, wakati side effects zinaporuhusiwa. **Hata hivyo, njia hii inapaswa kuwa suluhisho lako la mwisho.**
 
-When possible, try to express your logic with rendering alone. You'll be surprised how far this can take you!
+Inapowezekana, jaribu kuelezea mantiki yako kwa ku-render pekee. Utashangaa jinsi hili linavyoweza kukupeleka mbali!
 
 <DeepDive>
 
-#### Why does React care about purity? {/*why-does-react-care-about-purity*/}
+#### Kwa nini React inajali kuhusu purity? {/*why-does-react-care-about-purity*/}
 
-Writing pure functions takes some habit and discipline. But it also unlocks marvelous opportunities:
+Kuandika pure functions kunahitaji mazoea na nidhamu fulani. Lakini pia kunafungua fursa za ajabu:
 
-* Your components could run in a different environment—for example, on the server! Since they return the same result for the same inputs, one component can serve many user requests.
-* You can improve performance by [skipping rendering](/reference/react/memo) components whose inputs have not changed. This is safe because pure functions always return the same results, so they are safe to cache.
-* If some data changes in the middle of rendering a deep component tree, React can restart rendering without wasting time to finish the outdated render. Purity makes it safe to stop calculating at any time.
+* Components zako zingeweza kuendeshwa katika mazingira tofauti—kwa mfano, kwenye seva! Kwa kuwa zinarudisha matokeo yaleyale kwa maingizo yaleyale, component moja inaweza kuhudumia maombi mengi ya watumiaji.
+* Unaweza kuboresha utendaji kwa [kuruka ku-render](/reference/react/memo) components ambazo maingizo yao hayajabadilika. Hili ni salama kwa sababu pure functions kila mara hurudisha matokeo yaleyale, kwa hivyo ni salama kuzihifadhi kwenye cache.
+* Kama data fulani ikibadilika katikati ya ku-render mti wa component wa kina, React inaweza kuanzisha upya ku-render bila kupoteza muda kumalizia render iliyopitwa na wakati. Purity huifanya kuwa salama kusimamisha kuhesabu wakati wowote.
 
-Every new React feature we're building takes advantage of purity. From data fetching to animations to performance, keeping components pure unlocks the power of the React paradigm.
+Kila kipengele kipya cha React tunachojenga hunufaika na purity. Kutoka kwenye kupata data hadi animations hadi utendaji, kuweka components zikiwa pure hufungua nguvu ya paradaimu ya React.
 
 </DeepDive>
 
 <Recap>
 
-* A component must be pure, meaning:
-  * **It minds its own business.** It should not change any objects or variables that existed before rendering.
-  * **Same inputs, same output.** Given the same inputs, a component should always return the same JSX.
-* Rendering can happen at any time, so components should not depend on each others' rendering sequence.
-* You should not mutate any of the inputs that your components use for rendering. That includes props, state, and context. To update the screen, ["set" state](/learn/state-a-components-memory) instead of mutating preexisting objects.
-* Strive to express your component's logic in the JSX you return. When you need to "change things", you'll usually want to do it in an event handler. As a last resort, you can `useEffect`.
-* Writing pure functions takes a bit of practice, but it unlocks the power of React's paradigm.
+* Component lazima iwe pure, ikimaanisha:
+  * **Inashughulikia mambo yake yenyewe.** Haipaswi kubadilisha objects au vigezo vyovyote vilivyokuwepo kabla ya ku-render.
+  * **Ingizo lilelile, matokeo yaleyale.** Ikipewa maingizo yaleyale, component inapaswa kila mara kurudisha JSX ileile.
+* Ku-render kunaweza kutokea wakati wowote, kwa hivyo components hazipaswi kutegemea mpangilio wa ku-render wa kila mmoja.
+* Hupaswi kubadilisha (mutate) maingizo yoyote ambayo components zako zinatumia kwa ku-render. Hilo linajumuisha props, state, na context. Ili kusasisha skrini, ["weka" state](/learn/state-a-components-memory) badala ya kubadilisha objects zilizokuwepo tayari.
+* Jitahidi kuelezea mantiki ya component yako katika JSX unayorudisha. Unapohitaji "kubadilisha mambo", kwa kawaida utataka kufanya hivyo katika event handler. Kama suluhisho la mwisho, unaweza kutumia `useEffect`.
+* Kuandika pure functions kunahitaji mazoezi kidogo, lakini kunafungua nguvu ya paradaimu ya React.
 
 </Recap>
 
@@ -229,15 +229,15 @@ Every new React feature we're building takes advantage of purity. From data fetc
 
 <Challenges>
 
-#### Fix a broken clock {/*fix-a-broken-clock*/}
+#### Rekebisha saa iliyoharibika {/*fix-a-broken-clock*/}
 
-This component tries to set the `<h1>`'s CSS class to `"night"` during the time from midnight to six hours in the morning, and `"day"` at all other times. However, it doesn't work. Can you fix this component?
+Component hii inajaribu kuweka klasi ya CSS ya `<h1>` kuwa `"night"` wakati wa saa kutoka usiku wa manane hadi saa sita asubuhi, na `"day"` nyakati nyingine zote. Hata hivyo, haifanyi kazi. Je, unaweza kurekebisha component hii?
 
-You can verify whether your solution works by temporarily changing the computer's timezone. When the current time is between midnight and six in the morning, the clock should have inverted colors!
+Unaweza kuthibitisha kama suluhisho lako linafanya kazi kwa kubadilisha kwa muda eneo la saa la kompyuta. Wakati saa ya sasa iko kati ya usiku wa manane na saa sita asubuhi, saa inapaswa kuwa na rangi zilizogeuzwa!
 
 <Hint>
 
-Rendering is a *calculation*, it shouldn't try to "do" things. Can you express the same idea differently?
+Ku-render ni *hesabu*, hakupaswi kujaribu "kufanya" mambo. Je, unaweza kuelezea wazo lilelile kwa namna tofauti?
 
 </Hint>
 
@@ -301,7 +301,7 @@ body > * {
 
 <Solution>
 
-You can fix this component by calculating the `className` and including it in the render output:
+Unaweza kurekebisha component hii kwa kuhesabu `className` na kuijumuisha katika matokeo ya render:
 
 <Sandpack>
 
@@ -362,19 +362,19 @@ body > * {
 
 </Sandpack>
 
-In this example, the side effect (modifying the DOM) was not necessary at all. You only needed to return JSX.
+Katika mfano huu, side effect (kurekebisha DOM) haikuwa ya lazima hata kidogo. Ulihitaji tu kurudisha JSX.
 
 </Solution>
 
-#### Fix a broken profile {/*fix-a-broken-profile*/}
+#### Rekebisha wasifu uliovunjika {/*fix-a-broken-profile*/}
 
-Two `Profile` components are rendered side by side with different data. Press "Collapse" on the first profile, and then "Expand" it. You'll notice that both profiles now show the same person. This is a bug.
+Components mbili za `Profile` zime-render kando kwa kando zikiwa na data tofauti. Bonyeza "Collapse" kwenye wasifu wa kwanza, kisha "Expand". Utagundua kuwa wasifu zote mbili sasa zinaonyesha mtu yuleyule. Hii ni bug.
 
-Find the cause of the bug and fix it.
+Tafuta chanzo cha bug na urekebishe.
 
 <Hint>
 
-The buggy code is in `Profile.js`. Make sure you read it all from top to bottom!
+Msimbo wenye bug uko katika `Profile.js`. Hakikisha unausoma wote kutoka juu hadi chini!
 
 </Hint>
 
@@ -475,9 +475,9 @@ h1 { margin: 5px; font-size: 18px; }
 
 <Solution>
 
-The problem is that the `Profile` component writes to a preexisting variable called `currentPerson`, and the `Header` and `Avatar` components read from it. This makes *all three of them* impure and difficult to predict.
+Tatizo ni kwamba component ya `Profile` inaandika kwenye kigezo kilichokuwepo tayari kiitwacho `currentPerson`, na components za `Header` na `Avatar` zinasoma kutoka kwacho. Hili hufanya *zote tatu* kuwa impure na ngumu kutabiri.
 
-To fix the bug, remove the `currentPerson` variable. Instead, pass all information from `Profile` to `Header` and `Avatar` via props. You'll need to add a `person` prop to both components and pass it all the way down.
+Ili kurekebisha bug, ondoa kigezo cha `currentPerson`. Badala yake, pitisha taarifa zote kutoka `Profile` kwenda `Header` na `Avatar` kupitia props. Utahitaji kuongeza prop ya `person` kwa components zote mbili na kuipitisha hadi chini kabisa.
 
 <Sandpack>
 
@@ -571,15 +571,15 @@ h1 { margin: 5px; font-size: 18px; }
 
 </Sandpack>
 
-Remember that React does not guarantee that component functions will execute in any particular order, so you can't communicate between them by setting variables. All communication must happen through props.
+Kumbuka kwamba React haihakikishi kuwa functions za components zitatekelezwa kwa mpangilio wowote maalum, kwa hivyo huwezi kuwasiliana kati yao kwa kuweka vigezo. Mawasiliano yote lazima yatokee kupitia props.
 
 </Solution>
 
-#### Fix a broken story tray {/*fix-a-broken-story-tray*/}
+#### Rekebisha tray ya hadithi iliyovunjika {/*fix-a-broken-story-tray*/}
 
-The CEO of your company is asking you to add "stories" to your online clock app, and you can't say no. You've written a `StoryTray` component that accepts a list of `stories`, followed by a "Create Story" placeholder.
+Mkurugenzi Mkuu (CEO) wa kampuni yako anakuomba uongeze "hadithi" kwenye programu yako ya saa ya mtandaoni, na huwezi kukataa. Umeandika component ya `StoryTray` inayokubali orodha ya `stories`, ikifuatiwa na kishika-nafasi cha "Create Story".
 
-You implemented the "Create Story" placeholder by pushing one more fake story at the end of the `stories` array that you receive as a prop. But for some reason, "Create Story" appears more than once. Fix the issue.
+Ulitekeleza kishika-nafasi cha "Create Story" kwa kusukuma hadithi bandia moja zaidi mwishoni mwa array ya `stories` unayoipokea kama prop. Lakini kwa sababu fulani, "Create Story" inaonekana zaidi ya mara moja. Rekebisha tatizo hili.
 
 <Sandpack>
 
@@ -629,7 +629,7 @@ export default function App() {
         textAlign: 'center',
       }}
     >
-      <h2>It is {time.toLocaleTimeString()} now.</h2>
+      <h2>Sasa ni saa {time.toLocaleTimeString()}.</h2>
       <StoryTray stories={stories} />
     </div>
   );
@@ -675,11 +675,11 @@ li {
 
 <Solution>
 
-Notice how whenever the clock updates, "Create Story" is added *twice*. This serves as a hint that we have a mutation during rendering--Strict Mode calls components twice to make these issues more noticeable.
+Angalia jinsi kila saa inaposasishwa, "Create Story" inaongezwa *mara mbili*. Hii inatoa dokezo kwamba tuna mutation wakati wa ku-render--Strict Mode inaita components mara mbili ili kufanya matatizo haya yaonekane zaidi.
 
-`StoryTray` function is not pure. By calling `push` on the received `stories` array (a prop!), it is mutating an object that was created *before* `StoryTray` started rendering. This makes it buggy and very difficult to predict.
+Function ya `StoryTray` si pure. Kwa kuita `push` kwenye array ya `stories` iliyopokelewa (prop!), inabadilisha object iliyoundwa *kabla* `StoryTray` haijaanza ku-render. Hili huifanya kuwa na bug na ngumu sana kutabiri.
 
-The simplest fix is to not touch the array at all, and render "Create Story" separately:
+Njia rahisi zaidi ya kurekebisha ni kutogusa array kabisa, na ku-render "Create Story" kando:
 
 <Sandpack>
 
@@ -725,7 +725,7 @@ export default function App() {
         textAlign: 'center',
       }}
     >
-      <h2>It is {time.toLocaleTimeString()} now.</h2>
+      <h2>Sasa ni saa {time.toLocaleTimeString()}.</h2>
       <StoryTray stories={stories} />
     </div>
   );
@@ -763,16 +763,16 @@ li {
 
 </Sandpack>
 
-Alternatively, you could create a _new_ array (by copying the existing one) before you push an item into it:
+Vinginevyo, ungeweza kuunda array _mpya_ (kwa kunakili iliyopo) kabla ya kusukuma kitu ndani yake:
 
 <Sandpack>
 
 ```js src/StoryTray.js active
 export default function StoryTray({ stories }) {
-  // Copy the array!
+  // Nakili array!
   const storiesToDisplay = stories.slice();
 
-  // Does not affect the original array:
+  // Haiathiri array ya awali:
   storiesToDisplay.push({
     id: 'create',
     label: 'Create Story'
@@ -817,7 +817,7 @@ export default function App() {
         textAlign: 'center',
       }}
     >
-      <h2>It is {time.toLocaleTimeString()} now.</h2>
+      <h2>Sasa ni saa {time.toLocaleTimeString()}.</h2>
       <StoryTray stories={stories} />
     </div>
   );
@@ -855,9 +855,9 @@ li {
 
 </Sandpack>
 
-This keeps your mutation local and your rendering function pure. However, you still need to be careful: for example, if you tried to change any of the array's existing items, you'd have to clone those items too.
+Hili huweka mutation yako ikiwa ya ndani na function yako ya ku-render ikiwa pure. Hata hivyo, bado unahitaji kuwa makini: kwa mfano, kama ungejaribu kubadilisha kimojawapo cha vitu vilivyopo kwenye array, ungehitaji kuvinakili vitu hivyo pia.
 
-It is useful to remember which operations on arrays mutate them, and which don't. For example, `push`, `pop`, `reverse`, and `sort` will mutate the original array, but `slice`, `filter`, and `map` will create a new one.
+Ni muhimu kukumbuka ni operesheni gani kwenye arrays zinazozibadilisha, na zipi hazibadilishi. Kwa mfano, `push`, `pop`, `reverse`, na `sort` zitabadilisha array ya awali, lakini `slice`, `filter`, na `map` zitaunda mpya.
 
 </Solution>
 
