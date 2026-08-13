@@ -32,7 +32,6 @@ Baadhi ya vihariri huja na maumbile haya yakiwa yamejengwa ndani, lakini vingine
 ### Linting {/*linting*/}
 
 Code linters hupata matatizo katika kodi yako unapoandika, zikikusaidia kuyarekebisha mapema. [ESLint](https://eslint.org/) ni linter maarufu ya chanzo wazi (open source) kwa ajili ya JavaScript.
-=======
 
 * [Sakinisha ESLint kwa mpangilio uliopendekezwa kwa React](https://www.npmjs.com/package/eslint-config-react-app) (hakikisha una [Node imesakinishwa!](https://nodejs.org/en/download/current/))
 * [Unganisha ESLint katika VSCode na kiendelezi rasmi](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
