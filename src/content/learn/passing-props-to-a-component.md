@@ -453,11 +453,11 @@ export default function Gallery() {
         />
         <ul>
           <li>
-            <b>Taaluma: </b> 
+            <b>Taaluma: </b>
             mwanafizikia na mwanakemia
           </li>
           <li>
-            <b>Tuzo: 4 </b> 
+            <b>Tuzo: 4 </b>
             (Tuzo ya Nobel ya Fizikia, Tuzo ya Nobel ya Kemia, Nishani ya Davy, Nishani ya Matteucci)
           </li>
           <li>
@@ -477,11 +477,11 @@ export default function Gallery() {
         />
         <ul>
           <li>
-            <b>Taaluma: </b> 
+            <b>Taaluma: </b>
             mwanajiokemia
           </li>
           <li>
-            <b>Tuzo: 2 </b> 
+            <b>Tuzo: 2 </b>
             (Tuzo ya Miyake ya jiokemia, Tuzo ya Tanaka)
           </li>
           <li>

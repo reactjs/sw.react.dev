@@ -27,13 +27,13 @@ Huenda tayari umeshajua mfano mmoja wa pure functions: fomula katika hisabati.
 
 Fikiria fomula hii ya hisabati: <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math>.
 
-Kama <Math><MathI>x</MathI> = 2</Math> basi <Math><MathI>y</MathI> = 4</Math>. Kila mara. 
+Kama <Math><MathI>x</MathI> = 2</Math> basi <Math><MathI>y</MathI> = 4</Math>. Kila mara.
 
-Kama <Math><MathI>x</MathI> = 3</Math> basi <Math><MathI>y</MathI> = 6</Math>. Kila mara. 
+Kama <Math><MathI>x</MathI> = 3</Math> basi <Math><MathI>y</MathI> = 6</Math>. Kila mara.
 
-Kama <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> haitakuwa mara nyingine <Math>9</Math> au <Math>–1</Math> au <Math>2.5</Math> kutegemea saa ya siku au hali ya soko la hisa. 
+Kama <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> haitakuwa mara nyingine <Math>9</Math> au <Math>–1</Math> au <Math>2.5</Math> kutegemea saa ya siku au hali ya soko la hisa.
 
-Kama <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> na <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> _kila mara_ itakuwa <Math>6</Math>. 
+Kama <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> na <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> _kila mara_ itakuwa <Math>6</Math>.
 
 Kama tungeigeuza hii kuwa function ya JavaScript, ingeonekana hivi:
 
@@ -52,7 +52,7 @@ React imeundwa kuzunguka dhana hii. **React inadhani kuwa kila component unayoia
 ```js src/App.js
 function Recipe({ drinkers }) {
   return (
-    <ol>    
+    <ol>
       <li>Chemsha vikombe {drinkers} vya maji.</li>
       <li>Ongeza vijiko {drinkers} vya chai na vijiko {0.5 * drinkers} vya viungo.</li>
       <li>Ongeza vikombe {0.5 * drinkers} vya maziwa vichemke na sukari kwa ladha.</li>
@@ -75,11 +75,11 @@ export default function App() {
 
 </Sandpack>
 
-Unapopitisha `drinkers={2}` kwa `Recipe`, itarudisha JSX yenye `vikombe 2 vya maji`. Kila mara. 
+Unapopitisha `drinkers={2}` kwa `Recipe`, itarudisha JSX yenye `vikombe 2 vya maji`. Kila mara.
 
 Ukipitisha `drinkers={4}`, itarudisha JSX yenye `vikombe 4 vya maji`. Kila mara.
 
-Kama fomula ya hisabati tu. 
+Kama fomula ya hisabati tu.
 
 Ungeweza kufikiria components zako kama vichocheo (mapishi): ukivifuata na usiongeze viambato vipya wakati wa upishi, utapata sahani ileile kila mara. "Sahani" hiyo ni JSX ambayo component huitolea React ili [i-render.](/learn/render-and-commit)
 
@@ -217,7 +217,7 @@ Kila kipengele kipya cha React tunachojenga hunufaika na purity. Kutoka kwenye k
 
 * Component lazima iwe pure, ikimaanisha:
   * **Inashughulikia mambo yake yenyewe.** Haipaswi kubadilisha objects au vigezo vyovyote vilivyokuwepo kabla ya ku-render.
-  * **Ingizo lilelile, matokeo yaleyale.** Ikipewa maingizo yaleyale, component inapaswa kila mara kurudisha JSX ileile. 
+  * **Ingizo lilelile, matokeo yaleyale.** Ikipewa maingizo yaleyale, component inapaswa kila mara kurudisha JSX ileile.
 * Ku-render kunaweza kutokea wakati wowote, kwa hivyo components hazipaswi kutegemea mpangilio wa ku-render wa kila mmoja.
 * Hupaswi kubadilisha (mutate) maingizo yoyote ambayo components zako zinatumia kwa ku-render. Hilo linajumuisha props, state, na context. Ili kusasisha skrini, ["weka" state](/learn/state-a-components-memory) badala ya kubadilisha objects zilizokuwepo tayari.
 * Jitahidi kuelezea mantiki ya component yako katika JSX unayorudisha. Unapohitaji "kubadilisha mambo", kwa kawaida utataka kufanya hivyo katika event handler. Kama suluhisho la mwisho, unaweza kutumia `useEffect`.

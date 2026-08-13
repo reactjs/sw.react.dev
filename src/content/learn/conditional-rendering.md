@@ -32,17 +32,17 @@ export default function PackingList() {
     <section>
       <h1>Orodha ya kupakia ya Sally Ride</h1>
       <ul>
-        <Item 
-          isPacked={true} 
-          name="Suti ya angani" 
+        <Item
+          isPacked={true}
+          name="Suti ya angani"
         />
-        <Item 
-          isPacked={true} 
-          name="Kofia yenye jani la dhahabu" 
+        <Item
+          isPacked={true}
+          name="Kofia yenye jani la dhahabu"
         />
-        <Item 
-          isPacked={false} 
-          name="Picha ya Tam" 
+        <Item
+          isPacked={false}
+          name="Picha ya Tam"
         />
       </ul>
     </section>
@@ -80,17 +80,17 @@ export default function PackingList() {
     <section>
       <h1>Orodha ya kupakia ya Sally Ride</h1>
       <ul>
-        <Item 
-          isPacked={true} 
-          name="Suti ya angani" 
+        <Item
+          isPacked={true}
+          name="Suti ya angani"
         />
-        <Item 
-          isPacked={true} 
-          name="Kofia yenye jani la dhahabu" 
+        <Item
+          isPacked={true}
+          name="Kofia yenye jani la dhahabu"
         />
-        <Item 
-          isPacked={false} 
-          name="Picha ya Tam" 
+        <Item
+          isPacked={false}
+          name="Picha ya Tam"
         />
       </ul>
     </section>
@@ -132,17 +132,17 @@ export default function PackingList() {
     <section>
       <h1>Orodha ya kupakia ya Sally Ride</h1>
       <ul>
-        <Item 
-          isPacked={true} 
-          name="Suti ya angani" 
+        <Item
+          isPacked={true}
+          name="Suti ya angani"
         />
-        <Item 
-          isPacked={true} 
-          name="Kofia yenye jani la dhahabu" 
+        <Item
+          isPacked={true}
+          name="Kofia yenye jani la dhahabu"
         />
-        <Item 
-          isPacked={false} 
-          name="Picha ya Tam" 
+        <Item
+          isPacked={false}
+          name="Picha ya Tam"
         />
       </ul>
     </section>
@@ -236,17 +236,17 @@ export default function PackingList() {
     <section>
       <h1>Orodha ya kupakia ya Sally Ride</h1>
       <ul>
-        <Item 
-          isPacked={true} 
-          name="Suti ya angani" 
+        <Item
+          isPacked={true}
+          name="Suti ya angani"
         />
-        <Item 
-          isPacked={true} 
-          name="Kofia yenye jani la dhahabu" 
+        <Item
+          isPacked={true}
+          name="Kofia yenye jani la dhahabu"
         />
-        <Item 
-          isPacked={false} 
-          name="Picha ya Tam" 
+        <Item
+          isPacked={false}
+          name="Picha ya Tam"
         />
       </ul>
     </section>
@@ -290,17 +290,17 @@ export default function PackingList() {
     <section>
       <h1>Orodha ya kupakia ya Sally Ride</h1>
       <ul>
-        <Item 
-          isPacked={true} 
-          name="Suti ya angani" 
+        <Item
+          isPacked={true}
+          name="Suti ya angani"
         />
-        <Item 
-          isPacked={true} 
-          name="Kofia yenye jani la dhahabu" 
+        <Item
+          isPacked={true}
+          name="Kofia yenye jani la dhahabu"
         />
-        <Item 
-          isPacked={false} 
-          name="Picha ya Tam" 
+        <Item
+          isPacked={false}
+          name="Picha ya Tam"
         />
       </ul>
     </section>
@@ -371,17 +371,17 @@ export default function PackingList() {
     <section>
       <h1>Orodha ya kupakia ya Sally Ride</h1>
       <ul>
-        <Item 
-          isPacked={true} 
-          name="Suti ya angani" 
+        <Item
+          isPacked={true}
+          name="Suti ya angani"
         />
-        <Item 
-          isPacked={true} 
-          name="Kofia yenye jani la dhahabu" 
+        <Item
+          isPacked={true}
+          name="Kofia yenye jani la dhahabu"
         />
-        <Item 
-          isPacked={false} 
-          name="Picha ya Tam" 
+        <Item
+          isPacked={false}
+          name="Picha ya Tam"
         />
       </ul>
     </section>
@@ -417,17 +417,17 @@ export default function PackingList() {
     <section>
       <h1>Orodha ya kupakia ya Sally Ride</h1>
       <ul>
-        <Item 
-          isPacked={true} 
-          name="Suti ya angani" 
+        <Item
+          isPacked={true}
+          name="Suti ya angani"
         />
-        <Item 
-          isPacked={true} 
-          name="Kofia yenye jani la dhahabu" 
+        <Item
+          isPacked={true}
+          name="Kofia yenye jani la dhahabu"
         />
-        <Item 
-          isPacked={false} 
-          name="Picha ya Tam" 
+        <Item
+          isPacked={false}
+          name="Picha ya Tam"
         />
       </ul>
     </section>
@@ -474,17 +474,17 @@ export default function PackingList() {
     <section>
       <h1>Orodha ya kupakia ya Sally Ride</h1>
       <ul>
-        <Item 
-          isPacked={true} 
-          name="Suti ya angani" 
+        <Item
+          isPacked={true}
+          name="Suti ya angani"
         />
-        <Item 
-          isPacked={true} 
-          name="Kofia yenye jani la dhahabu" 
+        <Item
+          isPacked={true}
+          name="Kofia yenye jani la dhahabu"
         />
-        <Item 
-          isPacked={false} 
-          name="Picha ya Tam" 
+        <Item
+          isPacked={false}
+          name="Picha ya Tam"
         />
       </ul>
     </section>
@@ -512,17 +512,17 @@ export default function PackingList() {
     <section>
       <h1>Orodha ya kupakia ya Sally Ride</h1>
       <ul>
-        <Item 
-          isPacked={true} 
-          name="Suti ya angani" 
+        <Item
+          isPacked={true}
+          name="Suti ya angani"
         />
-        <Item 
-          isPacked={true} 
-          name="Kofia yenye jani la dhahabu" 
+        <Item
+          isPacked={true}
+          name="Kofia yenye jani la dhahabu"
         />
-        <Item 
-          isPacked={false} 
-          name="Picha ya Tam" 
+        <Item
+          isPacked={false}
+          name="Picha ya Tam"
         />
       </ul>
     </section>
@@ -560,17 +560,17 @@ export default function PackingList() {
     <section>
       <h1>Orodha ya kupakia ya Sally Ride</h1>
       <ul>
-        <Item 
-          importance={9} 
-          name="Suti ya angani" 
+        <Item
+          importance={9}
+          name="Suti ya angani"
         />
-        <Item 
-          importance={0} 
-          name="Kofia yenye jani la dhahabu" 
+        <Item
+          importance={0}
+          name="Kofia yenye jani la dhahabu"
         />
-        <Item 
-          importance={6} 
-          name="Picha ya Tam" 
+        <Item
+          importance={6}
+          name="Picha ya Tam"
         />
       </ul>
     </section>
@@ -604,17 +604,17 @@ export default function PackingList() {
     <section>
       <h1>Orodha ya kupakia ya Sally Ride</h1>
       <ul>
-        <Item 
-          importance={9} 
-          name="Suti ya angani" 
+        <Item
+          importance={9}
+          name="Suti ya angani"
         />
-        <Item 
-          importance={0} 
-          name="Kofia yenye jani la dhahabu" 
+        <Item
+          importance={0}
+          name="Kofia yenye jani la dhahabu"
         />
-        <Item 
-          importance={6} 
-          name="Picha ya Tam" 
+        <Item
+          importance={6}
+          name="Picha ya Tam"
         />
       </ul>
     </section>
