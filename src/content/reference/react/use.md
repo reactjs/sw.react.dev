@@ -472,7 +472,7 @@ function Albums() {
 }
 ```
 
-Instead, pass a Promise from a cache, a [Suspense-enabled framework](/reference/react/Suspense#suspense-enabled-frameworks), or a Server Component:
+Instead, pass a Promise from a cache, a Suspense-enabled framework, or a Server Component:
 
 ```js
 // ✅ fetchData reads the Promise from a cache.
@@ -1120,6 +1120,7 @@ Usually, the simplest option is to `await` the Promise where you create it. The 
 ```js
 // Server Component
 export default async function App() {
+  // Will suspend the Server Component.
   const messageContent = await fetchMessage();
   return <Message messageContent={messageContent} />;
 }

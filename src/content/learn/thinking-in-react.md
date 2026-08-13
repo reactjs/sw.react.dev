@@ -37,15 +37,9 @@ Anza kwa kuchora visanduku kuzunguka kila kijenzi na kijenzi kidogo kwenye kiigi
 
 Kulingana na msingi wako, unaweza kufikiria kugawanya muundo katika vijenzi kwa njia tofauti:
 
-<<<<<<< HEAD
 * **Programming**--tumia mbinu zile zile za kuamua ikiwa unapaswa kuunda kitendaji kipya au object. Mbinu moja kama hiyo ni [kanuni ya uwajibikaji mmoja (single responsibility principle)](https://en.wikipedia.org/wiki/Single_responsibility_principle), yaani, kijenzi kinapaswa kufanya jambo moja tu. Ikiwa kitaishia kukua, inapaswa kigawanywe kiwe vijenzi vidogo.
 * **CSS**--fikiria ni nini ungetengeneza viteule vya darasa. (Hatahivyo, vijenzi ni vidogo kwa kiasi fulani.)
 * **Design**--fikiria jinsi unavyoweza kupanga safu za muundo.
-=======
-* **Programming**--use the same techniques for deciding if you should create a new function or object. One such technique is the [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns), that is, a component should ideally only be concerned with one thing. If it ends up growing, it should be decomposed into smaller subcomponents.
-* **CSS**--consider what you would make class selectors for. (However, components are a bit less granular.)
-* **Design**--consider how you would organize the design's layers.
->>>>>>> 6be2b020a0cabf2fd6dbff5c42c399b8ac323bca
 
 Ikiwa JSON yako imeundwa vizuri, mara nyingi utapata kwamba inaelekeza kwa muundo wa vijenzi vya UI yako. Hiyo ni kwa sababu UI na miundo ya data mara nyingi huwa na usanifu sawa wa habari--yaani, umbo sawa. Tenganisha UI yako katika vijenzi, ambapo kila kijenzi kinalingana na kipande kimoja cha muundo yako wa data.
 
@@ -232,19 +226,10 @@ Kilichobaki labda ni hali.
 
 Wacha tupitie moja baada ya nyingine tena:
 
-<<<<<<< HEAD
 1. Orodha asili ya bidhaa **imepitishwa kama vifaa, kwa hivyo haijabainishwa.**
 2. Maandishi ya utafutaji yanaonekana kuwa ya hali kwani yanabadilika kwa wakati na hayawezi kukokotwa kutoka kwa chochote.
 3. Thamani ya kisanduku cha kuteua inaonekana kuwa hali kwani inabadilika kwa wakati na haiwezi kukokotwa kutoka kwa chochote.
 4. Orodha iliyochujwa ya bidhaa **haijabainishwa kwa sababu inaweza kukokotwa** kwa kuchukua orodha asili ya bidhaa na kuichuja kulingana na maandishi ya utafutaji na thamani ya kisanduku cha kuteua.
-=======
-1. The original list of products is **passed in as props, so it's not state.**
-2. The search text seems to be state since it changes over time and can't be computed from anything.
-3. The value of the checkbox seems to be state since it changes over time and can't be computed from anything.
-4. The filtered list of products **isn't state because it can be computed** by taking the original list of products and filtering it according to the search text and value of the checkbox.
-
-This means only the search text and the value of the checkbox are state! Nicely done!
->>>>>>> 6be2b020a0cabf2fd6dbff5c42c399b8ac323bca
 
 Hii ina maana kwamba ni maandishi ya utafutaji pekee na thamani ya kisanduku cha kuteua ndizo zilizotajwa! Imefanywa vizuri!
 <DeepDive>
@@ -277,7 +262,6 @@ In the previous step, you found two pieces of state in this application: the sea
 
 Katika hatua ya awali, ulipata vipande viwili vya hali katika programu hii: maandishi ya ingizo ya utafutaji, na thamani ya kisanduku cha kuteua. Katika mfano huu, daima huonekana pamoja, kwa hiyo ni mantiki kuviweka katika sehemu moja.
 
-<<<<<<< HEAD
 Sasa wacha tupitie mkakati wetu kwao:
 
 1. **Tambua vijenzi vinavyotumia hali:**
@@ -285,15 +269,6 @@ Sasa wacha tupitie mkakati wetu kwao:
      * `SearchBar` inahitaji kuonyesha hali hiyo (maandishi ya utafutaji na thamani ya kisanduku cha kuteua).
 1. **Tafuta mzazi wao wa kawaida:** Kijenzi mzazi cha kwanza ambacho vijenzi vyote viwili hushiriki ni `FilterableProductTable`.
 2. **Amua mahali pa kuishi**: Tutaweka maandishi ya kichujio na thamani za hali zilizochaguliwa katika `FilterableProductTable`.
-=======
-1. **Identify components that use state:**
-    * `ProductTable` needs to filter the product list based on that state (search text and checkbox value).
-    * `SearchBar` needs to display that state (search text and checkbox value).
-2. **Find their common parent:** The first parent component both components share is `FilterableProductTable`.
-3. **Decide where the state lives**: We'll keep the filter text and checked state values in `FilterableProductTable`.
-
-So the state values will live in `FilterableProductTable`.
->>>>>>> 6be2b020a0cabf2fd6dbff5c42c399b8ac323bca
 
 Kwa hivyo state thamani zitaishi katika `FilterableProductTable`.
 
@@ -481,16 +456,7 @@ function SearchBar({ filterText, inStockOnly }) {
 
 Hata hivyo, bado hujaongeza msimbo wowote ili kujibu vitendo vya mtumiaji kama vile kuandika. Hii itakuwa hatua yako ya mwisho.
 
-<<<<<<< HEAD
 ## Hatua ya 5: Ongeza mtiririko wa data kinyume {/*step-5-add-inverse-data-flow*/}
-=======
-
-## Step 5: Add inverse data flow {/*step-5-add-inverse-data-flow*/}
-
-Currently your app renders correctly with props and state flowing down the hierarchy. But to change the state according to user input, you will need to support data flowing the other way: the form components deep in the hierarchy need to update the state in `FilterableProductTable`.
-
-React makes this data flow explicit, but it requires a little more typing than two-way data binding. If you try to type or check the box in the example above, you'll see that React ignores your input. This is intentional. By writing `<input value={filterText} />`, you've set the `value` prop of the `input` to always be equal to the `filterText` state passed in from `FilterableProductTable`. Since `filterText` state is never set, the input never changes.
->>>>>>> 6be2b020a0cabf2fd6dbff5c42c399b8ac323bca
 
 You want to make it so whenever the user changes the form inputs, the state updates to reflect those changes. The state is owned by `FilterableProductTable`, so only it can call `setFilterText` and `setInStockOnly`. To let `SearchBar` update the `FilterableProductTable`'s state, you need to pass these functions down to `SearchBar`:
 
