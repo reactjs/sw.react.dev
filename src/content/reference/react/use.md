@@ -1314,7 +1314,12 @@ function Albums({ albumsPromise }) {
 </ErrorBoundary>
 ```
 
----
+```jsx
+function Albums({ albumsPromise }) {
+  // ✅ Call `use` without try-catch
+  const albums = use(albumsPromise);
+  // ...
+```
 
 ### I'm getting a warning: "A component was suspended by an uncached promise" {/*uncached-promise-error*/}
 
