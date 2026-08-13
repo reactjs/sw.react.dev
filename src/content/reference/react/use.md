@@ -1314,7 +1314,12 @@ function Albums({ albumsPromise }) {
 </ErrorBoundary>
 ```
 
----
+```jsx
+function Albums({ albumsPromise }) {
+  // ✅ Call `use` without try-catch
+  const albums = use(albumsPromise);
+  // ...
+```
 
 ### I'm getting a warning: "A component was suspended by an uncached promise" {/*uncached-promise-error*/}
 
@@ -1332,9 +1337,11 @@ function Albums() {
 
 To fix this, cache the Promise so the same instance is reused:
 
-```js
-// ✅ fetchData returns the same Promise for the same URL
-const albums = use(fetchData('/albums'));
+```jsx
+function MessageComponent({messagePromise}) {
+  // ✅ `use` is being called from a component.
+  const message = use(messagePromise);
+  // ...
 ```
 
 See [caching Promises for Client Components](#caching-promises-for-client-components) for more details.
