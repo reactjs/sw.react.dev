@@ -38,13 +38,7 @@ Wrap elements in `<Fragment>` to group them together in situations where you nee
 
 * React does not [reset state](/learn/preserving-and-resetting-state) when you go from rendering `<><Child /></>` to `[<Child />]` or back, or when you go from rendering `<><Child /></>` to `<Child />` and back. This only works a single level deep: for example, going from `<><><Child /></></>` to `<Child />` resets the state. See the precise semantics [here.](https://gist.github.com/clemmy/b3ef00f9507909429d8aa0d3ee4f986b)
 
-**Layout methods:**
-- `compareDocumentPosition(otherNode)`: Compares the document position of the Fragment with another node.
-  - If the Fragment has children, the native `compareDocumentPosition` value is returned.
-  - Empty Fragments will attempt to compare positioning within the React tree and include `Node.DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC`.
-  - Elements that have a different relationship in the React tree and DOM tree due to portaling or other insertions are `Node.DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC`.
-- `getClientRects()`: Returns a flat array of `DOMRect` objects representing the bounding rectangles of all children.
-- `getRootNode()`: Returns the root node containing the Fragment's parent DOM node.
+* <CanaryBadge /> If you want to pass `ref` to a Fragment, you can't use the `<>...</>` syntax. You have to explicitly import `Fragment` from `'react'` and render `<Fragment ref={yourRef}>...</Fragment>`.
 
 ---
 
@@ -765,10 +759,12 @@ function VisibleGroup({ onVisibilityChange, children }) {
         onVisibilityChange(visibleElements.size > 0);
       }
     );
-
-    fragmentRef.current.observeUsing(observer);
-    return () => fragmentRef.current.unobserveUsing(observer);
-  }, [threshold, onVisibilityChange]);
+    const fragmentInstance = fragmentRef.current;
+    fragmentInstance.observeUsing(observer);
+    return () => {
+      fragmentInstance.unobserveUsing(observer);
+    };
+  }, [onVisibilityChange]);
 
   return (
     <Fragment ref={fragmentRef}>

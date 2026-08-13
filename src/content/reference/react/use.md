@@ -472,7 +472,7 @@ function Albums() {
 }
 ```
 
-Instead, pass a Promise from a cache, a Suspense-enabled framework, or a Server Component:
+Instead, pass a Promise from a cache, a [Suspense-enabled framework](/reference/react/Suspense#suspense-enabled-frameworks), or a Server Component:
 
 ```js
 // ✅ fetchData reads the Promise from a cache.
@@ -662,7 +662,7 @@ This cache pattern is the foundation for [re-fetching data](#re-fetching-data-in
 
 <Pitfall>
 
-Don't skip calling `use` based on whether a Promise is already settled.
+##### Don't skip calling `use` based on whether a Promise is already settled. {/*conditional-use*/}
 
 Unlike other hooks, `use` can be called inside conditions and loops — but it must always be called for the Promise itself. Never read `promise.status` or `promise.value` directly to bypass `use`; always pass the Promise to `use` and let React handle it.
 
