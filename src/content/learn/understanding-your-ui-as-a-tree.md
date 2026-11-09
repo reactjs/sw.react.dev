@@ -135,7 +135,11 @@ Nodi ya mzizi (root) katika render tree ya React ni [component-mzizi](/learn/imp
 
 #### Tagi za HTML ziko wapi katika render tree? {/*where-are-the-html-elements-in-the-render-tree*/}
 
+<<<<<<< HEAD
 Utagundua kwamba katika render tree iliyo hapo juu, hakuna taja ya tagi za HTML ambazo kila component ina-render. Hii ni kwa sababu render tree imetungwa tu na [components](learn/your-first-component#components-ui-building-blocks) za React.
+=======
+You'll notice in the above render tree, there is no mention of the HTML tags that each component renders. This is because the render tree is only composed of React [components](/learn/your-first-component#components-ui-building-blocks).
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 React, kama framework ya UI, haitegemei mfumo mahususi (platform agnostic). Kwenye react.dev, tunaonyesha mifano inayo-render kwenye wavuti, ambayo hutumia markup ya HTML kama vipengele vyake vya msingi vya UI. Lakini programu ya React ingeweza vilevile ku-render kwenye mfumo wa simu au wa kompyuta ya mezani, ambao unaweza kutumia vipengele tofauti vya msingi vya UI kama [UIView](https://developer.apple.com/documentation/uikit/uiview) au [FrameworkElement](https://learn.microsoft.com/en-us/dotnet/api/system.windows.frameworkelement?view=windowsdesktop-7.0).
 

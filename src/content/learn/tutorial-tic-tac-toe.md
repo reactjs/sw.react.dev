@@ -1134,7 +1134,11 @@ JavaScript inawezesha [closures](https://developer.mozilla.org/en-US/docs/Web/Ja
 
 </Note>
 
+<<<<<<< HEAD
 Sasa unaweza kuongeza alama za X kwenye ubao... lakini tu kwenye Square ya juu kushoto. Kazi yako ya `handleClick` imewekewa mpangilio wa kuboresha index ya Square ya juu kushoto (`0`). Hebu tuiboreshe function ya `handleClick` ili iweze kuboresha Square yoyote. Ongeza hoja `i` kwenye function ya `handleClick` inayochukua index ya Square inayosasishwa:
+=======
+Now you can add X's to the board...  but only to the upper left square. Your `handleClick` function is hardcoded to update the index for the upper left square (`0`). Let's update `handleClick` to be able to update any square. Add a parameter `i` to the `handleClick` function that takes the index of the square to update:
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 ```js
 export default function Board() {
