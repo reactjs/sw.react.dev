@@ -17,7 +17,11 @@ TypeScript ni njia maarufu ya kuongeza maelezo ya aina (type definitions) kwenye
 
 ## Zana za React Developer {/*react-developer-tools*/}
 
+<<<<<<< HEAD
 Zana za React Developer ni kiendelezi cha kivinjari kinachoweza kukagua vipengele vya React, kuhariri props na state, na kutambua matatizo ya utendakazi. Jifunze jinsi ya kuistakinisha [hapa](learn/react-developer-tools).
+=======
+React Developer Tools is a browser extension that can inspect React components, edit props and state, and identify performance problems. Learn how to install it [here](/learn/react-developer-tools).
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 ## Compiler ya React {/*react-compiler*/}
 
