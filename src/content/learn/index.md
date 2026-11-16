@@ -336,7 +336,11 @@ function MyButton() {
 }
 ```
 
+<<<<<<< HEAD
 React itaita tena function ya kipengele chako. Wakati huu, `count` itakuwa `1`. Kisha itakuwa `2`. Na kadhalika.
+=======
+Calling `setCount` tells React to call your component function again. This is called a *re-render*. This time, `count` will be `1`. Then it will be `2`. And so on.
+>>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
 
 Ikiwa utaonyesha kipengele kimoja mara nyingi, kila moja kitapata hali yake. Bofya kila kitufe kando kando:
 
